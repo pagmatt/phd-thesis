@@ -206,15 +206,10 @@
 \renewcommand{\partformat}{\huge\partname~\thepart\autodot}
 \renewcommand{\raggedpart}{\flushleft}
 
-\setkomafont{part}{\normalfont\huge\scshape}
+\setkomafont{part}{\huge\itshape}
 
-\setkomafont{sectioning}{\normalfont\scshape}
+\setkomafont{sectioning}{\large\itshape}
 \setkomafont{descriptionlabel}{\normalfont\bfseries}
 
 \setkomafont{caption}{\small}
 \setkomafont{captionlabel}{\usekomafont{caption}}
-
-% Large number for chapter
-\renewcommand*{\chapterformat}{%
-  \fontsize{50}{55}\selectfont\thechapter\autodot\enskip
-}

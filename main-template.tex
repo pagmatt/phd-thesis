@@ -69,27 +69,12 @@
 \setcounter{secnumdepth}{3}
 
 % Coloured chapter numbers
-%\renewcommand*{\chapterformat}{%
-% \fontsize{60}{68}\selectfont\textcolor{uniPdRed}{\thechapter}\hspace{0.2in}%
-%}
-
-%\renewcommand\chapterlinesformat[3]{\Ifstr{#2}{}{}{#2\\*}#3}
+\renewcommand*{\chapterformat}{%
+ \selectfont\textcolor{UNIPDRED}{\huge\thechapter}\hspace{0.2in}%
+}
 
 \usepackage[inline]{enumitem}
 
-% Fancy headings
-\KOMAoption{chapterprefix}{true}
-\renewcommand*\raggedchapter{\centering}
-\RedeclareSectionCommand[beforeskip=0pt,afterskip=4\baselineskip]{chapter}
-\setkomafont{chapterprefix}{\normalsize\mdseries}
-
-\renewcommand*{\chapterformat}{%
-  \chapappifchapterprefix{\nobreakspace}\textcolor{UNIPDRED}{\LARGE{\hspace{0.01cm} \thechapter}}\autodot%
-  \IfUsePrefixLine{%
-    \par\nobreak\vspace{-\parskip}\vspace{-.6\baselineskip}%
-    {\rule{0.9\textwidth}{0.5pt}}%
-  }{\enskip}%
-}
 
 % Better tables
 \usepackage{colortbl}
@@ -99,9 +84,6 @@
 \renewcommand\chapterlineswithprefixformat[3]{%
   \MakeUppercase{#2#3}
 }
-
-% Dropped letters
-\usepackage{lettrine}
 
 % Placeholder text
 \usepackage{lipsum}
@@ -169,7 +151,12 @@
 
 %\usepackage[lf]{ebgaramond}
 %\usepackage[scale=0.8]{sourcecodepro}
-\usepackage{newpxtext,newpxmath} % Palatino like text and math
+%\usepackage{newpxtext,newpxmath} % Palatino like text and math
+%\sffamily%
+
+\IfFileExists{mathpazo.sty}{\RequirePackage[osf,sc]{mathpazo}}{}
+\IfFileExists{helvet.sty}{\RequirePackage[scaled=0.90]{helvet}}{}
+\IfFileExists{beramono.sty}{\RequirePackage[scaled=0.85]{beramono}}{}
 \onehalfspacing
 
 \renewcommand{\th}{\textsuperscript{\textup{th}}\xspace}
@@ -184,14 +171,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{\textcolor{UNIPDRED}{Dissertation title}}
-\author{Dissertation author}
+\author{Matteo Pagin}
 
 \begin{document}
 
 \frontmatter
-  \include{Sources/Title_Unipd}
-  \include{Sources/Title_UniPD_background_logo}
-  \include{Sources/Title_UniPD_background_logo_2}
+  %\include{Sources/Title_Unipd}
+  %\include{Sources/Title_UniPD_background_logo}
+  %\include{Sources/Title_UniPD_background_logo_2}
   \include{Sources/Title_UniPD_tufte_like}
   %\include{Sources/Abstract}
   \newpage\phantom{justskipthepage}
