@@ -213,3 +213,11 @@
 
 \setkomafont{caption}{\small}
 \setkomafont{captionlabel}{\usekomafont{caption}}
+
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\huge\itshape}
+\renewcommand{\cftchapfont}{\color{UNIPDRED}\LARGE\itshape}
+\renewcommand{\cftsecfont}{\itshape}
+\renewcommand{\cftsubsecfont}{\itshape}
+
+%\setkomafont{disposition}{\huge}
