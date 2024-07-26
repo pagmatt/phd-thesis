@@ -164,6 +164,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{dsfont}
 
