@@ -1,0 +1,84 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+\definecolor{LIGHT_GREY}{RGB}{189,195,199}
+\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+\definecolor{DARKGREY}{RGB}{55,65,64}
+\definecolor{SAND}{RGB}{180,160,135}
+
+\begin{axis}[
+width=\fwidth,
+height=\fheight,
+at={(0\fwidth,0\fheight)},
+scale only axis,
+%axis line style={white!80!black},
+legend style={
+    /tikz/every even column/.append style={column sep=0.2cm},
+    at={(0.5,0.65)}, 
+    anchor=south, 
+    draw=white!80!black, 
+    font=\scriptsize
+    },
+legend columns=2,
+%tick align=outside,
+%x grid style={white!80!black},
+xlabel style={font=\footnotesize},
+xlabel={Packet size [B]},
+xtick={100, 200, 300, 400, 500},
+xmajorgrids,
+%xmajorticks=false,
+xmin=50, xmax=500,
+xtick style={color=white!15!black},
+%y grid style={white!80!black},
+ylabel shift = -1 pt,
+ylabel style={font=\footnotesize},
+ylabel={E2E delay [ms]},
+ymajorgrids,
+%ymajorticks=false,
+ymin=0, ymax=2600,
+ytick style={color=white!15!black},
+ytick={500, 1000, 1500, 2000, 2500}
+]
+
+
+\addplot [ultra thick, SAND]
+table {%
+50 430.733279
+100 765.695679
+200 773.416639
+500 1500.108319
+};
+\addlegendentry{Distr}
+
+\addplot [ultra thick, COMPLEMENTARY, mark=square*]
+table {%
+50 462.334319
+100 551.308319
+200 541.229119
+500 1283.429119
+};
+\addlegendentry{\gls{msr}}
+
+\addplot [ultra thick, DARKGREY, mark=*]
+table {%
+50 18.033279
+100 163.966559
+200 1046.654079
+500 2399.164479
+};
+\addlegendentry{\gls{ba}}
+
+\addplot [ultra thick, UNIPDRED, mark=triangle*]
+table {%
+50 18.829119
+100 148.633279
+200 795.429119
+500 1087.562399
+};
+\addlegendentry{\gls{mrba}}
+\end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,72 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+
+\pgfplotsset{every tick label/.append style={font=\small}}
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+\definecolor{LIGHT_GREY}{RGB}{189,195,199}
+\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+\definecolor{DARKGREY}{RGB}{55,65,64}
+\definecolor{SAND}{RGB}{180,160,135}
+
+\begin{axis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5,0.97)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize
+        },
+    legend columns=3,
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    xlabel={$k$},
+    xtick={1, 2, 3},
+    xmajorgrids,
+    %xmajorticks=false,
+    xmin=1, xmax=3,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel shift = -1 pt,
+    ylabel style={font=\footnotesize},
+    ylabel={UE throughut [Mbps]},
+    ymajorgrids,
+    %ymajorticks=false,
+    ymin=5, ymax=8,
+    ytick style={color=white!15!black},
+    ytick={5, 6, 7, 8}
+    ]
+
+\addplot[ultra thick, dash pattern=on 6 pt off 4 pt, COMPLEMENTARY, mark=*, mark options={solid}] 
+table {%
+1 5.5020224 
+2 5.5020224 
+3 5.5020224 
+};
+\addlegendentry{\gls{msr}}
+
+\addplot[ultra thick, dash pattern=on 6 pt off 4 pt, DARKGREY, mark=square*, mark options={solid}] 
+table {%
+1 7.05283992
+2 7.05283992
+3 7.05283992
+};
+\addlegendentry{\gls{ba}}
+
+\addplot [ultra thick, UNIPDRED, mark=triangle*, mark options={solid}]
+table {%
+1 7.63073704785027
+2 7.43779170402193
+3 7.25653705015891
+};
+\addlegendentry{\gls{mrba}}
+
+\end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,83 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+\definecolor{LIGHT_GREY}{RGB}{189,195,199}
+\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+\definecolor{DARKGREY}{RGB}{55,65,64}
+\definecolor{SAND}{RGB}{180,160,135}
+
+\begin{axis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.2,0.7)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize
+        },
+    legend columns=2,
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    xlabel={Packet size [B]},
+    xtick={100, 200, 300, 400, 500},
+    xmajorgrids,
+    %xmajorticks=false,
+    xmin=50, xmax=500,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel shift = -1 pt,
+    ylabel style={font=\footnotesize},
+    ylabel={\gls{rlc} buffer [B]},
+    ymajorgrids,
+    %ymajorticks=false,
+    ymin=0, ymax=95186507,
+    ytick style={color=white!15!black},
+    ytick={0,20000000,40000000,60000000,80000000,100000000},
+    ]
+
+\addplot [ultra thick, SAND]
+table {%
+50 76973
+100 5180145
+200 18525000
+500 74284000
+};
+\addlegendentry{Distr}
+
+\addplot [ultra thick, COMPLEMENTARY, mark=square*]
+table {%
+50 2234
+100 62706.5
+200 14910125
+500 75095275
+};
+\addlegendentry{\gls{msr}}
+
+\addplot [ultra thick, DARKGREY, mark=*]
+table {%
+50 4539
+100 1321517.5
+200 19387700
+500 90653875
+};
+\addlegendentry{\gls{ba}}
+
+\addplot [ultra thick, UNIPDRED, mark=triangle*]
+table {%
+50 2375
+100 160497.75
+200 12092000
+500 65490800
+};
+\addlegendentry{\gls{mrba}}
+
+\end{axis}
+
+
+\end{tikzpicture}

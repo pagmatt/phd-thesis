@@ -1,0 +1,72 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+
+\pgfplotsset{every tick label/.append style={font=\small}}
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+\definecolor{LIGHT_GREY}{RGB}{189,195,199}
+\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+\definecolor{DARKGREY}{RGB}{55,65,64}
+\definecolor{SAND}{RGB}{180,160,135}
+
+\begin{axis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5,0.97)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize
+        },
+    legend columns=3,
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    xlabel={$k$},
+    xtick={1, 2, 3},
+    xmajorgrids,
+    %xmajorticks=false,
+    xmin=1, xmax=3,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel shift = -1 pt,
+    ylabel style={font=\footnotesize},
+    ylabel={E2E delay [ms]},
+    ymajorgrids,
+    %ymajorticks=false,
+    ymin=70, ymax=300,
+    ytick style={color=white!15!black},
+    ytick={100, 150, 200, 250}
+    ]
+
+\addplot [ultra thick, UNIPDRED, mark=triangle*, mark options={solid}]
+table {%
+1 79.158239
+2 94.579039
+3 117.468639
+};
+\addlegendentry{\gls{mrba}}
+
+\addplot[ultra thick, dash pattern=on 6 pt off 4 pt, COMPLEMENTARY, mark=*, mark options={solid}] 
+table {%
+1 266.508319 
+2 266.508319 
+3 266.508319
+};
+\addlegendentry{\gls{msr}}
+
+\addplot[ultra thick, dash pattern=on 6 pt off 4 pt, DARKGREY, mark=square*, mark options={solid}] 
+table {%
+1 142.562399
+2 142.562399
+3 142.562399
+};
+\addlegendentry{\gls{ba}}
+
+\end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,82 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+\pgfplotsset{every tick label/.append style={font=\small}}
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+\definecolor{LIGHT_GREY}{RGB}{189,195,199}
+\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+\definecolor{DARKGREY}{RGB}{55,65,64}
+\definecolor{SAND}{RGB}{180,160,135}
+
+\begin{axis}[
+width=\fwidth,
+height=\fheight,
+at={(0\fwidth,0\fheight)},
+scale only axis,
+%axis line style={white!80!black},
+legend style={
+    /tikz/every even column/.append style={column sep=0.2cm},
+    at={(0.5,0.05)}, 
+    anchor=south, 
+    draw=white!80!black, 
+    font=\scriptsize
+    },
+legend columns=2,
+%tick align=outside,
+%x grid style={white!80!black},
+xlabel style={font=\footnotesize},
+xlabel={Packet size [B]},
+xtick={0, 100, 200, 300, 400, 500},
+xmajorgrids,
+%xmajorticks=false,
+xmin=50, xmax=500,
+xtick style={color=white!15!black},
+%y grid style={white!80!black},
+ylabel shift = -1 pt,
+ylabel style={font=\footnotesize},
+ylabel={E2E throughput [Mbps]},
+ymajorgrids,
+%ymajorticks=false,
+ymin=0, ymax=28,
+ytick style={color=white!15!black},
+ytick={5, 10, 15, 20, 25}
+]
+
+\addplot [ultra thick, SAND]
+table {%
+50 4.00031767071162
+100 8.001070377308
+200 15.6118996910022
+500 18.8086383406533
+};
+\addlegendentry{Distr}
+
+\addplot [ultra thick, COMPLEMENTARY, mark=square*]
+table {%
+50 4.0010914013884
+100 8.00239761467529
+200 16.0017947699339
+500 22.4075412739043
+};
+\addlegendentry{\gls{msr}}
+
+\addplot [ultra thick, DARKGREY, mark=*]
+table {%
+50 4.000535188654
+100 7.95612815316127
+200 11.7146609875454
+500 9.95776415720082
+};
+\addlegendentry{\gls{ba}}
+
+\addplot [ultra thick, UNIPDRED, mark=triangle*]
+table {%
+50 4.00047952236148
+100 7.99908013257237
+200 15.5613083831987
+500 25.9400756180665
+};
+\addlegendentry{\gls{mrba}}
+\end{axis}
+
+\end{tikzpicture}

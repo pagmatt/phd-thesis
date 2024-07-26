@@ -1,0 +1,76 @@
+\begin{tikzpicture}
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+
+    \pgfplotstableread{
+        Label Video SocNet WebBro Audio Sw Other
+        A  76  8.3 1.2 1.1 2.8 10.6
+    }\testdata
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+\definecolor{LIGHT_GREY}{RGB}{189,195,199}
+\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+\definecolor{DARKGREY}{RGB}{55,65,64}
+\definecolor{DARKGREY2}{RGB}{65,55,56}
+\definecolor{SAND}{RGB}{217,203,158}
+\definecolor{LIGHTSAND}{RGB}{199,193,189}
+
+    \begin{axis}[
+        ybar stacked,
+        ymin=0,
+        ymax=100,
+        bar width=1.5cm,
+        xtick=data,
+        xmax=1.9,
+        xmin=-0.6,
+        width=\fwidth,
+		height=\fheight,
+		at={(0\fwidth,0\fheight)},
+		scale only axis,
+		%axis line style={white!80!black},
+	legend style={
+		inner xsep=0pt, inner ysep=5pt,
+		/tikz/every even column/.append style={column sep=0.2cm},
+		/tikz/every even column/.append style={row sep=.25cm},
+		at={(0.8,0.15)}, 
+		cells={anchor=west},
+		anchor=south, 
+		draw=white!80!black, 
+		font=\scriptsize
+		},
+		legend columns=1,
+        reverse legend=true,
+        ymajorgrids,
+        xticklabels = {},
+        xticklabel style={text width=2cm,align=center},
+    ]
+        \addplot [draw=none, fill=UNIPDRED]
+            table [y=Video, meta=Label, x expr=\coordindex]
+                {\testdata};
+                    \addlegendentry{Video}
+                    
+        \addplot [draw=none, fill=LIGHT_GREY]
+            table [y=SocNet, meta=Label, x expr=\coordindex]
+                {\testdata};
+                    \addlegendentry{Social networking}
+                    
+        \addplot [draw=none, fill=COMPLEMENTARY]
+            table [y=WebBro, meta=Label, x expr=\coordindex]
+                {\testdata};
+                    \addlegendentry{Web browsing}
+                    
+        \addplot [draw=none, fill=DARKGREY]
+            table [y=Audio, meta=Label, x expr=\coordindex]
+                {\testdata};
+                    \addlegendentry{Audio}
+                    
+        \addplot [draw=none, fill=SAND]
+            table [y=Sw, meta=Label, x expr=\coordindex]
+                {\testdata};
+                    \addlegendentry{Software updates}
+                    
+        \addplot [draw=none, preaction={fill, DARKGREY}, pattern={Lines[angle=45,distance={6.5}, line width={2.5}]}, pattern color=LIGHTSAND]
+            table [y=Other, meta=Label, x expr=\coordindex]
+                {\testdata};
+                    \addlegendentry{Other}
+    \end{axis}
+\end{tikzpicture}

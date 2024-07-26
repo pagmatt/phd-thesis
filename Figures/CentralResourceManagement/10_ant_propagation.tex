@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+
+\pgfplotstableread[col sep = comma]{Figures/Plot_data/10_ant.csv}\mydata
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+
+\begin{polaraxis}[
+	width=\fwidth,
+	height=\fheight,
+	at={(0\fwidth,0\fheight)},
+	scale only axis,
+   xticklabel=$\pgfmathprintnumber{\tick}^\circ$,
+   xtick={0,30,...,330},
+   ytick={0.5, 1}
+]
+%\addplot [no markers, thick, blue, x index={1}, y index={0}] table [col %sep=comma] {4_ant.csv};
+
+\addplot[mark=none, line width=1.3pt, draw=UNIPDRED] table[x index = {1}, y index = {0}]{\mydata};
+
+\end{polaraxis}
+
+\end{tikzpicture}

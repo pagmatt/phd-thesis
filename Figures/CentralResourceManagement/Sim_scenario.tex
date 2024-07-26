@@ -1,0 +1,142 @@
+\begin{tikzpicture}
+
+    \definecolor{UNIPDRED}{RGB}{155,0,20}
+	\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+	\definecolor{DARKGREY}{RGB}{55,65,64}
+	\definecolor{BLACK}{RGB}{20, 20, 20}
+    
+    \begin{axis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend style={
+    	/tikz/every even column/.append style={column sep=0.3cm},
+    	at={(0.5,0.98)},
+    	anchor=south, 
+    	draw=white!80!black, 
+    	font=\small
+    	},
+    legend columns=3,
+    %axis line style={white!80!black},
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    xlabel={},
+    xtick={-100, -50, 0, 50, 100, 150},
+    xmajorgrids,
+    %xmajorticks=false,
+    xmin=-150, xmax=150,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel style={font=\footnotesize},
+    ylabel={},
+    ymajorgrids,
+    %ymajorticks=false,
+    ymin=-50, ymax=150,
+    ytick style={color=white!15!black}
+	]
+	
+	% IAB-node attachments
+	\addplot[very thick, UNIPDRED, forget plot, dash pattern=on 5 pt off 3 pt] 
+	table {%
+	-100 0 
+	0 0 
+	};
+	\addplot[very thick, UNIPDRED, forget plot, dash pattern=on 5 pt off 3 pt] 
+	table {%
+	100 100 
+	0 0 
+	};
+	\addplot[very thick, UNIPDRED, forget plot, dash pattern=on 5 pt off 3 pt] 
+	table {%
+	-100 100 
+	0 0 
+	};
+	\addplot[very thick, UNIPDRED, forget plot, dash pattern=on 5 pt off 3 pt] 
+	table {%
+	100 0 
+	100 100 
+	};
+	\addplot[very thick, UNIPDRED, forget plot, dash pattern=on 5 pt off 3 pt] 
+	table {%
+	0 100 
+	-100 100 
+	};
+
+    \addplot[
+      scatter,
+      only marks,
+      scatter src=explicit,
+      scatter/classes={1={DARKGREY, mark=square*}, 2={UNIPDRED, mark=diamond*}, 3={COMPLEMENTARY}},
+      visualization depends on=\thisrow{sizedata}\as\sizedata,
+      scatter/@pre marker code/.append style={
+          /tikz/mark size=\sizedata
+      }
+    ]
+    table[x=x,y=y, meta=class]{%
+    x                      y                      sizedata                class
+    0 0 5 1 
+	100 0 6 2 
+	-100 0 6 2 
+	0 100 6 2 
+	100 100 6 2 
+	-100 100 6 2 
+	28.8603 6.70813 2 3 
+	22.1839 0.179283 2 3 
+	-25.8695 -4.74675 2 3 
+	-25.698 1.31045 2 3 
+	-26.1185 5.61727 2 3 
+	-18.8974 12.8042 2 3 
+	-25.8278 8.77018 2 3 
+	-11.9403 24.625 2 3 
+	86.2329 -14.9938 2 3 
+	113.411 -25.4381 2 3 
+	80.796 10.6876 2 3 
+	89.0457 9.21925 2 3 
+	87.952 27.3012 2 3 
+	89.4537 -0.761095 2 3 
+	108.92 -15.5517 2 3 
+	84.0229 -13.509 2 3 
+	-71.3282 -2.49305 2 3 
+	-114.738 26.7601 2 3 
+	-115.867 28.3354 2 3 
+	-117.757 24.2406 2 3 
+	-103.439 -22.3846 2 3 
+	-89.1148 5.80584 2 3 
+	-116.494 -26.2217 2 3 
+	-130.211 3.15653 2 3 
+	-19.5929 85.0171 2 3 
+	-22.2209 78.2847 2 3 
+	13.0963 129.843 2 3 
+	-15.409 112.165 2 3 
+	-26.1002 118.747 2 3 
+	12.3455 84.2945 2 3 
+	-30.9925 96.9305 2 3 
+	-33.7183 108.212 2 3 
+	125.011 97.7272 2 3 
+	112.293 126.281 2 3 
+	113.959 76.0568 2 3 
+	103.236 114.801 2 3 
+	104.862 76.3655 2 3 
+	131.206 109.996 2 3 
+	114.825 128.336 2 3 
+	90.7864 78.3714 2 3 
+	-109.959 77.6437 2 3 
+	-83.8184 115.384 2 3 
+	-78.9347 82.8969 2 3 
+	-114.208 81.4837 2 3 
+	-123.238 80.8704 2 3 
+	-104.259 88.5412 2 3 
+	-94.1952 108.948 2 3 
+	-114.781 80.0824 2 3 
+    };
+    \legend{\gls{iab}-donor, \gls{iab}-node, \gls{ue}}
+
+    \end{axis}
+    
+\end{tikzpicture}
+
+
+
+

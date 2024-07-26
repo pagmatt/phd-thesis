@@ -1,0 +1,37 @@
+% This file was created by tikzplotlib v0.9.8.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+\definecolor{color1}{rgb}{1,0.498039215686275,0.0549019607843137}
+\definecolor{color2}{rgb}{0.172549019607843,0.627450980392157,0.172549019607843}
+
+\begin{axis}[
+tick align=outside,
+tick pos=left,
+x grid style={white!69.0196078431373!black},
+xlabel={Allocation period},
+xmin=1.9, xmax=4.1,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ylabel={Delay [ms]},
+ymin=277.580951, ymax=749.989767,
+ytick style={color=black}
+]
+\addplot [semithick, color0]
+table {%
+2 718.151999
+4 728.516639
+};
+\addplot [semithick, color1]
+table {%
+2 362.733279
+4 460.055119
+};
+\addplot [semithick, color2]
+table {%
+2 299.054079
+4 456.216639
+};
+\end{axis}
+
+\end{tikzpicture}

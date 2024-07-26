@@ -1,0 +1,37 @@
+% This file was created by tikzplotlib v0.9.8.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+\definecolor{color1}{rgb}{1,0.498039215686275,0.0549019607843137}
+\definecolor{color2}{rgb}{0.172549019607843,0.627450980392157,0.172549019607843}
+
+\begin{axis}[
+tick align=outside,
+tick pos=left,
+x grid style={white!69.0196078431373!black},
+xlabel={Allocation period},
+xmin=1.9, xmax=4.1,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ylabel={System throughput [Mbit/s]},
+ymin=2.60946944304465, ymax=7.19933314316349,
+ytick style={color=black}
+]
+\addplot [semithick, color0]
+table {%
+2 2.81809961123187
+4 3.25026658516054
+};
+\addplot [semithick, color1]
+table {%
+2 5.99482573051476
+4 5.43930152808123
+};
+\addplot [semithick, color2]
+table {%
+2 6.99070297497627
+4 4.81019430208977
+};
+\end{axis}
+
+\end{tikzpicture}

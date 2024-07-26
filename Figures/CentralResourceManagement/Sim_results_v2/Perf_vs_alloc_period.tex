@@ -1,0 +1,173 @@
+% This file was created by tikzplotlib v0.9.0.
+\begin{tikzpicture}
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+
+\definecolor{UNIPDRED}{RGB}{155,0,20}
+\definecolor{LIGHT_GREY}{RGB}{189,195,199}
+\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+\definecolor{DARKGREY}{RGB}{55,65,64}
+\definecolor{SAND}{RGB}{180,160,135}
+
+\begin{axis}[
+width=\fwidth,
+height=\fheight,
+at={(0\fwidth,0\fheight)},
+scale only axis,
+legend style={
+  at={(0.5,0.98)}, 
+  anchor=south, 
+  draw=white!80!black, 
+  font=\footnotesize},
+  /tikz/every even column/.append style={column sep=0.3cm},
+  legend image post style={scale=0.7},
+  legend columns=4,
+%axis line style={white!80!black},
+%tick align=outside,
+%x grid style={white!80!black},
+xlabel style={font=\footnotesize},
+xlabel={Per \gls{ue} throughput [Mbps]},
+xmajorgrids,
+%xmajorticks=false,
+xmin=2.2, xmax=7.8,
+xtick={3, 4, 5, 6, 7},
+xtick style={color=white!15!black},
+%y grid style={white!80!black},
+ylabel style={font=\footnotesize},
+ylabel={Delay [ms]},
+ymajorgrids,
+%ymajorticks=false,
+ymin=0, ymax=900,
+ytick={200, 400, 600, 800},
+ytick style={color=white!15!black}
+]
+
+\addplot[
+  scatter,
+  only marks,
+  scatter src=explicit,
+  scatter/classes={1={SAND}, 2={COMPLEMENTARY}, 3={DARKGREY}, 4={UNIPDRED}},
+  mark=diamond*,
+  mark size=6,
+  forget plot
+]
+table[x=x,y=y, meta=class]{%
+x                      y              class
+7.335 148 4
+6.664 163 3
+2.728 551 2
+3.506 765 1
+};
+% \legend{1 ms allocation period}
+
+\addplot[
+  scatter,
+  only marks,
+  scatter src=explicit,
+  scatter/classes={1={SAND}, 2={COMPLEMENTARY}, 3={DARKGREY}, 4={UNIPDRED}},
+  forget plot,
+  mark=10-pointed star,
+  mark size=6,
+]
+table[x=x,y=y, meta=class]{%
+x                      y              class
+6.990 299.054 4
+5.994 362.733 3
+2.818 718.152 2
+3.506 765 1
+};
+% \legend{2 ms allocation period}
+
+\addplot[
+  scatter,
+  only marks,
+  scatter src=explicit,
+  scatter/classes={1={SAND}, 2={COMPLEMENTARY}, 3={DARKGREY}, 4={UNIPDRED}},
+  mark size=6,
+]
+table[x=x,y=y, meta=class]{%
+x                      y              class
+4.810 456.216 4
+5.439 460.055 3
+3.250 728.516 2
+3.506 765 1
+};
+% \legend{4 ms allocation period}
+\legend{Distr,\gls{msr},\gls{ba},\gls{mrba}}
+
+
+\end{axis}
+
+\begin{axis}[
+width=\fwidth,
+height=\fheight,
+at={(0\fwidth,0\fheight)},
+scale only axis,
+legend style={
+  at={(0.99,0.94)}, 
+  anchor=north east, 
+  draw=white!80!black,
+  font=\footnotesize},
+%axis line style={white!80!black},
+%tick align=outside,
+%x grid style={white!80!black},
+xlabel style={font=\footnotesize},
+% xlabel={Aggregated eMBB throughput [Mbps]},
+xmajorgrids,
+%xmajorticks=false,
+xmin=2.5, xmax=8.5,
+xtick style={color=white!15!black},
+%y grid style={white!80!black},
+ylabel style={font=\footnotesize},
+% ylabel={URLLC delay [ms]},
+ymajorgrids,
+%ymajorticks=false,
+ymin=1, ymax=5.4,
+ytick style={color=white!15!black},
+hide y axis,
+hide x axis,
+]
+
+\addplot[
+  scatter,
+  only marks,
+  scatter src=explicit,
+  mark size=5,
+  color=black,
+]
+table[x=x,y=y]{%
+x                      y
+-20 -20 
+};
+\addlegendentry{4 Subframes}
+
+\addplot[
+  scatter,
+  only marks,
+  scatter src=explicit,
+  mark size=5,
+  mark=10-pointed star,
+  color=black,
+]
+table[x=x,y=y]{%
+x                      y
+-20 -21 
+};
+\addlegendentry{2 Subframes}
+
+\addplot[
+  scatter,
+  only marks,
+  scatter src=explicit,
+  mark size=5,
+  mark=diamond*,
+  color=black,
+]
+table[x=x,y=y]{%
+x                      y
+-20 -22
+};
+\addlegendentry{1 Subframe}
+
+\end{axis}
+
+\end{tikzpicture}

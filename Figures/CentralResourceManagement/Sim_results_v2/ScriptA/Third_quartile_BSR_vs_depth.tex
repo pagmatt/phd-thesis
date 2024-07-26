@@ -1,0 +1,54 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+\definecolor{color1}{rgb}{1,0.498039215686275,0.0549019607843137}
+\definecolor{color2}{rgb}{0.172549019607843,0.627450980392157,0.172549019607843}
+\definecolor{color3}{rgb}{0.83921568627451,0.152941176470588,0.156862745098039}
+
+\begin{axis}[
+tick align=outside,
+tick pos=left,
+title={BSRs third quartile vs depth},
+x grid style={white!69.0196078431373!black},
+xlabel={Packet size},
+xmin=-0.15, xmax=3.15,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ylabel={BSR [B]},
+ymin=-1421549.85, ymax=29873292.85,
+ytick style={color=black},
+ytick={-5000000,0,5000000,10000000,15000000,20000000,25000000,30000000},
+yticklabels={−0.5,0.0,0.5,1.0,1.5,2.0,2.5,3.0}
+]
+\addplot [semithick, color0]
+table {%
+0 24808525
+1 2090
+2 1694
+3 3551
+};
+\addplot [semithick, color1]
+table {%
+0 28450800
+1 1886
+2 943
+3 1640
+};
+\addplot [semithick, color2]
+table {%
+0 23178750
+1 3183882.5
+2 70567.75
+3 1710140
+};
+\addplot [semithick, color3]
+table {%
+0 15559050
+1 22120.5
+2 5152.5
+3 191208
+};
+\end{axis}
+
+\end{tikzpicture}

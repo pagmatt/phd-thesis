@@ -1,0 +1,66 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+
+    \definecolor{UNIPDRED}{RGB}{155,0,20}
+    \definecolor{LIGHT_GREY}{RGB}{189,195,199}
+    \definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+    \definecolor{DARKGREY}{RGB}{55,65,64}
+    \definecolor{SAND}{RGB}{180,160,135}
+
+    \begin{axis}[
+        width=\fwidth,
+        height=\fheight,
+        at={(0\fwidth,0\fheight)},
+        scale only axis,
+        %axis line style={white!80!black},
+        legend style={
+            /tikz/every even column/.append style={column sep=0.2cm},
+            at={(0.25,0.7)}, 
+            anchor=south, 
+            draw=white!80!black, 
+            font=\scriptsize
+            },
+        legend columns=2,
+        %tick align=outside,
+        %x grid style={white!80!black},
+        xlabel style={font=\footnotesize},
+        xlabel={Number of \gls{iab}-nodes $\in \, \mathcal{V}$},
+        xtick={1, 2, 3, 4, 5, 6, 7, 8},
+        xmajorgrids,
+        %xmajorticks=false,
+        xmin=0.5, xmax=8.5,
+        xtick style={color=white!15!black},
+        %y grid style={white!80!black},
+        ylabel shift = -1 pt,
+        ylabel style={font=\footnotesize},
+        ylabel={Runtime [$\mu$s]},
+        ymajorgrids,
+        %ymajorticks=false,
+        ymin=1.45, ymax=6.25,
+        ytick style={color=white!15!black},
+        ytick={2, 3, 4, 5, 6},
+        ]
+
+\addplot [very thick,
+          UNIPDRED,
+          error bars/.cd, 
+          y dir=both, 
+          y explicit,
+          error bar style={line width=1.2pt},
+          error mark options={
+            rotate=90,
+            UNIPDRED,
+            mark size=4pt,
+            line width=1.2pt
+          }]
+plot coordinates {%
+    (1, 1.82969) +- (1, 0.1748)
+    (2, 2.46836) +- (2, 0.1749) 
+    (4, 3.88117) +- (4, 0.1748) 
+    (6, 4.51493) +- (6, 0.1748) 
+    (8, 5.80029) +- (8, 0.1749) 
+};
+\end{axis}
+
+\end{tikzpicture}

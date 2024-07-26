@@ -1,0 +1,44 @@
+% This file was created by tikzplotlib v0.9.8.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+\definecolor{color1}{rgb}{1,0.498039215686275,0.0549019607843137}
+\definecolor{color2}{rgb}{0.172549019607843,0.627450980392157,0.172549019607843}
+\definecolor{color3}{rgb}{0.83921568627451,0.152941176470588,0.156862745098039}
+
+\begin{axis}[
+tick align=outside,
+tick pos=left,
+title={UE e2e throughput first quartile},
+x grid style={white!69.0196078431373!black},
+xlabel={Packet size},
+xmin=47.5, xmax=102.5,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ylabel={System throughput [Mbit/s]},
+ymin=2.49781279995982, ymax=7.56573000446511,
+ytick style={color=black}
+]
+\addplot [semithick, color0]
+table {%
+50 3.55975783060729
+100 3.50679365725623
+};
+\addplot [semithick, color1]
+table {%
+50 3.56829084631832
+100 2.72817267289187
+};
+\addplot [semithick, color2]
+table {%
+50 3.9747232077137
+100 6.66436336249028
+};
+\addplot [semithick, color3]
+table {%
+50 3.97543061728217
+100 7.33537013153305
+};
+\end{axis}
+
+\end{tikzpicture}
