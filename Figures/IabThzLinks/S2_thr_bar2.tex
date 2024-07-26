@@ -1,0 +1,352 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{gray}{RGB}{128,128,128}
+\definecolor{green}{RGB}{0,128,0}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{orange}{RGB}{255,165,0}
+
+\begin{axis}[
+legend cell align={left},
+legend style={
+  fill opacity=0.8,
+  draw opacity=1,
+  text opacity=1,
+  at={(0.03,0.97)},
+  anchor=north west,
+  draw=lightgray204
+},
+tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xlabel={UE Source Rate [Mbps]},
+xmajorgrids,
+xmin=-0.69, xmax=27.69,
+xtick style={color=black},
+xtick={3,10,17,24},
+xticklabels={20,40,80,200},
+y grid style={darkgray176},
+ylabel={Throughput [Mbps]},
+ymajorgrids,
+ymin=0, ymax=139.49591583826,
+ytick style={color=black}
+]
+\draw[draw=none,fill=blue] (axis cs:0.6,0) rectangle (axis cs:1.4,15.844);
+\addlegendimage{ybar,ybar legend,draw=none,fill=blue}
+\addlegendentry{mmWave}
+
+\draw[draw=none,fill=blue] (axis cs:7.6,0) rectangle (axis cs:8.4,23.135);
+\draw[draw=none,fill=blue] (axis cs:14.6,0) rectangle (axis cs:15.4,30.488);
+\draw[draw=none,fill=blue] (axis cs:21.6,0) rectangle (axis cs:22.4,33.018);
+\draw[draw=none,fill=red] (axis cs:1.6,0) rectangle (axis cs:2.4,17.051);
+\addlegendimage{ybar,ybar legend,draw=none,fill=red}
+\addlegendentry{THz .10 - 10 GHz}
+
+\draw[draw=none,fill=red] (axis cs:8.6,0) rectangle (axis cs:9.4,29.6715);
+\draw[draw=none,fill=red] (axis cs:15.6,0) rectangle (axis cs:16.4,42.635);
+\draw[draw=none,fill=red] (axis cs:22.6,0) rectangle (axis cs:23.4,49.777);
+\draw[draw=none,fill=orange] (axis cs:2.6,0) rectangle (axis cs:3.4,18.2);
+\addlegendimage{ybar,ybar legend,draw=none,fill=orange}
+\addlegendentry{THz .10 - 32 GHz}
+
+\draw[draw=none,fill=orange] (axis cs:9.6,0) rectangle (axis cs:10.4,32.925);
+\draw[draw=none,fill=orange] (axis cs:16.6,0) rectangle (axis cs:17.4,56.677);
+\draw[draw=none,fill=orange] (axis cs:23.6,0) rectangle (axis cs:24.4,85.068);
+\draw[draw=none,fill=green] (axis cs:3.6,0) rectangle (axis cs:4.4,18.788);
+\addlegendimage{ybar,ybar legend,draw=none,fill=green}
+\addlegendentry{THz .3 - 10 GHz}
+
+\draw[draw=none,fill=green] (axis cs:10.6,0) rectangle (axis cs:11.4,35.3065);
+\draw[draw=none,fill=green] (axis cs:17.6,0) rectangle (axis cs:18.4,58.618);
+\draw[draw=none,fill=green] (axis cs:24.6,0) rectangle (axis cs:25.4,117.77);
+\draw[draw=none,fill=gray] (axis cs:4.6,0) rectangle (axis cs:5.4,19.408);
+\addlegendimage{ybar,ybar legend,draw=none,fill=gray}
+\addlegendentry{THz .3 - 32 GHz}
+
+\draw[draw=none,fill=gray] (axis cs:11.6,0) rectangle (axis cs:12.4,36.952);
+\draw[draw=none,fill=gray] (axis cs:18.6,0) rectangle (axis cs:19.4,67.694);
+\draw[draw=none,fill=gray] (axis cs:25.6,0) rectangle (axis cs:26.4,124.292);
+\path [draw=black, semithick]
+(axis cs:1,15.6557873543037)
+--(axis cs:1,16.0322126456963);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+1 15.6557873543037
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+1 16.0322126456963
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:8,21.9589026400846)
+--(axis cs:8,24.3110973599154);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+8 21.9589026400846
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+8 24.3110973599154
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:15,28.5107453375956)
+--(axis cs:15,32.4652546624044);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+15 28.5107453375956
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+15 32.4652546624044
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:22,32.4217986917156)
+--(axis cs:22,33.6142013082844);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+22 32.4217986917156
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+22 33.6142013082844
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:2,16.9148970977532)
+--(axis cs:2,17.1871029022468);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+2 16.9148970977532
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+2 17.1871029022468
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:9,28.3491402720893)
+--(axis cs:9,30.9938597279107);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+9 28.3491402720893
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+9 30.9938597279107
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:16,41.302958333985)
+--(axis cs:16,43.967041666015);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+16 41.302958333985
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+16 43.967041666015
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:23,47.5924918173648)
+--(axis cs:23,51.9615081826352);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+23 47.5924918173648
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+23 51.9615081826352
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:3,17.94956038652)
+--(axis cs:3,18.45043961348);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+3 17.94956038652
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+3 18.45043961348
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:10,32.5481379562758)
+--(axis cs:10,33.3018620437242);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+10 32.5481379562758
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+10 33.3018620437242
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:17,53.1272449380274)
+--(axis cs:17,60.2267550619726);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+17 53.1272449380274
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+17 60.2267550619726
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:24,80.1794034733883)
+--(axis cs:24,89.9565965266117);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+24 80.1794034733883
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+24 89.9565965266117
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:4,18.6492520270418)
+--(axis cs:4,18.9267479729582);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+4 18.6492520270418
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+4 18.9267479729582
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:11,34.6369402565865)
+--(axis cs:11,35.9760597434135);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+11 34.6369402565865
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+11 35.9760597434135
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:18,56.5834678670515)
+--(axis cs:18,60.6525321329485);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+18 56.5834678670515
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+18 60.6525321329485
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:25,111.445065217728)
+--(axis cs:25,124.094934782272);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+25 111.445065217728
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+25 124.094934782272
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:5,19.3021888474687)
+--(axis cs:5,19.5138111525313);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+5 19.3021888474687
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+5 19.5138111525313
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:12,36.6352414168487)
+--(axis cs:12,37.2687585831513);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+12 36.6352414168487
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+12 37.2687585831513
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:19,66.296529427859)
+--(axis cs:19,69.091470572141);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+19 66.296529427859
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+19 69.091470572141
+};
+\addlegendentry{THz .3 - 32 GHz}
+\path [draw=black, semithick]
+(axis cs:26,115.730746820704)
+--(axis cs:26,132.853253179296);
+
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+26 115.730746820704
+};
+\addlegendentry{THz .3 - 32 GHz}
+\addplot [semithick, black, mark=-, mark size=7, mark options={solid}, only marks]
+table {%
+26 132.853253179296
+};
+\addlegendentry{THz .3 - 32 GHz}
+\end{axis}
+
+\end{tikzpicture}

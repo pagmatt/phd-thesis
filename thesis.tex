@@ -51,7 +51,9 @@
 \usepackage{amsthm}
 % Argmax
 \DeclareMathOperator*{\argmax}{arg\,max}
-
+% bm commands
+\usepackage{bm}
+\usepackage{bbm}
 % Lemma environment
 %\newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}{Lemma}
@@ -104,9 +106,14 @@
 \usepackage{multirow}
 \usepgfplotslibrary{patchplots,groupplots,fillbetween}
 \usepackage{tikzscale}
+\def\si{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+\DeclareUnicodeCharacter{2212}{-} % TEMPORARY, just for TikZ
 
 \usepackage{afterpage}
 \usepackage{tabulary}
+
+\usepackage{cuted} % strip environment
+\usepackage{algpseudocode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperlinks & bookmarks
@@ -190,6 +197,7 @@
 \mainmatter
   \include{Sources/Introduction}
   \include{Sources/IAB}
+  \include{Sources/IAB-WONS}
   
 % This ensures that the subsequent sections are being included as root
 % items in the bookmark structure of your PDF reader.

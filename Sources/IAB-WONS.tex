@@ -1,0 +1,627 @@
+%%%%%%%%%%%%
+%%% WONS %%%
+%%%%%%%%%%%%
+
+
+% \documentclass[a4paper, conference]{IEEEtran}
+% \IEEEoverridecommandlockouts
+
+% \pagestyle{empty}
+% \usepackage{url}
+% \usepackage[utf8]{inputenc}
+% \usepackage{xcolor}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+\newcommand{\red}[1]{\begin{color}{red}#1\end{color}}
+
+%\usepackage{geometry}
+%\geometry{letterpaper, margin=1.3in}
+
+% \usepackage[bottom=4.0cm, left=1.57cm, right=1.57cm, top=1.75cm]{geometry}
+
+% \usepackage[acronyms,nonumberlist,nopostdot,nomain,nogroupskip]{glossaries}
+% \usepackage{tablefootnote}
+% \usepackage{booktabs}
+% \usepackage{tabularx}
+% \usepackage{tikz}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=newest}
+% \pgfplotsset{plot coordinates/math parser=false}
+% \usepackage{soul}
+% \newlength\fheight
+% \newlength\fwidth
+% \usetikzlibrary{plotmarks,patterns, patterns.meta,decorations.pathreplacing,backgrounds,calc,arrows,arrows.meta,spy,matrix,backgrounds}
+% \usepgfplotslibrary{patchplots,groupplots}
+% \usepackage{tikzscale}
+% \usepackage{hyperref}
+% \usepackage{algorithm} 
+% \usepackage{algpseudocode} 
+% \usepackage{comment}
+% \usepackage{bm}
+% \usepackage{multirow}
+% \usepackage{bbm}
+
+% \renewcommand{\figurename}{Fig.}
+% %\renewcommand{\tablename}{Tab.}
+% \usepackage[font=small]{subcaption}
+% \usepackage[font=small]{caption}
+
+%\usepackage{mathtools}
+?
+
+% \newcommand{\MP}[1]{\color{red}{\textbf{TODO: #1 }}\color{black}}
+
+%\usepackage{dblfloatfix}    % To enable Figures/IabThzLinks at the bottom of page
+% \usepackage{colortbl}
+
+%\usepackage{cite}
+
+%\input{acronyms.tex}
+%\input{myTikz.tex}
+
+
+% \begin{document}
+
+% \title{6G Integrated Access and Backhaul Networks\\with Sub-Terahertz Links} % temp
+
+% \author{\IEEEauthorblockN{Amir Ashtari Gargari$^*$, Matteo Pagin$^*$, Michele Polese$^{\circ}$, Michele Zorzi$^*$}\\
+%   \IEEEauthorblockA{$^*$Department of Information Engineering, University of Padova, Italy\\email: \texttt{\{amirashtari, paginmatte, zorzi\}@dei.unipd.it}\\
+%   $^{\circ}$Institute for the Wireless Internet of Things, Northeastern University, Boston, MA\\email: \texttt{m.polese@northeastern.edu}}
+%   \thanks{This work was partially supported by the U.S. National Science Foundation under Grant CNS-2225590 and in part by the EU MSCA ITN project MINTS “MIllimeter-wave NeTworking and Sensing for Beyond 5G” (grant no. 861222).}
+% }
+
+% \flushbottom
+% \setlength{\parskip}{0ex plus0.1ex}
+
+% \maketitle
+% \thispagestyle{empty}
+
+% % 3GPP does not want us to use New Radio, so we disable the expansion of the acronym
+% \glsunset{nr}
+
+\section{Introduction}
+\label{sec:intro}
+
+Future wireless networks will accommodate data-rate intensive use cases which include untethered \gls{vr} and mobile metaverse applications. This will further exacerbate the congestion on mobile access networks and backhaul systems~\cite{holo1}. For this reason, \gls{5g} cellular systems have pushed into the \gls{mmwave} band, with typical deployments in the spectrum around 28 GHz and 39 GHz~\cite{shafi2017deployment}, and sub-terahertz mobile links are being considered for \gls{6g} applications~\cite{polese2020toward,8869705}.
+
+Wireless networks operating at such high frequencies will be deployed with extremely high density, to improve the probability of \gls{los} coverage and mitigate the impact of the harsh propagation environment. To make ultra-dense deployments viable, the \gls{3gpp} has standardized an extension of \gls{5g} NR, i.e., \gls{iab}, which exploits the same waveform and protocol stack to provide access to mobile users and wireless backhaul for \glspl{gnb} (i.e., the \gls{iab} nodes) thus limiting the need for fiber drops. The wireless backhaul topology terminates at a \gls{gnb} with fiber connectivity to the data core, the \gls{iab} donor~\cite{9187867,stoch_geom2,3gpp_38_174}. \gls{iab} also simplifies the deployment of cellular networks in on-demand or ad hoc contexts, as it removes the need for part of the wired backhaul.
+
+\gls{iab} networks in 5G systems are a natural application for \gls{mmwave} deployments, as telecom operators can easily fit carriers with 400 MHz of bandwidth in this spectrum. In addition, the directionality that \gls{mmwave} arrays introduce helps reduce the interference. Nonetheless, studies have shown that bottlenecks can emerge at \gls{iab} donors, creating congestion, high latency, and degraded \gls{qos} for the end users, especially when backhaul links are constrained to re-using the same spectrum of the access (as in in-band \gls{iab})~\cite{polese2020integrated}.
+
+In this context, out-of-band \gls{iab} with sub-terahertz links is seen as a solution
+%
+to support immersive multimedia data-hungry streams. 
+%
+Specifically, the spectrum above 100 GHz has several sub-bands that could provide bandwidths wider than 10 GHz, thus potentially data rates in the excess of tens of Gbps~\cite{akyildiz2014terahertz}. Backhaul---a static deployment---is a promising use case for sub-terahertz links, which need pencil-sharp beams to close the link budget and are thus less resilient to mobility compared to traditional sub-6 GHz or \gls{mmwave} frequencies. 
+
+In recent years, the literature has closed several gaps in terms of circuit, antenna design~\cite{singh2020design} and physical and \gls{mac} layer solutions for sub-terahertz systems~\cite{ghafoor2020mac}.
+%
+When it comes to \gls{iab} with mixed sub-terahertz and \gls{mmwave} links,\footnote{In this paper, we consider the FR2 range of 3GPP NR (24.25 GHz to 71 GHz) as \glspl{mmwave}.} however, there are still several open questions in terms of network design and path selection. In this paper, we consider the problem of identifying a viable topology between \gls{iab} nodes and the \gls{iab} donors, including the carrier frequency of the backhaul links, and profile the performance that network planners can expect when mixing sub-terahertz and \gls{mmwave} \gls{iab} links.
+
+To this end, 
+%
+we develop a greedy path generation algorithm that automatically selects the frequency band of an \gls{iab} link (between 28 GHz and 140 GHz) and assigns routes so that each \gls{iab} node can reach the \gls{iab} donor. The frequency selection aims at avoiding bottlenecks, i.e., the algorithm selects the band that provides the highest capacity when accounting for the congestion that may arise in the proximity of the IAB donor. In addition, we consider and compare different ratios of sub-terahertz and mmWave links, which can be mapped to licensing constraints for out-of-band backhaul, and two different bandwidths for the sub-terahertz links (10 GHz and 32 GHz), which consider exclusive licensing or sharing with other services, respectively~\cite{polese2022dynamic}.
+
+We model the \gls{iab} network in a custom-developed \gls{3gpp} Release 17 simulator based on the open-source tool Sionna~\cite{hoydis2022sionna}, with \gls{3gpp} and state-of-the-art \gls{mmwave} and sub-terahertz channel models, and realistic and detailed \gls{3gpp}-based physical and \gls{mac} layers. Our results quantify for the first time the performance improvement that sub-terahertz links can introduce in \gls{iab} networks, which can push beyond the limits of the in-band \gls{mmwave} backhaul and support more than 50 users with 120 Mbps streams and a single donor without congestion (compared to about 33 Mbps for in-band \glspl{mmwave}). 
+
+This is the first paper that provides a numerical evaluation of the potential associated with sub-terahertz links for \gls{iab}. Notably, \cite{9135258} evaluates the sub-\gls{thz} potential in backhaul networks from a physical layer perspective. This research demonstrates that sub-THz spectrum links can achieve multi-Gbps ratios in outdoor backhaul scenarios. \cite{9163026} proposed \gls{uav}-assisted backhaul solution to improve network coverage and data rate in heterogeneous networks with multiple tiers composed of sub-6 GHz, THz and \gls{uav} layers. In addition, the authors of \cite{9136652} successfully adopted concurrent scheduling to increase system throughput in dense THz backhaul scheduling. Finally,~\cite{saha2018integrated} considers a multi-band \gls{iab} deployment, but with a bandwidth that is more limited than those considered in future 6G scenarios. 
+
+The rest of the paper is organized as follows. Sec.~\ref{sec:system} introduces the system model. Sec.~\ref{sub:THzLinkSel} describes the algorithm for frequency and path selection, which is then numerically evaluated in Sec.~\ref{sec:PerfEval}. Finally, Sec.~\ref{sec:concl} concludes the paper. 
+
+
+% \hl{Matteo: Rename this ?}
+\section{System Model}
+\label{sec:system}
+
+% \subsection{System Model}
+\begin{comment} % Rephrased to mention uplink only
+We consider an \gls{iab} \gls{tdma} system in which a single \gls{iab} donor, featuring a fiber connectivity towards the \gls{cn} and the Internet, provides wireless backahuling functionality to $N_{\mathrm{I}}$ \gls{iab} nodes. On the access side, $N_{\mathrm{U}}$ \glspl{ue} %that are uniformly distributed in the coverage area 
+exchange data with the \gls{iab} donor. %In line with the 3GPP specifications, 
+The IAB nodes can be either connected to the latter, or to neighboring base stations thus possibly realizing a multi-hop wireless backhaul. 
+\end{comment}
+
+We consider a \gls{tdma} system in which a single \gls{iab} donor, featuring a fiber connectivity towards the \gls{cn} and the Internet, exchanges data with $N_{\mathrm{U}}$ \glspl{ue}. Without loss of generality, we consider uplink traffic only.
+To achieve uniform coverage, the donor is aided by $N_{\mathrm{I}}$ \gls{iab} nodes, which can be connected either to the former or to neighboring base stations, thus possibly realizing a multi-hop wireless backhaul. 
+
+We partition the time resources in $T$ radio subframes of duration $T_{sub} = 1$~ms, and we equip all nodes with buffers. Accordingly, the data that node $i$ transmits to \gls{gnb} $k$ during subframe $t$ is stored in its buffer $B_k (t)$, and represents either successfully received packets, in the case of the donor, or data to be relayed to the next hop along the path during subframe $t + 1$, in the case of \gls{iab} nodes.
+
+We assume that the backhaul links operate \textit{either in the \gls{mmwave} or in the \gls{thz} band} and that each \gls{iab} node features two \gls{rf} chains, which are used for the backhaul and the fronthaul communications, respectively. In both cases, \glspl{gnb} are equipped with directional antennas.
+%In the former case, the multiple antennas are used to steer the beam towards the intended destination using analog beamforming.
+
+When \gls{gnb} $k = 0, \ldots, N_{\mathrm{I}}$, with index $0$ denoting the \gls{iab} donor, receives data from node $j$, packets experience a \gls{sinr} $\gamma_{s, d}$ which can be expressed as
+\begin{equation}
+\label{eq:sinr_common}
+    \gamma_{s, d} = \frac{ \vert h_{s, d}^{l} \vert^2 \sigma_{x}^2 }{\sigma_{n}^2 + \sum_{i \in \mathcal{I}} \sigma_{i}^ 2}, 
+\end{equation}
+where $h_{s, d}^{l}, \, l \in \{mW, sT\} $ represents the equivalent channel response between the communication endpoints when using \gls{mmwave} or sub-\gls{thz} links, respectively. $\mathcal{I}$ denotes the set of interferers, $\sigma_{x}^2$, $\sigma_{i}^2$ and $\sigma_{n}^2$ are the powers of the transmitted signal, the $i$-th received interfering signal, and the thermal noise at the receiver, respectively. 
+% Furthermore, $\bm{w}_{s}$ and $\bm{w}_{d}$ denote the beamforming vector used at S and D, respectively.
+
+The corresponding access (backhaul) throughput $R_{j, k}^{\mathrm{A}} (t)$ ($R_{j, k}^{\mathrm{B}} (t)$) reads
+%Assuming that the \gls{snr} at \gls{gnb} $k$, when receiving data from node $j$ is $\gamma_{j, k}$, the corresponding access (backhaul) throughput $R_{j, k}^{\mathrm{A}} (t)$ ($R_{j, k}^{\mathrm{B}} (t)$) reads:
+\begin{equation}
+  R_{j, k}^{\mathrm{A}} (t) = \frac{1}{T_{sub}} \sum_{l=1}^{B_{j}^t} \mathbbm{1} \left\{ \hat{b}_{l} (\gamma_{j, k}) = b_l \right\} ,
+\end{equation}
+where $B_{j}^t$ denotes the number of bits transmitted from user (\gls{iab} node) $j$ to \gls{gnb} $k$ during subframe $t$ and %and $b_l$ one of such bits. 
+$\hat{b}_{l} (\gamma_{j, k})$ is the $l$-th decoded bit at the receiver, as a function of $\gamma_{j, k}$.
+
+Our goal is to maximize the average system sum-rate, defined as
+%\frac{1}{T} \sum_{k = 1}^{N_{\mathrm{U}}} \sum_{t = 1}^{T} R_{k, 0}^{\mathrm{A}} (t) +
+\begin{equation}
+ \bar{R} \doteq \frac{1}{T} \sum_{j = 1}^{N_{\mathrm{I}}} \sum_{t = 1}^{T} R_{j, 0}^{\mathrm{B}} (t),
+\end{equation}
+%
+by tuning the carrier frequency (either \gls{mmwave} or \gls{thz}) of each backhaul link. We remark that in this metric we take into account only the packets which are received at their final destination, i.e., the \gls{iab} donor.
+
+\subsection{Channel Models}
+\label{sub:channelmodel}
+\subsubsection*{\gls{mmwave} channel model}
+
+%\hl{TODO, Matteo: Trim further?}
+%\hl{TODO, Matteo: Consider adding a couiple of sentences on mmWave's propagation characteristics}\\
+For the \gls{mmwave} links, we consider the 3GPP~38.901 \gls{scm}~\cite{3gpp.38.901}, which models \gls{mimo} wireless channels for frequencies between $0.5$ and $100$~GHz. %The model relies on deterministic formulas for the path-loss, and on random distributions for phenomena such as multipath fading and shadowing. 
+
+In particular,~\cite{3gpp.38.901} outlines the procedures for generating a channel matrix $\bm{H}_{s, d}$ whose entries $h_{s, d}^{j, k}$ correspond to the impulse response of the channel between the $j$-th element of the antenna array of the transmitter (S), and the $k$-th radiating element of the antenna array of the receiver (D). %at time $t$ and with propagation delay $\tau$. 
+%To model small-scale fading, each of the entries of entries $\bm{H}_{p, q}$ 
+% Each of these entries is computed as the superposition of $N$ different clusters, each of which consists of $M$ rays. %that arrive (depart) to (from) the transmitter (receiver) antenna array, 
+% with specific powers and angles of departure and arrival. 
+Then, the channel matrix entries are combined with a frequency-flat path loss term $PL$. 
+
+When considering analog beamforming at both the transmitter and the receiver, the equivalent channel response $h_{s, d}^{mW}$ can be evaluated as
+\begin{equation}
+\label{eq:sinr}
+    h_{s, d}^{mW} = \sqrt{10^{PL/10}} \cdot \bm{w}_{d} \bm{H}_{s, d} \bm{w}_{s},
+\end{equation}
+%
+with $\bm{w}_{s}$ and $\bm{w}_{d}$ the beamforming vectors used at S and D, respectively.
+
+\begin{figure*}[t!]
+% \begin{strip}
+\begin{subequations}
+    \begin{equation}
+        \argmax_{\substack{\bm{P}, \{\bm{S}(t) \}_t, \bm{T}}} \bar{R}, \label{eq:opt_overall}
+    \end{equation}
+    \vspace{-10pt}
+    \begin{alignat}{1}
+     \text{s.t.}\; \text{C1:} \;& R_{j, k}^{\mathrm{B}} (t) T_{sub} \leq B_j (t) \;\; \forall \, j, \,  \forall\, t \label{eq:con_rate_vs_buff} \\ 
+     \text{C2:} \;& B_j (t + 1) = \, B_j (t) + T_{sub} \left( \sum_{k=1}^{N_{\mathrm{U}}} R_{k, j}^{\mathrm{A}} (t) + \sum_{k=1}^{N_{\mathrm{I}}} R_{k, j}^{\mathrm{B}} (t) 
+     - \sum_{k=0}^{N_{\mathrm{I}}} R_{j, k}^{\mathrm{B}} (t) \right) \;\; \forall \, j, \, \forall t \label{eq:con_buff_time} \\
+     \text{C3:} \;& \sum_{k=0}^{N_{\mathrm{I}}} \bm{S} \left[ j, k \right] (t)  +
+     \sum_{k=1}^{N_{\mathrm{I}}} \bm{S} \left[ k, j \right] (t) \leq 1 \;\; \forall \, j, \, \forall t \label{eq:con_tdd}\\
+     \text{C4:} \;& R_{j, k}^{\mathrm{B}} (t) \bm{S} \left[ j, k \right] (t) = R_{j, k}^{\mathrm{B}} (t) \;\;
+     \forall \, j, \, \forall k, \, \forall t \label{eq:con_rate_if_active} \\
+     \text{C5:} \;& \sum_{j, k=0}^{N_{\mathrm{I}}} \bm{T} [j, k] \leq \rho_{max} \sum_{j, k=0}^{N_{\mathrm{I}}} \bm{P} [j, k]  \label{eq:con_num_thz}
+    \end{alignat}
+\end{subequations}
+% \end{strip}
+\end{figure*}
+
+\subsubsection*{THz channel model}
+\label{sub:thzchannel}
+% This section describes the \gls{thz} channel model we utilize in the system model. 
+%
+% MP so far you have discussed generic modeling, now you mention simulation for the first time without providing details on what this simulation is. Be consistent and either introduce this as the channel for the system model here, or move the simulation part first and talk about the channel for simulation later. [done]
+%
+% Several measurement campaigns and channel modeling methodologies have been done to characterize the properties of the \gls{thz} spectrum in various scenarios and environments. 
+For sub-THz, we use the physics-based channel modeling approach from~\cite{5995306}, which includes molecular absorption and path loss.
+%, a channel model based on electromagnetic transmission between devices in the \gls{thz} range, which is general and easy to employ. This~\cite{5995306} research uses 
+%to provide a channel model for EM nano communication devices. 
+At THz-band frequencies, molecular absorption, which causes both molecular absorption loss and molecular absorption noise, is the principal factor affecting electromagnetic wave propagation. $h_{s, d}^{tH}$ is the THz-band channel model introduced in~\cite{5995306}, with additional transmit and receive antenna gains $G_S$ and $G_D$, and is given by
+%
+% MP why this one and not one of the SCM models which come with fading and are more similar to the mmWave channel structure? [done]
+
+\begin{equation}
+% \setlength{\abovedisplayskip}{0pt}
+% \setlength{\belowdisplayskip}{2pt}
+h_{s, d}^{tH}(f,d)=  \frac{c}{4 \pi f d} \exp \left( -\frac{k_{abs}(f)d}{2} \right)  G_{S}  G_{D} ,
+\label{EQ_PHY}
+\end{equation}
+%
+where $c$ stands for the speed of light and $k_{abs}$ for the medium's molecular absorption coefficient, based on the type and composition of molecules~\cite{hossain2018terasim}.
+% , and $ G_{TX}$ and $ G_{RX}$ determines antenna gain for transmitter and receiver, respectively.
+%the \gls{sinr} for \gls{thz} is formulated in(\ref{eq:thzSINR}) which is highly aligned with \gls{mmwave} \gls{sinr} formula (\ref{eq:sinr}) with the exception that beamforming is not used in \gls{thz}
+% MP why not? if no antenna gain is modeled in the simulations, it is a problem. 
+% MP also checking spacing, capitalization
+
+%\begin{equation}
+%\label{eq:thzSINR}
+%    \gamma_{s, d} = \frac{ \vert \bm{h}_{{THz}}\vert^2 \sigma_{x}^2 }{\sigma_{n}^2 + \sum_{i \in \mathcal{I}} \sigma_{i}^ 2},
+%\end{equation}
+
+\section{Sum-rate optimization via THz Link Selection}
+\label{sub:THzLinkSel}
+
+We define $\bm{P} \in \{0, 1\}^{N_{\mathrm{I}} + 1 \times N_{\mathrm{I}} + 1}$ as the matrix which represents the possible active links among \glspl{gnb}, i.e., $\bm{P} [i, j] = 1$ if and only if the wireless backhaul link between \glspl{gnb} $i$ and $j$ is a feasible link; index $0$ refers to the donor. Similarly, $\bm{S} (t) \in \{0, 1\}^{N_{\mathrm{I}} + 1 \times N_{\mathrm{I}} + 1}$ and $\bm{T} \in \{0, 1\}^{N_{\mathrm{I}} + 1 \times N_{\mathrm{I}} + 1}$ represent the links which are active during subframe $t$, and whether they use \gls{thz} spectrum or not, respectively. 
+Our objective is to maximize the average system sum-rate, by choosing whether each link is operating in the \gls{thz} or the \gls{mmwave} band and the active links in each subframe. We perform the choice of $\bm{T}$ and $\bm{P}$ only once, with the goal of reducing the computational complexity of the algorithm.
+
+% \hl{TODO, Matteo: Move equation on top of the page (not float: needs to be done manually, once the rest is finished).}
+%\begin{equation}
+%    \argmax_{\substack{P, M}} \hat{R}     
+%\end{equation}
+
+
+The optimization problem is thus formulated as \eqref{eq:opt_overall}. Constraint C1 ensures that nodes do not transmit more data than available in their buffer. C2 enforces the proper evolution over time of the buffers occupancy, i.e., the buffer occupancy at time $t$ must be equal to the one in subframe $t - 1$, minus (plus) the outgoing (incoming) traffic from other nodes. Constraint C3 relates to the \gls{tdma} mode of operation, and ensures that each backhaul \gls{rf} chain is used at most for one transmission/reception in any given subframe, while C4 imposes that only active links can exhibit a positive rate. 
+Finally, with C5 we set an upper bound $\rho_{max}$ on the maximum percentage of \gls{thz} links. 
+% MP in general I prefer to introduce constraints one by one with comments and then mention the optimization subject to (1) (2) etc. It's ok to keep it as it is, but need to provide more details on the constraints (why are they needed, etc) [done]
+
+\subsection{Backhaul Scheduler}
+\label{sub:BackSche}
+
+We remark that due to the binary nature of the $\bm{P}, \bm{S}(t)$ and $\bm{T}$ optimization variables, \eqref{eq:opt_overall} is an \gls{ilp}, thus NP-hard and not solvable in polynomial time. Therefore, in this section, we present a set of algorithms that solve the path selection and configuration problem heuristically and with low complexity. 
+
+Specifically, we first describe the pre-processing steps, referred to as \textit{distance-aware path generation} (Alg.~\ref{algo:distanceAware}) and \textit{THz-link selection} (Alg.~\ref{algo:thzLink}), which prune the set of possible links established among \glspl{gnb} and decide which of them are to operate in the THz bands, respectively. Then, we describe the \textit{\gls{sinr}-based scheduler} (Alg.~\ref{algo:sinr}), which differs from the former procedures as it is executed in each subframe to track the dynamic nature of the backhaul network.
+% , links must be scheduled for each time step.
+% MP explain why [done]
+
+\begin{algorithm}[b]
+\small
+	\caption{Distance Aware Path Generation} 
+	\begin{algorithmic}
+        %  \hspace*{\algorithmicindent} \textbf{Input}
+        % \hspace*{\algorithmicindent} \textbf{Output}
+        % \Output{11 round keys each of 4 words as $w[0], \dots, w[43]$}
+        %\State $N_{\mathrm{I}} =$ Number of IAB nodes
+        %\State $d_{max} =$ Max distance for which a link is activated
+    \State $d_{max} \gets$ Max distance between IAB nodes of the same tier
+	\State $\bm{P} = [0]_{N_{\mathrm{I}} + 1 \times N_{\mathrm{I}} + 1}$
+		\For {$n_i=1,2,\ldots, N_{\mathrm{I}}$}
+                \State $d_i \gets $ 3D distance between $n_i$ and IAB donor
+                \If {$d_i~<~d_{max}$}
+                		\State $ \bm{P} [n_i, 0]~=~1$
+                \EndIf
+                %\If{$n_1 \neq N_{\mathrm{I}}-1$}
+			\For {$n_j=n_1+1,\ldots, N_{\mathrm{I}}$}  
+				\State $d_{i, j} \gets$ 3D distance between $n_i$ and $n_j$ 
+				\If{$d_{i, j} < d_{max}$}
+    				\State $d_j \gets$ 3D distance between $n_j$ and IAB donor
+    				\If {$d_i~<~d_j$}
+        				\State $ \bm{P} [n_j, n_i]~=~1$
+    				\Else 
+    				    \State $ \bm{P} [n_i, n_j]~=~1$
+				    \EndIf
+				\EndIf
+			\EndFor
+            %\EndIf
+		\EndFor
+	\end{algorithmic} 
+\label{algo:distanceAware}
+\end{algorithm}
+
+The distance-aware path generation algorithm 
+% is in charge of computing 
+% MP you can be more direct when writing, I changed to "computes" [done]
+computes the $\bm{P}$ matrix, which encodes the potential connections between IAB nodes. $\bm{P}$ reduces the system complexity by restricting possible paths from each IAB node and by avoiding loops.
+Specifically, Alg.~\ref{algo:distanceAware} iterates over each IAB node $n_j$, establishing a connection towards the donor whenever the distance between them is smaller than $d_{max}$, i.e., 
+% $d_{max}$ specifies 
+a scenario- and frequency-dependent distance that guarantees a link performance above a certain threshold.
+% and defined by user in simulations, which varies based on scenario and frequency. 
+In our case, the considered scenario involves a small and dense deployment of IAB nodes, so the path loss distance can be compensated by the antenna gain, and $d_{max}$ for THz and mmWave are assumed to have the same value.
+% MP what is d_max? Who chooses this? And why? [done]
+% MP also, in terms of distance, are THz and mmWave link equivalent (e.g., the scenario is small and the pathloss distance can be compensated through beamforming?) or not? If not, it may make sense to do step 1 and 2 jointly to exploit the fact that THz link will be worse than mmWaves in some conditions (NLOS, long distance, etc) [done]
+Moreover, the proposed pre-processing step performs additional attachments between neighboring nodes, as long as the resulting link exhibits a lower length than $d_{max}$. The direction of such link is determined in such a way that the destination node is the closer to the donor.
+Even though this link may be topologically redundant, it can provide an alternative route for load balancing purposes, while still avoiding the creation of cycles. 
+
+%In the opposite case, i.e., whenever a node $n_k$, neighbor of $n_j$, is closer to the donor than to the former, an attachment from $n_j$ towards $n_k$ is performed. 
+% MP do you still have a DAG or does this create cycles? 3GPP IAB need to be a DAG (or a spanning tree which is a special case)
+% MP why is NLOS not modeled? due to high path loss, we don't go through nlos in outdoor. [done]
+
+The THz link selection policy 
+% aims at identifying  
+% MP aims at identifying -> identifies 
+identifies
+bottleneck links based on two heuristics:
+\begin{enumerate*}[label=\arabic*)]
+    \item links involving IAB nodes which are closer to the donor are more likely to be congested since they are usually used also for relaying traffic of subtending nodes; and
+    \item the average buffer occupancy provides an estimate of the loads incurred on each link.
+% MP average buffer occupancy is something that changes very dynamically, need some good motivation to consider this as a preprocessing step done once in a while vs. something done in each slot.
+   % \item marking a link as THz can help prevent congestion, thanks to the higher bandwidth available at these frequencies.
+% MP this is not a criterion, it's a consequence of the selection
+\end{enumerate*}
+Accordingly, Alg.~\ref{algo:thzLink} partitions the \gls{iab} nodes into disjoint sets, referred to as \textit{tiers}. Nodes are assigned to tiers based on their distance with respect to the donor, with tier $0$ indicating the closest level to the donor. 
+Then, the various backhaul links are marked as \gls{thz} in descending order with respect to the tier of the corresponding transmitting node, until the maximum ratio of non-mmWave links $\rho_{max}$ is reached.
+% MP the algorithm algo:thzLink is not very clear, and this description does not provide enough clarity
+%\hl{todo, AMIR: add details here}
+Note that the algorithm may eventually reach a tier whose IAB nodes are not all set as \gls{thz}. In this case, ties within the same tier are broken by sorting its nodes with respect to their average traffic load, which we estimate by measuring the respective buffers. That is to say, nodes with higher buffer occupancy are given priority and thus are set as \gls{thz} before nodes exhibiting a lower traffic load. Note that this procedure can be based on long-term statistics, thus averaging the load of the nodes over multiple frames.
+%Nsort is the average load per IAB node that we calculate in advance for various configurations. Therefore, the tier and Nsort parameters indicate which links must be converted from mmwave to THz. remainL is initiated by L, which specifies the number of links that must be converted to THz and the total number of THz links in the network, respectively. To activate links, we perform the following steps: if remainL is greater than the number of links in tier i all links in tier i are selected as Sub-THz; otherwise, we sort links in tier I based on Nsort and select remainL links with the highest load ratio. We traverse all tiers until remainL becomes zero.
+
+Finally, the \gls{sinr}-based scheduler dynamically allocates resources, with the objective of maximizing the average sum rate %by minimizing Interference with respect to network load.  
+by choosing a list of paths to be activated in each subframe. The rationale behind the proposed scheme is to schedule links based on their load. Specifically, in Alg.~\ref{algo:sinr} we assign a transmission resource allocation priority which is directly proportional to the buffer occupancy of the transmitting node. Once the first endpoint is chosen, we determine the outgoing link by selecting the one with the highest \gls{sinr} among those calculated in Alg.~\ref{algo:distanceAware}. Then, we set all links involving the corresponding transmitting and receiving nodes as infeasible (assigning zero to the corresponding transmitting ($n$) and receiving node ($p_n^{*}$) indices in $\bm{P}_{temp}$), and repeat the procedure by considering the remaining nodes and links only, thus ensuring that the \gls{tdma} constraint is satisfied. 
+% older version
+
+\begin{algorithm}[t]
+\small
+	\caption{\gls{thz} Link Selection}
+	\begin{algorithmic}
+        %  \hspace*{\algorithmicindent} \textbf{Input}
+        % \hspace*{\algorithmicindent} \textbf{Output}
+        % \Output{11 round keys each of 4 words as $w[0], \dots, w[43]$}
+        %\State $N_{\mathrm{I}} =$ Number of IAB nodes
+        %\State $T =$ Number of IAB node tiers 
+        %\State $\rho_{max} = $ Max fraction of THz links  
+        \State $\bm{N}_{\mathrm{T}} =$ Vector of IAB nodes tier index
+        \State $\bm{N}_{sort} =$ Vector of IAB node indices, sorted with respect to their load 
+        \State $\bm{T} \gets [0]_{N_{\mathrm{I}} + 1 \times N_{\mathrm{I}} + 1} $
+        %\State $\bar{B}_{j} =$ Average buffer occupancy of the $j$-th \gls{gnb}
+         %\State $\bm{N}_{\mathrm{T}} \gets [0]_{N_{\mathrm{I}}}$
+        \State $d_{max} \gets$ Max distance between IAB nodes of the same tier
+        
+	\For {$n=1, 2,\ldots, N_{\mathrm{I}}$}
+            \State $d \gets $ 3D distance between $n$ and IAB donor
+            \State $\bm{N}_{\mathrm{T}}[n] \gets \left\lfloor d~/~d_{max} \right\rfloor $
+        \EndFor
+            %\State $remain_L = L$ \hl{Not clear, ask Amir}
+            \For {$i=1,\ldots, \operatorname{max}(\bm{N}_{\mathrm{T}})$}
+                \State $\bm{N}_{T}^{i} \gets \left\{ j  \; | \; \bm{N}_{T}[j] == i \right\}$ 
+                \State $\bm{L}_{i} \gets$ links in $\bm{P}$ where nodes of $\bm{N}_{T}^{i}$ are the transmitting node 
+                \If {$ \textstyle\sum_{j, k} \bm{T} [j, k] + \operatorname{dim} (\bm{L}_{i}) < \rho_{max} \sum_{j, k} \bm{P} [j, k]$}
+                    \State $\bm{T}[j, k] \gets 1 \; \forall \; (j, k) \in \bm{L}_i$ 
+                \Else
+                    \While {$ \textstyle\sum_{j, k} \bm{T} [j, k] < \rho_{max} \sum_{j, k} \bm{P} [j, k]$} 
+                    \State $n^{*} \gets \operatorname{min}_n \, | \, \bm{N}_{sort} [n] \cap \bm{N}_{T}^{i} \neq \emptyset $ 
+                    \State $(n^{*}, k) \gets \text{ link } \in \bm{L}_{i} \, | \, n^{*}$ is the transmitting node
+                    \State $\bm{T} [n^{*}, k] \gets 1$; $\bm{L}_{i} \gets \bm{L}_{i} \setminus (n^{*}, k) $ 
+                    \EndWhile
+                \EndIf                
+	\EndFor
+	\end{algorithmic} 
+\label{algo:thzLink}
+\end{algorithm}
+
+
+\begin{algorithm}
+\small
+	\caption{\gls{sinr}-based Scheduler} 
+	\begin{algorithmic}
+        %  \hspace*{\algorithmicindent} \textbf{Input}
+        % \hspace*{\algorithmicindent} \textbf{Output}
+        % \Output{11 round keys each of 4 words as $w[0], \dots, w[43]$}
+        %\State $N_{\mathrm{I}} =$ Number of IAB nodes
+        %\State $K =$ Number of paths 
+        \State $\bm{N}_{sort} =$ Vector of IAB nodes, sorted with respect to their load 
+        \State $\bm{P}_{temp} =  \bm{P} $
+        \State $\bm{S} (t) \gets [0]_{N_{\mathrm{I}} + 1 \times N_{\mathrm{I}} + 1} $
+        
+	\For {$n$ in $\bm{N}_{sort}$}
+            \State $\gamma_{max} \gets - \infty$
+            %\State $temp_{list} \gets \text{where~} P_{temp}[n]==1$
+            %\For {$i$ in $temp_{list}$}
+            \For {$i$ in $0, \ldots, N_{\mathrm{I}}$}
+                \If {$\gamma_{n, i} > \gamma_{max}$}
+                    \State $\gamma_{max} \gets \gamma_{n, i}$
+                    \State $p_n^{*} \gets i$
+                \EndIf
+		    \EndFor
+		\State $\bm{S} (t) [n, p_n^{*}] \gets 1$
+        \State $\bm{P}_{temp} [:, n], [n, :] \gets [0] $; $\bm{P}_{temp} [:, p_n^{*}], [p_n^{*}, :] \gets [0] $
+	\EndFor
+	\end{algorithmic} 
+\label{algo:sinr}
+\end{algorithm}
+
+
+
+
+\section{Performance Evaluation}
+\label{sec:PerfEval}
+This section introduces a performance evaluation based on a novel simulation setup (Sec.~\ref{sec:SimSetup}) in a dense cellular network (Sec.~\ref{sub:SimScenario}), with a comparison between different results of THz and mmWave networks (Sec.~\ref{sub:results}).
+% MP add one sentence here on what comes next [done]
+
+\subsection{Simulation Setup}
+\label{sec:SimSetup}
+
+We have developed a system-level simulator that runs on top of Sionna~\cite{hoydis2022sionna}, an open-source TensorFlow-based GPU-accelerated toolbox, and that includes 
+% MP what is Sionna? need to clarify here and not later [done]
+the \gls{iab} networks described in Rel. 17. 
+% MP what does it mean "to come closer"? [done]
+The proposed simulator, which is written in Python, is a system-level simulator which features 3GPP-compliant channel modeling and lower layers of the protocol stack. 
+% and scenarios that
+% % MP "and is 3GPP-compliant for what concerns XYZ" [?]
+% % is not a full-stack simulator.
+% is a link-level system simulator.
+% MP do not characterize what you do through lack of features or negative terms (I don't do X, I don't do Y -> just say I do Z). See also below (that lacks...)
+%
+% Due to the absence of an updated 5g-NR and sub-THz simulator for the IAB in other open source network simulators such as ns-3, we have chosen Sionna as the appropriate baseline simulator.
+% MP why did you choose this? [done]
+% The tensor-based approach supports the natural integration of neural networks and the prototyping of intricate communication systems.
+% MP we don't care about this as there is no neural network in play. [done] 
+% Sionna is a physical layer-focused simulator that 
+However, it
+lacks the implementation of 5G NR higher layers. 
+% , protocol stack since it does not explicitly mimic \gls{5g} networks. 
+% MP here you need to spin it positevly, as a contribution: we added XYZ as K does not do it
+Therefore, we added system-level functions like MAC-level scheduling and RLC-level buffering~\cite{INFOCOMSIM}. In addition, in this research we use the Terasim channel simulator~\cite{hossain2018terasim}
+% MP what does this mean? Do you have calls to MATLAB terasim implementation? Do you pre-generate traces? If so, how, and do they change, remain static, etc? Or do you take the channel model you discuss in Sec 2 and implement it here? [done]
+to generate channel responses and integrate them into Sionna. To accomplish this, we generate traces for each IAB node's channel response and load them into Sionna. Terasim channel model integration allows us to generate channels up to 10 \gls{thz};
+% MP avoid "a few", "some", "a lot" in scientific writing - be precise [done] 
+in this simulation campaign, the sub-THz carrier frequency is 140 GHz. Several system-level \glspl{kpi}, including latency, throughput, and packet loss rate, are produced by our simulator.
+
+
+\subsection{Simulation Scenario}
+\label{sub:SimScenario}
+We take a dense cellular base station deployment into account in our models. As shown in Fig.~\ref{fig:SimulationScenario}, we place IAB nodes at a density of $150$ \gls{gnb}/$\mathrm{km}^2$, thus with an average intersite distance of 40 m. 
+% MP mention the density and area, no need to say how many nodes you have [done]
+In Table~\ref{Tab:parameters}, the specific simulation settings are displayed. For \gls{mmwave}, we used the channel model outlined by \gls{3gpp} in TR 38.901~\cite{3gpp.38.901}, a statistical 3GPP channel model for 0.5-100 GHz, while for sub-\gls{thz} we used the \gls{thz}-band channel model introduced in~\cite{5995306} and detailed in Sec.~\ref{sub:thzchannel}. The range of the user rate is 20 Mbps to 500 Mbps. 
+% MP put it as user rate [done]
+We used a phased array antenna for \gls{mmwave} and a horn antenna for THz, respectively. In mmWave we do beamforming based on a pre-generated codebook, in order to find the best beam pair for connection. For the purposes of SINR calculation, we assume that each interfering device utilizes the beamforming vector with the greatest SINR towards its intended target. In a similar fashion, both the transmitter and the receiver utilize the beamforming configuration calculated by the hierarchical search technique.
+We consider a scenario with a single donor to focus on the issues related to the bottleneck in the air interface of the donor itself, while extension to multiple donors is left for future work. We also set $d_{max} = 70$ m, as it has been experimentally shown that sub-THz links can operate in this range also in adverse weather conditions~\cite{sen2022terahertz}. 
+
+% MP so there is beamforming :)  [done]
+% MP why do you use the bandwidth you use? [done]
+% MP do you model misalignment? How do you model interference when using beamforming?  [done]
+
+
+\begin{figure}
+    \centering
+    \setlength\fwidth{0.6\columnwidth}
+    \setlength\fheight{0.5\columnwidth}
+    \input{Figures/IabThzLinks/IABlocations.tex}
+    %     \setlength\abovecaptionskip{0cm}
+    % \setlength\belowcaptionskip{-.3cm}
+    \caption{Simulation Scenario}
+    \label{fig:SimulationScenario}
+\end{figure}
+
+\begin{table}[]
+\caption{Simulation parameters.}
+\label{Tab:parameters}
+\centering
+\footnotesize
+\begin{tabular}{l|l}
+    \toprule
+    Parameter & Value \\ \midrule
+
+    Carrier frequency (\gls{mmwave}) & $28$~GHz \\
+    Bandwidth (\gls{mmwave}) & $400$~MHz \\
+    Carrier frequency (THz) & 140~GHz  \\
+    Bandwidth (THz) & $\{ 10,32 \}$~GHz \\
+    % Total bandwidth & 400 MHz \\
+    % \hline
+    IAB RF Chains & 2 (1 access + 1 backhaul) \\
+    % \hline
+    % \hline 
+    Pathloss model (\gls{mmwave}) & UMi-Street Canyon~\cite{3gpp.38.901} \\
+    Pathloss model (THz) &  Physics-based~\cite{5995306} \\
+    % \hline
+    Number of IAB nodes $N_{\mathrm{I}}$ & $23$  \\
+    Number of users $N_{\mathrm{U}}$ & $50$   \\
+    Per-UE source rate & \{$40, 80, 100, 200$\} Mbps \\
+    $\rho_{max}$ & \{$0, 0.1, 0.3, 0.5, 0.7, 1$\} \\
+    \gls{gnb} antenna array & $8$H $\times$ $8$V\\
+    % \hline
+    % IAB Access antenna array & 4H×4V\\
+    UE antenna array & $4$H $\times$ $4$V\\
+    % \hline 
+    \gls{gnb} and UE height & $15$~m and $1.5$~m \\
+    % UE height & 1.5~m \\
+    \gls{gnb} antenna gain (\gls{mmwave}) & $30$~dB \\
+    % MP where does this 30 come from? 
+    \gls{gnb} antenna gain (THz) & $38$~dB \\
+    Noise power & $10$~dBm \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Results}
+\label{sub:results}
+
+% MP I think the main problem with this section is that the results are somewhat obvious - you increase the bandwidth and your throughput increases. The results would be less obvious if you find ways of connecting them to specific choices you take in the three algorithms + what I was saying the other day, this becomes more interesting if you show that you make a good and efficient use of your resources (rather than simply adding more resources). If I were a reviewer, this would probably be my main criticism of the paper.
+
+In this section we report the outcomes of our numerical evaluation, focusing on end-to-end metrics measured at the IAB donor. We compare the performance achieved by different backhaul configurations, i.e., different maximum ratios of THz links and bandwidth, in terms of throughput, latency and packet drop ratio. We consider two baselines: \textit{Random Scheduler (RS)} and \textit{Random Links (RL)}. The former uses Alg.~\ref{algo:thzLink} and chooses at random a feasible set of active links during each subframe. On the contrary, RL randomly picks which links to set as \gls{thz}, and uses Alg.~\ref{algo:sinr} for scheduling. 10 simulations per configuration are executed, to obtain estimates which are averaged over the realizations of the wireless channels.
+% MP how many simulations? Where do the randomness come from (channel instances, traffic generation, noise)? [done]
+
+% \hl{New comments on the random policies vs. our algs.}
+Fig.~\ref{fig:ThroughputPerDifferAlg} reports the UE throughput achieved by the proposed solution, versus that achieved by RS and RL. Focusing on the former, it can be seen that Alg.~\ref{algo:sinr} leads to a throughput increase of up to 40\% compared to a random scheduling policy, thanks to the prioritization of the backhaul links incurring a higher load and exhibiting a higher number of subtending IAB nodes. 
+Moreover, Alg.~\ref{algo:thzLink} introduces an additional throughput increase of up to 15\% compared to RL.
+%MPag: Figures/IabThzLinks are kind of hard to read, probably adding a RORS baseline would make sense as well..
+\begin{figure}
+    \centering
+    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fheight{0.7\columnwidth}
+    \input{Figures/IabThzLinks/Random_scheduler.tex}
+    %     \setlength\abovecaptionskip{0cm}
+    % \setlength\belowcaptionskip{-.3cm}
+    \caption{Throughput per \gls{ue} for different schedulers and THz link selection policies, for \gls{thz} bandwidth $32$~GHz and $\rho_{max} = 0.3$.} 
+    \label{fig:ThroughputPerDifferAlg}
+\end{figure}
+
+Fig.~\ref{fig:Throughput} illustrates the \gls{ue} throughput for various configurations of sub-\gls{thz} backhauling links and different UE source rates. 
+The performance always improves by adding more bandwidth to the system through sub-THz links, despite the harsher propagation environment at higher frequencies.
+% With a slightly greater throughput in \gls{thz} cases versus \gls{mmwave}, the performance for five configurations at the lower source rates (20 Mbps) is similar.
+% The performance differences between \gls{mmwave} and \gls{thz} included links are significant when the source rate is increased to 40, 80, and in particular the 200 Mbps. 
+The performance gap increases with the user source rate. Indeed, 
+\glspl{mmwave} successfully sustain a source system rate of 1 Gbps (20 Mbps for 50 UE), 
+%
+% MP why is this the desired rate? [done]
+%
+but cannot match higher source rates, as the capacity saturates.
+% and the throughput does not match the source rate. 
+The configuration with sub-THz links achieves a higher throughput in all scenarios and in particular for $\rho_{max} = 0.3$, 32 GHz achieves the highest throughput for all source rates. It is obvious that increasing the bandwidth improves the performance; nevertheless, increasing the percentage of the \gls{thz} links from $\rho_{max} = 0.1$ to $\rho_{max} = 0.3$ has a more significant impact on throughput. 
+% MP well this is also increasing the system bandwidth! [not]
+This may be explained by considering the effects of replacing bottleneck backhauling mmWave links with \gls{thz} links with higher bandwidth.
+
+% MP what does this mean (second part of the sentence on max source rate)? [done]
+
+\begin{figure}
+    \centering
+    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fheight{0.7\columnwidth}
+    \input{Figures/IabThzLinks/S2_thr_bar.tex}
+    %     \setlength\abovecaptionskip{0cm}
+    % \setlength\belowcaptionskip{-.3cm}
+    \caption{Throughput per UE for different configurations.}
+    % MP the color palette can be improved, the gray and green are very similar
+    \label{fig:Throughput}
+\end{figure}
+
+
+Similar considerations can be drawn from the results shown in Fig.~\ref{fig:packetDrop}, which reports the packet drop percentages for various backhaul configurations. %This performance is consistent with the behaviors seen in Figure~\ref{fig:Throughput}'s behavior.
+The highest and lowest packet drop percentages across all \gls{ue} source rates are achieved when using the \gls{mmwave} and $\rho_{max} = 0.3$, 32 GHz configurations, respectively. Packet drop percentages at 20 Mbps source rates are close to zero for all configurations. The highest packet drop percentages among configurations including \gls{thz} is $\rho_{max} = 0.1$, 10 GHz. It is noteworthy that the system performance is influenced directly by both the \gls{thz} bandwidth and the link ratio, as seen in Fig~\ref{fig:Throughput}.
+
+\begin{figure}
+    \centering
+    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fheight{0.7\columnwidth}
+    \input{Figures/IabThzLinks/S2_drop_bar}
+    %     \setlength\abovecaptionskip{0cm}
+    % \setlength\belowcaptionskip{-.3cm}
+    \caption{Backhaul packet drop percentage for different configurations.}
+    \label{fig:packetDrop}
+\end{figure}
+
+Fig.~\ref{fig:Latency} depicts the \gls{ecdf} of the \gls{e2e} latency experienced by packets which reach the donor, for different bachkaul configurations. Accordingly, both latencies accumulated over the fronthaul and backhaul links are taken into account, from the time packets are generated at the \gls{ue} until they eventually reach the \gls{iab} donor. The plot shows that packet latency decreases as more sub-THz links are added to the network. In accordance with the aforementioned observations (Fig.~\ref{fig:Throughput} and Fig.~\ref{fig:packetDrop}), $\rho_{max} = 0.3$, 32 GHz has the lowest latency, whereas \gls{mmwave} has the highest latency. The average latency for $\rho_{max} = 0.3$, 32 GHz, $\rho_{max} = 0.3$, 10 GHz, $\rho_{max} = 0.1$, 32 GHz, and $\rho_{max} = 0.1$, 10 GHz is approximately 51\%, 24\%, 24\%, and 18\% less than in \gls{mmwave}.
+
+% \begin{comment}
+\begin{figure}
+    \centering
+    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fheight{0.7\columnwidth}
+    \input{Figures/IabThzLinks/lat_cdf.tex}
+    %     \setlength\abovecaptionskip{0cm}
+    % \setlength\belowcaptionskip{-.3cm}
+    \caption{\Gls{e2e} latency \gls{ecdf} for different configurations for 80 Mbps user rate.}
+        % MP what source rate? [done]
+        % MP this is incredibly low. For example, look at the scenario figure, the node at the top left has about 6 hops to get to the donor. This means less than 2 ms per hop in some cases, how do you relay so quickly? each time step is 1ms [each packet can reaches in time step i and if resources is exist transmit in time steo i+1]. 6 hops is maximum and the most of the delays greater than 20 ms is based on that, just notice that if packet exists more than 50 ms we droped it.  [done]
+    \label{fig:Latency}
+\end{figure}
+% \end{comment}
+
+% Finally, to understand the impact of the \gls{thz} link ratio per source rate, it is essential to analyze the backhauling performance as a function of the system throughput. 
+Finally, the average system throughput for different ratios $\rho_{max}$ of \gls{thz} link is shown in Fig.~\ref{fig:THZtotal}.
+% Our analysis demonstrates that 
+The system throughput increases with the inclusion of additional \gls{thz} links. 
+% It is obvious that the maximum increase in throughput for all source speeds varies from $\rho_{max} = 0.0$ to $\rho_{max} = 0.1$ of the \gls{thz} link ratio. 
+The figure also shows that system source rates of 2 Gbps, 4 Gbps, and 10 Gbps can be satisfied by a single donor when $\rho_{max}$ is properly set.
+%
+% converge to maximum source rates in the entire presence of \gls{thz} links, 
+However, the larger demand of the 25 Gbps system source rate still cannot be satisfied, as the system becomes saturated.
+% , and prevents convergence to required source rates. 
+$\rho_{max} = 0.1$ and $1$ can increase the system throughput by up to four times and twelve times, respectively.
+
+\begin{figure}
+    \centering
+    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fheight{0.7\columnwidth}
+    \input{Figures/IabThzLinks/thz_per.tex}
+    %     \setlength\abovecaptionskip{0cm}
+    % \setlength\belowcaptionskip{-.3cm}
+    \caption{System throughput for different source rate and ratio of \gls{thz} links.}
+    \label{fig:THZtotal}
+\end{figure}
+
+
+\section{Conclusions and Future Work}
+\label{sec:concl}
+This paper provides the first performance evaluation of the possibilities of sub-terahertz frequencies for 6G IAB using a customized extension of the open-source Sionna simulator. This permits the use of greedy algorithms to evaluate the deployment of mixed mmWave and sub-terahertz links to boost the backhaul network's capacity.
+We will broaden the analysis of the network performance to cover a broader range of source traffic patterns, scenarios (including multi-donor instances, deployments with lower node density, or more realistic map-based scenarios as in~\cite{gemmi2023on,gemmi2022on}), and protocol stack implementations as future work.
+
+% \section{acknowledgement}
+% This research supported by the European Commission through Grant No. 861222 (H2020 ITN MINTS project).
+
+
+% \bibliographystyle{IEEEtran}
+% \bibliography{IEEEabrv, bibl}
+
+% \end{document}

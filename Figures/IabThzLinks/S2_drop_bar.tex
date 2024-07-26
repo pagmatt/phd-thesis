@@ -1,0 +1,331 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{gray}{RGB}{128,128,128}
+\definecolor{green}{RGB}{0,128,0}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{color2}{RGB}{255,165,0}
+\definecolor{blue}{HTML}{5bc4eb}
+
+\definecolor{color1}{RGB}{255,20,189}
+\definecolor{color2}{RGB}{40, 215, 235}
+\definecolor{color3}{RGB}{240, 131, 22}
+\definecolor{color4}{RGB}{73, 214, 34}
+\definecolor{color5}{RGB}{255,225,82}
+
+
+\begin{axis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend cell align={left},
+    legend style={
+        legend columns=2,
+        draw opacity=1,
+        text opacity=1,
+        at={(0.5, 1.2)},
+        anchor=north,
+        draw=black,
+        font=\footnotesize
+    },
+    tick align=outside,
+    tick pos=left,
+    x grid style={darkgray176},
+    xlabel={UE Source rate [Mbps]},
+    xmajorgrids,
+    xmin=-0.69, xmax=27.69,
+    xtick style={color=black},
+    xtick={3,10,17,24},
+    xticklabels={20,40,80,200},
+    y grid style={darkgray176},
+    ylabel={Packet drop percentage [\%]},
+    ymajorgrids,
+    ymin=-0, ymax=10.6924489573116,
+    ytick style={color=black}
+]
+
+\addlegendimage{area legend, draw=black, fill=color1, postaction={pattern=north east lines}}
+\addlegendentry{$\rho_{max} = 0.1$, 10 GHz}
+
+\addlegendimage{area legend, draw=black, fill=color2, postaction={pattern={Dots[radius=0.3mm]}}}
+\addlegendentry{$\rho_{max} = 0.1$, 32 GHz}
+
+\addlegendimage{area legend, draw=black, fill=color3, postaction={pattern=horizontal lines}}
+\addlegendentry{$\rho_{max} = 0.3$, 10 GHz}
+
+\addlegendimage{area legend, draw=black, fill=color4,}
+\addlegendentry{$\rho_{max} = 0.3$, 32 GHz}
+
+\addlegendimage{area legend, draw=black, fill=white}
+\addlegendentry{$\rho_{max} = 0$}
+
+\draw[draw=black,fill=white] (axis cs:0.6,0) rectangle (axis cs:1.4,3.67518695221753);
+\draw[draw=black,fill=white] (axis cs:7.6,0) rectangle (axis cs:8.4,4.845278309726);
+\draw[draw=black,fill=white] (axis cs:14.6,0) rectangle (axis cs:15.4,8.89268590509084);
+\draw[draw=black,fill=white] (axis cs:21.6,0) rectangle (axis cs:22.4,8.11544584296259);
+
+\draw[draw=black,fill=color1, postaction={pattern=north east lines}] (axis cs:1.6,0) rectangle (axis cs:2.4,0.581668654041138);
+\draw[draw=black,fill=color1, postaction={pattern=north east lines}] (axis cs:8.6,0) rectangle (axis cs:9.4,4.57986560435684);
+\draw[draw=black,fill=color1, postaction={pattern=north east lines}] (axis cs:15.6,0) rectangle (axis cs:16.4,5.35337607181025);
+\draw[draw=black,fill=color1, postaction={pattern=north east lines}] (axis cs:22.6,0) rectangle (axis cs:23.4,5.7788314351186);
+
+\draw[draw=black,fill=color2, postaction={pattern={Dots[radius=0.3mm]}}] (axis cs:2.6,0) rectangle (axis cs:3.4,0.0273015296974269);
+\draw[draw=black,fill=color2, postaction={pattern={Dots[radius=0.3mm]}}] (axis cs:9.6,0) rectangle (axis cs:10.4,0.686435208728916);
+\draw[draw=black,fill=color2, postaction={pattern={Dots[radius=0.3mm]}}] (axis cs:16.6,0) rectangle (axis cs:17.4,3.84389963584301);
+\draw[draw=black,fill=color2, postaction={pattern={Dots[radius=0.3mm]}}] (axis cs:23.6,0) rectangle (axis cs:24.4,5.02363721123376);
+
+\draw[draw=black,fill=color3, postaction={pattern=horizontal lines}] (axis cs:3.6,0) rectangle (axis cs:4.4,0.00521920668058455);
+\draw[draw=black,fill=color3, postaction={pattern=horizontal lines}] (axis cs:10.6,0) rectangle (axis cs:11.4,0.784183441815596);
+\draw[draw=black,fill=color3, postaction={pattern=horizontal lines}] (axis cs:17.6,0) rectangle (axis cs:18.4,3.03795413291424);
+\draw[draw=black,fill=color3, postaction={pattern=horizontal lines}] (axis cs:24.6,0) rectangle (axis cs:25.4,4.58954607419068);
+
+\draw[draw=black,fill=color4] (axis cs:4.6,0) rectangle (axis cs:5.4,0.063979816817083);
+\draw[draw=black,fill=color4] (axis cs:11.6,0) rectangle (axis cs:12.4,0.0486662469364497);
+\draw[draw=black,fill=color4] (axis cs:18.6,0) rectangle (axis cs:19.4,1.25546066423633);
+\draw[draw=black,fill=color4] (axis cs:25.6,0) rectangle (axis cs:26.4,1.02178627398367);
+
+\path [draw=black, semithick]
+(axis cs:1,2.33783016488447)
+--(axis cs:1,5.01254373955058);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+1 2.33783016488447
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+1 5.01254373955058
+};
+\path [draw=black, semithick]
+(axis cs:8,2.71283312611119)
+--(axis cs:8,5.57773343408332);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+8 2.71283312611119
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+8 5.57773343408332
+};
+\path [draw=black, semithick]
+(axis cs:15,7.60391715661735)
+--(axis cs:15,10.1814546535643);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+15 7.60391715661735
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+15 10.1814546535643
+};
+\path [draw=black, semithick]
+(axis cs:22,7.29084697599827)
+--(axis cs:22,8.94004470992691);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+22 7.29084697599827
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+22 8.94004470992691
+};
+\path [draw=black, semithick]
+(axis cs:2,0.26631959316497)
+--(axis cs:2,0.897017714917306);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+2 0.26631959316497
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+2 0.897017714917306
+};
+\path [draw=black, semithick]
+(axis cs:9,3.08920658143186)
+--(axis cs:9,6.07052462728182);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+9 3.08920658143186
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+9 6.07052462728182
+};
+\path [draw=black, semithick]
+(axis cs:16,4.55072276597036)
+--(axis cs:16,6.15602937765014);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+16 4.55072276597036
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+16 6.15602937765014
+};
+\path [draw=black, semithick]
+(axis cs:23,4.57189564106147)
+--(axis cs:23,6.98576722917574);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+23 4.57189564106147
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+23 6.98576722917574
+};
+\path [draw=black, semithick]
+(axis cs:3,-0.0384314213817879)
+--(axis cs:3,0.0930344807766418);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+3 -0.0384314213817879
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+3 0.0930344807766418
+};
+\path [draw=black, semithick]
+(axis cs:10,0.277146956148178)
+--(axis cs:10,1.09572346130965);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+10 0.277146956148178
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+10 1.09572346130965
+};
+\path [draw=black, semithick]
+(axis cs:17,2.94584928920027)
+--(axis cs:17,4.74194998248574);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+17 2.94584928920027
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+17 4.74194998248574
+};
+\path [draw=black, semithick]
+(axis cs:24,4.28831300304668)
+--(axis cs:24,5.75896141942083);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+24 4.28831300304668
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+24 5.75896141942083
+};
+\path [draw=black, semithick]
+(axis cs:4,-0.0104384133611691)
+--(axis cs:4,0.0208768267223382);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+4 -0.0104384133611691
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+4 0.0208768267223382
+};
+\path [draw=black, semithick]
+(axis cs:11,0.358684360442467)
+--(axis cs:11,1.20968252318872);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+11 0.358684360442467
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+11 1.20968252318872
+};
+\path [draw=black, semithick]
+(axis cs:18,2.42458429084184)
+--(axis cs:18,3.65132397498664);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+18 2.42458429084184
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+18 3.65132397498664
+};
+\path [draw=black, semithick]
+(axis cs:25,3.73665064193202)
+--(axis cs:25,5.44244150644933);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+25 3.73665064193202
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+25 5.44244150644933
+};
+\path [draw=black, semithick]
+(axis cs:5,-0.00266078212037386)
+--(axis cs:5,0.13062041575454);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+5 -0.00266078212037386
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+5 0.13062041575454
+};
+\path [draw=black, semithick]
+(axis cs:12,-0.0382525113056243)
+--(axis cs:12,0.135585005178524);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+12 -0.0382525113056243
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+12 0.135585005178524
+};
+\path [draw=black, semithick]
+(axis cs:19,0.476781037644174)
+--(axis cs:19,2.03414029082848);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+19 0.476781037644174
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+19 2.03414029082848
+};
+\path [draw=black, semithick]
+(axis cs:26,0.765662642533051)
+--(axis cs:26,1.2779099054343);
+
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+26 0.765662642533051
+};
+\addplot [semithick, black, mark=-, mark size=3, mark options={solid}, only marks, forget plot]
+table {%
+26 1.2779099054343
+};
+\end{axis}
+
+\end{tikzpicture}

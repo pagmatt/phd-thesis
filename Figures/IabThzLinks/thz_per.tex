@@ -1,0 +1,87 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{150,150,150}
+\definecolor{gray}{RGB}{128,128,128}
+\definecolor{green}{RGB}{0,128,0}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{orange}{RGB}{255,165,0}
+\definecolor{blue}{HTML}{5bc4eb}
+
+\definecolor{color1}{RGB}{255,20,189}
+\definecolor{color2}{RGB}{40, 215, 235}
+\definecolor{color3}{RGB}{240, 131, 22}
+\definecolor{color4}{RGB}{73, 214, 34}
+\definecolor{color5}{RGB}{255,225,82}
+
+\begin{axis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend cell align={left},
+    legend style={
+        legend columns=4,
+        draw opacity=1,
+        text opacity=1,
+        at={(0.5, 1.05)},
+        anchor=north,
+        draw=black,
+        font=\footnotesize
+    },
+    tick align=outside,
+    tick pos=left,
+    x grid style={darkgray176},
+    xlabel={Maximum ratio of \gls{thz} links $\rho_{max}$},
+    xmajorgrids,
+    xmin=0, xmax=1,
+    xtick style={color=black},
+    y grid style={darkgray176},
+    ylabel={Throughput [Gbps]},
+    ymajorgrids,
+    ymin=0.9, ymax=24.0983225,
+    ytick style={color=black}
+]
+\addplot [very thick, color1, mark size = 4, mark=triangle*]
+table {%
+0 0.8568
+0.10 1.327
+0.30 1.686
+0.50 1.7442
+0.70 1.8454
+1 1.9762
+};
+\addlegendentry{2 Gbps}
+\addplot [very thick, mark size = 4,color2, mark=*]
+table {%
+0 1.198
+0.10 2.2434
+0.30 3.0524
+0.50 3.3556
+0.70 3.5194
+1 3.923
+};
+\addlegendentry{4 Gbps}
+\addplot [very thick, mark size = 4, color3, mark=asterisk]
+table {%
+0 1.5812
+0.10 4.1734
+0.30 6.2714
+0.50 7.2284
+0.70 8.2628
+1 9.4924
+};
+\addlegendentry{10 Gbps}
+\addplot [very thick, mark size = 4, color4, mark=triangle*]
+table {%
+0 1.671
+0.10 6.9562
+0.30 11.6684
+0.50 13.88
+0.70 17.144
+1 20.635
+};
+\addlegendentry{25 Gbps}
+\end{axis}
+
+\end{tikzpicture}

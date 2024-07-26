@@ -1,0 +1,474 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray150}{RGB}{150,150,150}
+\definecolor{green01270}{HTML}{F09C35}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{blue}{HTML}{5BE9F0}
+\definecolor{orange}{RGB}{0,128,0}
+
+%\definecolor{darkgray176}{RGB}{150,150,150}
+%\definecolor{gray}{RGB}{128,128,128}
+%\definecolor{green}{RGB}{0,128,0}
+%\definecolor{lightgray204}{RGB}{204,204,204}
+%\definecolor{orange}{RGB}{255,165,0}
+%\definecolor{blue}{HTML}{5bc4eb}
+
+\begin{axis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend cell align={left},
+    legend style={
+        legend columns=3,
+        draw opacity=1,
+        text opacity=1,
+        at={(0.5, 0.95)},
+        anchor=south,
+        draw=black,
+        font=\footnotesize
+    },
+    tick align=outside,
+    tick pos=left,
+    x grid style={darkgray150},
+    xmajorgrids,
+    xmin=0, xmax=400,
+    xtick style={color=black},
+    y grid style={darkgray150},
+    ymajorgrids,
+    ymin=0, ymax=390,
+    ytick style={color=black},
+    xlabel={X [m]},
+    ylabel={Y [m]}
+    ]
+    
+\path [draw=white!10!black, fill=darkgray150, thick]
+(axis cs:200,200)
+--(axis cs:202.5,195)
+--(axis cs:200.0005,195)
+--(axis cs:200.0005,160)
+--(axis cs:199.9995,160)
+--(axis cs:199.9995,195)
+--(axis cs:197.5,195)
+--cycle;
+
+\addplot [very thick, white!10!black]
+table {%
+-10 -10
+-5 -5
+};
+%\addlegendimage{area legend, draw=darkgray150, fill=darkgray150, thick}
+\addlegendentry{Path link}
+
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:200,200)
+--(axis cs:196.222584491411,204.120816918461)
+--(axis cs:198.625913598539,204.80748237764)
+--(axis cs:179.999519238026,269.999862639436)
+--(axis cs:180.000480761974,270.000137360564)
+--(axis cs:198.626875122487,204.807757098768)
+--(axis cs:201.030204229615,205.494422557948)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:200,200)
+--(axis cs:205.584403908235,200.253836541283)
+--(axis cs:204.569260812334,197.969764575507)
+--(axis cs:245.000203069233,180.000456905774)
+--(axis cs:244.999796930767,179.999543094226)
+--(axis cs:204.568854673868,197.968850763958)
+--(axis cs:203.553711577968,195.684778798182)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:200,200)
+--(axis cs:196.64589803375,195.527864045)
+--(axis cs:195.528087651798,197.763484808905)
+--(axis cs:140.000223606798,169.999552786405)
+--(axis cs:139.999776393202,170.000447213595)
+--(axis cs:195.527640438203,197.764379236096)
+--(axis cs:194.409830056251,200)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:270,239)
+--(axis cs:264.947166780705,241.391417248827)
+--(axis cs:266.913906897386,242.933958516812)
+--(axis cs:229.999606573291,289.999691430032)
+--(axis cs:230.000393426709,290.000308569968)
+--(axis cs:266.914693750803,242.934575656747)
+--(axis cs:268.881433867484,244.477116924732)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:245,180)
+--(axis cs:244.648865869234,185.579131188833)
+--(axis cs:246.95028479506,184.60395367789)
+--(axis cs:269.99953962414,239.000195074517)
+--(axis cs:270.00046037586,238.999804925483)
+--(axis cs:246.951205546781,184.603563528856)
+--(axis cs:249.252624472607,183.628386017913)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:270,239)
+--(axis cs:274.926560997556,241.641779085646)
+--(axis cs:274.997946152417,239.143298665538)
+--(axis cs:304.999985720113,240.000499796043)
+--(axis cs:305.000014279887,239.999500203957)
+--(axis cs:274.99797471219,239.142299073451)
+--(axis cs:275.069359867051,236.643818653343)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:200,160)
+--(axis cs:204.853626716971,157.226499018874)
+--(axis cs:202.773917006273,155.840025878409)
+--(axis cs:240.000416025147,100.000277350098)
+--(axis cs:239.999583974853,99.9997226499019)
+--(axis cs:202.773084955979,155.839471178213)
+--(axis cs:200.693375245282,154.452998037748)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:200,160)
+--(axis cs:203.553711577968,164.315221201818)
+--(axis cs:204.568854673868,162.031149236042)
+--(axis cs:244.999796930767,180.000456905774)
+--(axis cs:245.000203069233,179.999543094226)
+--(axis cs:204.569260812334,162.030235424493)
+--(axis cs:205.584403908235,159.746163458717)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:200,160)
+--(axis cs:194.657032912576,158.356010126946)
+--(axis cs:195.067948181346,160.821501739565)
+--(axis cs:139.999917800506,169.999506803038)
+--(axis cs:140.000082199494,170.000493196962)
+--(axis cs:195.068112580333,160.822488133489)
+--(axis cs:195.479027849103,163.287979746107)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:200,160)
+--(axis cs:202.807022876983,155.165682822974)
+--(axis cs:200.312390457065,155.009768296729)
+--(axis cs:204.000499026289,96.0000311891431)
+--(axis cs:203.999500973711,95.9999688108569)
+--(axis cs:200.311392404487,155.009705918442)
+--(axis cs:197.816759984569,154.853791392198)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:180,270)
+--(axis cs:183.713906763541,274.178145108984)
+--(axis cs:184.642197759088,271.857417620116)
+--(axis cs:229.999814304662,290.000464238345)
+--(axis cs:230.000185695338,289.999535761655)
+--(axis cs:184.642569149764,271.856489143425)
+--(axis cs:185.570860145312,269.535761654557)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:180,270)
+--(axis cs:175.321197620133,273.059216940682)
+--(axis cs:177.480212982929,274.318642568979)
+--(axis cs:144.99956811055,329.999748064487)
+--(axis cs:145.00043188945,330.000251935513)
+--(axis cs:177.48107676183,274.319146440005)
+--(axis cs:179.640092124626,275.578572068302)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:180,270)
+--(axis cs:175,267.5)
+--(axis cs:175,269.9995)
+--(axis cs:104,269.9995)
+--(axis cs:104,270.0005)
+--(axis cs:175,270.0005)
+--(axis cs:175,272.5)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:240,100)
+--(axis cs:245.576923076923,100.384615384615)
+--(axis cs:244.615576923077,98.0773846153846)
+--(axis cs:300.000192307692,75.0004615384615)
+--(axis cs:299.999807692308,74.9995384615385)
+--(axis cs:244.615192307692,98.0764615384615)
+--(axis cs:243.653846153846,95.7692307692308)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:204,96)
+--(axis cs:208.693339858181,99.0368669670583)
+--(axis cs:208.969363457605,96.5526545722416)
+--(axis cs:239.999944784237,100.000496941867)
+--(axis cs:240.000055215763,99.9995030581327)
+--(axis cs:208.969473889131,96.5516606885069)
+--(axis cs:209.245497488555,94.0674482936902)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:245,180)
+--(axis cs:250.155223315592,182.161867842023)
+--(axis cs:249.988959048788,179.66790383996)
+--(axis cs:320.000033259505,175.000498892579)
+--(axis cs:319.999966740495,174.999501107421)
+--(axis cs:249.988892529778,179.666906054802)
+--(axis cs:249.822628262974,177.17294205274)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:320,175)
+--(axis cs:324.244373438136,178.638034375545)
+--(axis cs:324.850591232914,176.213163196432)
+--(axis cs:379.999878732187,190.00048507125)
+--(axis cs:380.000121267813,189.99951492875)
+--(axis cs:324.850833768539,176.212193053932)
+--(axis cs:325.457051563317,173.787321874818)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:305,240)
+--(axis cs:308.56027552273,235.690192788274)
+--(axis cs:306.124784729092,235.12815645128)
+--(axis cs:320.000487195598,175.000112429753)
+--(axis cs:319.999512804402,174.999887570247)
+--(axis cs:306.123810337896,235.127931591774)
+--(axis cs:303.688319544257,234.56589525478)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:140,170)
+--(axis cs:134.696699141101,171.767766952966)
+--(axis cs:136.464112540677,173.535180352542)
+--(axis cs:99.9996464466094,209.999646446609)
+--(axis cs:100.000353553391,210.000353553391)
+--(axis cs:136.464819647458,173.535887459323)
+--(axis cs:138.232233047034,175.303300858899)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:100,210)
+--(axis cs:101.693503643551,204.672519787997)
+--(axis cs:99.224304768602,205.060536754061)
+--(axis cs:89.0004939385627,139.999922381083)
+--(axis cs:88.9995060614373,140.000077618917)
+--(axis cs:99.2233168914766,205.060691991895)
+--(axis cs:96.7541180165281,205.448708957958)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:100,210)
+--(axis cs:97.8381321579773,215.155223315592)
+--(axis cs:100.33209616004,214.988959048788)
+--(axis cs:103.999501107421,270.000033259505)
+--(axis cs:104.000498892579,269.999966740495)
+--(axis cs:100.333093945198,214.988892529778)
+--(axis cs:102.82705794726,214.822628262974)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:100,210)
+--(axis cs:94.6383855262484,208.417884253647)
+--(axis cs:95.0777742271383,210.878460978631)
+--(axis cs:43.9999121046808,219.999507786212)
+--(axis cs:44.0000878953192,220.000492213788)
+--(axis cs:95.0779500177768,210.879445406206)
+--(axis cs:95.5173387186667,213.340022131189)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:165,55)
+--(axis cs:159.514152183162,53.9250703602141)
+--(axis cs:160.181216451074,56.3339135498957)
+--(axis cs:99.9998665604585,72.9995181349891)
+--(axis cs:100.000133439541,73.0004818650109)
+--(axis cs:160.181483330156,56.3348772799176)
+--(axis cs:160.848547598068,58.7437204695991)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:204,96)
+--(axis cs:202.365326324237,90.6541752765578)
+--(axis cs:200.554293449043,92.3768650846685)
+--(axis cs:165.000362279031,54.999655393117)
+--(axis cs:164.999637720969,55.000344606883)
+--(axis cs:200.553568890982,92.3775542984345)
+--(axis cs:198.742536015788,94.1002441065453)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:104,270)
+--(axis cs:104.756840921376,275.538699470068)
+--(axis cs:106.820539702807,274.128505302757)
+--(axis cs:144.999587177679,330.000282095252)
+--(axis cs:145.000412822321,329.999717904748)
+--(axis cs:106.821365347449,274.127941112252)
+--(axis cs:108.88506412888,272.71774694494)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:85,25)
+--(axis cs:80.306660141819,21.9631330329417)
+--(axis cs:80.0306365423949,24.4473454277584)
+--(axis cs:40.000055215763,19.9995030581327)
+--(axis cs:39.999944784237,20.0004969418673)
+--(axis cs:80.0305261108689,24.4483393114931)
+--(axis cs:79.7545025114448,26.9325517063098)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:100,73)
+--(axis cs:100.894824979408,67.481912626985)
+--(axis cs:98.5091022743093,68.2274509723283)
+--(axis cs:85.000477239989,24.9998508625034)
+--(axis cs:84.999522760011,25.0001491374966)
+--(axis cs:98.5081477943313,68.2277492473214)
+--(axis cs:96.1224250892327,68.9732875926647)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:140,170)
+--(axis cs:136.95787924062,165.310063829289)
+--(axis cs:135.690582434274,167.464468400075)
+--(axis cs:89.0002535100633,139.999569032892)
+--(axis cs:88.9997464899367,140.000430967108)
+--(axis cs:135.690075414148,167.465330334291)
+--(axis cs:134.422778607803,169.619734905077)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:89,140)
+--(axis cs:92.2770234761656,135.471079914962)
+--(axis cs:89.8105441414632,135.066135546578)
+--(axis cs:100.000493394546,73.0000810050747)
+--(axis cs:99.9995066054541,72.9999189949253)
+--(axis cs:89.8095573523715,135.065973536429)
+--(axis cs:87.3430780176691,134.661029168045)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:30,290)
+--(axis cs:26.0471529247895,293.95284707521)
+--(axis cs:28.4183868282668,294.74325837637)
+--(axis cs:9.99952565835098,349.999841886117)
+--(axis cs:10.000474341649,350.000158113883)
+--(axis cs:28.4193355115648,294.743574604136)
+--(axis cs:30.7905694150421,295.533985905295)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:104,270)
+--(axis cs:98.5209104720017,268.891136643143)
+--(axis cs:99.1730525803461,271.304062444017)
+--(axis cs:29.9998695454874,289.999517318304)
+--(axis cs:30.0001304545126,290.000482681696)
+--(axis cs:99.1733134893712,271.30502780741)
+--(axis cs:99.8254555977156,273.717953608285)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:44,220)
+--(axis cs:40.5679676350818,224.412613040609)
+--(axis cs:43.0189290339712,224.902805320387)
+--(axis cs:29.9995097096622,289.999901941932)
+--(axis cs:30.0004902903378,290.000098058068)
+--(axis cs:43.0199096146469,224.903001436522)
+--(axis cs:45.4708710135364,225.3931937163)
+--cycle;
+\path [draw=white!10!black, fill=white!10!black, thick]
+(axis cs:104,270)
+--(axis cs:101.759354601174,264.878524802684)
+--(axis cs:100.159213694213,266.798693891038)
+--(axis cs:44.0003200921998,219.99961588936)
+--(axis cs:43.9996799078002,220.00038411064)
+--(axis cs:100.158573509813,266.799462112317)
+--(axis cs:98.5584326028519,268.719631200671)
+--cycle;
+
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+270 239
+};
+
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, only marks]
+table {%
+-10 -10
+};
+\addlegendentry{IAB node}
+
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+200 160
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+180 270
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+230 290
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+240 100
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+320 175
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+100 210
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+165 55
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+145 330
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+85 25
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+245 180
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+380 190
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+305 240
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+40 20
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+140 170
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+300 75
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+100 73
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+204 96
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+89 140
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+10 350
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+30 290
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+104 270
+};
+\addplot [semithick, orange, mark=*, mark size=2.5, mark options={solid}, forget plot]
+table {%
+44 220
+};
+\addplot [semithick, red, mark=square*, mark size=3.0, mark options={solid}, forget plot]
+table {%
+200 200
+};
+
+\addplot [semithick, red, mark=square*, mark size=2.5, mark options={solid}, only marks]
+table {%
+200 200
+};
+\addlegendentry{IAB donor}
+
+\end{axis}
+
+\end{tikzpicture}
