@@ -50,8 +50,12 @@
 
 \usepackage{amsthm}
 
+% Algorithms
+\usepackage{algpseudocode,algorithm,algorithmicx}
+% Asymptotic computational complexity
+\newcommand\bigO[1]{$\mathcal{O}(#1)$}
+
 % Safehual commands and packages
-\usepackage{algorithm}
 \newcommand{\cvar}[1]{{\mathrm{CVaR}}_{#1}}
 \newcommand{\estcvar}[1]{{\widehat{\mathrm{CVaR}}}_{#1}}
 \newcommand{\ProbName}{MS\&RA}
@@ -72,6 +76,15 @@
 \usepackage{blkarray} 
 \usepackage[export]{adjustbox} 
 \usepackage{setspace}\usepackage{optidef}
+\newtheorem{definition}{Definition}[]
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{fact}[definition]{Fact}
+\newtheorem{example}[definition]{Example}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{condition}[definition]{Condition}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
 
 % bm commands
 \usepackage{bm}
@@ -81,11 +94,6 @@
 \newtheorem{lem}{Lemma}
 % Better QED
 \renewcommand\qedsymbol{$\blacksquare$}
-
-% Algorithms
-\usepackage{algpseudocode,algorithm,algorithmicx}
-% Asymptotic computational complexity
-\newcommand\bigO[1]{$\mathcal{O}(#1)$}
 
 \definecolor{UNIPDRED}{RGB}{155,0,20}
 

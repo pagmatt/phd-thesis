@@ -65,7 +65,7 @@
 \section{Introduction}
 \label{s:introduction}
 
-The emergence of mmWave cellular systems created a unique opportunity for \glspl{mno} to leverage a scalable and cost-effective approach to deal with network densification. The fact that mmWave base stations can support fiber-like data rates facilitates the use of the same base station for both access and backhaul traffic, a solution which in 3GPP parlance is referred to as \gls{iab}. Consequently, 3GPP has included IAB in the standard \cite{3gpp.38.300, 3gpp_38_174} covering the details on architecture, higher layer protocols, and the radio. Although Release 17 of 5G-NR defines the interfaces, architectures, and certain system parameters, the actual configuration and resource allocation is left to \glspl{mno}.\freefootnote{Part of this paper has been presented at INFOCOM 2023~\cite{gargari2023safehaul}.}
+The emergence of mmWave cellular systems created a unique opportunity for \glspl{mno} to leverage a scalable and cost-effective approach to deal with network densification. The fact that mmWave base stations can support fiber-like data rates facilitates the use of the same base station for both access and backhaul traffic, a solution which in 3GPP parlance is referred to as \gls{iab}. Consequently, 3GPP has included IAB in the standard \cite{3gpp.38.300, 3gpp_38_174} covering the details on architecture, higher layer protocols, and the radio. Although Release 17 of 5G-NR defines the interfaces, architectures, and certain system parameters, the actual configuration and resource allocation is left to \glspl{mno}.
 
 Traditional self-backhauled networks featured fixed-wireless links decoupled from access networks with static configurations. In contrast, IAB should account for the dynamic nature of the backhaul links (particularly in mmWave deployments) and their integration with the access network. Further, IAB allows the traffic to traverse several hops (i.e., base stations) to reach its destination, thus increasing the problem's complexity. \textit{In addition to the scheduling problem, an IAB network should: $(i)$ solve the problem of path selection and link activation at the backhaul while considering inter-cell interference, and $(ii)$ decide on serving access or backhaul traffic depending on the access load and the ingress backhaul traffic from neighboring base stations.}
 
@@ -101,7 +101,7 @@ In line with the 3GPP specification~\cite{3gpp_38_874}, we assume half-duplex se
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[width=0.6\columnwidth]{Figure/systModelNoWall-eps-converted-to}
+    \includegraphics[width=0.6\columnwidth]{Figures/Safehaul/systModelNoWall-eps-converted-to}
       \caption{Example of a graph $\mathcal{G}_i$}
       \label{fig:systModel}
       \vspace{-4mm}
@@ -159,13 +159,13 @@ Formally, the problem is written as:
 
 
 \small{
-\begin{mini!}[3]
+\begin{minie}[3]
 {\{x_{n,l,i} \}}{\sum_{n\in\mathcal{N}}\left(\sum_{d\in\mathcal{D}}\left(\frac{1}{I}\sum_{i=1}^I T_{n,d,i}\right)+\eta\mathrm{\gls{cvar}}_\alpha(T_{n,f})\right) \label{eq:objective}}{\label{eq:OptProblem}}{}
-\addConstraint{\sum_{\substack{l\in\mathcal{V}, l\neq n}} x_{n,l,i}+\sum_{l\in\mathcal{N}}x_{l,n,i}}{=1,\, \label{eq:constHD}}{n\in\mathcal{N}, \, i=1,\dots,I}
-		\addConstraint{ B_{n,i}}{\geq  M_{n,l,i,\, \label{eq:constCausal}}}{ n\in\mathcal{N}, l\in\mathcal{V},\, i=1,\dots,I}
-		\addConstraint{ B_{l,j} + M_{n,l,j} \label{eq:constOverflow}}{\leq B^\mathrm{max}_l,\,}{ n\in\mathcal{N}, l\in\mathcal{V},\, i=1,\dots,I}
-		\addConstraint{x_{n,l,i}}{\in \{0,1\}, }{n\in \mathcal{N}, l\in \mathcal{V},\, i=1,\dots,I.}
-\end{mini!}
+    \addConstraint{\sum_{\substack{l\in\mathcal{V}, l\neq n}} x_{n,l,i}+\sum_{l\in\mathcal{N}}x_{l,n,i}}{=1,\, \label{eq:constHD}}{n\in\mathcal{N}, \, i=1,\dots,I}
+    \addConstraint{ B_{n,i}}{\geq  M_{n,l,i,\, \label{eq:constCausal}}}{ n\in\mathcal{N}, l\in\mathcal{V},\, i=1,\dots,I}
+    \addConstraint{ B_{l,j} + M_{n,l,j} \label{eq:constOverflow}}{\leq B^\mathrm{max}_l,\,}{ n\in\mathcal{N}, l\in\mathcal{V},\, i=1,\dots,I}
+    \addConstraint{x_{n,l,i}}{\in \{0,1\}, }{n\in \mathcal{N}, l\in \mathcal{V},\, i=1,\dots,I.}
+\end{minie}
 }
 
 \normalsize
@@ -371,7 +371,7 @@ However, unlike the aforementioned ns-3 module, Sionna is a physical layer-focus
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[scale=0.18]{Figure/Beamforming-2.pdf}
+    \includegraphics[scale=0.18]{Figures/Safehaul/Beamforming-2.pdf}
       \caption{Schematic of the hierarchical beam management procedure. First, the general direction is estimated using wide beams (top). Then, the search is refined using the narrow beams codebook.}
       \label{fig:beamforming}
       \vspace{-5mm}
@@ -382,9 +382,6 @@ However, unlike the aforementioned ns-3 module, Sionna is a physical layer-focus
 \subsection{Extensions to Sionna's physical layer module}
 \label{sub:additionalSionna}
 In this section, we describe the physical layer modification that were necessary to evaluate IAB scenarios using Sionna. 
-
-
-
 
 \subsubsection{Codebook-based Beamforming}
 Sionna's native beamforming only supports \gls{zf} pre-coding in downlink. Therefore, as a first step, we extend Sionna by implementing an NR-like codebook-based analog beamforming both at the transmitter and at the receiver.
@@ -406,7 +403,6 @@ where $N_{H}$ and $N_{V}$ are the number of horizontal and vertical antenna elem
 In line with the 5G-NR beam management procedure~\cite{giordani2018tutorial}, we assume the lack of complete channel knowledge, i.e., the communication endpoints do not know the corresponding channel matrix. Accordingly, an exhaustive search is conducted to identify the best pair of codewords resulting in the highest \gls{sinr}. We leverage a hierarchical search, in which the communication pairs first perform a wide-beam search
 in which the transmitter and the receiver approximate the direction of communication, see Fig.~\ref{fig:beamforming}. Next, the beamforming direction is fine-tuned through a beam refinement procedure going through a codebook with narrow beams. Consequently, we employ two types of codebooks, one with wide beams for sector sweep and another with narrow beams for beam refinement.   
 
-
 \subsubsection{SINR Computations}
 
 Since Sionna does not natively calculate the \gls{sinr}, we add this functionality to the simulator to better model the impact of interference in our simulations. We compute the \gls{sinr} experienced by \glspl{tb} by combining the power of the intended signal with that of the interferers and of the thermal noise. Specifically, we first compute the power $P_{n}(i,f)$ of the intended signal at receiver $n$ over frequency $f$ and in time slot $i$. Then, we obtain the overall interference power by leveraging the superposition principle and summing the received power from all other interfering base stations $P_{m} (i, f)$ where $m \neq n$. For the purposes of this computation, we assume that each interferer employs the beamforming vector yielding the highest \gls{snr} towards its intended destination. Similarly, the transmitter and the receiver use the beamforming configuration estimated via the hierarchical search procedure. Finally, the \gls{sinr} is $
@@ -415,225 +411,8 @@ Since Sionna does not natively calculate the \gls{sinr}, we add this functionali
 $
 where $\sigma^2(i,f)$ is the thermal noise power at the receiver.
 
+%TODO: ADD BACK FIGURE
 
-
-
-
-\usetikzlibrary{positioning,shapes,shadows,arrows}
-\definecolor{mycolor}{rgb}{1,0.2,0.2}
-\definecolor{mycolor2}{rgb}{0.3,0.7,0.1}
-\definecolor{mycolor3}{rgb}{0.9,0.9,0.9}
-\tikzstyle{abstract}=[rectangle, draw=black, rounded corners, fill=mycolor, drop shadow,
-        text centered, anchor=north, text=white, text width=2.5cm]
-\tikzstyle{comment}=[rectangle, draw=black, rounded corners, fill=mycolor3, drop shadow,
-        text centered, anchor=north, text=black, text width=2.5cm]
-\tikzstyle{Sio}=[rectangle, draw=black, rounded corners, fill=mycolor2, drop shadow,
-        text centered, anchor=north, text=white, text width=2.5cm]
-\tikzstyle{myarrow}=[->, >=open triangle 90, thick]
-\tikzstyle{line}=[-, thick]
-        
-\begin{figure}\label{bigpicture}\centering
-\resizebox{.43\textwidth}{!}{\begin{tikzpicture}[node distance=2cm,thick,scale=1, every node/.style={scale=1}]
-    \node (Item) [abstract, rectangle split parts=2]
-        {
-            \textbf{Simulator}
-};
-    \node (AuxNode01) [text width=4cm, below=of Item, xshift=1cm] {};
-    \node (Component) [abstract, rectangle split, rectangle split parts=2,  below=of Item, xshift=1.5cm, yshift=0.7cm]
-        {
-        
-            \textbf{nonPHY}
-            \nodepart{second} Sec. \ref{sub:nonPHY_simulator}
-        };
-    \node (class) [abstract, rectangle split, rectangle split parts=2, left=of Component, xshift=-0.5cm]
-        {
-            \textbf{DataTypes}
-            \nodepart{second} sub Class()
-        };
-    \node (System) [abstract, rectangle split, rectangle split parts=2, right=of Component ,xshift=2cm]
-        {
-            \textbf{PHY}
-            \nodepart{second} Physical
-        };
-    \node (AuxNode02) [text width=0.5cm, below=of Component] {};
-    \node (AuxNode10) [text width=0.5cm, below=of class] {};
-     \node (iab) [abstract, rectangle split, rectangle split parts=2, below=of class, xshift=0cm, yshift=1.4cm]
-        {
-            \textbf{iab()}
-            \nodepart{second}DataType
-        }; 
-
-    \node (iabClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of iab, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second}iab\_id \newline cell\_id \newline location \newline Antenna \& BF  \newline Tx\_Buffer \newline Rx\_Buffer 
-        }; 
-     \node (network) [abstract, rectangle split, rectangle split parts=2, left=of class, xshift=1.5cm]
-        {
-            \textbf{Setup()}
-            \nodepart{second}Class
-        }; 
-
-    \node (netClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of network, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second} Topology() \newline simulation\_mode \newline run\_time \newline Access() \newline Backhaul()
-        }; 
-    \node (packet) [abstract, rectangle split, rectangle split parts=2, below=of netClasses, yshift=1.3cm]
-        {
-            \textbf{packet()}
-            \nodepart{second}DataType
-        }; 
-
-    \node (packetClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of packet, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second}packet\_id \newline packet\_size \newline frame\_id \newline UE\_id \newline Cell\_id \newline Delay \newline passed\_path\_list 
-        };   
-
-
-    \node (path) [abstract, rectangle split, rectangle split parts=2, below=of iabClasses, yshift=1.7cm]
-        {
-            \textbf{path()}
-            \nodepart{second}DataType
-        }; 
-
-    \node (pathInstant) [comment, rectangle split, rectangle split parts=2, below=0.2cm of path, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second}path\_id \newline from\_IAB \newline to\_IAB \newline SINR \newline path\_rate \newline path\_equipped 
-        }; 
-
-   
-
-
-        
-    \node (Sensor) [abstract, rectangle split, rectangle split parts=2, left=of AuxNode02, xshift=1.8cm]
-        {
-            \textbf{DataFlow}
-            \nodepart{second} Sec.~\ref{sub:Dataflow}
-        };
-
-    \node (Part) [abstract, rectangle split, rectangle split parts=2, right=of AuxNode02, xshift=-1.8cm]
-        {
-            \textbf{Control Plane}
-            \nodepart{second}
-        };
-        
-
-
-    \node (Temperature) [abstract, rectangle split, rectangle split parts=2, below=of Sensor, xshift=0cm, yshift=1cm]
-        {
-            \textbf{Buffer}
-            \nodepart{second}RLC-like
-        };
-    \node (TemperatureClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of Temperature, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second}RX DU RLC \newline TX MT RLC
-        };
-
-        
-\node (Pump) [abstract, rectangle split, rectangle split parts=2, below=of Part, xshift=0cm,yshift=1cm]
-        {
-            \textbf{BAP-like}
-            \nodepart{second} Sec.~\ref{sub:bap}
-        };
-    \node (PumpClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of Pump, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second}3GPP Standard TS 38.340
-        };
-     \node (pathsel) [abstract, rectangle split, rectangle split parts=2, below=of PumpClasses, xshift=0cm,yshift=1.7cm]
-        {
-            \textbf{Path Selection Policy}
-            \nodepart{second}
-        };    
-
-    \node (pathClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of pathsel, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second} \name{} \newline SCAROS \newline MLR
-        };    
-    \node (Valve) [abstract, rectangle split, rectangle split parts=2, right=of pathClasses, xshift=0cm, yshift=1.85cm]
-        {
-            \textbf{Scheduler}
-            \nodepart{second}Sec.~\ref{sub:scheduler}
-        };
-
-
-    \node (ValveClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of Valve, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second} RoundRobin()
-        };
-  
-   
-    \node (AuxNode05) [below=of System] {};
-    \node (CoolingSystem) [Sio, rectangle split, rectangle split parts=2, left=of AuxNode05, xshift=2cm]
-        {
-            \textbf{Sionna}
-            \nodepart{second} Sec.~\ref{s:simulation_setup}
-        };
-    \node (CoolingLoop) [abstract, rectangle split, rectangle split parts=2, right=of AuxNode05, xshift=-2cm]
-        {
-            \textbf{Extended Modules}
-            \nodepart{second} Sec.~\ref{sub:additionalSionna}
-        };
-    \node (CoolingSystemClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of CoolingSystem, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second}
-            \newline 3GPP TR 38.901 Channel models
-            \newline built-in Ray tracer
-            \newline MU-MIMO
-            \newline OFDM
-            \newline 5G-NR
-   
-            
-        };
-    \node (CoolingLoopClasses) [comment, rectangle split, rectangle split parts=2, below=0.2cm of CoolingLoop, text justified]
-        {
-            \textbf{Classes}
-            \nodepart{second}Beamforming\newline ICI \& SINR
-        };
-    
-    \draw[myarrow] (Component.north) -- ++(0,0.8) -| (Item.south);
-    \draw[line] (Component.north) -- ++(0,0.8) -| (System.north);
-    \draw[line] (network.north) -- ++(0,0.8) -| (Item.south);
-    \draw[myarrow] (class.north) -- ++(0,0.8) -| (Item.south);
-
-    \draw[myarrow] (Sensor.north) -- ++(0,0.8) -| (Component.south);
-    \draw[line] (Sensor.north) -- ++(0,0.8) -| (Part.north);
-    
-
-    \draw[line] (Pump.east) -- ++(0.2,0);
-     ([xshift=-1cm]Sensor.south);
-     \draw[myarrow] (Temperature.north) -- ++(0,0.8) -| (Sensor.south);
-     
-    
-    \draw[line] (iab.west) -- ++(-0.2,0);
-    \draw[line] (packet.east) -- ++(0.3,0);
-    \draw[myarrow] (path.west) -- ++(-0.2,0) -- ([yshift=-0.5cm, xshift=-0.2cm] class.south west) -|([xshift=0cm]class.south);
-    
-
-
-
-     ([xshift=-1cm]Part.south);
-    \draw[myarrow] (pathsel.east) -- ++(0.2,0) -- ([yshift=0.5cm, xshift=0.2cm] Pump.north east) -|
-     ([xshift=0cm]Part.south);
-     
-     \draw[line] (pathsel.east) -- ++(0,0.) -| (Valve.west);
-    \draw[myarrow] (CoolingSystem.north) -- ++(0,0.8) -| (System.south);
-    \draw[line] (CoolingSystem.north) -- ++(0,0.8) -| (CoolingLoop.north);
-
-
-\end{tikzpicture}
-}
-\caption{Overall design of our Sionna's extension. The red blocks represent our additions to the baseline simulator, i.e., Sionna~\cite{hoydis2022sionna}.}
-\label{fig:simulator_design}
-\end{figure} \subsection{System-level extensions to Sionna}
-\label{sub:nonPHY_simulator}
 As mentioned, Sionna is mainly a physical layer simulator. However, to get closer to \gls{iab} networks as specified in Rel. 17, we have extended Sionna by implementing a selection of system-level features. To such end, we introduced a discrete-event network simulator for modeling \gls{iab} networks. This system-level extension operates on top of Sionna and provides basic functionalities such as a \gls{mac}-level scheduler, layer-2 buffers, and data flow and path selection mechanisms. Our simulator, depicted in Fig.~\ref{fig:simulator_design}, generates a variety of system-level KPIs such as latency, throughput, and packet drop rate. 
 
 
@@ -642,7 +421,6 @@ As mentioned, Sionna is mainly a physical layer simulator. However, to get close
 3GPP has opted for a layer-2 relaying architecture for \nodes{} where hop-by-hop \gls{rlc} channels are established. This enables retransmissions to take place on the affected hops only, thus preventing the need for traversing again the whole route from the \donor{} whenever a physical layer \gls{tb} cannot be successfully decoded. This design results in a more efficient recovery from transmission failures and reduces buffering at the communication endpoints~\cite{madapatha2020integrated}. To mimic this architecture, we have implemented RLC-like buffers at each base station. Specifically, each \node{} features layer-2 buffers for both received and transmitted packets.
 For instance, the data flow for an uplink packet is the following.
 The \gls{ue} generates packets and sends a transmission request to the base station. Consequently, the scheduler allocates OFDM symbols for this transmission, which is eventually received and stored at the RX buffer of its \gls{du}. Next, the packet is placed into the TX buffer to be forwarded to the suitable next hop \node{}. This procedure is repeated until the packet crosses all the wireless-backhaul hops and reaches the \donor. Note that the packet can be dropped due to latency constraints or to interference.
-
 
 \subsubsection{\gls{bap}}
 \label{sub:bap}
@@ -654,36 +432,30 @@ To manage routing within the wireless-backhauled network, the 3GPP introduced \g
 Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdma} mode. The scheduler periodically allocates the time resources to backhaul or access transmissions in a Round-Robin fashion\footnote{The choice of the specific scheduling algorithm is outside of the scope of the 3GPP NR specifications, and is thus left to the MNOs. Accordingly, a Round-Robin scheduling policy represents a typical baseline assumption.}. Specifically, each cell first estimates the number of OFDM symbols needed by each data flow by examining the corresponding buffer. Then, the subframe's OFDM symbols are equally allocated to the users. If a user requires fewer symbols to transmit its complete buffer, the excess symbols (the difference between the available slot length and the needed slot length) are distributed to the other active users. \section {Performance Evaluation}
 \label{s:simulation_analysis}
 
-
 \begin{figure}
     \centering
     \subfloat[][Manhattan (223 \nodes{}).]{
-\includegraphics[scale=0.3]{Figure/manhattan_new.pdf}
+\includegraphics[scale=0.3]{Figures/Safehaul/manhattan_new.pdf}
     \label{fig:manhattan}}
     \subfloat[][Padova (100 \nodes{}).]{
-\includegraphics[scale=0.3]{Figure/padova_new.pdf}
+\includegraphics[scale=0.3]{Figures/Safehaul/padova_new.pdf}
     \label{fig:Padova_Map}}
     \caption{Locations of \nodes{} (red dots) and of the \donor{} (green triangle) in the Manhattan (left) and Padova (right) topologies.}
 \end{figure}
 
 
-
-
-
-
-
 \begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S1_lat_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_lat_vs_time.pdf}
     \label{fig:avgE2EDelay}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S1_thr_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_thr_vs_time.pdf}
     \label{fig:avgTput}
     }
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S1_drop_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_drop_vs_time.pdf}
     \label{fig:avgDropRate}
     }
   
@@ -693,15 +465,15 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
 \begin{figure*}
 \centering
 \subfloat[][Per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S2_lat.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_lat.pdf}
     \label{fig:avgE2EDelay_s2}
     }
 \subfloat[][Per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S2_thr.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_thr.pdf}
     \label{fig:avgTput_s2}
     }
 \subfloat[][Per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S2_drop.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_drop.pdf}
     \label{fig:avgDropRate_s2}
     }
   
@@ -743,8 +515,6 @@ IAB antenna gain & 33~dB \\
 
 Our evaluation consists of six scenarios, in which we study the convergence of the algorithms to a steady state, the number of \nodes{}, the number of \donors{}, and the impact of risk aversion. When demonstrating the results, we show the average throughput, latency, and packet drop rate per UE. Furthermore, we show the statistical variance of the obtained results using candlesticks which include the corresponding max, min, mean, and 10 and 90 percentiles. 
 
-
-
 \subsection{Scenario 1: Average Network Performance}
 \label{sub:netPerformance}
 Analyzing the performance of the algorithms as a function of time is crucial to determine the convergence speed of the learning-based techniques, i.e.,  \name{} and \gls{scaros}. Hence, in Fig.~\ref{fig:avgNetPerfomance} we show the average network performance over time for three metrics: latency, throughput, and packet drop rate.
@@ -769,24 +539,21 @@ As shown in Fig.~\ref{fig:avgTput_s2}, the average throughput of the learning-ba
 
 The packet drop rate for different numbers of \nodes{} is shown in Fig.~\ref{fig:avgDropRate_s2}. \name{} not only consistently outperforms the reference schemes, but also has the minimum variation in the results (at least $47.3$\% lower compared to the benchmarks). Considering the largest network size and load, i.e., 200 \nodes{} and 400 \glspl{ue}, \name{} achieves $49.3$\% and $81.2$\% lower packet drop rate compared to \gls{scaros} and \gls{mlr}, respectively. 
 
-
-
-
 \subsection{Scenario 3: Impact of the number of \donors{}}
 \label{sec:multiDonors}
 Although the benchmark schemes do not support multiple \donors{}, \name{} is designed to accommodate such scenarios. In Fig.~\ref{fig:avgNetPerfomance_s3}, we investigate the impact of the number of \nodes{} on \name{}. To this end, we keep the number of \glspl{ue} and their data rate constant. 
 \begin{figure*}
 \centering
 \subfloat[][Average per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S3_lat.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_lat.pdf}
     \label{fig:avgE2EDelay_s3}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S3_thr.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_thr.pdf}
     \label{fig:avgTput_s3}
     }
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S3_drop.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_drop.pdf}
     \label{fig:avgDropRate_s3}
     }
   
@@ -800,7 +567,7 @@ Finally, Fig. \ref{fig:avgDropRate_s3} shows that increasing the number of \dono
 
 \begin{figure}[ t!]
     \centering
-    \includegraphics[width=0.6\columnwidth]{Figure/R_latency4.pdf}
+    \includegraphics[width=0.6\columnwidth]{Figures/Safehaul/R_latency4.pdf}
     \setlength{\belowcaptionskip}{-12pt}
       \caption{Average latency for 50 UEs and 20 Mbps per-UE source rate, versus the risk level $\alpha$ (Scenario 4)}
       \label{fig:riskParam}
@@ -814,15 +581,15 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
 \begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S1_lat_vs_time_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_lat_vs_time_padova.pdf}
     \label{fig:avgE2EDelayPadova}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S1_thr_vs_time_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_thr_vs_time_padova.pdf}
     \label{fig:avgTputPadova}
     }
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S1_drop_vs_time_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_drop_vs_time_padova.pdf}
     \label{fig:avgDropRatePadova}
     }
   
@@ -835,15 +602,15 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
 \begin{figure*}
 \centering
 \subfloat[][Per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S2_lat_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_lat_padova.pdf}
     \label{fig:avgE2EDelay_s2Padova}
     }
 \subfloat[][Per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S2_thr_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_thr_padova.pdf}
     \label{fig:avgTput_s2Padova}
     }
 \subfloat[][Per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S2_drop_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_drop_padova.pdf}
     \label{fig:avgDropRate_s2Padova}
     }
   
@@ -855,15 +622,15 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
 \begin{figure*}
 \centering
 \subfloat[][Average per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S3_lat_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_lat_padova.pdf}
     \label{fig:avgE2EDelay_s3Padova}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S3_thr_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_thr_padova.pdf}
     \label{fig:avgTput_s3Padova}
     }
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S3_drop_padova.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_drop_padova.pdf}
     \label{fig:avgDropRate_s3Padova}
     }
   
@@ -882,8 +649,6 @@ In Fig.~\ref{fig:avgNetPerfomance_s2Padova}, we compare the consistency of the p
 Results show that \name{}, when compared to other schemes, exhibits minimal performance degradation when introducing additional \nodes{} and \glspl{ue}. As can be seen in Fig.~\ref{fig:avgE2EDelay_s2Padova}, the latency achieved by \name{} increases by at most 16\% in the case of 100 \nodes{}, while SCAROS and MLR lead to a latency which is consistently higher and increases up to~27\% and ~25\% when deploying additional nodes, respectively.
 Similar trends can be observed in Figs.~\ref{fig:avgTput_s2Padova} and \ref{fig:avgDropRate_s2Padova}, which report throughput and packet loss versus the network size, respectively. Indeed, \name{} is the best performer across the whole range of \nodes{} which have been considered. Furthermore, \name{} loses 20\% more packets with the denser network deployment (i.e., 100 \nodes{}), while reference schemes exhibit an increase in packet loss of up to 33\%. 
 
-
-
 We complete this analysis by examining how the number of donors affects the performance achieved by \name{} in the Padova-like topology. 
 As can be seen in Fig.~\ref{fig:avgNetPerfomance_s3Padova}, increasing the number of fiber-backhauled base stations progressively reduces the latency. Similarly, and in line with the results obtained in Scenario 3 and reported in Fig.~\ref{fig:avgDropRate_s3Padova}, the packet drop rate varies from approximately 0.08\% when considering a single \donor{}, to approximately 0.003\% in the presence of five \donors{}. The performance improvements introduced by additional fiber links saturate after 3 donors, thanks to the efficient routing and scheduling performed by \name{}.
 
@@ -897,15 +662,15 @@ To prevent and/or recover from these undesired events, a backhaul scheduler must
 \begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S6_lat_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S6_lat_vs_time.pdf}
     \label{fig:avgE2EDelay_Re}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S6_thr_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S6_thr_vs_time.pdf}
     \label{fig:avgTput_Re}
     }
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S6_drop_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S6_drop_vs_time.pdf}
     \label{fig:avgDropRate_Re}
     }
   
@@ -917,15 +682,15 @@ To prevent and/or recover from these undesired events, a backhaul scheduler must
 \begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figure/S7_lat_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S7_lat_vs_time.pdf}
     \label{fig:avgE2EDelay_Re2}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figure/S7_thr_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S7_thr_vs_time.pdf}
     \label{fig:avgTput_Re2}
     }
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figure/S7_drop_vs_time.pdf}
+    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S7_drop_vs_time.pdf}
     \label{fig:avgDropRate_Re2}
     }
   
@@ -938,7 +703,6 @@ Since the failed node(s) is (are) chosen at random, we run multiple simulations 
 
 Results show that MLR is unable to react to the link failure(s) due to its static and myopic policy. Specifically, the disruption causes an increase of~33\% (60\%) in latency, and a decrease of up to 15\% (23\%) in throughput when considering one (three) link failure(s).
 On the other hand, both \name{} and SCAROS are capable of adapting the scheduling to the new topology. Indeed, both schemes show a transient region where the performance is slightly degraded since the algorithms are learning new routes and resource partitions to account for the lost link. Nevertheless, \name{} and SCAROS eventually converge to a solution which provides approximately the same network performance as before the failures, in both cases of one and three lost links.
-
 
 \section {Related work}
 \label{s:related}
@@ -959,14 +723,9 @@ The work closest to this article is SCAROS~\cite{ortiz2019scaros},  a learning-b
 \label{s:conclusion}
 In this work, we proposed the first reliability-focused scheduling and path selection algorithm for \gls{iab} mmWave networks. We illustrated that our \gls{rl}-based solution can cope with the network dynamics including channel, interference, and load.  Furthermore, we demonstrated that \name{} not only  exhibits highly reliable performance in the presence of the above-mentioned network dynamics, but also outperforms the benchmark schemes in terms of throughput, latency and packet-drop rate. The reliability of \name{} stems from the joint minimization of the average latency, and the expected value of its tail losses, by leveraging \gls{cvar} as a risk metric.
 
-
-
-
 Reliability is a highly under-explored topic that definitely deserves more investigation. Some interesting research directions are the maximization of reliability under the assumption of statistical system knowledge, or the evaluation of the network's reliability when the functionality of the \gls{bap} layer is compromised.
 Furthermore, our system-level extension to Sionna can be further developed to support an arbitrary number of RF chains and in-band backhauling, allowing more extensive investigation of IAB protocols and architectures.
 
- \section{Acknowledgement}
-This research was partly funded by the DFG within the mm-Cell project and the Collaborative Research Center 1053 MAKI, by the LOEWE initiative (Hesse, Germany) within the emergenCITY center, by the BMBF through the Open6GHub project and by the European Commission through Grant No. 861222 (H2020 ITN MINTS project), and funded by Grant PID2021-126431OB-I00 funded by MCIN/AEI/10.13039/501100011033 and by “ERDF A way of making Europe", and Generalitat de Catalunya grant 2021 SGR 00770." 
 \section*{Appendix}
 \label{sec:appendix}
 For the proof of Proposition \ref{prop:probNonOptArm}, Theorem 3 in \cite{Luo2017} is needed. For completeness, we first present the theorem in \cite{Luo2017} for the special case in which the considered random variables are independent. Next, we present the proof of Proposition \ref{prop:probNonOptArm}.
