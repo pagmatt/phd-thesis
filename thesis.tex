@@ -49,8 +49,30 @@
 \interfootnotelinepenalty=10000
 
 \usepackage{amsthm}
-% Argmax
-\DeclareMathOperator*{\argmax}{arg\,max}
+
+% Safehual commands and packages
+\usepackage{algorithm}
+\newcommand{\cvar}[1]{{\mathrm{CVaR}}_{#1}}
+\newcommand{\estcvar}[1]{{\widehat{\mathrm{CVaR}}}_{#1}}
+\newcommand{\ProbName}{MS\&RA}
+\newcommand{\name}{Safehaul}
+\newcommand{\donor}{BS-donor}
+\newcommand{\donors}{BS-donors}
+\newcommand{\node}{BS-node}
+\newcommand{\nodes}{BS-nodes}
+\newcommand\Algphase[1]{\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\columnwidth}{0.4pt}\Statex\hspace*{-\algorithmicindent}\textbf{#1}\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\columnwidth}{0.4pt}}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\DeclareMathOperator{\ue}{ue}
+\DeclareMathOperator{\size}{size}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcommand{\fref}[1]{Fig.~\ref{#1}}
+\usepackage{blkarray} 
+\usepackage[export]{adjustbox} 
+\usepackage{setspace}\usepackage{optidef}
+
 % bm commands
 \usepackage{bm}
 \usepackage{bbm}
@@ -198,7 +220,7 @@
   \include{Sources/Introduction}
   \include{Sources/IAB}
   \include{Sources/IAB-WONS}
-  
+  \include{Sources/IAB-SAFEHAUL}
 % This ensures that the subsequent sections are being included as root
 % items in the bookmark structure of your PDF reader.
 \bookmarksetup{startatroot}

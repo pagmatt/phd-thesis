@@ -175,7 +175,10 @@
 \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
 \renewcommand{\right}{\aftergroup\egroup\originalright}
 
-\DeclareMathOperator*{\argmin}          {arg\,min}
+
+\DeclareMathOperator*{\argmax}{\arg\!\max} 
+\DeclareMathOperator*{\argmin}{\arg\!\min} 
+\DeclareMathOperator{\E}{E} 
 \DeclareMathOperator {\dist}            {dist}
 \DeclareMathOperator {\im}              {im}
 
