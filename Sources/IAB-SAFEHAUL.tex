@@ -411,7 +411,12 @@ Since Sionna does not natively calculate the \gls{sinr}, we add this functionali
 $
 where $\sigma^2(i,f)$ is the thermal noise power at the receiver.
 
-%TODO: ADD BACK FIGURE
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{Figures/Safehaul/simulator_diagram.pdf}
+\label{bigpicture}
+\caption{Overall design of our Sionna's extension. The red blocks represent our additions to the baseline simulator, i.e., Sionna~\cite{hoydis2022sionna}.}
+\end{figure}
 
 As mentioned, Sionna is mainly a physical layer simulator. However, to get closer to \gls{iab} networks as specified in Rel. 17, we have extended Sionna by implementing a selection of system-level features. To such end, we introduced a discrete-event network simulator for modeling \gls{iab} networks. This system-level extension operates on top of Sionna and provides basic functionalities such as a \gls{mac}-level scheduler, layer-2 buffers, and data flow and path selection mechanisms. Our simulator, depicted in Fig.~\ref{fig:simulator_design}, generates a variety of system-level KPIs such as latency, throughput, and packet drop rate. 
 
