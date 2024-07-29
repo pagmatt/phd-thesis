@@ -1,0 +1,163 @@
+
+\definecolor{mycolor2}{rgb}{1,0.2,0.2}%%
+\definecolor{mycolor1}{rgb}{0,0,0.9}
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor5}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor6}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor4}{rgb}{0.63500,0.07800,0.18400}%
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+%
+\begin{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xlabel style={font=\footnotesize},
+    ylabel style={font=\footnotesize},
+    xmin=1,
+    xmax=100,
+    ymin=0,
+    ymax=380,
+    xtick={  1,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100},
+    xlabel={Maximum number of clusters $Z$},
+    ylabel={Average sum capacity $\bar{C}$ [Mbit/s]},
+    axis background/.style={fill=white},
+    xmajorgrids,
+    ymajorgrids,
+    %legend style={at={(0.7,0.02)}, anchor=south west, legend cell align=left, align=left, font=\footnotesize, draw=white!15!black}
+        legend image post style={mark indices={}},
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.82, 0.02)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize,
+        fill opacity=0.8
+        },
+    legend columns=1,
+]
+
+
+\addplot [color=mycolor4, very thick, mark size=2.8pt, mark=square*, mark options={solid, mycolor4}]
+  table[row sep=crcr]{%
+1	28.1176119718827\\
+10	100.861817510268\\
+20	141.73705839455\\
+30	184.950555262946\\
+40	220.748336489813\\
+50	249.049165794823\\
+60	278.433938108025\\
+70	298.761903651574\\
+80	319.977611125998\\
+90	337.45750170188\\
+100	349.625593642553\\
+};
+\addlegendentry{KMed}
+
+\addplot [color=mycolor5, very thick, mark size=3.0pt, mark=diamond*, mark options={solid, mycolor5}]
+  table[row sep=crcr]{%
+1	18.2443411157527\\
+10	77.7983732080269\\
+20	123.566685831694\\
+30	159.811932668768\\
+40	192.862674643542\\
+50	221.880711483525\\
+60	250.403247328401\\
+70	277.018934845287\\
+80	302.122691870657\\
+90	325.717076087751\\
+100	349.625593642553\\
+};
+\addlegendentry{KM}
+
+\addplot [color=mycolor6, very thick, mark size=3.0pt, mark=pentagon*, mark options={solid, mycolor6}]
+  table[row sep=crcr]{%
+1	25.5007827861076\\
+10	112.925237968855\\
+20	166.830476313084\\
+30	205.672720543757\\
+40	236.778342633094\\
+50	264.308292456048\\
+60	285.840372512358\\
+70	304.430768920583\\
+80	320.543034112752\\
+90	335.248581783295\\
+100	349.625593642553\\
+};
+\addlegendentry{HC}
+
+\addplot [color=mycolor7, very thick, mark size=3.0pt, mark=star]
+  table[row sep=crcr]{%
+1	349.625502666711\\
+10	349.625502666711\\
+20	349.625502666711\\
+30	349.625502666711\\
+40	349.625502666711\\
+50	349.625502666711\\
+60	349.625502666711\\
+70	349.625502666711\\
+80	349.625502666711\\
+90	349.625502666711\\
+100	349.625502666711\\
+};
+\addlegendentry{Unclustered}
+
+\addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	69.2198831219031\\
+10	146.251344545728\\
+20	200.447073159671\\
+30	244.732697150523\\
+40	276.703626326244\\
+50	300.300582274394\\
+60	317.284325558418\\
+70	329.751795212581\\
+80	338.816310164981\\
+90	345.113220285055\\
+100	349.625593642553\\
+};
+\addlegendentry{CWC}
+
+\addplot [color=mycolor1, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	30.7889899649677\\
+10	94.5687304604159\\
+20	136.096494188705\\
+30	171.571973470307\\
+40	202.846458893204\\
+50	227.85446794259\\
+60	248.01792008807\\
+70	269.170203404248\\
+80	294.955409175835\\
+90	324.880336264252\\
+100	349.625593642553\\
+};
+\addlegendentry{ICWC}
+
+\addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+  table[row sep=crcr]{%
+1	26.388476217658\\
+10	121.727908917765\\
+20	186.926040773053\\
+30	235.871625771207\\
+40	270.739181989123\\
+50	296.603964541797\\
+60	315.119655587025\\
+70	328.408235238309\\
+80	338.086670053488\\
+90	344.893216468099\\
+100	349.625593642553\\
+};
+\addlegendentry{OSCBC}
+
+%\addplot [color=mycolor7, dashed, very thick]
+
+
+\end{axis}
+
+\end{tikzpicture}%

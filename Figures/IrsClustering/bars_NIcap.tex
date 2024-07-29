@@ -1,0 +1,245 @@
+\definecolor{mycolor1}{rgb}{1,0.2,0.2}%%ICWC
+\definecolor{mycolor2}{rgb}{0,0,0.9}%%CWC
+\definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}
+
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+\begin{tikzpicture}
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+scale only axis,
+bar shift auto,
+xmin=0.5,
+xmax=4.5,
+ybar=5.5pt,
+xtick={1,2,3,4},
+xticklabels={{$10$H$\times20$V},{$20$H$\times40$V},{$40$H$\times80$V},{$60$H$\times120$V}},
+ymin=0,
+ymax=560,
+    xlabel style={font=\footnotesize},
+    ylabel style={font=\footnotesize},
+ylabel={Average sum capacity $\bar{C}$ [s]},
+xlabel={IRS elements},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, font=\footnotesize, align=left, draw=none},
+axis line style={draw=none}
+]
+\addplot[ybar, bar width=0.2, preaction={fill, mycolor1}, thick, pattern={north east lines}, pattern color=black, draw=black, area legend] table[row sep=crcr] {%
+1	34.9976\\
+2	104.5981\\
+3	192.5310\\
+4	271.7077\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+0.511111111111111	0\\
+4.48888888888889	0\\
+};
+\addlegendentry{CWC $Z=20$}
+
+\addplot[ybar, bar width=0.2, preaction={fill, mycolor1}, thick, pattern={Dots[radius=1.2]}, pattern color=black, draw=black, area legend] table[row sep=crcr] {%
+1	37.1648\\
+2	129.2787\\
+3	297.9769\\
+4	422.6018\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+0.511111111111111	0\\
+4.48888888888889	0\\
+};
+\addlegendentry{CWC $Z=50$}
+
+\addplot[ybar, bar width=0.2, preaction={fill, mycolor1}, thick, pattern={grid}, pattern color=black, area legend] table[row sep=crcr] {%
+1	37.3609 \\
+2	133.1811\\
+3	338.4418\\
+4	509.2955\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+0.511111111111111	0\\
+4.48888888888889	0\\
+};
+\addlegendentry{CWC $Z=80$}
+\legend{}
+\end{axis}
+
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+scale only axis,
+bar shift auto,
+ybar=5.5pt,
+xmin=0.57,
+xmax=4.57,
+xtick={1,2,3,4},
+% xticklabels={{}, {}, {},{}},
+% ymin=0,
+% ymax=560,
+% ylabel style={font=\normalsize},
+% xlabel style={font=\normalsize},
+% xtick={},
+ytick={},
+xticklabels={{}, {}, {},{}},
+yticklabels={},
+ymin=0,
+ymax=560,
+xtick style = {draw=none},
+%ylabel={$\bar{C}$ [Mbit/time slot]},
+%axis background/.style={fill=white},
+%xmajorgrids,
+%ymajorgrids,
+legend style={at={(0.38,0.97)}, anchor=north west, legend cell align=left, font=\footnotesize, align=left, draw=white!15!black}
+]
+\addplot[ybar, bar width=0.2, preaction={fill, mycolor2}, thick, pattern={north east lines}, pattern color=white, draw=black, area legend] table[row sep=crcr] {%
+1	16.9103 \\
+2	53.0505\\
+3	108.5403\\
+4   224.3472\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+0.511111111111111	0\\
+4.48888888888889	0\\
+};
+\addlegendentry{ICWC $Z=20$}
+
+\addplot[ybar, bar width=0.2, preaction={fill, mycolor2}, thick, pattern={Dots[radius=1.2]}, pattern color=white, area legend] table[row sep=crcr] {%
+1	22.7761\\
+2	79.3228\\
+3	206.6192\\
+4   378.9325\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+0.511111111111111	0\\
+4.48888888888889	0\\
+};
+\addlegendentry{ICWC $Z=50$}
+
+\addplot[ybar, bar width=0.2, preaction={fill, mycolor2}, thick, pattern={grid}, pattern color=white, area legend] table[row sep=crcr] {%
+1	29.0170\\
+2	104.9147\\
+3	279.1563\\
+4   478.8952\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+0.511111111111111	0\\
+4.48888888888889	0\\
+};
+\addlegendentry{ICWC $Z=80$}
+\legend{}
+
+\end{axis}
+
+
+%%%%%%%%%%%%%%%%%%%% UNCLUSTERED
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+scale only axis,
+xmin=0.5,
+xmax=4.57,
+ytick={},
+xticklabels={{}, {}, {},{}},
+yticklabels={},
+ymin=0,
+ymax=560,
+xtick style = {draw=none},
+]
+\addplot [color=mycolor7, very thick]
+  table[row sep=crcr]{%
+0.545	38.3936\\
+1.4	38.3936\\
+};
+\addlegendentry{Unclustered}
+\addplot [color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star]
+  table[row sep=crcr]{%
+0.9275 38.3936\\
+};
+
+\addplot [color=mycolor7, very thick]
+  table[row sep=crcr]{%
+1.565	133.895\\
+2.42	133.895\\
+};
+\addlegendentry{Unclustered}
+\addplot [color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star]
+  table[row sep=crcr]{%
+1.9925 133.895\\
+};
+
+\addplot [color=mycolor7, very thick]
+  table[row sep=crcr]{%
+2.58	349.625502666711\\
+3.435	349.625502666711\\
+};
+\addlegendentry{Unclustered}
+\addplot [color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star]
+  table[row sep=crcr]{%
+3.0075  349.625502666711\\
+};
+
+\addplot [color=mycolor7, very thick]
+  table[row sep=crcr]{%
+3.595	542.8657\\
+4.45	542.8657\\
+};
+\addlegendentry{Unclustered}
+\addplot [color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star]
+  table[row sep=crcr]{%
+4.0225  542.8657\\
+};
+
+\legend{}
+\end{axis}
+
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xmin=0.511111111111111,
+    xmax=4.48888888888889,
+    xtick={},
+    ytick={},
+    xticklabels={{}, {}, {},{}},
+    yticklabels={},
+    ymin=0,
+    ymax=560,
+    xtick style = {draw=none},
+    ytick style = {draw=none},
+    legend style={
+            /tikz/every even column/.append style={column sep=0.2cm},
+            at={(0.18, 0.4)}, 
+            anchor=south, 
+            draw=white!80!black, 
+            font=\scriptsize,
+            fill opacity=0.8
+            },
+        legend columns=1
+]
+
+\addlegendimage{color = mycolor7, mark=star, very thick,  mark size=3.0pt}
+\addlegendentry{Unclustered}
+\addlegendimage{bar width=0.2, preaction={fill, mycolor1}, thick, area legend}
+\addlegendentry{CWC}
+\addlegendimage{bar width=0.2, preaction={fill, mycolor2}, thick, area legend}
+\addlegendentry{ICWC}
+\addlegendimage{bar width=0.2, preaction={fill, white}, thick, pattern={north east lines}, pattern color=black, area legend}
+\addlegendentry{$Z=20$}
+\addlegendimage{bar width=0.2, preaction={fill, white}, thick, pattern={Dots[radius=1.2]}, pattern color=black, area legend}
+\addlegendentry{$Z=50$}
+\addlegendimage{bar width=0.2, preaction={fill, white}, thick, pattern={grid}, pattern color=black, area legend}
+\addlegendentry{$Z=80$}
+
+\end{axis}
+
+
+
+\end{tikzpicture}%

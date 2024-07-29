@@ -1,0 +1,167 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.63500,0.07800,0.18400}%
+\definecolor{mycolor2}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor4}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor5}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor6}{rgb}{0.85000,0.32500,0.09800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.521in,
+height=3.478in,
+at={(0.758in,0.568in)},
+scale only axis,
+xmin=1,
+xmax=150,
+xtick={  1,  50, 100, 150},
+xlabel style={font=\color{white!15!black}},
+xlabel={$Z$},
+ymode=log,
+ymin=1e-05,
+ymax=1,
+yminorticks=true,
+ylabel style={font=\color{white!15!black}},
+ylabel={$C_{0.95}$ [bit/slot]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+yminorgrids,
+legend style={at={(0.97,0.03)}, anchor=south east, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=mycolor1, line width=1.5pt, mark size=5.0pt, mark=star, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	9.48973089989903e-05\\
+15	0.00289930381723298\\
+30	0.00610276973304501\\
+45	0.00885882987070844\\
+60	0.0110813539492212\\
+75	0.0123208551181975\\
+90	0.0138973268322657\\
+105	0.0161615204133089\\
+120	0.0183940700116309\\
+135	0.0207087423926173\\
+150	0.275384722909101\\
+};
+\addlegendentry{CWC}
+
+\addplot [color=mycolor2, line width=1.5pt, mark size=5.0pt, mark=star, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	0.000188394579002634\\
+15	0.00704308425725438\\
+30	0.0126798789172862\\
+45	0.0178674575741321\\
+60	0.0249498442845202\\
+75	0.0301224219877855\\
+90	0.0615935338104564\\
+105	0.177904533068143\\
+120	0.226173287188908\\
+135	0.275349462005646\\
+150	0.275384722909101\\
+};
+\addlegendentry{ICWC}
+
+\addplot [color=mycolor3, line width=1.5pt, mark size=5.0pt, mark=asterisk, mark options={solid, mycolor3}]
+  table[row sep=crcr]{%
+1	1.04458905158332e-05\\
+15	6.33172632857339e-05\\
+30	0.000210885083522277\\
+45	0.0004678133101114\\
+60	0.00125439201457\\
+75	0.00173261508224284\\
+90	0.00293059712310386\\
+105	0.00338800865628531\\
+120	0.00445957788862035\\
+135	0.00754527013374217\\
+150	0.275384722909101\\
+};
+\addlegendentry{OSCBC}
+
+\addplot [color=mycolor4, line width=1.5pt, mark size=8.6pt, mark=diamond, mark options={solid, mycolor4}]
+  table[row sep=crcr]{%
+1	5.27738216375567e-05\\
+15	0.000943562583380547\\
+30	0.00412386468958694\\
+45	0.00541706800608894\\
+60	0.007032854859655\\
+75	0.00981753413601254\\
+90	0.0120908333780883\\
+105	0.0149262882751276\\
+120	0.0256809609656506\\
+135	0.114432969060934\\
+150	0.275384722909101\\
+};
+\addlegendentry{KMed}
+
+\addplot [color=mycolor5, line width=1.5pt, mark size=3.5pt, mark=square, mark options={solid, mycolor5}]
+  table[row sep=crcr]{%
+1	3.04216563806802e-05\\
+15	0.000196273208969779\\
+30	0.000529340936843863\\
+45	0.00167435588845792\\
+60	0.00339817682044359\\
+75	0.00543553001773485\\
+90	0.00963913016117001\\
+105	0.0136120186298611\\
+120	0.029634076627278\\
+135	0.0964236253584\\
+150	0.275384722909101\\
+};
+\addlegendentry{HC}
+
+\addplot [color=mycolor6, line width=1.5pt, mark size=3.3pt, mark=triangle, mark options={solid, rotate=180, mycolor6}]
+  table[row sep=crcr]{%
+1	0.000227822788539798\\
+15	0.0163562165497326\\
+30	0.0308975223571676\\
+45	0.0526019106299148\\
+60	0.0713609804333261\\
+75	0.0775409671456029\\
+90	0.0917860191137382\\
+105	0.131349004012284\\
+120	0.149839569351463\\
+135	0.193189742738245\\
+150	0.275384722909101\\
+};
+\addlegendentry{KM}
+
+\addplot [color=red, dashed, line width=1.5pt]
+  table[row sep=crcr]{%
+1	0.275384721621777\\
+15	0.275384721621777\\
+30	0.275384721621777\\
+45	0.275384721621777\\
+60	0.275384721621777\\
+75	0.275384721621777\\
+90	0.275384721621777\\
+105	0.275384721621777\\
+120	0.275384721621777\\
+135	0.275384721621777\\
+150	0.275384721621777\\
+};
+\addlegendentry{Unclustered}
+
+\end{axis}
+
+\begin{axis}[%
+width=5.833in,
+height=4.375in,
+at={(0in,0in)},
+scale only axis,
+xmin=0,
+xmax=1,
+ymin=0,
+ymax=1,
+axis line style={draw=none},
+ticks=none,
+axis x line*=bottom,
+axis y line*=left
+]
+\end{axis}
+\end{tikzpicture}%

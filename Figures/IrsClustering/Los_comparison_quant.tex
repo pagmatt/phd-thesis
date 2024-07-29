@@ -1,0 +1,851 @@
+% \definecolor{mycolor2}{rgb}{1,0.2,0.2}%%ICWC
+% \definecolor{mycolor1}{rgb}{0,0,0.9}%%CWC
+% \definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}
+% \definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}
+% \pgfplotsset{every tick label/.append style={font=\footnotesize}}
+% %
+% \begin{tikzpicture}
+
+% \begin{axis}[%
+%      width=\fwidth,
+%     height=\fheight,
+%     at={(0\fwidth,0\fheight)},
+%     scale only axis,
+%     xlabel style={font=\footnotesize},
+%     ylabel style={font=\footnotesize},
+%     xmin=1,
+%     xmax=100,
+%     xtick={  1,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100},
+%     xlabel={Maximum number of clusters $Z$},
+%     ymin=0.0001,
+%     ymax = 6.2,
+%     %ymode=log,
+%     ylabel={$C_{95\%}$ [Mbit/slot]},
+%     axis background/.style={fill=white},
+%     xmajorgrids,
+%     ymajorgrids,
+%         legend style={
+%         /tikz/every even column/.append style={column sep=0.2cm},
+%         at={(0.5, 1.02)}, 
+%         anchor=south, 
+%         draw=white!80!black, 
+%         font=\footnotesize
+%         },
+%     legend columns=4,
+% ]
+
+% \addplot [color=mycolor1, loosely dotted, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+%   table[row sep=crcr]{%
+% 1	0.000500049041251989\\
+% 10	0.00879038021079986\\
+% 20	0.0155732811065867\\
+% 30	0.0221916894576317\\
+% 40	0.0271261762010032\\
+% 50	0.0371371752533747\\
+% 60	0.0424389253807081\\
+% 70	0.0631201194020797\\
+% 80	0.14002654002509\\
+% 90	0.420163818952632\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{ICWC NLoS}
+
+% \addplot [color=mycolor2, loosely dotted, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+%   table[row sep=crcr]{%
+% 1	0.0000604878618583651\\
+% 10	0.000218231579284887\\
+% 20	0.000760880351947475\\
+% 30	0.00228050435443444\\
+% 40	0.00520264418974567\\
+% 50	0.010344231001328\\
+% 60	0.0167984991251984\\
+% 70	0.0219195622413493\\
+% 80	0.0270355200431586\\
+% 90	0.035742624223227\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{CWC NLoS}
+
+% \addplot [color=mycolor3, loosely dotted, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+%   table[row sep=crcr]{%
+% 1	1.06116422242751e-06\\
+% 10	5.89933907181129e-06\\
+% 20	3.43608076837286e-05\\
+% 30	0.000131815849911531\\
+% 40	0.000401516654310686\\
+% 50	0.000802564693064657\\
+% 60	0.00183433941622052\\
+% 70	0.00300292614245462\\
+% 80	0.00423922675137229\\
+% 90	0.00724578468490145\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{OSCBC NloS}
+
+% % \addplot [color=mycolor7, loosely dotted, very thick, mark size=3.0pt, mark=star]
+% % table[row sep=crcr]{%
+% % 1	0.496405424855824\\
+% % 10	0.496405424855824\\
+% % 20	0.496405424855824\\
+% % 30	0.496405424855824\\
+% % 40	0.496405424855824\\
+% % 50	0.496405424855824\\
+% % 60	0.496405424855824\\
+% % 70	0.496405424855824\\
+% % 80	0.496405424855824\\
+% % 90	0.496405424855824\\
+% % 100	0.496405424855824\\
+% % };
+% % \addlegendentry{Unclustered LoS}
+
+% \addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.000352176335045496\\
+% 10	0.00715773125724289\\
+% 20	0.0123968956368005\\
+% 30	0.0161716915438238\\
+% 40	0.0211264972190773\\
+% 50	0.0248474277248269\\
+% 60	0.0268128141403884\\
+% 70	0.030761747165061\\
+% 80	0.03535106964258\\
+% 90	0.0454507715891272\\
+% 100	0.521622625892803\\
+% };
+% \addlegendentry{CWC pLoS}
+
+% \addplot [color=mycolor1,very thick, mark size=3.0pt, mark=x, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.00048596966650802\\
+% 10	0.00924259717830068\\
+% 20	0.018541491048952\\
+% 30	0.0270657209741321\\
+% 40	0.0377350742954899\\
+% 50	0.0542973834116236\\
+% 60	0.0958968035942498\\
+% 70	0.285570455995226\\
+% 80	0.444554807707306\\
+% 90	0.508367556348705\\
+% 100	0.521622625892803\\
+% };
+% \addlegendentry{ICWC ploS}
+
+% \addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+%   table[row sep=crcr]{%
+% 1	2.62521873506631e-05\\
+% 10	6.81291054156293e-05\\
+% 20	0.000284919488032969\\
+% 30	0.000440668563758382\\
+% 40	0.000786034745828592\\
+% 50	0.00169163539622302\\
+% 60	0.00294921232516224\\
+% 70	0.00475839240695278\\
+% 80	0.00596724043372362\\
+% 90	0.00958303324174252\\
+% 100	0.52935086872942\\
+% };
+% \addlegendentry{OSCBC ploS}
+
+% % \addplot [color=mycolor7, very thick, mark size=3.0pt, mark=star]
+% % table[row sep=crcr]{%
+% % 1	0.52935086872942\\
+% % 10	0.52935086872942\\
+% % 20	0.52935086872942\\
+% % 30	0.52935086872942\\
+% % 40	0.52935086872942\\
+% % 50	0.52935086872942\\
+% % 60	0.52935086872942\\
+% % 70	0.52935086872942\\
+% % 80	0.52935086872942\\
+% % 90	0.52935086872942\\
+% % 100	0.52935086872942\\
+% % };
+% % \addlegendentry{Unclustered LoS}
+
+% \addplot [color=mycolor2, dashdotted, very thick, mark size=3.0pt, mark=o, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.0883600648401618\\
+% 10	0.776925338076472\\
+% 20	1.34631886989173\\
+% 30	1.76679685869862\\
+% 40	2.1118219830613\\
+% 50	2.73458126911321\\
+% 60	3.18097519163225\\
+% 70	3.6588516439753\\
+% 80	4.40547060722027\\
+% 90	5.464553387301\\
+% 100	6.08113975800385\\
+% };
+% \addlegendentry{CWC LoS}
+
+% \addplot [color=mycolor1, dashdotted, very thick, mark size=3.0pt, mark=x, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.0642341122541475\\
+% 10	001.95054750544259\\
+% 20	003.35718468324095\\
+% 30	004.20584698387288\\
+% 40	004.73633862145016\\
+% 50	005.337358181078\\
+% 60	005.73096794650999\\
+% 70	005.93860069121202\\
+% 80	006.02026948971728\\
+% 90	006.05712003276062\\
+% 100	006.08113975800385\\
+% };
+% \addlegendentry{ICWC LoS}
+
+% \addplot [color=mycolor3, dashdotted, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180}]
+%   table[row sep=crcr]{%
+% 1	0.00210584355065569\\
+% 10	0.00742708113911705\\
+% 20	0.018360636667495\\
+% 30	0.0302642495408203\\
+% 40	0.0540705332839179\\
+% 50	0.0937032910108087\\
+% 60	0.202592789741522\\
+% 70	0.293194801073631\\
+% 80	0.577260432593003\\
+% 90	0.945852414794002\\
+% 100	6.086365655034952\\
+% };
+% \addlegendentry{OSCBC LoS}
+
+% % \addplot [color=mycolor7, dashdotted, very thick, mark size=3.0pt, mark=star]
+% % table[row sep=crcr]{%
+% % 1	6.086365655034952\\
+% % 10	6.086365655034952\\
+% % 20	6.086365655034952\\
+% % 30	6.086365655034952\\
+% % 40	6.086365655034952\\
+% % 50	6.086365655034952\\
+% % 60	6.086365655034952\\
+% % 70	6.086365655034952\\
+% % 80	6.086365655034952\\
+% % 90	6.086365655034952\\
+% % 100	6.086365655034952\\
+% % };
+% % \addlegendentry{Unclustered LoS}
+
+% \legend{}
+% \end{axis}
+
+
+% \begin{axis}[%
+%     width=\fwidth,
+%     height=\fheight,
+%     at={(0\fwidth,0\fheight)},
+%     scale only axis,
+%     xmin=1,
+%     xmax=100,
+%     xtick={},
+%     ytick={},
+%     xticklabels={{}, {}, {},{}},
+%     yticklabels={},
+%     xtick style = {draw=none},
+%     ytick style = {draw=none},
+%     ymin=0.00001,
+%     ymax= 10,
+%         legend style={
+%         /tikz/every even column/.append style={column sep=0.2cm},
+%         at={(0.5, 1.02)}, 
+%         anchor=south, 
+%         draw=white!80!black, 
+%         font=\footnotesize
+%         },
+%     legend columns=3,
+% ]
+% \addplot[color=mycolor2, only marks, very thick, mark size=3.0pt, mark=o, mark options={solid}] table[row sep=crcr]{%
+% 1	-5 \\
+% };
+% \addlegendentry{CWC}
+% \addplot[color=mycolor1, only marks, very thick, mark size=3.0pt, mark=x, mark options={solid}] table[row sep=crcr] {%
+% 1	-5 \\
+% };
+% \addlegendentry{ICWC}
+% \addplot[color=mycolor3, only marks, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180}] table[row sep=crcr] {%
+% 1	-5 \\
+% };
+% \addlegendentry{OSCBC}
+% % \addplot[color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star, mark options={solid}] table[row sep=crcr] {%
+% % 1	-5 \\
+% % };
+% % \addlegendentry{Unclustered}
+% \addplot [color=black, solid, very thick]
+%   table[row sep=crcr]{%
+% 1	-5\\
+% };
+% \addlegendentry{pLoS}
+% \addplot [color=black, loosely dotted, very thick]
+%   table[row sep=crcr]{%
+% 1	-5\\
+% };
+% \addlegendentry{NLoS}
+% \addplot [color=black, dashdotted, very thick]
+%   table[row sep=crcr]{%
+% 1	-5\\
+% };
+% \addlegendentry{dLoS}
+% \end{axis}
+
+% \begin{axis}[%
+% width=0.5\fwidth,
+% height=0.3\fwidth,
+% at={(1.1\fwidth,0.15\fwidth)},
+% scale only axis,
+% xmin=50,
+% xmax=90,
+% xtick={50,60,70,80,90},
+% xlabel style={font=\color{white!15!black}},
+% xlabel={},
+% ymin=0,
+% ymax=0.1,
+% %ymode = log,
+% ytick={0.02,0.06,0.1},
+% yticklabels={{0.02},{0.06},{0.1}},
+% axis background/.style={fill=white},
+% xmajorgrids,
+% ymajorgrids
+% ]
+% \addplot [color=mycolor1, loosely dotted, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+%   table[row sep=crcr]{%
+% 1	0.000500049041251989\\
+% 10	0.00879038021079986\\
+% 20	0.0155732811065867\\
+% 30	0.0221916894576317\\
+% 40	0.0271261762010032\\
+% 50	0.0371371752533747\\
+% 60	0.0424389253807081\\
+% 70	0.0631201194020797\\
+% 80	0.14002654002509\\
+% 90	0.420163818952632\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{ICWC NLoS}
+
+% \addplot [color=mycolor2, loosely dotted, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+%   table[row sep=crcr]{%
+% 1	0.0000604878618583651\\
+% 10	0.000218231579284887\\
+% 20	0.000760880351947475\\
+% 30	0.00228050435443444\\
+% 40	0.00520264418974567\\
+% 50	0.010344231001328\\
+% 60	0.0167984991251984\\
+% 70	0.0219195622413493\\
+% 80	0.0270355200431586\\
+% 90	0.035742624223227\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{CWC NLoS}
+
+% \addplot [color=mycolor3, loosely dotted, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+%   table[row sep=crcr]{%
+% 1	1.06116422242751e-06\\
+% 10	5.89933907181129e-06\\
+% 20	3.43608076837286e-05\\
+% 30	0.000131815849911531\\
+% 40	0.000401516654310686\\
+% 50	0.000802564693064657\\
+% 60	0.00183433941622052\\
+% 70	0.00300292614245462\\
+% 80	0.00423922675137229\\
+% 90	0.00724578468490145\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{OSCBC NloS}
+
+% % \addplot [color=mycolor7, loosely dotted, very thick, mark size=3.0pt, mark=star]
+% % table[row sep=crcr]{%
+% % 1	0.496405424855824\\
+% % 10	0.496405424855824\\
+% % 20	0.496405424855824\\
+% % 30	0.496405424855824\\
+% % 40	0.496405424855824\\
+% % 50	0.496405424855824\\
+% % 60	0.496405424855824\\
+% % 70	0.496405424855824\\
+% % 80	0.496405424855824\\
+% % 90	0.496405424855824\\
+% % 100	0.496405424855824\\
+% % };
+% % \addlegendentry{Unclustered LoS}
+
+% \addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.000201347131794128\\
+% 10	0.00312580402520538\\
+% 20	0.00573819025062837\\
+% 30	0.00895436056303841\\
+% 40	0.011225030668531\\
+% 50	0.0131333117023435\\
+% 60	0.0151559423415213\\
+% 70	0.0175307211254688\\
+% 80	0.0201655844663867\\
+% 90	0.023766885578881\\
+% 100	0.39935086872942\\
+% };
+% \addlegendentry{CWC pLoS}
+
+% \addplot [color=mycolor1,very thick, mark size=3.0pt, mark=x, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.00021353977713999\\
+% 10	0.00885511846811477\\
+% 20	0.013744379545304\\
+% 30	0.0208065402208952\\
+% 40	0.0277891151667394\\
+% 50	0.0375180036653679\\
+% 60	0.0733218322465392\\
+% 70	0.21139661183481\\
+% 80	0.339879349221883\\
+% 90	0.394219418443468\\
+% 100	0.39935086872942\\
+% };
+% \addlegendentry{ICWC ploS}
+
+% \addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+%   table[row sep=crcr]{%
+% 1	2.62521873506631e-05\\
+% 10	6.81291054156293e-05\\
+% 20	0.000284919488032969\\
+% 30	0.000440668563758382\\
+% 40	0.000786034745828592\\
+% 50	0.00169163539622302\\
+% 60	0.00294921232516224\\
+% 70	0.00475839240695278\\
+% 80	0.00596724043372362\\
+% 90	0.00958303324174252\\
+% 100	0.39935086872942\\
+% };
+% \addlegendentry{OSCBC ploS}
+
+% \legend{}
+% \end{axis}
+
+% \end{tikzpicture}
+
+\definecolor{mycolor2}{rgb}{1,0.2,0.2}%%ICWC
+\definecolor{mycolor1}{rgb}{0,0,0.9}%%CWC
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}
+\definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+     width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xlabel style={font=\footnotesize},
+    ylabel style={font=\footnotesize},
+    xmin=1,
+    xmax=100,
+    xtick={  1,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100},
+    xlabel={Maximum number of clusters $Z$},
+    ymin=0.0001,
+    ymax = 8,
+    ymode=log,
+    ylabel={$C_{95\%}$ [Mbit/s]},
+    axis background/.style={fill=white},
+    xmajorgrids,
+    ymajorgrids,
+        legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5, 1.02)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\footnotesize,
+        fill opacity=0.8
+        },
+    legend columns=4,
+]
+
+\addplot [color=mycolor1, loosely dotted, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	0.000500049041251989\\
+10	0.00879038021079986\\
+20	0.0155732811065867\\
+30	0.0221916894576317\\
+40	0.0271261762010032\\
+50	0.0371371752533747\\
+60	0.0424389253807081\\
+70	0.0631201194020797\\
+80	0.14002654002509\\
+90	0.420163818952632\\
+100	0.496405424855824\\
+};
+\addlegendentry{ICWC NLoS}
+
+\addplot [color=mycolor2, loosely dotted, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	0.0000604878618583651\\
+10	0.000218231579284887\\
+20	0.000760880351947475\\
+30	0.00228050435443444\\
+40	0.00520264418974567\\
+50	0.010344231001328\\
+60	0.0167984991251984\\
+70	0.0219195622413493\\
+80	0.0270355200431586\\
+90	0.035742624223227\\
+100	0.496405424855824\\
+};
+\addlegendentry{CWC NLoS}
+
+\addplot [color=mycolor3, loosely dotted, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+  table[row sep=crcr]{%
+1	1.06116422242751e-06\\
+10	5.89933907181129e-06\\
+20	3.43608076837286e-05\\
+30	0.000131815849911531\\
+40	0.000401516654310686\\
+50	0.000802564693064657\\
+60	0.00183433941622052\\
+70	0.00300292614245462\\
+80	0.00423922675137229\\
+90	0.00724578468490145\\
+100	0.496405424855824\\
+};
+\addlegendentry{OSCBC NloS}
+
+% \addplot [color=mycolor7, loosely dotted, very thick, mark size=3.0pt, mark=star]
+% table[row sep=crcr]{%
+% 1	0.496405424855824\\
+% 10	0.496405424855824\\
+% 20	0.496405424855824\\
+% 30	0.496405424855824\\
+% 40	0.496405424855824\\
+% 50	0.496405424855824\\
+% 60	0.496405424855824\\
+% 70	0.496405424855824\\
+% 80	0.496405424855824\\
+% 90	0.496405424855824\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{Unclustered LoS}
+
+\addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.000352176335045496\\
+10	0.00715773125724289\\
+20	0.0123968956368005\\
+30	0.0161716915438238\\
+40	0.0211264972190773\\
+50	0.0248474277248269\\
+60	0.0268128141403884\\
+70	0.030761747165061\\
+80	0.03535106964258\\
+90	0.0454507715891272\\
+100	0.521622625892803\\
+};
+\addlegendentry{CWC pLoS}
+
+\addplot [color=mycolor1,very thick, mark size=3.0pt, mark=x, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.00048596966650802\\
+10	0.00924259717830068\\
+20	0.018541491048952\\
+30	0.0270657209741321\\
+40	0.0377350742954899\\
+50	0.0542973834116236\\
+60	0.0958968035942498\\
+70	0.285570455995226\\
+80	0.444554807707306\\
+90	0.508367556348705\\
+100	0.521622625892803\\
+};
+\addlegendentry{ICWC ploS}
+
+\addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+  table[row sep=crcr]{%
+1	2.62521873506631e-05\\
+10	6.81291054156293e-05\\
+20	0.000284919488032969\\
+30	0.000440668563758382\\
+40	0.000786034745828592\\
+50	0.00169163539622302\\
+60	0.00294921232516224\\
+70	0.00475839240695278\\
+80	0.00596724043372362\\
+90	0.00958303324174252\\
+100	0.52935086872942\\
+};
+\addlegendentry{OSCBC ploS}
+
+% \addplot [color=mycolor7, very thick, mark size=3.0pt, mark=star]
+% table[row sep=crcr]{%
+% 1	0.52935086872942\\
+% 10	0.52935086872942\\
+% 20	0.52935086872942\\
+% 30	0.52935086872942\\
+% 40	0.52935086872942\\
+% 50	0.52935086872942\\
+% 60	0.52935086872942\\
+% 70	0.52935086872942\\
+% 80	0.52935086872942\\
+% 90	0.52935086872942\\
+% 100	0.52935086872942\\
+% };
+% \addlegendentry{Unclustered LoS}
+
+\addplot [color=mycolor2, dashdotted, very thick, mark size=3.0pt, mark=o, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.0883600648401618\\
+10	0.776925338076472\\
+20	1.34631886989173\\
+30	1.76679685869862\\
+40	2.1118219830613\\
+50	2.73458126911321\\
+60	3.18097519163225\\
+70	3.6588516439753\\
+80	4.40547060722027\\
+90	5.464553387301\\
+100	6.08113975800385\\
+};
+\addlegendentry{CWC LoS}
+
+\addplot [color=mycolor1, dashdotted, very thick, mark size=3.0pt, mark=x, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.0642341122541475\\
+10	001.95054750544259\\
+20	003.35718468324095\\
+30	004.20584698387288\\
+40	004.73633862145016\\
+50	005.337358181078\\
+60	005.73096794650999\\
+70	005.93860069121202\\
+80	006.02026948971728\\
+90	006.05712003276062\\
+100	006.08113975800385\\
+};
+\addlegendentry{ICWC LoS}
+
+\addplot [color=mycolor3, dashdotted, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180}]
+  table[row sep=crcr]{%
+1	0.00210584355065569\\
+10	0.00742708113911705\\
+20	0.018360636667495\\
+30	0.0302642495408203\\
+40	0.0540705332839179\\
+50	0.0937032910108087\\
+60	0.202592789741522\\
+70	0.293194801073631\\
+80	0.577260432593003\\
+90	0.945852414794002\\
+100	6.086365655034952\\
+};
+\addlegendentry{OSCBC LoS}
+
+% \addplot [color=mycolor7, dashdotted, very thick, mark size=3.0pt, mark=star]
+% table[row sep=crcr]{%
+% 1	6.086365655034952\\
+% 10	6.086365655034952\\
+% 20	6.086365655034952\\
+% 30	6.086365655034952\\
+% 40	6.086365655034952\\
+% 50	6.086365655034952\\
+% 60	6.086365655034952\\
+% 70	6.086365655034952\\
+% 80	6.086365655034952\\
+% 90	6.086365655034952\\
+% 100	6.086365655034952\\
+% };
+% \addlegendentry{Unclustered LoS}
+
+\legend{}
+\end{axis}
+
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xmin=1,
+    xmax=100,
+    xtick={},
+    ytick={},
+    xticklabels={{}, {}, {},{}},
+    yticklabels={},
+    xtick style = {draw=none},
+    ytick style = {draw=none},
+    ymin=0.00001,
+    ymax= 10,
+        legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.65, 0.02)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize,
+        fill opacity=0.8
+        },
+    legend columns=3,
+]
+\addplot[color=mycolor2, only marks, very thick, mark size=3.0pt, mark=o, mark options={solid}] table[row sep=crcr]{%
+1	-5 \\
+};
+\addlegendentry{CWC}
+\addplot[color=mycolor1, only marks, very thick, mark size=3.0pt, mark=x, mark options={solid}] table[row sep=crcr] {%
+1	-5 \\
+};
+\addlegendentry{ICWC}
+\addplot[color=mycolor3, only marks, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180}] table[row sep=crcr] {%
+1	-5 \\
+};
+\addlegendentry{OSCBC}
+% \addplot[color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star, mark options={solid}] table[row sep=crcr] {%
+% 1	-5 \\
+% };
+% \addlegendentry{Unclustered}
+\addplot [color=black, solid, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{pLoS}
+\addplot [color=black, loosely dotted, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{NLoS}
+\addplot [color=black, dashdotted, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{dLoS}
+\end{axis}
+
+% \begin{axis}[%
+% width=0.4\fwidth,
+% height=0.25\fwidth,
+% at={(0.1\fwidth,0.3\fwidth)},
+% scale only axis,
+% xmin=50,
+% xmax=90,
+% xtick={50,60,70,80,90},
+% xlabel style={font=\color{white!15!black}},
+% xlabel={},
+% ymin=0,
+% ymax=0.1,
+% ymode = log,
+% ytick={0.02,0.06,0.1},
+% yticklabels={{0.02},{0.06},{0.1}},
+% axis background/.style={fill=white},
+% xmajorgrids,
+% ymajorgrids
+% ]
+% \addplot [color=mycolor1, loosely dotted, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+%   table[row sep=crcr]{%
+% 1	0.000500049041251989\\
+% 10	0.00879038021079986\\
+% 20	0.0155732811065867\\
+% 30	0.0221916894576317\\
+% 40	0.0271261762010032\\
+% 50	0.0371371752533747\\
+% 60	0.0424389253807081\\
+% 70	0.0631201194020797\\
+% 80	0.14002654002509\\
+% 90	0.420163818952632\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{ICWC NLoS}
+
+% \addplot [color=mycolor2, loosely dotted, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+%   table[row sep=crcr]{%
+% 1	0.0000604878618583651\\
+% 10	0.000218231579284887\\
+% 20	0.000760880351947475\\
+% 30	0.00228050435443444\\
+% 40	0.00520264418974567\\
+% 50	0.010344231001328\\
+% 60	0.0167984991251984\\
+% 70	0.0219195622413493\\
+% 80	0.0270355200431586\\
+% 90	0.035742624223227\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{CWC NLoS}
+
+% \addplot [color=mycolor3, loosely dotted, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+%   table[row sep=crcr]{%
+% 1	1.06116422242751e-06\\
+% 10	5.89933907181129e-06\\
+% 20	3.43608076837286e-05\\
+% 30	0.000131815849911531\\
+% 40	0.000401516654310686\\
+% 50	0.000802564693064657\\
+% 60	0.00183433941622052\\
+% 70	0.00300292614245462\\
+% 80	0.00423922675137229\\
+% 90	0.00724578468490145\\
+% 100	0.496405424855824\\
+% };
+% \addlegendentry{OSCBC NloS}
+
+% % \addplot [color=mycolor7, loosely dotted, very thick, mark size=3.0pt, mark=star]
+% % table[row sep=crcr]{%
+% % 1	0.496405424855824\\
+% % 10	0.496405424855824\\
+% % 20	0.496405424855824\\
+% % 30	0.496405424855824\\
+% % 40	0.496405424855824\\
+% % 50	0.496405424855824\\
+% % 60	0.496405424855824\\
+% % 70	0.496405424855824\\
+% % 80	0.496405424855824\\
+% % 90	0.496405424855824\\
+% % 100	0.496405424855824\\
+% % };
+% % \addlegendentry{Unclustered LoS}
+
+% \addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.000201347131794128\\
+% 10	0.00312580402520538\\
+% 20	0.00573819025062837\\
+% 30	0.00895436056303841\\
+% 40	0.011225030668531\\
+% 50	0.0131333117023435\\
+% 60	0.0151559423415213\\
+% 70	0.0175307211254688\\
+% 80	0.0201655844663867\\
+% 90	0.023766885578881\\
+% 100	0.39935086872942\\
+% };
+% \addlegendentry{CWC pLoS}
+
+% \addplot [color=mycolor1,very thick, mark size=3.0pt, mark=x, mark options={solid}]
+%   table[row sep=crcr]{%
+% 1	0.00021353977713999\\
+% 10	0.00885511846811477\\
+% 20	0.013744379545304\\
+% 30	0.0208065402208952\\
+% 40	0.0277891151667394\\
+% 50	0.0375180036653679\\
+% 60	0.0733218322465392\\
+% 70	0.21139661183481\\
+% 80	0.339879349221883\\
+% 90	0.394219418443468\\
+% 100	0.39935086872942\\
+% };
+% \addlegendentry{ICWC ploS}
+
+% \addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+%   table[row sep=crcr]{%
+% 1	2.62521873506631e-05\\
+% 10	6.81291054156293e-05\\
+% 20	0.000284919488032969\\
+% 30	0.000440668563758382\\
+% 40	0.000786034745828592\\
+% 50	0.00169163539622302\\
+% 60	0.00294921232516224\\
+% 70	0.00475839240695278\\
+% 80	0.00596724043372362\\
+% 90	0.00958303324174252\\
+% 100	0.39935086872942\\
+% };
+% \addlegendentry{OSCBC ploS}
+
+% \legend{}
+% \end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,134 @@
+\definecolor{mycolor2}{rgb}{1,0.2,0.2}%%
+\definecolor{mycolor1}{rgb}{0,0,0.9}
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor5}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor6}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor4}{rgb}{0.63500,0.07800,0.18400}%
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+%
+\begin{tikzpicture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+        xlabel style={font=\footnotesize},
+    ylabel style={font=\footnotesize},
+    xmin=20,
+    xmax=160,
+    xtick={20, 40, 60, 80, 100, 120, 140, 160, 180, 200},
+    ymin=5,
+    ymax=120,
+    ytick={10, 20, 40, 60, 80, 100, 120, 140, 160},
+    xlabel={Number of \glspl{ue} $K$},
+    ylabel={Min. number of IRS configurations $Z_{\mathrm min}$},
+    axis background/.style={fill=white},
+    xmajorgrids,
+    ymajorgrids,
+ legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.15, 0.45)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize,
+        fill opacity=0.8
+        },
+    legend columns=1,
+]
+
+\addplot [color=mycolor4, very thick, mark size=2.8pt, mark=square*, mark options={solid, mycolor4}]
+  table[row sep=crcr]{%
+20	13.8\\
+40	28.4\\
+60	41.7\\
+80	53\\
+100	65\\
+120	78.3\\
+140	86\\
+160	98.4\\
+180	106.2\\
+200 115.7\\
+};
+\addlegendentry{KMed}
+
+\addplot [color=mycolor5, very thick, mark size=3.0pt, mark=diamond*, mark options={solid, mycolor5}]
+  table[row sep=crcr]{%
+20	11.5\\
+40	23.3\\
+60	34.1\\
+80	44.5\\
+100	54.5\\
+120	64.5\\
+140	74\\
+160	83.5\\
+180	91.5\\
+200 99.5\\
+};
+\addlegendentry{KM}
+
+\addplot [color=mycolor6, very thick, mark size=3.0pt, mark=pentagon*, mark options={solid, mycolor6}]
+  table[row sep=crcr]{%
+20	13\\
+40	25.4\\
+60	37.4\\
+80	49.4\\
+100	62.2\\
+120	73.2\\
+140	83.7\\
+160	93.6\\
+180	104.1\\
+200 115.0\\
+};
+\addlegendentry{HC}
+
+\addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+20	9.9\\
+40	19.2\\
+60	27.8\\
+80	36.9\\
+100	44\\
+120	52.5\\
+140	59.5\\
+160	67\\
+180	74.4\\
+200 82.5\\
+};
+\addlegendentry{CWC}
+
+\addplot [color=mycolor1, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+20	16.4\\
+40	32.8\\
+60	48.5\\
+80	62.9\\
+100	77.5\\
+120	90.5\\
+140	103.5\\
+160	116\\
+180	127\\
+200 138\\
+};
+\addlegendentry{ICWC}
+
+\addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+  table[row sep=crcr]{%
+20	9.9\\
+40	20\\
+60	28.4\\
+80	38.1\\
+100	46.5\\
+120	55\\
+140	63\\
+160	71\\
+180	79\\
+200 87\\
+};
+\addlegendentry{OSCBC}
+
+\end{axis}
+\end{tikzpicture}%

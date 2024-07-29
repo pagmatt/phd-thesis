@@ -1,0 +1,148 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.63500,0.07800,0.18400}%
+\definecolor{mycolor2}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor4}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor5}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor6}{rgb}{0.85000,0.32500,0.09800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.521in,
+height=3.478in,
+at={(0.758in,0.568in)},
+scale only axis,
+xmin=1,
+xmax=50,
+xtick={ 1,  5, 10, 15, 20, 25, 30, 35, 40, 45, 50},
+xlabel style={font=\color{white!15!black}},
+xlabel={$Z$},
+ymin=0,
+ymax=350,
+ylabel style={font=\color{white!15!black}},
+ylabel={$\bar{C}$ [bit/time slot]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.97,0.03)}, anchor=south east, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=mycolor1, line width=1.5pt, mark size=5.0pt, mark=star, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	61.960701875685\\
+5	125.185735318018\\
+10	180.744035226296\\
+15	225.123327524849\\
+20	258.217535264118\\
+25	282.901366443569\\
+30	301.126253331004\\
+35	314.379382108684\\
+40	323.83846148006\\
+45	330.787885829367\\
+50	335.649746517394\\
+};
+\addlegendentry{CWC}
+
+\addplot [color=mycolor2, line width=1.5pt, mark size=5.0pt, mark=star, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	26.2165612171605\\
+5	71.7928767314206\\
+10	113.373083670604\\
+15	144.435901477228\\
+20	179.598408356454\\
+25	205.298959509574\\
+30	229.52351355199\\
+35	249.495757890714\\
+40	274.890298652319\\
+45	300.087288089445\\
+50	335.649746517394\\
+};
+\addlegendentry{ICWC}
+
+\addplot [color=mycolor3, line width=1.5pt, mark size=5.0pt, mark=asterisk, mark options={solid, mycolor3}]
+  table[row sep=crcr]{%
+1	32.1197245275306\\
+5	108.402733592751\\
+10	172.932599229142\\
+15	219.214512070224\\
+20	254.585065246456\\
+25	280.464180828527\\
+30	299.484046585576\\
+35	313.722615084203\\
+40	323.408882227466\\
+45	330.631285351723\\
+50	335.649746517394\\
+};
+\addlegendentry{OSCBC}
+
+\addplot [color=mycolor4, line width=1.5pt, mark size=8.6pt, mark=diamond, mark options={solid, mycolor4}]
+  table[row sep=crcr]{%
+1	27.9752843782071\\
+5	80.1363182995216\\
+10	110.377165051845\\
+15	160.457683148817\\
+20	198.51745955086\\
+25	224.202394344664\\
+30	256.656377765774\\
+35	276.703222563706\\
+40	303.523091187139\\
+45	320.256923854007\\
+50	335.649746517394\\
+};
+\addlegendentry{KMed}
+
+\addplot [color=mycolor5, line width=1.5pt, mark size=3.5pt, mark=square, mark options={solid, mycolor5}]
+  table[row sep=crcr]{%
+1	35.0039593295034\\
+5	99.4525101072968\\
+10	153.447011703375\\
+15	187.636341017052\\
+20	216.173076714875\\
+25	244.415245415204\\
+30	268.416621127423\\
+35	285.52340270459\\
+40	302.869146734247\\
+45	319.989864099717\\
+50	335.649746517394\\
+};
+\addlegendentry{HC}
+
+\addplot [color=mycolor6, line width=1.5pt, mark size=3.3pt, mark=triangle, mark options={solid, rotate=180, mycolor6}]
+  table[row sep=crcr]{%
+1	72.4336600308235\\
+5	143.17049143427\\
+10	183.759146819778\\
+15	216.083751920808\\
+20	240.485435861759\\
+25	261.691345767601\\
+30	277.16650515834\\
+35	293.394234992001\\
+40	309.205307913343\\
+45	322.824804808456\\
+50	335.649746517394\\
+};
+\addlegendentry{KM}
+
+\addplot [color=red, dashed, line width=1.5pt]
+  table[row sep=crcr]{%
+1	335.649745804125\\
+5	335.649745804125\\
+10	335.649745804125\\
+15	335.649745804125\\
+20	335.649745804125\\
+25	335.649745804125\\
+30	335.649745804125\\
+35	335.649745804125\\
+40	335.649745804125\\
+45	335.649745804125\\
+50	335.649745804125\\
+};
+\addlegendentry{Unclustered}
+
+\end{axis}
+\end{tikzpicture}%

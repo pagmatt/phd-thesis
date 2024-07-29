@@ -1,0 +1,232 @@
+\definecolor{mycolor2}{rgb}{1,0.2,0.2}%%ICWC
+\definecolor{mycolor1}{rgb}{0,0,0.9}%%CWC
+\definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+     width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xlabel style={font=\footnotesize},
+    ylabel style={font=\footnotesize},
+    xmin=1,
+    xmax=100,
+    xtick={  1,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100},
+    xlabel={Maximum number of clusters $Z$},
+    ymin=0.001,
+    ymax= 0.5,
+    ymode=log,
+    ylabel={$C_{95\%}$ [Mbit/s]},
+    axis background/.style={fill=white},
+    xmajorgrids,
+    ymajorgrids,
+    legend style={at={(0.65,0.02)}, anchor=south east, legend columns=2, legend cell align=left, align=left, font=\footnotesize, draw=white!15!black}
+]
+
+\addplot [color=mycolor1, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	0.00021353977713999\\
+10	0.00885511846811477\\
+20	0.013744379545304\\
+30	0.0208065402208952\\
+40	0.0277891151667394\\
+50	0.0375180036653679\\
+60	0.0733218322465392\\
+70	0.21139661183481\\
+80	0.339879349221883\\
+90	0.394219418443468\\
+100	0.39935086872942\\
+};
+\addlegendentry{ICWC}
+
+\addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	0.000201347131794128\\
+10	0.00312580402520538\\
+20	0.00573819025062837\\
+30	0.00895436056303841\\
+40	0.011225030668531\\
+50	0.0131333117023435\\
+60	0.0151559423415213\\
+70	0.0175307211254688\\
+80	0.0201655844663867\\
+90	0.023766885578881\\
+100	0.39935086872942\\
+};
+\addlegendentry{CWC}
+
+\addplot [color=mycolor7, very thick, very thick, mark size=3.0pt, mark=star, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.39935086872942\\
+10	0.39935086872942\\
+20	0.39935086872942\\
+30	0.39935086872942\\
+40	0.39935086872942\\
+50	0.39935086872942\\
+60	0.39935086872942\\
+70	0.39935086872942\\
+80	0.39935086872942\\
+90	0.39935086872942\\
+100	0.39935086872942\\
+};
+\addlegendentry{Unclustered}
+
+\addplot [color=mycolor2, dotted, very thick, mark size=3.0pt, mark=o, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.000466728077223696\\
+10	0.00765883332664666\\
+20	0.0125851396013992\\
+30	0.0152030901129695\\
+40	0.0170817992838275\\
+50	0.0187564845839567\\
+60	0.0202159260672763\\
+70	0.0216377201854924\\
+80	0.0234011592744046\\
+90	0.0288696411004593\\
+100	0.203415752070666\\
+};
+\addlegendentry{CWC $b = 1$}
+
+\addplot [color=mycolor1, dotted,very thick, mark size=3.0pt, mark=x, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.000643833612757151\\
+10	0.00981382998033692\\
+20	0.0147603892677734\\
+30	0.016906865657916\\
+40	0.0222814087667978\\
+50	0.0372915896256938\\
+60	0.0833263139498508\\
+70	0.169697581311707\\
+80	0.19604514626526\\
+90	0.201878287905474\\
+100	0.203415752070666\\
+};
+\addlegendentry{ICWC $b = 1$}
+
+\addplot [color=mycolor7, dotted, very thick, mark size=3.0pt, mark=star, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.203415752070666\\
+10	0.203415752070666\\
+20	0.203415752070666\\
+30	0.203415752070666\\
+40	0.203415752070666\\
+50	0.203415752070666\\
+60	0.203415752070666\\
+70	0.203415752070666\\
+80	0.203415752070666\\
+90	0.203415752070666\\
+100	0.203415752070666\\
+};
+\addlegendentry{Unclustered $b =1$}
+
+\addplot [color=mycolor2, dashed, very thick, mark size=3.0pt, mark=x, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.000320262409866478\\
+10	0.00636537870333484\\
+20	0.011880816946464\\
+30	0.015283347237257\\
+40	0.0185464478165411\\
+50	0.0217703873883307\\
+60	0.0242584925010448\\
+70	0.0264371699351561\\
+80	0.0301925562194067\\
+90	0.0384861822242106\\
+100	0.35792717771614\\
+};
+\addlegendentry{CWC $b =2$}
+
+\addplot [color=mycolor1, dashed, very thick, mark size=3.0pt, mark=x, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.000610619410365895\\
+10	0.012580768894899\\
+20	0.0193586213719456\\
+30	0.0287425746457723\\
+40	0.0371354085856087\\
+50	0.0540549036529304\\
+60	0.108074100336223\\
+70	0.266125391637318\\
+80	0.340646402144676\\
+90	0.354921195225962\\
+100	0.35792717771614\\
+};
+\addlegendentry{ICWC $b =2$}
+
+\addplot [color=mycolor7, dashed, very thick, mark size=3.0pt, mark=star, mark options={solid}]
+  table[row sep=crcr]{%
+1	0.35792717771614\\
+10	0.35792717771614\\
+20	0.35792717771614\\
+30	0.35792717771614\\
+40	0.35792717771614\\
+50	0.35792717771614\\
+60	0.35792717771614\\
+70	0.35792717771614\\
+80	0.35792717771614\\
+90	0.35792717771614\\
+100	0.35792717771614\\
+};
+\addlegendentry{Unclustered $b =2$}
+
+\legend{}
+\end{axis}
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xmin=1,
+    xmax=100,
+    xtick={},
+    ytick={},
+    xticklabels={{}, {}, {},{}},
+    yticklabels={},
+    xtick style = {draw=none},
+    ytick style = {draw=none},
+    ymin=0.0001,
+    ymax= 1,
+ legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.65, 0.05)},
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize,
+        fill opacity=0.8
+        },
+    legend columns=2,
+]
+\addplot[color=mycolor2, only marks, very thick, mark size=3.0pt, mark=o, mark options={solid}] table[row sep=crcr]{%
+1	-5 \\
+};
+\addlegendentry{CWC}
+\addplot [color=black, solid, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{Unquantized}
+\addplot[color=mycolor1, only marks, very thick, mark size=3.0pt, mark=x, mark options={solid}]table[row sep=crcr] {%
+1	-5 \\
+};
+\addlegendentry{ICWC}
+\addplot [color=black, dotted, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{1-bit quantized}
+\addplot[color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star, mark options={solid}] table[row sep=crcr] {%
+1	-5 \\
+};
+\addlegendentry{Unclustered}
+\addplot [color=black, dashed, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{2-bits quantized}
+
+
+\end{axis}
+
+\end{tikzpicture}%

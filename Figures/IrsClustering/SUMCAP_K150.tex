@@ -1,0 +1,164 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.63500,0.07800,0.18400}%
+\definecolor{mycolor2}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor4}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor5}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor6}{rgb}{0.85000,0.32500,0.09800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.521in,
+height=3.478in,
+at={(0.758in,0.568in)},
+scale only axis,
+xmin=1,
+xmax=150,
+xtick={  1,  50, 100, 150},
+xlabel style={font=\color{white!15!black}},
+xlabel={$Z$},
+ymin=0,
+ymax=350,
+ylabel style={font=\color{white!15!black}},
+ylabel={$\bar{C}$ [bit/time slot]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.97,0.03)}, anchor=south east, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=mycolor1, line width=1.5pt, mark size=5.0pt, mark=star, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	63.1466188740133\\
+15	150.754435521159\\
+30	204.240656825085\\
+45	242.975391033122\\
+60	272.254022051624\\
+75	295.16953336516\\
+90	311.095905920107\\
+105	322.95123403003\\
+120	331.542274410245\\
+135	337.665636670131\\
+150	342.222547361834\\
+};
+\addlegendentry{CWC}
+
+\addplot [color=mycolor2, line width=1.5pt, mark size=5.0pt, mark=star, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	34.0367653079115\\
+15	100.445203922522\\
+30	140.310896920874\\
+45	172.867185888612\\
+60	204.6072858653\\
+75	231.409180238133\\
+90	252.115135622229\\
+105	272.106460018231\\
+120	297.132174471922\\
+135	321.271811628305\\
+150	342.222547361834\\
+};
+\addlegendentry{ICWC}
+
+\addplot [color=mycolor3, line width=1.5pt, mark size=5.0pt, mark=asterisk, mark options={solid, mycolor3}]
+  table[row sep=crcr]{%
+1	20.4097122630054\\
+15	122.49064103578\\
+30	187.074726537325\\
+45	232.786565204088\\
+60	265.546223672242\\
+75	291.032666791379\\
+90	308.339047187965\\
+105	321.248234677638\\
+120	330.436903085107\\
+135	337.277179107029\\
+150	342.222547361834\\
+};
+\addlegendentry{OSCBC}
+
+\addplot [color=mycolor4, line width=1.5pt, mark size=8.6pt, mark=diamond, mark options={solid, mycolor4}]
+  table[row sep=crcr]{%
+1	24.3815125624582\\
+15	108.70974845296\\
+30	151.658602077858\\
+45	191.622553577572\\
+60	224.666253818138\\
+75	251.352449889359\\
+90	276.290533169469\\
+105	299.093416020424\\
+120	317.458373758546\\
+135	331.130149327901\\
+150	342.222547361834\\
+};
+\addlegendentry{KMed}
+
+\addplot [color=mycolor5, line width=1.5pt, mark size=3.5pt, mark=square, mark options={solid, mycolor5}]
+  table[row sep=crcr]{%
+1	20.9528397105392\\
+15	113.94768573699\\
+30	164.156171552651\\
+45	201.771065488518\\
+60	231.908146162784\\
+75	258.474425956832\\
+90	280.778672970469\\
+105	297.34315863251\\
+120	312.760101068211\\
+135	327.328964625039\\
+150	342.222547361834\\
+};
+\addlegendentry{HC}
+
+\addplot [color=mycolor6, line width=1.5pt, mark size=3.3pt, mark=triangle, mark options={solid, rotate=180, mycolor6}]
+  table[row sep=crcr]{%
+1	50.266619086511\\
+15	152.734198106239\\
+30	198.10391219037\\
+45	231.867349897365\\
+60	253.474526259072\\
+75	274.417518384163\\
+90	288.993652904937\\
+105	305.794765622252\\
+120	318.209036403485\\
+135	330.554606845366\\
+150	342.222547361834\\
+};
+\addlegendentry{KM}
+
+\addplot [color=red, dashed, line width=1.5pt]
+  table[row sep=crcr]{%
+1	342.222544508517\\
+15	342.222544508517\\
+30	342.222544508517\\
+45	342.222544508517\\
+60	342.222544508517\\
+75	342.222544508517\\
+90	342.222544508517\\
+105	342.222544508517\\
+120	342.222544508517\\
+135	342.222544508517\\
+150	342.222544508517\\
+};
+\addlegendentry{Unclustered}
+
+\end{axis}
+
+\begin{axis}[%
+width=5.833in,
+height=4.375in,
+at={(0in,0in)},
+scale only axis,
+xmin=0,
+xmax=1,
+ymin=0,
+ymax=1,
+axis line style={draw=none},
+ticks=none,
+axis x line*=bottom,
+axis y line*=left
+]
+\end{axis}
+\end{tikzpicture}%

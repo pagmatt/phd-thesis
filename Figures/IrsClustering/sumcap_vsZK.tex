@@ -1,0 +1,338 @@
+\definecolor{mycolor2}{rgb}{1,0.2,0.2}%%
+\definecolor{mycolor1}{rgb}{0,0,0.9}
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor5}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor6}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor4}{rgb}{0.63500,0.07800,0.18400}%
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+%
+\begin{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xlabel style={font=\footnotesize},
+    ylabel style={font=\footnotesize},
+    xmin=0.1,
+    xmax=1,
+    ymin=3500,
+    ymax=55000,
+    xtick={  0.1,  0.2,  0.3, 0.4, 0.5,  0.6,  0.7,  0.8,  0.9, 1},
+    xlabel={$Z/K$},
+    ylabel={Sum capacity $K\bar{C}$ [Mbit/s]},
+    axis background/.style={fill=white},
+    xmajorgrids,
+    ymajorgrids,
+    %legend style={at={(0.7,0.02)}, anchor=south west, legend cell align=left, align=left, font=\footnotesize, draw=white!15!black}
+        legend image post style={mark indices={}},
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5, 1.02)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\footnotesize
+        },
+    legend columns=4,
+]
+
+% \addplot [color=mycolor5, very thick, dotted, mark size=3.0pt, mark=diamond*, mark options={solid, mycolor5}]
+%   table[row sep=crcr]{%
+% 0.1	7158.52457171352\\
+% 0.2	9187.95734098891\\
+% 0.3	10804.1875960404\\
+% 0.4	12024.271793088\\
+% 0.5	13084.5672883801\\
+% 0.6	13858.325257917\\
+% 0.7	14669.7117496\\
+% 0.8	15460.2653956672\\
+% 0.9	16141.2402404228\\
+% 1	16782.4873258697\\
+% };
+% \addlegendentry{KM $K = 50$}
+
+\addplot [color=mycolor6, very thick, dotted, mark size=3.0pt, mark=pentagon*, mark options={solid, mycolor6}]
+  table[row sep=crcr]{%
+0.1	4972.62550536484\\
+0.2	7672.35058516874\\
+0.3	9381.8170508526\\
+0.4	10808.6538357438\\
+0.5	12220.7622707602\\
+0.6	13420.8310563712\\
+0.7	14276.1701352295\\
+0.8	15143.4573367123\\
+0.9	15999.4932049858\\
+1	16782.4873258697\\
+};
+\addlegendentry{HC $K = 50$}
+
+\addplot [color=mycolor2, very thick, dotted, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+0.1	6259.2867659009\\
+0.2	9037.2017613148\\
+0.3	11256.1663762424\\
+0.4	12910.8767632059\\
+0.5	14145.0683221785\\
+0.6	15056.3126665502\\
+0.7	15718.9691054342\\
+0.8	16191.923074003\\
+0.9	16539.3942914684\\
+1	16782.4873258697\\
+};
+\addlegendentry{CWC $K = 50$}
+
+\addplot [color=mycolor1, very thick, dotted, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+0.1	3589.64383657103\\
+0.2	5668.6541835302\\
+0.3	7221.79507386142\\
+0.4	8979.92041782268\\
+0.5	10264.9479754787\\
+0.6	11476.1756775995\\
+0.7	12474.7878945357\\
+0.8	13744.5149326159\\
+0.9	15004.3644044722\\
+1	16782.4873258697\\
+};
+\addlegendentry{ICWC $K = 50$}
+
+% \addplot [color=mycolor3, very thick, dotted, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]table[row sep=crcr]{%
+% 0.1	5420.13667963753\\
+% 0.2	8646.62996145707\\
+% 0.3	10960.7256035112\\
+% 0.4	12729.2532623228\\
+% 0.5	14023.2090414264\\
+% 0.6	14974.2023292788\\
+% 0.7	15686.1307542102\\
+% 0.8	16170.4441113733\\
+% 0.9	16531.5642675861\\
+% 1	16782.4873258697\\
+% };
+% \addlegendentry{OSCBC $K = 50$}
+
+
+% \addplot [color=mycolor5, very thick, mark size=3.0pt, mark=diamond*, mark options={solid, mycolor5}]
+%   table[row sep=crcr]{%
+% 0.10	7779.83732080269\\
+% 0.20	12356.6685831694\\
+% 0.30	15981.1932668768\\
+% 0.40	19286.2674643542\\
+% 0.50	22188.0711483525\\
+% 0.60	25040.3247328401\\
+% 0.70	27701.8934845287\\
+% 0.80	30212.2691870657\\
+% 0.90	32571.7076087751\\
+% 1	34962.5593642553\\
+% };
+% \addlegendentry{KM $K = 100$}
+
+\addplot [color=mycolor6, very thick, mark size=3.0pt, mark=pentagon*, mark options={solid, mycolor6}]
+  table[row sep=crcr]{%
+0.10	11292.5237968855\\
+0.20	16683.0476313084\\
+0.30	20567.2720543757\\
+0.40	23677.8342633094\\
+0.50	26430.8292456048\\
+0.60	28584.0372512358\\
+0.70	30443.0768920583\\
+0.80	32054.3034112752\\
+0.90	33524.8581783295\\
+1	34962.5593642553\\
+};
+\addlegendentry{HC $K = 100$}
+
+\addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+0.10	14625.1344545728\\
+0.20	20044.7073159671\\
+0.30	24473.2697150523\\
+0.40	27670.3626326244\\
+0.50	30030.0582274394\\
+0.60	31728.4325558418\\
+0.70	32975.1795212581\\
+0.80	33881.6310164981\\
+0.90	34511.3220285055\\
+1	34962.5593642553\\
+};
+\addlegendentry{CWC $K = 100$}
+
+\addplot [color=mycolor1, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+0.10	9456.87304604159\\
+0.20	13609.6494188705\\
+0.30	17157.1973470307\\
+0.40	20284.6458893204\\
+0.50	22785.446794259\\
+0.60	24801.792008807\\
+0.70	26917.0203404248\\
+0.80	29495.5409175835\\
+0.90	32488.0336264252\\
+1	34962.5593642553\\
+};
+\addlegendentry{ICWC $K = 100$}
+
+% \addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+%   table[row sep=crcr]{%
+% 0.10	12172.7908917765\\
+% 0.20	18692.6040773053\\
+% 0.30	23587.1625771207\\
+% 0.40	27073.9181989123\\
+% 0.50	29660.3964541797\\
+% 0.60	31511.9655587025\\
+% 0.70	32840.8235238309\\
+% 0.80	33808.6670053488\\
+% 0.90	34489.3216468099\\
+% 1	34962.5593642553\\
+% };
+% \addlegendentry{OSCBC $K = 100$}
+
+% \addplot [color=mycolor5, very thick, dotted, mark size=3.0pt, mark=diamond*, mark options={solid, mycolor5}]
+%   table[row sep=crcr]{%
+% 0.1	22910.1297159358\\
+% 0.2	29715.5868285555\\
+% 0.3	34780.1024846048\\
+% 0.4	38021.1789388608\\
+% 0.5	41162.6277576244\\
+% 0.6	43349.0479357406\\
+% 0.7	45869.2148433377\\
+% 0.8	47731.3554605228\\
+% 0.9	49583.1910268049\\
+% 1	51333.382104275\\
+% };
+% \addlegendentry{KM $K = 150$}
+
+\addplot [color=mycolor6, very thick, dashed, mark size=3.0pt, mark=pentagon*, mark options={solid, mycolor6}]
+  table[row sep=crcr]{%
+0.1	17092.1528605486\\
+0.2	24623.4257328976\\
+0.3	30265.6598232776\\
+0.4	34786.2219244176\\
+0.5	38771.1638935248\\
+0.6	42116.8009455703\\
+0.7	44601.4737948765\\
+0.8	46914.0151602316\\
+0.9	49099.3446937558\\
+1	51333.382104275\\
+};
+\addlegendentry{HC $K = 150$}
+
+\addplot [color=mycolor2, very thick, dashed, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+0.1	22613.1653281739\\
+0.2	30636.0985237628\\
+0.3	36446.3086549684\\
+0.4	40838.1033077436\\
+0.5	44275.4300047741\\
+0.6	46664.385888016\\
+0.7	48442.6851045046\\
+0.8	49731.3411615368\\
+0.9	50649.8455005196\\
+1	51333.382104275\\
+};
+\addlegendentry{CWC $K = 150$}
+
+\addplot [color=mycolor1, very thick, dashed, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+0.1	15066.7805883783\\
+0.2	21046.6345381312\\
+0.3	25930.0778832919\\
+0.4	30691.0928797951\\
+0.5	34711.3770357199\\
+0.6	37817.2703433343\\
+0.7	40815.9690027346\\
+0.8	44569.8261707883\\
+0.9	48190.7717442458\\
+1	51333.382104275\\
+};
+\addlegendentry{ICWC $K = 150$}
+
+% \addplot [color=mycolor3, very thick, dashed, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]table[row sep=crcr]{%
+% 0.1	18373.5961553671\\
+% 0.2	28061.2089805988\\
+% 0.3	34917.9847806132\\
+% 0.4	39831.9335508363\\
+% 0.5	43654.9000187069\\
+% 0.6	46250.8570781947\\
+% 0.7	48187.2352016457\\
+% 0.8	49565.535462766\\
+% 0.9	50591.5768660543\\
+% 1	51333.382104275\\
+% };
+% \addlegendentry{OSCBC $K = 150$}
+
+
+\legend{}
+\end{axis}
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xmin=1,
+    xmax=100,
+    xtick={},
+    ytick={},
+    xticklabels={{}, {}, {},{}},
+    yticklabels={},
+    xtick style = {draw=none},
+    ytick style = {draw=none},
+    ymin=0.0001,
+    ymax= 1,
+ legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.26, 0.7)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize,
+        fill opacity=0.8
+        },
+    legend columns=2,
+]
+
+% \addplot [color=mycolor5, only marks, very thick, mark size=3.0pt, mark=diamond*, mark options={solid, mycolor5}]
+%   table[row sep=crcr]{%
+% 1	-5\\
+% };
+% \addlegendentry{KM}
+
+\addplot [color=mycolor6, only marks, very thick, mark size=3.0pt, mark=pentagon*, mark options={solid, mycolor6}] table[row sep=crcr] {%
+1	-5 \\
+};
+\addlegendentry{HC}
+\addplot [color=black, dotted, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{$K=50$}
+\addplot[color=mycolor2, only marks, very thick, mark size=3.0pt, mark=o, mark options={solid}] table[row sep=crcr]{%
+1	-5 \\
+};
+\addlegendentry{CWC}
+\addplot [color=black, solid, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{$K=100$}
+\addplot[color=mycolor1, only marks, very thick, mark size=3.0pt, mark=x, mark options={solid}] table[row sep=crcr] {%
+1	-5 \\
+};
+\addlegendentry{ICWC}
+\addplot [color=black, dashed, very thick]
+  table[row sep=crcr]{%
+1	-5\\
+};
+\addlegendentry{$K=150$}
+
+% \addplot [color=mycolor3, only marks, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}] table[row sep=crcr]{%
+% 1	-5 \\
+% };
+% \addlegendentry{OSCBC}
+
+\end{axis}
+
+\end{tikzpicture}%

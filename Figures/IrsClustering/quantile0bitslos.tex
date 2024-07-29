@@ -1,0 +1,159 @@
+\definecolor{mycolor2}{rgb}{1,0.2,0.2}
+\definecolor{mycolor1}{rgb}{0,0,0.9}
+\definecolor{mycolor3}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor7}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor5}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor6}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor4}{rgb}{0.63500,0.07800,0.18400}%
+
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+\begin{tikzpicture}
+
+\begin{axis}[%
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    xlabel style={font=\footnotesize},
+    ylabel style={font=\footnotesize},
+    xmin=1,
+    xmax=100,
+    ymin=0.0001,
+    ymax= 0.5,
+    xtick={1,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100},
+    xlabel={Maximum number of clusters $Z$},
+    ymode=log,
+    ylabel={$C_{95\%}$ [Mbit/s]},
+    axis background/.style={fill=white},
+    xmajorgrids,
+    ymajorgrids,
+    %legend columns=2, 
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.83, 0.02)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize,   
+        fill opacity=0.8
+        },
+    legend columns=1,
+]
+
+\addplot [color=mycolor4, very thick, mark size=2.6pt, mark=square*, mark options={solid, mycolor4}]
+  table[row sep=crcr]{%
+1	9.05567793095349e-05\\
+10	0.000837910818601856\\
+20	0.00392855662136112\\
+30	0.00638085608243083\\
+40	0.0080831904650645\\
+50	0.0106925702195818\\
+60	0.0139666990027101\\
+70	0.0174186473196289\\
+80	0.0268293291425108\\
+90	0.105119848182379\\
+100	0.39935086872942\\
+};
+\addlegendentry{KMed}
+
+\addplot [color=mycolor5, very thick, mark size=3.0pt, mark=diamond*, mark options={solid, mycolor5}]
+  table[row sep=crcr]{%
+1	6.43043259014252e-05\\
+10	0.00204437072674061\\
+20	0.00624249618170619\\
+30	0.0132722920611753\\
+40	0.0236523001448433\\
+50	0.033514085573131\\
+60	0.0501833715747626\\
+70	0.0635192697665196\\
+80	0.0861044601235812\\
+90	0.125070416781253\\
+100	0.39935086872942\\
+};
+\addlegendentry{KM}
+
+\addplot [color=mycolor6, very thick, mark size=3.0pt, mark=pentagon*, mark options={solid, mycolor6}]
+  table[row sep=crcr]{%
+1	5.08142594851443e-05\\
+10	0.000322797610389904\\
+20	0.000707754344589662\\
+30	0.00131691241135746\\
+40	0.00304059379386011\\
+50	0.00549901671162177\\
+60	0.0105967521074395\\
+70	0.0161713287105324\\
+80	0.0243123351508351\\
+90	0.0939923850239182\\
+100	0.39935086872942\\
+};
+\addlegendentry{HC}
+
+\addplot [color=mycolor7, very thick, mark size=3.0pt, mark=star]
+  table[row sep=crcr]{%
+1	0.399349026377281\\
+10	0.399349026377281\\
+20	0.399349026377281\\
+30	0.399349026377281\\
+40	0.399349026377281\\
+50	0.399349026377281\\
+60	0.399349026377281\\
+70	0.399349026377281\\
+80	0.399349026377281\\
+90	0.399349026377281\\
+100	0.399349026377281\\
+};
+\addlegendentry{Unclustered}
+
+\addplot [color=mycolor2, very thick, mark size=3.0pt, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	0.000201347131794128\\
+10	0.00312580402520538\\
+20	0.00573819025062837\\
+30	0.00895436056303841\\
+40	0.011225030668531\\
+50	0.0131333117023435\\
+60	0.0151559423415213\\
+70	0.0175307211254688\\
+80	0.0201655844663867\\
+90	0.023766885578881\\
+100	0.39935086872942\\
+};
+\addlegendentry{CWC}
+
+\addplot [color=mycolor1, very thick, mark size=3.0pt, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	0.00021353977713999\\
+10	0.00885511846811477\\
+20	0.013744379545304\\
+30	0.0208065402208952\\
+40	0.0277891151667394\\
+50	0.0375180036653679\\
+60	0.0733218322465392\\
+70	0.21139661183481\\
+80	0.339879349221883\\
+90	0.394219418443468\\
+100	0.39935086872942\\
+};
+\addlegendentry{ICWC}
+
+\addplot [color=mycolor3, very thick, mark size=3.0pt, mark=triangle*, mark options={solid, rotate=180, mycolor3}]
+  table[row sep=crcr]{%
+1	2.62521873506631e-05\\
+10	6.81291054156293e-05\\
+20	0.000284919488032969\\
+30	0.000440668563758382\\
+40	0.000786034745828592\\
+50	0.00169163539622302\\
+60	0.00294921232516224\\
+70	0.00475839240695278\\
+80	0.00596724043372362\\
+90	0.00958303324174252\\
+100	0.39935086872942\\
+};
+\addlegendentry{OSCBC}
+
+%\addplot [color=mycolor7, dashed, very thick]
+
+
+\end{axis}
+
+\end{tikzpicture}

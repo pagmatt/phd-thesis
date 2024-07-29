@@ -181,6 +181,10 @@
 \DeclareMathOperator{\E}{E} 
 \DeclareMathOperator {\dist}            {dist}
 \DeclareMathOperator {\im}              {im}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator*{\rank}{rank}
+\DeclareMathOperator*{\diag}{diag}
+\DeclareMathOperator*{\vect}{vec}
 
 \newcommand{\domain}{\ensuremath{\mathds{D}}}
 \newcommand{\real}  {\ensuremath{\mathds{R}}}
