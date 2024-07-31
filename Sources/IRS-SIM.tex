@@ -365,14 +365,14 @@ Notably, S and D are either in \gls{nlos} (in this case they communicate via the
 Accordingly, assuming that the source of interest is in NLOS with respect to its intended destination,~\eqref{eq:mimo_input_output_relay} becomes:
 
 %TODO: FIX THIS
-% \begin{equation}
-% \label{eq:mimo_input_output_relay_reduced}
-% \begin{aligned}
-% 	y_{D} = \,\, & \bm{w}_{\textrm D}^{\textrm T} \bm{H}_{\textrm {RD}} \bm{\Phi} \bm{H}_{\textrm {SR}} \bm{w}_{\textrm S} x_{S} + \sum_{\hat{I} \in  I_{\textrm{LOS}}} \bm{w}_{\mathrm D}^{T} \bm{H}_{\mathrm \hat{I} D}  \bm{w}_{\mathrm \hat{I}} x_{\mathrm \hat{I}} \\
-%  & + \sum_{ \bar{I} \in I_{\textrm{NLOS}}} \bm{w}_{\mathrm D}^{T} \bm{H}_{\mathrm{RD}} \bm{\Phi} \bm{H}_{\mathrm{ \bar{I} R}}  \bm{w}_{\mathrm \bar{I}} x_{\mathrm \bar{I}} + \tilde{n},
-% \end{aligned}
-% \end{equation}
-where $I_{\textrm{LOS}}$ and $I_{\textrm{NLOS}}$ are the two disjoint sets of interferers which experience either an \gls{los} or an \gls{nlos} channel towards D, respectively.
+\begin{equation}
+\label{eq:mimo_input_output_relay_reduced}
+\begin{aligned}
+    y_{D} = \,\, & \bm{w}_{\mathrm{D}}^{\mathrm{T}} \bm{H}_{\mathrm{RD}} \bm{\Phi} \bm{H}_{\mathrm{SR}} \bm{w}_{\mathrm{S}} x_{S} + \sum_{\hat{I} \in  I_{\mathrm{LOS}}} \bm{w}_{\mathrm{D}}^{T} \bm{H}_{\mathrm{\hat{I}} D}  \bm{w}_{\mathrm{hat{I}}} x_{\mathrm{\hat{I}}} \\
+  & + \sum_{ \bar{I} \in I_{\mathrm{NLOS}}} \bm{w}_{\mathrm{D}}^{T} \bm{H}_{\mathrm{RD}} \bm{\Phi} \bm{H}_{\mathrm{\bar{I} R}}  \bm{w}_{\mathrm{\bar{I}}} x_{\mathrm{\bar{I}}} + \tilde{n},
+\end{aligned}
+\end{equation}
+where $I_{\mathrm{LOS}}$ and $I_{\mathrm{NLOS}}$ are the two disjoint sets of interferers which experience either an \gls{los} or an \gls{nlos} channel towards D, respectively.
 Then, the \gls{psd} of the useful component of the signal at the receiver can be written as:
 \begin{equation}
 \label{eq:psd_relay}
