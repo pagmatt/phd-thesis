@@ -1,0 +1,371 @@
+% \usepackage{subcaption}
+% \usepackage{tikz}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=newest}
+% \pgfplotsset{plot coordinates/math parser=false}
+% \newlength\fheight
+% \newlength\fwidth
+% \usetikzlibrary{plotmarks,decorations,backgrounds,calc,spy}
+% \usetikzlibrary{decorations.markings}
+% \usepgfplotslibrary{patchplots,groupplots}
+% \usepackage{tikzscale}
+% \usetikzlibrary{spy}
+
+% \DeclareMathOperator*{\argmin}{argmin}
+
+\section{Introduction}
+
+Mobile networks play a key role in our society and are poised to become ever more important in the coming years. In fact, the \gls{itu} foresees that in 2030 and beyond wireless broadband will be ubiquitous, and will be required to provide connectivity not only to humans, but also to a plethora of intelligent devices such as wearables, road vehicles, \glspl{uas} and robots~\cite{imt2030}. Moreover, novel use cases such as holographic communications, \gls{xr} and tactile applications will further exacerbate the throughput and latency requirements which were posed by \gls{embb} and \gls{urllc}~\cite{itu-r-2083}. 
+
+% Nowadays, mobile networks play a key role in our society, and their importance is poised to become ever more paramount in the coming years. In fact, the ITU foresees that in 2030 and beyond wireless broadband will be ubiquitous, and it will be required to provide connectivity not only to humans, but also to a plethora of intelligent devices such as wearables, cars, \glspl{uas} and robots~\cite{imt2030}. Moreover, novel use cases such as holographic communications, \gls{xr} and tactile applications will further exacerbate the throughput and latency requirements which were posed by \gls{embb} and \gls{urllc}~\cite{itu-r-2083}. 
+
+To meet these goals, future cellular systems will 
+%continue the evolution which is currently being brought forward by 
+further evolve \gls{5g} 
+% deployments, 
+networks,
+which have introduced a flexible, virtualized architecture, the support for \gls{mmwave} communications and the use of \gls{m-mimo} technologies~\cite{ghosh20195g}. Notably, the research community is considering a more central role for \glspl{mmwave}, a further expansion of the spectrum towards the \gls{thz} band, and an \gls{ai}-native network design, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{hoydis2021toward}.
+
+The \gls{thz} and \gls{mmwave} bands offer large chunks of untapped bandwidth which operators can leverage to meet the Tb/s peak rates that are envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is plagued by unfavorable propagation characteristics, comprising a marked free-space propagation loss 
+%is proportional to the square of the carrier frequency, and it is thus higher at THz and \gls{mmwave} frequencies compared to sub-6~GHz ones. Additionally, this portion of the spectrum is particularly 
+and susceptibility to blockages~\cite{han2018propagation, jornet2011channel}, which make it challenging to harvest its potential. Although the harsh propagation environment can be partially mitigated by using directional links 
+%, thus focusing the radiated signal towards the intended destination, 
+and densifying network deployments~\cite{polese2020toward}, 
+% can further increase the link budget, on top of limiting the blockage phenomena and reducing the \gls{nlos} probability.
+%Nevertheless, 
+the support for \gls{mmwave} and \gls{thz} bands entails a major redesign not only of the physical layer, but of the whole cellular protocol stack~\cite{shafi2018microwave}. For instance, the intrinsic directionality of the communication requires ad hoc control procedures~\cite{heng2021six},
+%for continuously adapting the beamforming configuration to the propagation environment and the user mobility. Furthermore, 
+while the frequent transitions between \gls{los} and \gls{nlos} conditions call for an ad hoc transport layer design, such as novel \gls{tcp} algorithms~\cite{zhang2019will}. 
+
+\begin{comment}
+As the network will progressively become increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with (and aided by) taking network softwarization to a new level. 
+Specifically, the %disaggregation and 
+ongoing virtualization
+%which has started with 5G 
+will be the foundation of a shift towards \gls{ai}-native networks which, in turn, will enable data-driven optimization and closed-loop control of the network. For instance, networks will be able to autonomously perform load balancing and manage handovers and scheduling policies~\cite{d2018low}. Furthermore, the centralized availability of analytics and the flexibility of softwarized networks will allow operators to introduce \gls{ai} and \gls{ml}-based optimizations not only at the radio link level, but encompassing the orchestration of large scale deployments as well~\cite{polese2023understanding}.
+\end{comment}
+
+In addition, as the network progressively becomes increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with an \gls{ai}-native design which, thanks to the ongoing virtualization, will not be limited to the radio link level, but will encompass the orchestration of large scale deployments as well~\cite{polese2023understanding}.
+Nevertheless, how to design, test and eventually deploy management and orchestration algorithms is an open research challenge~\cite{polese2022colo}.
+First, the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Furthermore, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
+
+In these regards, system-level network simulators have a central role to play. Indeed, an end-to-end evaluation of algorithms and protocols becomes paramount when considering frequencies above 6~GHz, given the impact of their peculiar propagation characteristics on the whole protocol stack.
+% Mention that this can't be done analytically ?
+At the same time, end-to-end simulators can also serve as both sources of training data for \gls{ai} models, and testing platforms for preliminary evaluation of \gls{ml} algorithms prior to their deployment in commercial networks.
+However, the suitability of end-to-end network simulators to these tasks largely depends on the accuracy of the channel model~\cite{testolina2020scalable} and on the scalability for realistically-sized deployments.
+In fact, system-level simulators generally abstract the actual link-level transmission via an error model, which maps the \gls{sinr} of the wireless link to a packet error probability~\cite{lagen2020new}. Eventually, the latter is used to determine whether the packet has been successfully decoded by the receiver. As a consequence, the accuracy of the simulator heavily depends on the reliability of the \gls{sinr} estimation, especially when considering the \gls{mmwave} and \gls{thz} bands. 
+
+The well known ns-3 simulator features the implementation of the \gls{3gpp} channel model~\cite{TR38901}, which, according to the \gls{3gpp}, represents the state-of-the-art channel model for drop-based end-to-end simulations of devices operating at frequencies between 0.5 to 100~GHz. Despite its accuracy, the TR 38.901 channel model is particularly demanding from a computational point of view, and thus limits the scalability of the simulated scenarios. 
+%partially defeating the purpose of a system-level simulator. 
+At the same time, the simpler channel models which are found in analytical studies fail to capture the peculiar characteristics of \gls{mmwave} and \gls{thz} links. 
+
+To fill this gap, in this paper we propose optimizations to the ns-3 implementation of the TR 38.901 channel model of~\cite{tommaso:20}, both at the codebase and at the design level, which aim to provide wireless researchers with the tools for simulating future dense wireless scenarios in a computationally efficient manner. Specifically, we significantly improve the runtime of simulations involving the 3GPP TR 38.901 channel model~\cite{TR38901} by porting the intensive linear algebra operations to the open-source library \texttt{Eigen}~\cite{eigenweb}. To this end, we also design and implement a set of common linear algebra APIs, which increase the modularity of the \texttt{spectrum} module with respect to the underlying data structures and algorithms.
+Then, we propose a simplified channel model, based on~\cite{TR38901}, which aims to provide an additional order of magnitude of runtime reduction, at the cost of a slight accuracy penalty. Profiling results show that the support for \texttt{Eigen}, coupled with further TR 38.901 optimizations, leads to a decrease of up to 5 times in the simulation time of typical \gls{mimo} scenarios. Furthermore, the proposed performance-oriented channel model further improved the runtime of simulations, which now take as low as $6$~\% with respect to the full TR 38.901 channel model, with a negligible loss in accuracy.
+
+The remainder of the paper is organized as follows. Section~\ref{sec:rel_work} reports the state of the art on channel models. Sections~\ref{sec:opt_code} and~\ref{sec:opt_design} describe the contributions of this work, in terms of optimizations to the ns-3 implementation of the TR 38.901 framework and the design of a performance oriented channel model, respectively. Finally, Section~\ref{sec:results} presents benchmarks of the introduced optimizations and discusses the main use cases of these channel models, while Section~\ref{sec:conc} concludes the paper by mentioning possible future extensions of this work. 
+
+\section{Related work}
+\label{sec:rel_work}
+Channel modeling is a fundamental task for the design, simulation, and evaluation of current and future wireless networks. It is especially relevant to perform system-level simulations to test new algorithms, procedures, and architectures, before going into real deployment/device implementations. In the recent decades, the challenges for understanding the propagation at \gls{mmwave} and \gls{thz} frequencies with large antenna arrays and the use of \gls{mimo} have further motivated the channel modeling efforts in those frequency ranges~\cite{hemadeh2018millimeter, 9444237}. As a result, multiple channel measurement campaigns have been performed by the academic and industry communities~\cite{rappaport2013millimeter}, 
+leading to different families of channel models. The various channel models differ in their degree of simplicity and accuracy. 
+They range from simple models that just consider a propagation loss component combined with Nakagami-m or Rayleigh fading but fail to capture the spatial dimension of the channel and the interactions with beamforming~\cite{andrews2017modeling}, to deterministic models that are very accurate in specific scenarios but are much more complex and require a precise characterization of the environment~\cite{lecci2020simplified}.
+To address the complexity-accuracy trade-off, the \gls{3gpp} has adopted a stochastic channel model for simulations of 5G and beyond networks~\cite{TR38901}. Stochastic channel models are generic, thanks to their stochastic nature, but at the same time can model interactions with multiple-antenna arrays.
+Specifically, the \gls{3gpp} defined in TR 38.901 the spatial channel model for simulations that address frequency ranges from 0.5 GHz to 100 GHz~\cite{TR38901}, which is parameterized for various simulation scenarios, including indoor office, indoor factory, urban macro, urban micro, and rural macro. 
+
+However, for system-level simulations of large-scale systems including multiple nodes and large antenna arrays, the \gls{3gpp} spatial channel model still introduces a significant overhead in terms of computational complexity. In this line, in~\cite{8445856}, a simplified channel model for the system-level simulations of \gls{mimo} wireless networks is proposed. Therein, the end-to-end channel gain is obtained as the sum of several loss and gain terms that account for large-scale phenomena such as path loss and shadowing, small-scale fading, and antenna and beamforming gains. Notably, the latter terms represent a fundamental component for studies concerning modern wireless systems. In particular, an accurate characterization of the antenna radiation pattern and of the effect of the presence of multiple radiating elements becomes extremely important when studying \gls{mmwave} and \gls{thz} frequencies. Following the model in~\cite{8445856}, the combined antenna and beamforming gain can be computed according to~\cite{8422746}, the path loss and shadowing components can follow the \gls{3gpp} model in~\cite{TR38901}, and the small-scale fading can be sampled from various statistical distributions. 
+For the small-scale fading, authors in~\cite{8445856} propose to use a Nakagami-$m$ distribution, which has been shown to provide a good fit with the 3GPP model, provided that the $m$ parameter is appropriately chosen.
+Another option for small-scale fading modeling is the so-called \gls{ftr} fading model presented in~\cite{7917287}, which models more accurately the fading that occurs at mmWaves.
+
+The 3GPP TR 38.901 spatial channel model was included in ns-3 thanks to the efforts of Tommaso Zugno in 2019 Google Summer of Code~\cite{tommaso:20}, and later extended to address vehicular scenarios in~\cite{10.1145/3460797.3460801} and industrial scenarios in~\cite{10.1145/3532577.3532596}. The current spatial channel model implemented in ns-3 is very accurate for simulations in line with \gls{3gpp} specifications for a wide range of frequencies, but represents the main bottleneck in terms of computational complexity when considering large-scale simulations with many multi-antenna nodes, especially when equipped with large antenna arrays. This is because of the intrinsic complexity in the generation of the channel model according to 3GPP specifications and the need to deal with 3D channel matrix structures. The channel matrix in the ns-3 implementation of the \gls{3gpp} spatial channel model is implemented as a 3D structure whose dimensions depend on the number of the transmit antennas, receive antennas, and clusters. Currently, in ns-3, the 3GPP channel model uses a vector of vectors of vectors to represent 3D arrays, such as the channel matrix. 
+
+The design of computationally efficient yet accurate channel models has been a topic of interest also in the \gls{wlan} space. The authors of~\cite{jin2020efficient, jin2021efficient} present a frequency-selective channel for \glspl{wlan}, and use \gls{eesm} \gls{l2s} mapping to integrate their model with the ns-3 system-level Wi-Fi implementation. Moreover, they develop a framework which leverages cached statistical channel matrix realizations to directly estimate the effective \gls{snr}, thus further improving the computational efficiency of the model. Specifically, the latter is modeled as a parameterized log-SGN random variable. They extend their work in~\cite{jin2021eesm}, by accounting for the channel correlation over time. 
+Moreover,~\cite{liu2021performance} compares statistical channel models for the 60~GHz band with the \gls{qd} \gls{rt} of~\cite{QD}.
+
+In this paper, we summarize the efforts carried out by Matteo Pagin in 2022 Google Summer of Code to further optimize the code in ns-3 in two directions: 1) improving the efficiency of the code by allowing the use of \texttt{Eigen} library, and 2) proposing a new performance-oriented MIMO channel model for reduced complexity in ns-3 large-scale simulations. First, we have improved the efficiency of the \gls{3gpp} spatial channel model in ns-3 by allowing the usage of \texttt{Eigen} to represent matrices, so that when \texttt{Eigen} is available the \gls{3gpp} channel matrix is represented as an \texttt{std::vector} of \texttt{Eigen} matrices. This already improves the performance of current models. Second, we propose an alternative model, based on the FTR channel model~\cite{7917287}, in which the channel is characterized by a single scalar instead of 3D matrices, and we have calibrated such model to align with the \gls{3gpp} TR 38.901 spatial channel model for various scenarios and channel conditions. This model is especially useful to speed up ns-3 large-scale simulations, when simplicity is prioritized.
+
+
+\section{Efficient MIMO modeling with the Eigen library}
+\label{sec:opt_code}
+
+The use of multiple antennas both at the transmitter and at the receiver, a fundamental feature of modern wireless systems, makes a scalar representation of the channel impulse response insufficient. Instead, \gls{mimo} channels are usually represented in the form of a complex matrix $\bm{H} \in \mathbb{C}^{U \times S}$, whose elements depict the channel impulse response between the $U$ and $S$ radiating elements of the transmitting and receiving antenna arrays, respectively~\cite{TR38901}. This peculiarity significantly increases the computational complexity of \gls{mimo} channel models, compared to \gls{siso} ones, since the complex gain of the channel must be evaluated for each pair of transmit and receive antennas.
+Notably, previous analyses identified in statistical channel models the main bottleneck for system-level \gls{mimo} wireless simulations. In typical \gls{m-mimo} \gls{5g} scenarios, where the devices feature a high number of antennas, the channel matrix generation and the computation of the beamforming gain represent up to 90\% of the simulation time ~\cite{testolina2020scalable}. 
+
+In light of these limitations, as the first of our contributions, we optimized the implementation of the 3GPP TR 38.901 model in ns-3 introduced in~\cite{tommaso:20}. 
+First, we observed that, as of ns-3.37, part of the trigonometric operations  of the \texttt{GetNewChannel} method of the \texttt{Three\-Gpp\-Channel\-Model} class are unnecessarily repeated for each pair of transmitting and receiving radiating elements. This represents a significant inefficiency, since the inputs of these functions, i.e., the angular parameters of the propagation clusters, depend on the cluster index only. Moreover, the standard library \texttt{sin} and \texttt{cos} functions are particularly demanding to evaluate. Therefore, we cached the trigonometric evaluations of these terms prior to the computation of $\bm{H}$'s coefficients, effectively reducing the complexity of the trigonometric operations from $\mathcal{O}(U \times S \times N)$ to $\mathcal{O}(N)$, where $N$ is the number of propagation clusters. 
+
+Then, we focused on improving the algebra manipulations of the channel matrix performed in the \texttt{Three\-Gpp\-Spectrum\-Propagation\-Loss\-Model} by introducing the support for the open-source library \texttt{Eigen} in ns-3. \texttt{Eigen} is a  linear algebra C\texttt{++} template library that offers fast routines for algebra primitives such as matrix multiplication, decomposition and space transformation~\cite{eigenweb}, and is used by many open-source frameworks such as TensorFlow. 
+
+We set \texttt{Eigen} as an optional, external ns-3 dependency, with the goal of minimizing future code maintenance efforts, %. The library has been integrated in ns-3 by
+and thus mimicking the support for other third-party libraries. To get \texttt{Eigen}, ns-3 users can either rely on packet managers, i.e., install the package \texttt{libeigen3-dev} (\texttt{eigen}) for Linux (Mac) systems, or manually install the library by following the official instructions\footnote{\url{https://gitlab.com/libeigen/eigen/-/blob/master/INSTALL}}. Then, \texttt{Eigen} can be enabled via a custom flag defined in the \texttt{macros-\-and-\-definitions.cmake} file, and its presence in the system is shown to the user by exposing whether it has been found or not via the \texttt{ns3-\-config-\-table.cmake} file. The latter also defines the preprocessor definition \texttt{HAVE\_EIGEN3}, which is used in the ns-3 source files to discern \texttt{Eigen}'s availability. Finally, the linking of \texttt{Eigen} with the ns-3 source files is taken care of by the \texttt{CMake} configuration file provided by the library itself, as suggested in the related ns-3 guide.
+
+To prevent the need for \texttt{Eigen} to be installed in the host system, we developed a common set of APIs between the \texttt{Eigen}- and the \gls{stl}-based data structures and primitives. Thanks to this choice, the remainder of the \texttt{spectrum} code is completely abstracted with respect to the presence of the library.
+Given that most of the needed operators can not be overloaded for \gls{stl} C\texttt{++} vectors (for instance, \texttt{operator()}), the common interface for both Eigen and \gls{stl}’s based vectors and matrices has been implemented by defining ad hoc structs with custom operators. In particular, we defined:
+
+\begin{itemize}
+    \item The complex vector type \texttt{PhasedArrayModel::\-Complex\-Vec\-tor}. This data-structure is defined as an \texttt{std::\-vector} of \texttt{std::\-complex<double>} whenever \texttt{Eigen} is not installed, and as an \texttt{Eigen} vector of \texttt{std::\-complex<double>} otherwise. The set of APIs includes operators \texttt{[]} and \texttt{!=}, which can be used to access the vector entries and to compare pairs of vectors, respectively. Additionally, we defined the \gls{stl}-like methods \texttt{size}, \texttt{norm} and \texttt{resize}, which return the vector size, its $\mathcal{L}^2$-norm, and allow the user to resize the underlying container, respectively. These definitions follow the typical \gls{stl} notation, as it is supported by \texttt{Eigen} as well.
+    
+    \item The complex matrix type \texttt{MatrixBasedChannelModel::\-Com\-plex\-2DVector}. In this case, the underlying type is a nested \texttt{std::vector} of \texttt{std::complex\-<double>} for when \texttt{Eigen} is disabled, and an \texttt{Eigen} matrix whose entries are of type \texttt{std::\-complex\-<double>} otherwise. 
+    
+    In this case, we aligned the notation to the APIs provided by \texttt{Eigen}. Specifically, the matrix elements can be accessed via the operator \texttt{()}, which takes as arguments the row and column indices of the entry, while the method \texttt{resize} allows users to resize matrices by specifying the number of rows and columns. In turn, these can be accessed via the \texttt{rows} and \texttt{columns} methods, respectively.
+
+    \item The 3D matrix \texttt{MatrixBased\-ChannelModel::\-Complex\-3D\-Vec\-tor}. This data structure is defined, regardless of \texttt{Eigen}'s availability, as an \texttt{std::\-vector} of \texttt{MatrixBased\-Channel\-Model::\-Complex2DVector}. In this case, the only method provided is \texttt{Multiply\-MatBy\-Left\-And\-RightVec}, which computes a product of the type $\bm{w}_T \bm{H} \bm{w}_R^T$, where $\bm{H} \in \mathbb{C}^{U \times S}$, $\bm{w}_T \in \mathbb{C}^{1 \times U}$ and $\bm{w}_R \in \mathbb{C}^{1 \times S}$. Notably, this computationally demanding evaluation, which is required for computing the beamforming gain in \texttt{Three\-Gpp\-Spectrum\-Propagation\-Loss\-Model}, leverages \texttt{Eigen}'s optimized algorithms whenever the library is installed in the host system.
+\end{itemize}
+
+Finally, we remark that the support for \texttt{Eigen} in the ns-3 codebase can possibly be further extended to improve the efficiency of other linear algebra operations, such as the \gls{svd} which is used in the \texttt{mmwave} and \texttt{nr} modules to compute optimal beamformers, and the matrix-by-matrix multiplications needed for relayed channels \cite{9810370}.
+
+\section{A performance-oriented MIMO statistical channel model}
+\label{sec:opt_design}
+
+The second approach to reduce computational complexity we propose in this paper is a 
+% Additionally, we designed and implemented a 
+\gls{mimo} channel model for simulating large \gls{m-mimo} scenarios, implemented in the class \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model}. The goal of this auxiliary model is to offer a faster, albeit slightly less accurate, statistical channel model than the 3GPP TR 38.901 framework of \cite{tommaso:20} by preventing the need for the computation of the complete channel matrix. In line with~\cite{TR38901}, the frequency range of applicability of this model is $0.5 - 100$ GHz, although the framework can be possibly extended to support higher frequencies as well.
+
+The overall channel model design follows the approach of \cite{8445856}, i.e., the end-to-end channel gain is computed by combining several loss and gain terms which account for both large- and small-scale propagation phenomena, and the antenna and beamforming gains.
+In particular, let $T$ be a device transmitting a signal $x$ with power $\mathrm{P}_T^x$, and $R$ be another device in the simulation (which may or may not be the intended destination of
+$x$). 
+The proposed model implements the \texttt{Phased\-Array\-Spectrum\-Propagation\-Loss\-Model} interface by estimating $\mathrm{P}_R^x$, i.e., the power of $x$ received at $R$, as follows:
+\begin{align}
+\mathrm{P}_R^x[d B m] =& \,\, \mathrm{P}_T^x[d B m] - \mathrm{PL}_{T, R}[d B] \\
+        &+ \mathrm{S}_{T, R}[d B] + G_{T, R}[d B] + F_{T, R}[d B], \nonumber
+\end{align}
+where the terms $\mathrm{PL}_{T, R}$ and $\mathrm{S}_{T, R}$ represent the path loss and the shadowing, respectively, while $G_{T, R}$ and $F_{T, R}$ denote the antenna and beamforming gain and the small-scale fading, respectively. The remainder of this section describes in detail how each of these terms is computed.
+
+\subsection{Path loss, Shadowing, and \gls{los} Condition}
+The large-scale propagation phenomena are modeled according to the 3GPP TR 38.901 model~\cite{TR38901}, since its implementation of~\cite{tommaso:20} is not computationally demanding. Nevertheless, the channel model can in principle be coupled with arbitrary classes extending the \texttt{Channel\-Condition\-Model} interface.
+
+Specifically, we first determine the 3GPP scenario. Then, for each link we set the \gls{los} condition in a stochastic manner, using the class extending \texttt{Three\-Gpp\-Channel\-Condition\-Model} which corresponds to the chosen scenario.
+
+Then, we compute the path loss using the 3GPP TR 38.901 formula
+\begin{equation}
+    PL_{T, R} = A \log_{10} (d) + B + C \log_{10} (f_C) [dB],
+\end{equation}
+where $d$ is the 3D distance between the transmitter and the receiver, $f_C$ is the carrier frequency, and  $A, B$ and $C$ are model parameters which depend on the specific scenario and the \gls{los} condition.
+
+To account for the presence of blockages, an optional log-normal shadowing component $S_{T, R}$ and an outdoor-to-indoor penetration loss term are added to $PL_{T, R}$.
+
+\subsection{Antenna and Beamforming Gain}
+
+%\begin{equation}
+ % \operatorname{AF}_{\mathrm{v}}(\theta, \varphi)=\frac{1}{\sqrt{N_{\mathrm{v}}}}
+ % \sum_{m=0}^{N_{\mathrm{v}}-1} e^{j k d_{\mathrm{v}} m\left(\cos \theta-\cos \theta_0\right)} \\
+%\end{equation}
+%and
+%\begin{equation}
+%  \operatorname{AF}_{\mathrm{h}}(\theta, \varphi)=\frac{1}{\sqrt{N_{\mathrm{h}}}}
+%  \sum_{n=0}^{N_{\mathrm{h}}-1} e^{j k d_{\mathrm{h}} n\left(\sin \theta
+%  \sin \varphi-\sin \theta_0 \sin \varphi_0\right)}.
+%\end{equation}
+
+
+% computed as outlined in using the CalcBeamformingGain function. 
+The combined array and beamforming gain is computed using the approach of~\cite{8422746}. 
+%That is to say, 
+The proposed model supports the presence of multiple antenna elements at the transmitter and at the receiver, and arbitrary analog beamforming vectors and antenna radiation patterns. Therefore, ns-3 users can use this model in conjunction with any class that implements the \texttt{AntennaModel} interface.
+In this implementation, we focus on \glspl{upa}, although the methodology is general and can be applied to arbitrary antenna arrays.
+
+Let $\theta$ and $\varphi$ be the relative zenith and azimuth angles between transmitter and receiver, respectively, and let $\bm{w}\left(\theta_0, \varphi_0\right)$ denote the beamforming vector pointing towards the steering direction $\left(\theta_0, \varphi_0\right)$. We denote with $U = U_h U_v $ the total, horizontal, and vertical number of antenna elements, respectively, and with $ d_h, d_v $ their spacing in the horizontal and vertical domains of the array, respectively. %Since we consider analog beamforming vectors only, $\bm{w}\left(\theta_0, \varphi_0\right)$  
+\begin{comment}
+The gain pattern of the antenna array, in terms of received power relative to a single radiating element, can be expressed as~\cite{ASPLUND202089}
+\begin{equation}
+  G_{T, R}(\theta, \varphi) = \left|\bm{a}^{\mathrm{T}}(\theta, \varphi)  \bm{w}\left(\theta_0, \varphi_0\right)\right|^2,
+\end{equation}
+where $\bm{a}^{\mathrm{T}}(\theta, \varphi)$ is the array response vector. A generic entry $m,n, m \in \{0, \ldots, U_v - 1 \}, n \in \{0, \ldots, U_h - 1 \}$ of this vector is defined as
+\begin{align}
+  a(\theta, \varphi)_{m, n} = g(\theta, \varphi)_{m, n} & \exp(j\frac{2\pi}{\lambda}m d_v \cos(\theta)) \times \\
+    & \exp(j \frac{2\pi}{\lambda} n d_h \sin(\theta)\sin(\varphi)), \nonumber
+\end{align}
+where $g(\theta, \varphi)_{m, n}$ is the single-element gain of radiating element $(m, n)$ towards direction $(\theta, \varphi)$.
+%
+In our implementation, we assume that $g(\theta, \varphi)_{m, n}$ is constant for all the elements of the arrays, i.e., $g(\theta, \varphi)_{m, n} \equiv g(\theta, \varphi)$. Accordingly, we define
+\begin{equation}
+    \bm{a_i(\theta, \varphi)} \doteq \left[ a_i(\theta, \varphi)_{m, n} \right]_{m, n} = \left[ g(\theta, \varphi)_{m, n}^{-1} a(\theta, \varphi)_{m, n} \right]_{m, n}
+\end{equation}
+and then compute $G_{T, R}(\theta, \varphi)$ in the \texttt{Compute\-Beamforming\-Gain} function of the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class as
+\begin{equation}
+  G_{T, R}(\theta, \varphi) = \left| g(\theta, \varphi) \left[ \bm{a_i}^{\mathrm{T}}(\theta, \varphi)  \bm{w}\left(\theta_0, \varphi_0\right) \right] \right|^2.
+\end{equation}
+\end{comment}
+
+Considering first isotropic antennas, the gain pattern of a \gls{upa}, in terms of received power relative to a single radiating element, can be expressed as~\cite{ASPLUND202089}
+\begin{equation}
+  G_{T, R}^{iso}(\theta, \varphi) = \left| \bm{a_i}^{\mathrm{T}}(\theta, \varphi)  \bm{w}\left(\theta_0, \varphi_0\right) \right|^2,
+\end{equation}
+where $\bm{a_i}(\theta, \varphi)$ is the array response vector, whose generic entry $m,n$ with $m \in \{0, \ldots, U_v - 1 \}, n \in \{0, \ldots, U_h - 1 \}$ reads
+\begin{align}
+  a_i (\theta, \varphi)_{m, n} = & \exp \left( j\frac{2\pi}{\lambda}m d_v \cos(\theta) \right) \times \\
+    & \exp\left( j \frac{2\pi}{\lambda} n d_h \sin(\theta)\sin(\varphi) \right). \nonumber
+\end{align} 
+
+In this work, which supports arbitrary antennas, each antenna element $(m, n)$ actually exhibits a generic radiation pattern $g(\theta, \varphi)_{m, n}$ towards direction $(\theta, \varphi)$. In particular, we assume that $g(\theta, \varphi)_{m, n}$ is constant for all the elements of the array, i.e., $g(\theta, \varphi)_{m, n} \equiv g(\theta, \varphi)$. 
+Accordingly, we compute $G_{T, R}(\theta, \varphi)$ in the \texttt{Compute\-Beamforming\-Gain} function of the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class as
+\begin{equation}
+  G_{T, R}(\theta, \varphi) =  G_{T, R}^{iso}(\theta, \varphi) \left| g(\theta, \varphi) \right|^2.
+\end{equation}
+%
+Figures~\ref{fig:pattern_iso} and~\ref{fig:pattern_3gpp} report $G_{T, R} (\theta, \varphi)$ for both the isotropic (\texttt{Isotropic\-Antenna\-Model}) and the 3GPP (\texttt{ThreeGpp\-Antenna\-Model}) radiation patterns, respectively. 
+
+ \begin{figure}
+  \centering
+  \begin{subfigure}[t]{\columnwidth}
+    \centering 
+    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
+    \input{Figures/ChannelPerformance/RadiationPatternIso.tex}
+    %\vspace*{-4mm}
+    \caption{Isotropic Radiating Elements}
+    \vspace*{2mm}
+    \label{fig:pattern_iso}
+  \end{subfigure}
+ \hfill
+  \begin{subfigure}[t]{\columnwidth}
+    \centering 
+    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
+    \input{Figures/ChannelPerformance/RadiationPattern3gpp.tex}
+    %\vspace*{-4mm}
+    \caption{Directional Antenna Radiation Pattern of~\cite[Section~7.3]{TR38901}}
+    \label{fig:pattern_3gpp}
+  \end{subfigure}
+  % \setlength\belowcaptionskip{.1cm}
+  \caption{Overall Array and Beamforming Gain of a Uniform Planar Array, for Isotropic and 3GPP~\cite[Section~7.3]{TR38901} Radiating Elements and \{1x1, 2x2, 4x4, 8x8\} \glspl{upa}. The Steering Direction is Fixed to $\left(\theta_0, \varphi_0\right) = (0^{\circ}, 0^{\circ})$, and $\theta \equiv 0^{\circ}$}
+  \label{Fig:rad_pattern}
+\end{figure}
+
+It can be noted that our model abstracts the computation of the received signal power as a \gls{siso} keyhole channel~\cite{chizhik2000capacities}, which is then combined with the spatial antenna gain
+patterns at the transmitter/receiver to obtain the received power. This approximation is possibly imprecise when considering \gls{nlos} links, due to the lack of a dominant multipath component. To account for this limitation, we introduce a multiplicative correction factor $\eta$ which scales the beamforming gain as $G^{'}_{T, R}(\theta, \varphi) \equiv \eta G_{T, R}(\theta, \varphi) $. In line with~\cite{kulkarni2018correction}, we set $\eta = 1 / 19$.
+
+\subsection{Fast Fading}
+
+The widely used Rayleigh and Rician distributions fail, even in their generalized forms, to capture the intrinsic bimodality exhibited by \gls{mmwave} scenarios~\cite{yacoub2007kappa, cotton2014human, mavridis2015near}.
+Therefore, in our implementation we model fast fading using the more general \gls{ftr} model of~\cite{7917287}. %The latter is a fading model which is more general than typical ones. 
+This fading model assumes that the received signal comprises two dominant specular components and a mixture of scattered paths, thus modeling the amplitude of the received signal $V_r$ as
+\begin{equation}
+   V_r = V_1 \sqrt{\xi} \exp(j \phi_1) + V_2 \sqrt{\xi} \exp(j \phi_2) + X + jY,
+\end{equation}
+where $\phi_1$, $\phi_2$ are statistically independent random phases, distributed as  $\phi_{i} \sim \mathcal{U} \left[ 0, 2\pi\right]$. $X$ and $Y$ are independent Gaussian random variables, i.e., $X, Y \sim \mathcal{N} (0, \sigma^2)$, which represent the diffuse component of the received signal, which is assumed to be the superposition of multiple weak scattered waves with independent phase. Finally, $\xi$ is a unit-mean Gamma distributed random variable with rate $m$ and \gls{pdf}
+\begin{equation}
+   f_{\xi} (u) = \frac{m^m u^{m-1}}{\Gamma (m)} exp(-m u).
+\end{equation}
+In our implementation, $F_{T, R} = \left| V_r \right|^2$ is sampled via the \texttt{Get\-Ftr\-Fast\-Fading} function of the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class.
+
+The \gls{ftr} fading model is usually expressed as a function of the Gamma rate $m$ and the auxiliary parameters
+\begin{align}
+    K &\doteq \frac{V_1^2 + V_2^2}{2 \sigma^2} \\
+    \Delta &\doteq \frac{2 V_1 V_2}{V_1^2 + V_2^2} \in \left[ 0, 1 \right],
+\end{align}
+where $K$ represents the ratio of the power of the specular components with respect to the diffuse ones, while $\Delta$ denotes how similar the received powers of the specular components are. By tuning these parameters, a high degree of flexibility can be achieved. Notably, a choice of $\Delta = 0$ effectively yields a Rician-distributed signal amplitude~\cite{7917287}.
+
+\subsubsection{Calibration}
+
+In our work, we calibrated the $V_1, V_2$ and $m$ parameters of the \gls{ftr} fading model using the full 3GPP TR 38.901 channel model as a reference. 
+In particular, we first obtained the statistics of the small-scale fading of the 3GPP model, using an ad hoc calibration script (\texttt{three-\-gpp-\-two-\-ray-\-channel-\-calibration.cc}). The script produces a collection of channel gain samples obtained by using the \texttt{Three\-Gpp\-Spectrum\-Propagation\-Loss\-Model} and the \texttt{Three\-Gpp\-Channel\-Model} classes, and neglecting the beamforming gain, path-loss, shadowing and blockages. Accordingly, we isolate the variation around the mean received power caused by the small-scale fading only. 
+A separate set of these samples has been retrieved for both \gls{los} and \gls{nlos} channel conditions, the different propagation scenarios of~\cite{TR38901}, and a set of carrier frequencies ranging from $0.5$ to $100$ GHz. However, a preliminary evaluation of the obtained data showed a negligible dependence of the small-scale fading with respect to the carrier frequency, as can be observed in Figure~\ref{fig:fading_vs_fc}. Therefore, we calibrated the \gls{ftr} parameters considering only the channel condition and the propagation scenario.
+
+\begin{figure}
+    \centering 
+    \setlength\fwidth{0.95\columnwidth}
+    \setlength\fheight{0.25\columnwidth}
+    \input{Figures/ChannelPerformance/FadingVsFcJoined.tex}
+    \caption{Small-scale Fading Gain Statistics for the UMi Propagation Scenario Versus the Carrier Frequency $f_C$, for both \gls{los} and \gls{nlos} Channel Conditions}
+    \label{fig:fading_vs_fc}
+\end{figure}
+
+%$\mathcal{P} \doteq \mathcal{M} \times \mathcal{\Delta}$, where $\times$ denotes the cartesian product, $ \mathcal{C} \doteq \{ \mathrm{LoS, NLoS} \} $, and $\mathcal{S}$ comprises all the 3GPP scenarios currently implmented in ns-3
+
+The small-scale fading samples have been used to estimate the $\Delta, K$ and $m$ \gls{ftr} parameters, and then derive analytically the values of $V_1$ and $V_2$ yielding the fading realizations that are the closest (in a goodness-of-fit sense) to the TR 38.901 model.
+To this end, we defined a discrete grid of \gls{ftr} parameters, spanning their whole domain, and considered the corresponding set of parameterized \gls{ftr} distributions. To find the best matching one, we measured the distance between each of these distributions and the 3GPP reference curves by using the Anderson-Darling goodness-of-fit test~\cite{anderson1954test}. This test is used to discern whether a sorted collection of $n$ samples $\{Y_{1}, \ldots, Y_n\}$ originates from a specific distribution, by evaluating the test statistic~\cite{anderson1954test}
+\begin{equation}
+    A^2 = -n -S(\mathcal{F}),
+\end{equation}
+where
+\begin{equation}
+    S(\mathcal{F}) = \sum _{i=1}^{n} \frac {2i-1}{n} \left[ \ln (\mathcal{F}(Y_{i}))+\ln \left(1-(\mathcal{F}(Y_{n+1-i})\right)\right], 
+\end{equation}
+and $\mathcal{F}$ is the \gls{cdf} of the target distribution.
+In the standard Anderson-Darling test, $A^2$ is then compared to a pre-defined critical value to validate the hypothesis. Instead, in our work we find the \gls{ftr} distribution $\mathcal{F}_{m, K, \Delta}$ which yields the lowest $S$. 
+Specifically, for each combination of propagation scenario, \gls{los} condition and corresponding samples $\{Y_{1}, \ldots, Y_n\}$ we find
+\begin{equation}
+    \mathcal{F}_{m^*, K^*, \Delta^*} \doteq \argmin_{m, K, \Delta} S (\mathcal{F}_{m, K, \Delta}).
+\end{equation}
+%
+Finally, we exported the calibrated \gls{ftr} parameters into ns-3, by storing them in \texttt{SIM\_\-PARAMS\_\-TO\_FTR\_\-PARAMS\_\-TABLE}, i.e., an \texttt{std::map} which associates the propagation scenario and condition to the corresponding best fitting \gls{ftr} parameters.
+We remark that this calibration process represents a pre-computation step which needs to be done only once. Indeed, when running a simulation with this channel model, the \gls{ftr} parameters get simply retrieved from the pre-computed lookup table by the \texttt{Get\-Ftr\-Parameters} function. Nevertheless, for the sake of reproducibility and maintainability of the code, we provide this functionality in the Python script \texttt{two-\-ray-\-to-\-three-\-gpp-\-ch-\-calibration.py}.
+
+\section{Benchmarks, examples and use cases}
+\label{sec:results}
+
+In this section, we provide an example on how to use the performance-oriented channel model presented above, in conjunction with the \gls{nr}~\cite{patriciello2019e2e} module, to simulate \gls{5g} \gls{mimo} networks. Moreover, we present benchmarks which quantify the simulation time reduction achieved with this work, and we outline some possible use cases.
+
+\subsection{Examples and Benchmarks}
+
+We demonstrate how to use the performance-oriented channel model in the \texttt{cttc-nr-demo-two-ray} script, i.e., a custom version of the \texttt{cttc-nr-demo} example which is included in the \gls{nr} module.
+The script deploys $N_{gNB}$ \gls{5g} \gls{nr} base stations, along with $N_{UE}$ users in each cell. Each \gls{ue} uploads data using two \glspl{bwp} operating at 28 and 30~GHz, respectively. Both base stations and user terminals feature \glspl{upa} with multiple radiating elements.
+
+
+Most simulation parameters can be tuned by ns-3 users. Notably, the script provides the possibility to choose whether to use the 3GPP TR 38.901 channel model of~\cite{tommaso:20} or the \gls{ftr}-based channel model proposed in this work.
+In such regard, the use of the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model}, instead of the TR 38.901 one, is achieved by:
+\begin{enumerate}
+\item Setting the \texttt{TypeId} of the \texttt{Spectrum\-Propagation\-Loss\-Model} factory to \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model}; 
+\item Creating an instance of the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class using the above factory, and setting the corresponding pointer as the \texttt{Spectrum\-Propagation\-Loss\-Model} of both \glspl{bwp}; 
+\item  Setting the attribute \texttt{Frequency} of the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} instance as the \gls{bwp} carrier frequency; 
+\item  Specifying the 3GPP propagation scenario by setting the attribute \texttt{Scenario}; and 
+\item  Creating and setting the \texttt{Channel\-Condition\-Model} by using the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class \\ \texttt{ChannelConditionModel} attribute. 
+\end{enumerate}
+
+On the other hand, the \texttt{Eigen} optimizations simply require users to have the corresponding library installed in their system, and to enable \texttt{Eigen} when configuring ns-3, using the flag \texttt{enable\--eigen}.
+
+\begin{figure}
+    \centering 
+    \setlength\fwidth{0.95\columnwidth}
+    \setlength\fheight{0.3\columnwidth}
+    \input{Figures/ChannelPerformance/Bench3gppOpt}
+    \vspace*{-0.2cm}
+    \caption{Ratio of the Median Simulation Times After the Merge of this Work with the Eigen Integration ($T_{A}^{3GPP}$) and as per ns-3.37 ($T_{B}$), when Using the 3GPP Channel Model of~\cite{TR38901}}
+    \label{fig:bench_eigen}
+\end{figure}
+
+\begin{figure}
+    \centering 
+    \setlength\fwidth{0.95\columnwidth}
+    \setlength\fheight{0.27\columnwidth}
+    \input{Figures/ChannelPerformance/BenchTwoRay.tex}
+    \vspace*{-0.2cm}
+    \caption{Ratio of the Median Simulation Times Using the Performance-Oriented Channel Model Presented in this Work ($T_{A}^{TR}$) and the 3GPP Channel Model of~\cite{TR38901} After the Merge of this Work. In this Case, \texttt{Eigen} is Disabled}
+    \label{fig:bench_tworay}
+\end{figure}
+ 
+We validated our contributions by benchmarking the simulation times exhibited by the above simulation script, which depicts a typical \gls{mimo} \gls{5g} \gls{nr} scenario. To such end, we varied the number of \gls{gnb} antennas and \glspl{ue} deployed, and we timed $100$ simulation runs for each parameter combination. Figure~\ref{fig:bench_eigen} reports the ratio of the median simulation time achieved when using the \texttt{Eigen}-based optimizations, and of the same metric obtained using the vanilla ns-3.37. It can be seen that the matrix multiplication routines offered by \texttt{Eigen} can significantly reduce simulation times. For instance, a reduction of $5$ times in the simulation time is achieved when equipping \glspl{gnb} with $256$ radiating elements.
+Similarly, Figure~\ref{fig:bench_tworay} depicts the ratio of the median simulation time obtained by using the \gls{ftr}-based channel model, and the 3GPP TR 38.901 with \texttt{Eigen} disabled. In this case the computational complexity improvement is even more dramatic, with simulations taking as low as 6~\% of the time to complete, with respect to the 3GPP model implementation of~\cite{tommaso:20}. As a reference, the median simulation time obtained on an Intel\textsuperscript{\textcopyright} i5-6700 processor system, before the merge of this work and for $\{2, 4, 8\}$ users is $\{64.7, 210.5, 666.6\}$~[s], respectively.
+
+
+\begin{figure}
+    \centering 
+    \setlength\fwidth{0.95\columnwidth}
+    \setlength\fheight{0.27\columnwidth}
+    \input{Figures/ChannelPerformance/AccuracyJoined.tex}
+    \caption{ECDF of the \gls{sinr} Obtained Using the 3GPP Channel Model of~\cite{TR38901}, and the Performance-Oriented Channel Model Presented in this Work, for Different Propagation Scenarios}
+    \label{fig:accuracy}
+\end{figure}
+
+Finally, we also computed (using the same simulation script, i.e.,~\texttt{cttc-\-nr-\-demo-\-two-\-ray}) the \gls{sinr} statistics achieved by the proposed \gls{ftr}-based model, and compared them to those obtained using the model of~\cite{tommaso:20}. As can be seen in Figure~\ref{fig:accuracy}, the two models provide similar results. Indeed, a non-negligible difference can be found only in the case of the \texttt{InH-OfficeMixed} propagation scenario.
+
+We remark that all the results presented in this section can be reproduced by using the SEM~\cite{magrin2019simulation} scripts which we provide\footnote{\url{https://gitlab.com/pagmatt/ns-3-dev/-/tree/gsoc-wns3}}.
+
+\subsection{Use Cases}
+
+The main goal of both the performance oriented channel model and the optimizations to the 3GPP TR 38.901 model is to enable system-level
+simulations of large-scale \gls{mimo} scenarios for which the implementation of~\cite{tommaso:20} exhibits prohibitive computational complexity. Specifically, our contributions allow ns-3 users to simulate wireless deployments where the devices feature antenna arrays with more than hundreds of radiating elements, and/or the number of communication endpoints is particularly high. For example, the modifications presented in this work can be used in the~\gls{nr} and \texttt{mmwave}~\cite{mezzavilla2018end} modules (which both already support the proposed channel models) to simulate massive MIMO 5G NR networks. 
+Notably, a preliminary version of the \texttt{Eigen} port has been used in conjunction with the \texttt{mmwave}~\cite{mezzavilla2018end} module to simulate \gls{5g} networks aided by \glspl{irs}, i.e., devices which feature up to $100 \times 100$ reflecting elements~\cite{pagin2022}. 
+
+Moreover, since the supported frequency range is $0.5 - 100$~GHz, this encompasses not only terrestrial \gls{5g} and \gls{lte} deployments, but also most non-terrestrial networks and IEEE \glspl{rat}. Finally, the proposed \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} can be further extended to support frequencies above $100$~GHz using reference fading and path loss statistics.
+
+\section{Conclusions and future work}
+\label{sec:conc}
+
+In this paper, we presented a set of optimizations concerning the simulation of \gls{mimo} wireless channels in ns-3. First, we introduced the support for the linear algebra library \texttt{Eigen} in ns-3, and reduced the computational complexity of the channel matrix generation procedure by avoiding the unnecessary repetition of trigonometric evaluations. Then, we designed and implemented in ns-3 a performance-oriented statistical channel model based on the \gls{ftr} fading model, which further reduces the simulation time of \gls{mimo} scenarios. %The main uses cases for these contributions are simulation scenarios featuring either a high number of devices and/or where the communication endpoints are equipped with antenna arrys comprising hundreds or more elements.
+
+Profiling results showed that, thanks to this work, the simulation of \gls{mimo} deployments in ns-3 using the 3GPP TR 38.901 channel model takes as little as $20$\% of the original time. Furthermore, whenever the complexity of the simulations represents a major bottleneck, ns-3 users are now given the possibility of using an additional auxiliary channel model, which achieves a further reduction in simulation time, at the cost of a negligible accuracy penalty with respect to the full 3GPP TR 38.901 model.
+
+As part of our future work, we plan to study more refined beamforming gain correction factors, using the 3GPP statistical channel model as a reference, and possibly making the estimation of such term scenario-dependent. Moreover, we envision to design more efficient storage/access data structures and linear algebra operations for 3D matrices, by better leveraging \texttt{Eigen} also in this context.
+Finally, we will consider using \gls{simd} for speeding up the evaluation of trigonometric functions, and caching the beamforming gain in the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class to further reduce the simulation time of \gls{mimo} scenarios in ns-3.
+

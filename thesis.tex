@@ -9,6 +9,8 @@
 % Compile just one chapter
 %\includeonly{Sources/chapter_to_include.tex}
 
+\DeclareUnicodeCharacter{0301}{*************************************}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Some of my favorite personal adjustments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,7 +145,7 @@
 \newlength\fwidth
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepgfplotslibrary{patchplots,groupplots,fillbetween}
+\usepgfplotslibrary{patchplots,groupplots,patchplots,fillbetween}
 \usepackage{tikzscale}
 \def\si{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 \DeclareUnicodeCharacter{2212}{-} % TEMPORARY, just for TikZ
@@ -239,6 +241,7 @@
   \include{Sources/IAB-WONS}
   \include{Sources/IAB-SAFEHAUL}
   \include{Sources/IRS-BLOCK}
+  \include{Sources/CH-PERF}
 % This ensures that the subsequent sections are being included as root
 % items in the bookmark structure of your PDF reader.
 \bookmarksetup{startatroot}

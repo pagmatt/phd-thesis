@@ -1,0 +1,80 @@
+\begin{tikzpicture}
+
+\definecolor{plotColor1}{HTML}{e60049}
+\definecolor{plotColor2}{HTML}{0bb4ff}
+\definecolor{plotColor3}{HTML}{87bc45}
+\definecolor{plotColor4}{HTML}{ffa300}
+
+ \begin{groupplot}[
+  group style={
+    group size=2 by 1,
+    group name=plots,
+    horizontal sep= 0.1 cm
+    %ylabels at=edge
+  },
+    width=0.45\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend image post style={mark indices={}},
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(1, 1.05)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize
+        },
+    legend columns=4,
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    %xtick={0, 16, 64, 256},
+    xmajorgrids,
+    %xmajorticks=false,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel shift = -1 pt,
+    ylabel style={font=\footnotesize},
+    %ylabel={ECDF},
+    ymajorgrids,
+    ybar,
+    /pgf/bar width=0.6cm,
+    %ymajorticks=true,
+    ymin=0, ymax=0.8,
+    ytick style={color=white!15!black},
+    yticklabels=\empty
+]
+
+\nextgroupplot[%title=vs. Number of antenna elements, 
+               every axis title/.style={below, at={(0.5, -0.38)}},
+               ylabel={$T_{A}^{TR} / T_{B}$}, 
+               yticklabels={0, 0.2, 0.4, 0.6, 0.8, 1},
+               ytick={0, 0.2, 0.4, 0.6, 0.8, 1},
+               xticklabels={4, 16, 64, 256},
+               xtick={1, 2, 3, 4},
+               xlabel={Number of antennas at the gNB},
+               xmin=0.5, xmax=4.5,]
+
+\addplot[fill=plotColor1] coordinates {
+    (1, 0.408498287200928) 
+    (2, 0.233031988143921) 
+    (3, 0.114968657493591) 
+    (4, 0.0595511198043823)
+};
+
+\nextgroupplot[%title=vs. number of gNBs, 
+               every axis title/.style={below, at={(0.5, -0.38)}},
+               xlabel={Number of UEs},
+               xtick={1, 2, 3},
+               xticklabels={2, 4, 8},
+               xmin=0.5, xmax=3.5,]
+
+\addplot[fill=plotColor2] coordinates {
+    (1, 0.408498287200928) 
+    (2, 0.296834230422974) 
+    (3, 0.142506241798401) 
+};
+
+\end{groupplot}
+\end{tikzpicture}
