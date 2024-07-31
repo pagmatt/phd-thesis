@@ -1,0 +1,135 @@
+% This file was created with tikzplotlib v0.9.12.
+\begin{tikzpicture}
+
+    \pgfplotsset{every tick label/.append style={font=\footnotesize}}
+    \definecolor{plotColor1}{HTML}{E36B02}
+    \definecolor{plotColor2}{HTML}{78BF26}
+    \definecolor{plotColor3}{HTML}{572096}
+    \definecolor{plotColor4}{HTML}{338EDE}
+    \definecolor{plotColor1Light}{HTML}{F3C399}
+    \definecolor{plotColor2Light}{HTML}{AABF95}
+    \definecolor{plotColor3Light}{HTML}{827896}
+    \definecolor{plotColor4Light}{HTML}{B2C8DE}
+    \definecolor{color6}{rgb}{0.890196078431372,0.466666666666667,0.76078431372549}
+
+\begin{semilogyaxis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend image post style={mark indices={}},
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5, 1.03)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize
+        },
+    legend columns=3,
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    xlabel={},
+    yticklabels={,,,,,,},
+    xticklabels={,,,,,,},
+    %xtick={0,1,2,3,4,5,6,7},
+    %xticklabels={gNB, 10x20, 20x40, 40x80, 60x120, 4x4, 8x8, 16x16},
+    %xmajorgrids,
+    %xmajorticks=false,
+    xmin=-0.5, xmax=7.5,
+    %xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel shift = -1 pt,
+    ylabel style={font=\footnotesize},
+    ylabel={},
+    %ymajorgrids,
+    %ymajorticks=false,
+    ymin=1, ymax=3500,
+    ybar,
+    bar width=.7,
+    bar shift=0pt
+]
+    % Scenario 1 - 1 UEs
+    \addplot[fill=plotColor1Light, draw=white!15!black, forget plot] coordinates {(0, 803)};
+    % gNB only
+    \addplot[fill=plotColor2Light, draw=white!15!black, forget plot] coordinates {(1, 2275)};
+    %IRS 10x20
+    \addplot[fill=plotColor2Light, draw=white!15!black, forget plot]  coordinates {(2, 1839)};
+    %IRS 20x40
+    \addplot[fill=plotColor2Light, draw=white!15!black, forget plot]  coordinates {(3, 693)};
+    %IRS 40x60
+    \addplot[fill=plotColor2Light, draw=white!15!black, forget plot]  coordinates {(4, 6.5471)};
+    %IRS 60x120
+    \addplot[fill=plotColor3Light, draw=white!15!black, forget plot] coordinates {(5, 717.974)};
+    %AF 4x4
+    \addplot[fill=plotColor3Light, draw=white!15!black, forget plot] coordinates {(6, 6.589)};
+    %AF 8x8
+    \addplot[fill=plotColor3Light, draw=white!15!black, forget plot] coordinates {(7, 2.9)};
+    %AF 16x16
+\end{semilogyaxis}
+
+\begin{semilogyaxis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend image post style={mark indices={}},
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5, 1.03)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize
+        },
+    legend columns=3,
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    xtick align=inside,
+    ytick align=inside,
+    xlabel={Relay configuration},
+    xtick={0,1,2,3,4,5,6,7},
+    xticklabels={gNB, 10x20, 20x40, 40x80, 60x120, 4x4, 8x8, 16x16},
+    xmajorgrids,
+    %xmajorticks=false,
+    xmin=-0.5, xmax=7.5,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel shift = -1 pt,
+    ylabel style={font=\footnotesize, align=center},
+    ylabel={95-th percentile end-to-end latency [ms]},
+    ymajorgrids,
+    %ymajorticks=false,
+    ymin=1, ymax=3500,
+    ytick style={color=white!15!black},
+    ybar,
+    bar width=.3,
+    bar shift=0pt,
+    legend image code/.code={
+        \draw [#1] (0cm,-0.1cm) rectangle (0.3cm, 0.25cm); }
+]
+    % Scenario 2 - 5 UEs
+    \addplot[fill=plotColor1, draw=white!15!black, postaction={pattern={dots}}] coordinates {(0, 2596)};
+    \addlegendentry{gNB only}
+    %gnb only
+    \addplot[fill=plotColor2, draw=white!15!black, postaction={pattern=north east lines}] coordinates {(1, 2950)};
+    \addlegendentry{IRS}
+    %IRS 10x20
+    \addplot[fill=plotColor2, draw=white!15!black, forget plot, postaction={pattern=north east lines}] coordinates {(2, 2817)};
+    %IRS 20x40
+    \addplot[fill=plotColor2, draw=white!15!black, forget plot, postaction={pattern=north east lines}] coordinates {(3, 2072)};
+    %IRS 40x60
+    \addplot[fill=plotColor2, draw=white!15!black, forget plot, postaction={pattern=north east lines}] coordinates {(4, 1402)};
+    %IRS 60x120
+    \addplot[fill=plotColor3, draw=white!15!black] coordinates {(5, 2580)};
+    \addlegendentry{AF}
+    %AF 4x4
+    \addplot[fill=plotColor3, draw=white!15!black] coordinates {(6, 1546)};
+    %AF 8x8
+    \addplot[fill=plotColor3, draw=white!15!black] coordinates {(7, 127)};
+    %AF 16x16
+\end{semilogyaxis}
+
+\end{tikzpicture}

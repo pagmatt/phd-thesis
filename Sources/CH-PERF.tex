@@ -130,7 +130,7 @@ The proposed model implements the \texttt{Phased\-Array\-Spectrum\-Propagation\-
 \end{align}
 where the terms $\mathrm{PL}_{T, R}$ and $\mathrm{S}_{T, R}$ represent the path loss and the shadowing, respectively, while $G_{T, R}$ and $F_{T, R}$ denote the antenna and beamforming gain and the small-scale fading, respectively. The remainder of this section describes in detail how each of these terms is computed.
 
-\subsection{Path loss, Shadowing, and \gls{los} Condition}
+\subsection{Path loss, Shadowing, and LoS Condition}
 The large-scale propagation phenomena are modeled according to the 3GPP TR 38.901 model~\cite{TR38901}, since its implementation of~\cite{tommaso:20} is not computationally demanding. Nevertheless, the channel model can in principle be coupled with arbitrary classes extending the \texttt{Channel\-Condition\-Model} interface.
 
 Specifically, we first determine the 3GPP scenario. Then, for each link we set the \gls{los} condition in a stochastic manner, using the class extending \texttt{Three\-Gpp\-Channel\-Condition\-Model} which corresponds to the chosen scenario.

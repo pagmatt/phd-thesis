@@ -1,0 +1,66 @@
+% This file was created with tikzplotlib v0.9.15.
+\begin{tikzpicture}
+
+  \pgfplotsset{every tick label/.append style={font=\footnotesize}}
+  \definecolor{plotColor1}{HTML}{E36B02}
+  \definecolor{plotColor2}{HTML}{78BF26}
+  \definecolor{plotColor3}{HTML}{572096}
+  \definecolor{plotColor4}{HTML}{338EDE}
+  \definecolor{plotColor1Light}{HTML}{F3C399}
+  \definecolor{plotColor2Light}{HTML}{AABF95}
+  \definecolor{plotColor3Light}{HTML}{827896}
+  \definecolor{plotColor4Light}{HTML}{B2C8DE}
+  \definecolor{color6}{rgb}{0.890196078431372,0.466666666666667,0.76078431372549}
+
+  \begin{semilogxaxis}[
+    width=\fwidth,
+    height=\fheight,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend image post style={mark indices={}},
+    %axis line style={white!80!black},
+    legend style={
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5, 1.03)}, 
+        anchor=south, 
+        draw=white!80!black, 
+        font=\scriptsize
+        },
+    legend columns=3,
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\footnotesize},
+    xlabel={Number of antenna elements},
+    %xtick={0, 16, 64, 256},
+    xmajorgrids,
+    %xmajorticks=false,
+    xmin=10, xmax=1e4,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel shift = -2 pt,
+    ylabel style={font=\footnotesize},
+    ylabel={Average SINR [dB]},
+    ymajorgrids,
+    ymajorticks=true,
+    ymin=-25, ymax=30,
+    ytick style={color=white!15!black},
+]
+\addplot [ultra thick, plotColor2, mark=*]
+table {%
+200 -18.33762033
+800 -6.506891
+3200 5.6205
+7200 12.763146246
+};
+\addlegendentry{IRS}
+\addplot [ultra thick, plotColor3, mark=x, mark size=4]
+table {%
+16	2.325820
+64	13.0615893
+256	25.1253
+};
+\addlegendentry{AF}
+
+\end{semilogxaxis}
+
+\end{tikzpicture}

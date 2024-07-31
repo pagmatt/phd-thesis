@@ -1,0 +1,95 @@
+\documentclass[tikz,border=0.1cm]{standalone}    
+\usepackage{tikz}  
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\fheight
+\newlength\fwidth
+\usetikzlibrary{plotmarks,patterns,decorations.pathreplacing,backgrounds,calc,arrows,arrows.meta,spy,matrix}
+\usepgfplotslibrary{patchplots,groupplots}
+\begin{document}  
+\begin{tikzpicture}
+
+    \definecolor{UNIPDRED}{RGB}{155,0,20}
+	\definecolor{COMPLEMENTARY}{RGB}{0,153,153}
+	\definecolor{DARKGREY}{RGB}{55,65,64}
+    
+    \begin{axis}[
+    width=200,
+    height=80,
+    at={(0\fwidth,0\fheight)},
+    scale only axis,
+    legend style={
+    	/tikz/every even column/.append style={column sep=0.2cm},
+    	at={(0.5, 0.95)},
+    	anchor=south, 
+    	draw=white!80!black, 
+    	font=\small
+    	},
+    legend columns=3,
+    %axis line style={white!80!black},
+    %tick align=outside,
+    %x grid style={white!80!black},
+    xlabel style={font=\small},
+    xlabel={X [m]},
+    xtick={0, 50, 100, 150},
+    xmajorgrids,
+    %xmajorticks=false,
+    xmin=-25, xmax=150,
+    xtick style={color=white!15!black},
+    %y grid style={white!80!black},
+    ylabel style={font=\small},
+    ylabel={Y [m]},
+    ymajorgrids,
+    ytick={0, 50, 100},
+    %ymajorticks=false,
+    ymin=-25, ymax=100,
+    ytick style={color=white!15!black}
+    ]
+	
+	% node attachments
+	\addplot[very thick, black, forget plot, dash pattern=on 4 pt off 6 pt] 
+	table {%
+	0 0 
+	100 75 
+	};
+	\addplot[very thick, black, forget plot, dash pattern=on 4 pt off 6 pt] 
+	table {%
+	100 75 
+	120 0 
+	};  
+	%NLoS link
+	\addplot[very thick, UNIPDRED, forget plot, dash pattern=on 4 pt off 6 pt] 
+	table {%
+	0.0 0.0 
+	60 0.0 
+	};  
+    
+    \addplot[
+      scatter,
+      only marks,
+      scatter src=explicit,
+      scatter/classes={1={DARKGREY, mark=square*}, 2={UNIPDRED, mark=diamond*}, 3={COMPLEMENTARY}},
+      visualization depends on=\thisrow{sizedata}\as\sizedata,
+      scatter/@pre marker code/.append style={
+          /tikz/mark size=\sizedata
+      }
+    ]
+    table[x=x,y=y, meta=class]{%
+    x                      y                      sizedata                class
+    0.0 0.0 5 1 
+	100.0 75.0 5 2 
+	120.0 0.0 4 3 
+    };
+
+    \legend{gNB, Relay, UE, ks}
+    
+    \draw [fill=black!10] (60, -20) rectangle (90, 40);
+
+    \end{axis}
+    
+\end{tikzpicture}
+\end{document}  
+
+
+

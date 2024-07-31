@@ -200,7 +200,7 @@ However, when higher-rank channels are available, either multi-stream transmissi
 Moreover, our approach can to be suitably modified to accommodate for the latter scenario. A detailed investigation of this point is left for future work.
 We assume that \glspl{ue} are either static or moving slowly, which is the most typical application scenario for \gls{irs}-assisted networks. Under such conditions, the channel coherence time is in the order of 10~ms~\cite[Fig.~5]{lu2020positioning}. Considering that perfect \gls{csi} of all \glspl{ue} is acquired at the \gls{gnb} at the beginning of each frame (a realistic assumption that does not affect the proposed scheduling framework for IRS communication), it is reasonable to conclude that the channel remains constant throughout the whole time frame. Here, we assume that the CSI is available for any IRS configuration.
 
-\subsection{\gls{irs} Model}\label{sec:irsmodel}
+\subsection{IRS Model}\label{sec:irsmodel}
 Each of the $N_{\mathrm I}$ elements of the \gls{irs} acts independently as an omnidirectional antenna unit that reflects the impinging electromagnetic field by introducing a tunable phase shift on the baseband-equivalent signal. We denote as $\phi_n=e^{j\theta_n}$ the reflection coefficient of the $n$-th \gls{irs} element, where $\theta_n \in \mathcal{P}_{\theta}$ is the induced phase shift, and $\mathcal{P}_{\theta}$ is the set of possible phase shifts. 
 Recent works argue that continuous phase shifts are hardly implementable in practice \cite{Tan2018}. Therefore, we consider both continuous and quantized phase shifts. While in the former case the set of phase shifts is $\mathcal{P}_{\theta}= [-\pi, \pi)$, in the latter we have 
 $\mathcal{P}_{\theta} = \left\{0, \frac{2\pi}{2^b},\ldots,\frac{2\pi(2^b-1)}{2^b} \right\}$ where $b>0$ is the number of bits employed to quantize the phase shifts. 
@@ -278,7 +278,7 @@ In this section, we provide heuristic solutions to \eqref{optproblem}. First, we
 $Z = K$, as in this case all \glspl{ue} are served in a \gls{tdma} fashion and with their optimal \gls{irs} configuration.
 The phase coefficients of the optimal \gls{irs} configuration matrices are then chosen as the initial points of a procedure leveraging clustering algorithms in the $N_{\mathrm I}$-dimensional space, as explained in Section~\ref{sec:clust_tdma}.
 
-\subsection{Optimal Individual \gls{irs} Configurations  }
+\subsection{Optimal Individual IRS Configurations  }
 \label{sec:ind_opt}
 In \gls{mimo} systems, both the \gls{gnb} and the \glspl{ue} adopt properly tuned beamformers to match the signal transmissions and receptions to the spatial direction providing the highest channel gain~\cite{flamini2022towards}. For the optimization of the \gls{irs} configuration of each individual \gls{ue}, we adopt a procedure similar to that presented in \cite{Qian22joint}, focusing on single-stream transmissions and, without loss of generality, on \gls{ue} $k$.
 
