@@ -1,0 +1,924 @@
+\glsdefs@newdocentry{cwc}%
+{%
+name={\acronymfont {\glsentryshort {cwc}}},%
+sort={CWC},%
+type={acronym},%
+first={CWC},%
+firstplural={CWCs},%
+text={CWC},%
+plural={CWCs},%
+description={capacity-weighted clustering},%
+descriptionplural={capacity-weighted clustering},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={capacity-weighted clustering},%
+longplural={capacity-weighted clusterings},%
+short={CWC},%
+shortplural={CWCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{dlos}%
+{%
+name={\acronymfont {\glsentryshort {dlos}}},%
+sort={dLoS},%
+type={acronym},%
+first={dLoS},%
+firstplural={dLoSs},%
+text={dLoS},%
+plural={dLoSs},%
+description={deterministic \gls {los}},%
+descriptionplural={deterministic \gls {los}},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={deterministic \gls {los}},%
+longplural={deterministic \gls {los}s},%
+short={dLoS},%
+shortplural={dLoSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{fov}%
+{%
+name={\acronymfont {\glsentryshort {fov}}},%
+sort={FoV},%
+type={acronym},%
+first={FoV},%
+firstplural={FoVs},%
+text={FoV},%
+plural={FoVs},%
+description={field-of-view},%
+descriptionplural={field-of-view},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={field-of-view},%
+longplural={field-of-views},%
+short={FoV},%
+shortplural={FoVs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{hc}%
+{%
+name={\acronymfont {\glsentryshort {hc}}},%
+sort={HC},%
+type={acronym},%
+first={HC},%
+firstplural={HCs},%
+text={HC},%
+plural={HCs},%
+description={hierarchical clustering},%
+descriptionplural={hierarchical clustering},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={hierarchical clustering},%
+longplural={hierarchical clusterings},%
+short={HC},%
+shortplural={HCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{km}%
+{%
+name={\acronymfont {\glsentryshort {km}}},%
+sort={KM},%
+type={acronym},%
+first={KM},%
+firstplural={KMs},%
+text={KM},%
+plural={KMs},%
+description={K-means},%
+descriptionplural={K-means},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={K-means},%
+longplural={K-meanss},%
+short={KM},%
+shortplural={KMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{kmed}%
+{%
+name={\acronymfont {\glsentryshort {kmed}}},%
+sort={KMed},%
+type={acronym},%
+first={KMed},%
+firstplural={KMeds},%
+text={KMed},%
+plural={KMeds},%
+description={K-medoids},%
+descriptionplural={K-medoids},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={K-medoids},%
+longplural={K-medoidss},%
+short={KMed},%
+shortplural={KMeds},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{icwc}%
+{%
+name={\acronymfont {\glsentryshort {icwc}}},%
+sort={ICWC},%
+type={acronym},%
+first={ICWC},%
+firstplural={ICWCs},%
+text={ICWC},%
+plural={ICWCs},%
+description={inverse capacity-weighted clustering},%
+descriptionplural={inverse capacity-weighted clustering},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={inverse capacity-weighted clustering},%
+longplural={inverse capacity-weighted clusterings},%
+short={ICWC},%
+shortplural={ICWCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{isd}%
+{%
+name={\acronymfont {\glsentryshort {isd}}},%
+sort={ISD},%
+type={acronym},%
+first={ISD},%
+firstplural={ISDs},%
+text={ISD},%
+plural={ISDs},%
+description={inter-site distance},%
+descriptionplural={inter-site distance},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={inter-site distance},%
+longplural={inter-site distances},%
+short={ISD},%
+shortplural={ISDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{lsfc}%
+{%
+name={\acronymfont {\glsentryshort {lsfc}}},%
+sort={LSFC},%
+type={acronym},%
+first={LSFC},%
+firstplural={LSFCs},%
+text={LSFC},%
+plural={LSFCs},%
+description={large-scale fading coefficient},%
+descriptionplural={large-scale fading coefficient},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={large-scale fading coefficient},%
+longplural={large-scale fading coefficients},%
+short={LSFC},%
+shortplural={LSFCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{minlp}%
+{%
+name={\acronymfont {\glsentryshort {minlp}}},%
+sort={MINLP},%
+type={acronym},%
+first={MINLP},%
+firstplural={MINLPs},%
+text={MINLP},%
+plural={MINLPs},%
+description={mixed integer nonlinear programming},%
+descriptionplural={mixed integer nonlinear programming},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={mixed integer nonlinear programming},%
+longplural={mixed integer nonlinear programmings},%
+short={MINLP},%
+shortplural={MINLPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{noma}%
+{%
+name={\acronymfont {\glsentryshort {noma}}},%
+sort={NOMA},%
+type={acronym},%
+first={NOMA},%
+firstplural={NOMAs},%
+text={NOMA},%
+plural={NOMAs},%
+description={non-orthogonal multiple access},%
+descriptionplural={non-orthogonal multiple access},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={non-orthogonal multiple access},%
+longplural={non-orthogonal multiple accesss},%
+short={NOMA},%
+shortplural={NOMAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{oscbc}%
+{%
+name={\acronymfont {\glsentryshort {oscbc}}},%
+sort={OSCBC},%
+type={acronym},%
+first={OSCBC},%
+firstplural={OSCBCs},%
+text={OSCBC},%
+plural={OSCBCs},%
+description={one-shot capacity-based clustering},%
+descriptionplural={one-shot capacity-based clustering},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={one-shot capacity-based clustering},%
+longplural={one-shot capacity-based clusterings},%
+short={OSCBC},%
+shortplural={OSCBCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ofdma}%
+{%
+name={\acronymfont {\glsentryshort {ofdma}}},%
+sort={OFDMA},%
+type={acronym},%
+first={OFDMA},%
+firstplural={OFDMAs},%
+text={OFDMA},%
+plural={OFDMAs},%
+description={orthogonal frequency-division multiple access},%
+descriptionplural={orthogonal frequency-division multiple access},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={orthogonal frequency-division multiple access},%
+longplural={orthogonal frequency-division multiple accesss},%
+short={OFDMA},%
+shortplural={OFDMAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{oma}%
+{%
+name={\acronymfont {\glsentryshort {oma}}},%
+sort={OMA},%
+type={acronym},%
+first={OMA},%
+firstplural={OMAs},%
+text={OMA},%
+plural={OMAs},%
+description={orthogonal multiple access},%
+descriptionplural={orthogonal multiple access},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={orthogonal multiple access},%
+longplural={orthogonal multiple accesss},%
+short={OMA},%
+shortplural={OMAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{pam}%
+{%
+name={\acronymfont {\glsentryshort {pam}}},%
+sort={PAM},%
+type={acronym},%
+first={PAM},%
+firstplural={PAMs},%
+text={PAM},%
+plural={PAMs},%
+description={partition around medoids},%
+descriptionplural={partition around medoids},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={partition around medoids},%
+longplural={partition around medoidss},%
+short={PAM},%
+shortplural={PAMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{plos}%
+{%
+name={\acronymfont {\glsentryshort {plos}}},%
+sort={pLoS},%
+type={acronym},%
+first={pLoS},%
+firstplural={pLoSs},%
+text={pLoS},%
+plural={pLoSs},%
+description={probabilistic \gls {los}},%
+descriptionplural={probabilistic \gls {los}},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={probabilistic \gls {los}},%
+longplural={probabilistic \gls {los}s},%
+short={pLoS},%
+shortplural={pLoSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rb}%
+{%
+name={\acronymfont {\glsentryshort {rb}}},%
+sort={RB},%
+type={acronym},%
+first={RB},%
+firstplural={RBs},%
+text={RB},%
+plural={RBs},%
+description={resource block},%
+descriptionplural={resource block},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={resource block},%
+longplural={resource blocks},%
+short={RB},%
+shortplural={RBs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rsma}%
+{%
+name={\acronymfont {\glsentryshort {rsma}}},%
+sort={RSMA},%
+type={acronym},%
+first={RSMA},%
+firstplural={RSMAs},%
+text={RSMA},%
+plural={RSMAs},%
+description={rate-splitting multiple access},%
+descriptionplural={rate-splitting multiple access},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={rate-splitting multiple access},%
+longplural={rate-splitting multiple accesss},%
+short={RSMA},%
+shortplural={RSMAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ula}%
+{%
+name={\acronymfont {\glsentryshort {ula}}},%
+sort={ULA},%
+type={acronym},%
+first={ULA},%
+firstplural={ULAs},%
+text={ULA},%
+plural={ULAs},%
+description={uniform linear array},%
+descriptionplural={uniform linear array},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={uniform linear array},%
+longplural={uniform linear arrays},%
+short={ULA},%
+shortplural={ULAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{geo}%
+{%
+name={\acronymfont {\glsentryshort {geo}}},%
+sort={GEO},%
+type={acronym},%
+first={GEO},%
+firstplural={GEOs},%
+text={GEO},%
+plural={GEOs},%
+description={Geostationary Equatorial Orbit},%
+descriptionplural={Geostationary Equatorial Orbit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Geostationary Equatorial Orbit},%
+longplural={Geostationary Equatorial Orbits},%
+short={GEO},%
+shortplural={GEOs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{meo}%
+{%
+name={\acronymfont {\glsentryshort {meo}}},%
+sort={MEO},%
+type={acronym},%
+first={MEO},%
+firstplural={MEOs},%
+text={MEO},%
+plural={MEOs},%
+description={medium earth orbit},%
+descriptionplural={medium earth orbit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={medium earth orbit},%
+longplural={medium earth orbits},%
+short={MEO},%
+shortplural={MEOs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{leo}%
+{%
+name={\acronymfont {\glsentryshort {leo}}},%
+sort={LEO},%
+type={acronym},%
+first={LEO},%
+firstplural={LEOs},%
+text={LEO},%
+plural={LEOs},%
+description={Low Earth Orbit},%
+descriptionplural={Low Earth Orbit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Low Earth Orbit},%
+longplural={Low Earth Orbits},%
+short={LEO},%
+shortplural={LEOs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{vsat}%
+{%
+name={\acronymfont {\glsentryshort {vsat}}},%
+sort={VSAT},%
+type={acronym},%
+first={VSAT},%
+firstplural={VSATs},%
+text={VSAT},%
+plural={VSATs},%
+description={very small aperture terminal},%
+descriptionplural={very small aperture terminal},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={very small aperture terminal},%
+longplural={very small aperture terminals},%
+short={VSAT},%
+shortplural={VSATs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{nb}%
+{%
+name={\acronymfont {\glsentryshort {nb}}},%
+sort={NB},%
+type={acronym},%
+first={NB},%
+firstplural={NBs},%
+text={NB},%
+plural={NBs},%
+description={node base},%
+descriptionplural={node base},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={node base},%
+longplural={node bases},%
+short={NB},%
+shortplural={NBs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{hap}%
+{%
+name={\acronymfont {\glsentryshort {hap}}},%
+sort={HAP},%
+type={acronym},%
+first={HAP},%
+firstplural={HAPs},%
+text={HAP},%
+plural={HAPs},%
+description={High Altitute Platform},%
+descriptionplural={High Altitute Platform},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={High Altitute Platform},%
+longplural={High Altitute Platforms},%
+short={HAP},%
+shortplural={HAPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{mtc}%
+{%
+name={\acronymfont {\glsentryshort {mtc}}},%
+sort={MTC},%
+type={acronym},%
+first={MTC},%
+firstplural={MTCs},%
+text={MTC},%
+plural={MTCs},%
+description={machine type communications},%
+descriptionplural={machine type communications},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={machine type communications},%
+longplural={machine type communicationss},%
+short={MTC},%
+shortplural={MTCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{miot}%
+{%
+name={\acronymfont {\glsentryshort {miot}}},%
+sort={mIoT},%
+type={acronym},%
+first={mIoT},%
+firstplural={mIoTs},%
+text={mIoT},%
+plural={mIoTs},%
+description={massive internet of things},%
+descriptionplural={massive internet of things},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={massive internet of things},%
+longplural={massive internet of thingss},%
+short={mIoT},%
+shortplural={mIoTs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{gcs}%
+{%
+name={\acronymfont {\glsentryshort {gcs}}},%
+sort={GCS},%
+type={acronym},%
+first={GCS},%
+firstplural={GCSs},%
+text={GCS},%
+plural={GCSs},%
+description={global coordinate system},%
+descriptionplural={global coordinate system},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={global coordinate system},%
+longplural={global coordinate systems},%
+short={GCS},%
+shortplural={GCSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{lcs}%
+{%
+name={\acronymfont {\glsentryshort {lcs}}},%
+sort={LCS},%
+type={acronym},%
+first={LCS},%
+firstplural={LCSs},%
+text={LCS},%
+plural={LCSs},%
+description={local coordinate system},%
+descriptionplural={local coordinate system},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={local coordinate system},%
+longplural={local coordinate systems},%
+short={LCS},%
+shortplural={LCSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{isl}%
+{%
+name={\acronymfont {\glsentryshort {isl}}},%
+sort={ISL},%
+type={acronym},%
+first={ISL},%
+firstplural={ISLs},%
+text={ISL},%
+plural={ISLs},%
+description={inter-satellite link},%
+descriptionplural={inter-satellite link},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={inter-satellite link},%
+longplural={inter-satellite links},%
+short={ISL},%
+shortplural={ISLs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ecef}%
+{%
+name={\acronymfont {\glsentryshort {ecef}}},%
+sort={ECEF},%
+type={acronym},%
+first={ECEF},%
+firstplural={ECEFs},%
+text={ECEF},%
+plural={ECEFs},%
+description={Earth-Centered Earth-Fixed},%
+descriptionplural={Earth-Centered Earth-Fixed},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Earth-Centered Earth-Fixed},%
+longplural={Earth-Centered Earth-Fixeds},%
+short={ECEF},%
+shortplural={ECEFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{fspl}%
+{%
+name={\acronymfont {\glsentryshort {fspl}}},%
+sort={FSPL},%
+type={acronym},%
+first={FSPL},%
+firstplural={FSPLs},%
+text={FSPL},%
+plural={FSPLs},%
+description={free space path loss},%
+descriptionplural={free space path loss},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={free space path loss},%
+longplural={free space path losss},%
+short={FSPL},%
+shortplural={FSPLs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{cnr}%
+{%
+name={\acronymfont {\glsentryshort {cnr}}},%
+sort={CNR},%
+type={acronym},%
+first={CNR},%
+firstplural={CNRs},%
+text={CNR},%
+plural={CNRs},%
+description={carrier-to-noise ratio},%
+descriptionplural={carrier-to-noise ratio},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={carrier-to-noise ratio},%
+longplural={carrier-to-noise ratios},%
+short={CNR},%
+shortplural={CNRs},%
+counter={page},%
+parent={},%
+%
+}%
+

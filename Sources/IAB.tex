@@ -304,7 +304,7 @@ The proposed framework can be subdivided into the following phases, which are pe
 \end{enumerate}
 It is important to note that since $\mathcal{G}$ contains only the \gls{iab}-nodes, the donor and at most one ``representative" \gls{ue} per \gls{gnb}, the proposed scheme effectively performs only the backhaul/access resource partitioning in a centralized manner. On the other hand, the actual \gls{mac}-level scheduling is still undertaken in a distributed fashion, albeit leveraging the indications produced by the central controller. The major advantages which this two-tier design exhibits, compared to a completely centralized solution, are the presence of a relatively light signaling overhead and the ability to promptly react to fast channel variations, for instance caused by small scale fading.  
 
-\subsection{Implementation of semi-centralized allocation schemes in mmWave \gls{iab} networks}
+\subsection{Implementation of semi-centralized allocation schemes in mmWave IAB networks}
 \label{Sec:ns3-impl}
 
 The remainder of this section discusses how the proposed scheme can be implemented in \gls{iab} deployments, with references to how the \gls{3gpp} specifications can support it. Moreover, an in-depth analysis of the framework's communication overhead and computational complexity is provided. To such end, let $\mathcal{G} = \{ V, E \}$ be the reduced network graph, computed as per Sec.~II-C, and, conversely, let $\mathcal{\bar{G}} = \{ \bar{V}, \bar{E} \}$ comprise all the nodes in the \gls{iab} network.
@@ -631,7 +631,7 @@ Additionally, Fig.~\ref{Fig:BSR_third_quartile_depth} depicts the third quartile
 
 
 
-\subsection{Performance with \gls{tcp} traffic}
+\subsection{Performance with TCP traffic}
 
 %\begin{figure}[h!]
 %\centering

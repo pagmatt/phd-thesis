@@ -148,7 +148,11 @@
 \usepgfplotslibrary{patchplots,groupplots,patchplots,fillbetween}
 \usepackage{tikzscale}
 \def\si{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
-\DeclareUnicodeCharacter{2212}{-} % TEMPORARY, just for TikZ
+%\DeclareUnicodeCharacter{2212}{-} % TEMPORARY, just for TikZ
+
+% Externalize TikZ figures
+\usetikzlibrary{external}
+\tikzexternalize[prefix=Cache/] % activate and define figures/ as cache folder
 
 \usepackage{afterpage}
 \usepackage{tabulary}
