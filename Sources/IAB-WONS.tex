@@ -404,7 +404,7 @@ by choosing a list of paths to be activated in each subframe. The rationale behi
 
 \section{Performance Evaluation}
 \label{sec:PerfEval}
-This section introduces a performance evaluation based on a novel simulation setup (Sec.~\ref{sec:SimSetup}) in a dense cellular network (Sec.~\ref{sub:SimScenario}), with a comparison between different results of THz and mmWave networks (Sec.~\ref{sub:results}).
+This section introduces a performance evaluation based on a novel simulation setup (Sec.~\ref{sec:SimSetup}) in a dense cellular network (Sec.~\ref{sub:SimScenario}), with a comparison between different results of THz and mmWave networks (Sec.~\ref{sub:results-iab-thz}).
 % MP add one sentence here on what comes next [done]
 
 \subsection{Simulation Setup}
@@ -441,7 +441,7 @@ in this simulation campaign, the sub-THz carrier frequency is 140 GHz. Several s
 \label{sub:SimScenario}
 We take a dense cellular base station deployment into account in our models. As shown in Fig.~\ref{fig:SimulationScenario}, we place IAB nodes at a density of $150$ \gls{gnb}/$\mathrm{km}^2$, thus with an average intersite distance of 40 m. 
 % MP mention the density and area, no need to say how many nodes you have [done]
-In Table~\ref{Tab:parameters}, the specific simulation settings are displayed. For \gls{mmwave}, we used the channel model outlined by \gls{3gpp} in TR 38.901~\cite{3gpp.38.901}, a statistical 3GPP channel model for 0.5-100 GHz, while for sub-\gls{thz} we used the \gls{thz}-band channel model introduced in~\cite{5995306} and detailed in Sec.~\ref{sub:thzchannel}. The range of the user rate is 20 Mbps to 500 Mbps. 
+In Table~\ref{Tab:parameters-iab-thz}, the specific simulation settings are displayed. For \gls{mmwave}, we used the channel model outlined by \gls{3gpp} in TR 38.901~\cite{3gpp.38.901}, a statistical 3GPP channel model for 0.5-100 GHz, while for sub-\gls{thz} we used the \gls{thz}-band channel model introduced in~\cite{5995306} and detailed in Sec.~\ref{sub:thzchannel}. The range of the user rate is 20 Mbps to 500 Mbps. 
 % MP put it as user rate [done]
 We used a phased array antenna for \gls{mmwave} and a horn antenna for THz, respectively. In mmWave we do beamforming based on a pre-generated codebook, in order to find the best beam pair for connection. For the purposes of SINR calculation, we assume that each interfering device utilizes the beamforming vector with the greatest SINR towards its intended target. In a similar fashion, both the transmitter and the receiver utilize the beamforming configuration calculated by the hierarchical search technique.
 We consider a scenario with a single donor to focus on the issues related to the bottleneck in the air interface of the donor itself, while extension to multiple donors is left for future work. We also set $d_{max} = 70$ m, as it has been experimentally shown that sub-THz links can operate in this range also in adverse weather conditions~\cite{sen2022terahertz}. 
@@ -464,7 +464,7 @@ We consider a scenario with a single donor to focus on the issues related to the
 
 \begin{table}[]
 \caption{Simulation parameters.}
-\label{Tab:parameters}
+\label{Tab:parameters-iab-thz}
 \centering
 \footnotesize
 \begin{tabular}{l|l}
@@ -505,7 +505,7 @@ We consider a scenario with a single donor to focus on the issues related to the
 
 
 \subsection{Results}
-\label{sub:results}
+\label{sub:results-iab-thz}
 
 % MP I think the main problem with this section is that the results are somewhat obvious - you increase the bandwidth and your throughput increases. The results would be less obvious if you find ways of connecting them to specific choices you take in the three algorithms + what I was saying the other day, this becomes more interesting if you show that you make a good and efficient use of your resources (rather than simply adding more resources). If I were a reviewer, this would probably be my main criticism of the paper.
 

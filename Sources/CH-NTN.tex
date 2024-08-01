@@ -51,7 +51,7 @@ To fill these gaps, in this paper we present a new open-source module for ns-3 t
 While our implementation is mainly related to the channel and the physical layer, a deep understanding of the propagation model is the first step towards proper protocol design~\cite{lecci2021accuracy}, which makes our module a valuable and accurate tool in the study of NTN.
 Specifically, our module introduces: (i) new simulation scenarios for NTN; (ii) a new \gls{pl} model for the air/space channel in a wide range of frequencies (from 0.5 GHz to 100 GHz); (iii) the characterization of atmospheric absorptions; (iv) a new fast fading model for the space environment; (v) an antenna model for both terrestrial and non-terrestrial nodes; and (vi) a new coordinate system to account for the Geocentric Cartesian coordinate system of satellites. 
 
-The rest of the paper is organized as follows. In Sec.~\ref{sec:channel} we describe the 3GPP channel for NTN, while our ns-3 implementation is reported in Sec.~\ref{sec:implementation}. In Sec.~\ref{sec:results} we validate the accuracy of our module against the 3GPP calibration results reported in 38.821~\cite{38821}. Then, we provide numerical results to measure the link-level and end-to-end performance as a function of different NTN parameters. Finally, Sec.~\ref{sec:conclusions} concludes the paper with suggestions for future research. 
+The rest of the paper is organized as follows. In Sec.~\ref{sec:channel} we describe the 3GPP channel for NTN, while our ns-3 implementation is reported in Sec.~\ref{sec:implementation}. In Sec.~\ref{sec:results-ntn} we validate the accuracy of our module against the 3GPP calibration results reported in 38.821~\cite{38821}. Then, we provide numerical results to measure the link-level and end-to-end performance as a function of different NTN parameters. Finally, Sec.~\ref{sec:conclusions} concludes the paper with suggestions for future research. 
 
 %The implementation process is strictly related to the \gls{3gpp} recommendations for \gls{ntn} design, following the proposed procedures and methods, since they offer the state of the art regarding channel modeling, with parameters gathered in simulation campaigns in collaboration with industry leader organizations. All the created code undergoes a resource optimization analysis, being careful to use the appropriate data structures offered by C++ depending on the type of use and the size, staying coherent with the performance optimized ns-3. Furthermore, when a lack of guideline from \gls{3gpp} is found on certain matters and details, investigation in latest research findings is done to bring results as updated and as close to reality as possible.
 
@@ -77,7 +77,7 @@ The 3GPP defines both \gls{los} and \gls{nlos} propagation, where the probabilit
 The basic path loss (in dB) can be written as
 \begin{equation}
     PL_{b} = FSPL(d,f_{c})+SF+CL(\alpha,f_{c}).
-    \label{eq:pl}
+    \label{eq:pl-fsp}
 \end{equation}
 The first term is the free space path loss, which can be calculated as
 \begin{equation}
@@ -86,7 +86,7 @@ The first term is the free space path loss, which can be calculated as
 where $f_{c}$ is the carrier frequency in GHz and $d$ is the distance beteween the transmitter and the receiver in meters.
 Notice that, while the channel model is valid for frequencies from 0.5 GHz to 100 GHz, two frequency bands are targeted in NTN, i.e., the S-band for frequencies below 6 GHz and the Ka-band for frequencies of 20 (30) GHz for downlink (uplink) transmissions, thereby in the millimeter-wave spectrum~\cite{giordani2020satellite}.
 
-In Eq.~\eqref{eq:pl}, $SF$ represents the \gls{sf}, and is modeled as a log-normal random variable of zero mean and variance $\sigma_{SF}^2$, i.e., $SF \sim N\left ( 0,\sigma_{SF}^{2} \right )$. In order to calculate this variance, the model requires four parameters: the type of scenario, the frequency, the path loss condition (\gls{los} or \gls{nlos}), and the elevation angle. These parameters are used to find the correct entry in a table, given in~\cite{38811}.
+In Eq.~\eqref{eq:pl-fsp}, $SF$ represents the \gls{sf}, and is modeled as a log-normal random variable of zero mean and variance $\sigma_{SF}^2$, i.e., $SF \sim N\left ( 0,\sigma_{SF}^{2} \right )$. In order to calculate this variance, the model requires four parameters: the type of scenario, the frequency, the path loss condition (\gls{los} or \gls{nlos}), and the elevation angle. These parameters are used to find the correct entry in a table, given in~\cite{38811}.
 A similar process is needed to calculate the clutter loss $CL(\alpha,f_{c})$.
 
 
@@ -236,7 +236,7 @@ Similarly, the operating frequency and the aperture radius %are essential parame
 can be tuned by using the methods \texttt{Set\-Operating\-Frequency} and \texttt{Set\-Aperture\-Radius}.
 
 \section{Examples and Comparisons}
-\label{sec:results}
+\label{sec:results-ntn}
 In this section we validate the accuracy of our ns-3 module for the NTN channel, and compare simulation results with the calibration reported in TR 38.821 \cite{38821}. Furthermore, we provide numerical results to measure link-level and end-to-end performance (including throughput and packet drop ratio). We focus on satellites, even though the model is valid for different NTN scenarios.
 
 \subsection{Link-Level Results}

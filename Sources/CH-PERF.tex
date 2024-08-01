@@ -1,18 +1,3 @@
-% \usepackage{subcaption}
-% \usepackage{tikz}
-% \usepackage{pgfplots}
-% \pgfplotsset{compat=newest}
-% \pgfplotsset{plot coordinates/math parser=false}
-% \newlength\fheight
-% \newlength\fwidth
-% \usetikzlibrary{plotmarks,decorations,backgrounds,calc,spy}
-% \usetikzlibrary{decorations.markings}
-% \usepgfplotslibrary{patchplots,groupplots}
-% \usepackage{tikzscale}
-% \usetikzlibrary{spy}
-
-% \DeclareMathOperator*{\argmin}{argmin}
-
 \section{Introduction}
 
 Mobile networks play a key role in our society and are poised to become ever more important in the coming years. In fact, the \gls{itu} foresees that in 2030 and beyond wireless broadband will be ubiquitous, and will be required to provide connectivity not only to humans, but also to a plethora of intelligent devices such as wearables, road vehicles, \glspl{uas} and robots~\cite{imt2030}. Moreover, novel use cases such as holographic communications, \gls{xr} and tactile applications will further exacerbate the throughput and latency requirements which were posed by \gls{embb} and \gls{urllc}~\cite{itu-r-2083}. 
@@ -37,14 +22,6 @@ the support for \gls{mmwave} and \gls{thz} bands entails a major redesign not on
 %for continuously adapting the beamforming configuration to the propagation environment and the user mobility. Furthermore, 
 while the frequent transitions between \gls{los} and \gls{nlos} conditions call for an ad hoc transport layer design, such as novel \gls{tcp} algorithms~\cite{zhang2019will}. 
 
-\begin{comment}
-As the network will progressively become increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with (and aided by) taking network softwarization to a new level. 
-Specifically, the %disaggregation and 
-ongoing virtualization
-%which has started with 5G 
-will be the foundation of a shift towards \gls{ai}-native networks which, in turn, will enable data-driven optimization and closed-loop control of the network. For instance, networks will be able to autonomously perform load balancing and manage handovers and scheduling policies~\cite{d2018low}. Furthermore, the centralized availability of analytics and the flexibility of softwarized networks will allow operators to introduce \gls{ai} and \gls{ml}-based optimizations not only at the radio link level, but encompassing the orchestration of large scale deployments as well~\cite{polese2023understanding}.
-\end{comment}
-
 In addition, as the network progressively becomes increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with an \gls{ai}-native design which, thanks to the ongoing virtualization, will not be limited to the radio link level, but will encompass the orchestration of large scale deployments as well~\cite{polese2023understanding}.
 Nevertheless, how to design, test and eventually deploy management and orchestration algorithms is an open research challenge~\cite{polese2022colo}.
 First, the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Furthermore, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
@@ -62,7 +39,7 @@ At the same time, the simpler channel models which are found in analytical studi
 To fill this gap, in this paper we propose optimizations to the ns-3 implementation of the TR 38.901 channel model of~\cite{tommaso:20}, both at the codebase and at the design level, which aim to provide wireless researchers with the tools for simulating future dense wireless scenarios in a computationally efficient manner. Specifically, we significantly improve the runtime of simulations involving the 3GPP TR 38.901 channel model~\cite{TR38901} by porting the intensive linear algebra operations to the open-source library \texttt{Eigen}~\cite{eigenweb}. To this end, we also design and implement a set of common linear algebra APIs, which increase the modularity of the \texttt{spectrum} module with respect to the underlying data structures and algorithms.
 Then, we propose a simplified channel model, based on~\cite{TR38901}, which aims to provide an additional order of magnitude of runtime reduction, at the cost of a slight accuracy penalty. Profiling results show that the support for \texttt{Eigen}, coupled with further TR 38.901 optimizations, leads to a decrease of up to 5 times in the simulation time of typical \gls{mimo} scenarios. Furthermore, the proposed performance-oriented channel model further improved the runtime of simulations, which now take as low as $6$~\% with respect to the full TR 38.901 channel model, with a negligible loss in accuracy.
 
-The remainder of the paper is organized as follows. Section~\ref{sec:rel_work} reports the state of the art on channel models. Sections~\ref{sec:opt_code} and~\ref{sec:opt_design} describe the contributions of this work, in terms of optimizations to the ns-3 implementation of the TR 38.901 framework and the design of a performance oriented channel model, respectively. Finally, Section~\ref{sec:results} presents benchmarks of the introduced optimizations and discusses the main use cases of these channel models, while Section~\ref{sec:conc} concludes the paper by mentioning possible future extensions of this work. 
+The remainder of the paper is organized as follows. Section~\ref{sec:rel_work} reports the state of the art on channel models. Sections~\ref{sec:opt_code} and~\ref{sec:opt_design} describe the contributions of this work, in terms of optimizations to the ns-3 implementation of the TR 38.901 framework and the design of a performance oriented channel model, respectively. Finally, Section~\ref{sec:results-ch-perf} presents benchmarks of the introduced optimizations and discusses the main use cases of these channel models, while Section~\ref{sec:conc} concludes the paper by mentioning possible future extensions of this work. 
 
 \section{Related work}
 \label{sec:rel_work}
@@ -108,7 +85,7 @@ Given that most of the needed operators can not be overloaded for \gls{stl} C\te
     
     In this case, we aligned the notation to the APIs provided by \texttt{Eigen}. Specifically, the matrix elements can be accessed via the operator \texttt{()}, which takes as arguments the row and column indices of the entry, while the method \texttt{resize} allows users to resize matrices by specifying the number of rows and columns. In turn, these can be accessed via the \texttt{rows} and \texttt{columns} methods, respectively.
 
-    \item The 3D matrix \texttt{MatrixBased\-ChannelModel::\-Complex\-3D\-Vec\-tor}. This data structure is defined, regardless of \texttt{Eigen}'s availability, as an \texttt{std::\-vector} of \texttt{MatrixBased\-Channel\-Model::\-Complex2DVector}. In this case, the only method provided is \texttt{Multiply\-MatBy\-Left\-And\-RightVec}, which computes a product of the type $\bm{w}_T \bm{H} \bm{w}_R^T$, where $\bm{H} \in \mathbb{C}^{U \times S}$, $\bm{w}_T \in \mathbb{C}^{1 \times U}$ and $\bm{w}_R \in \mathbb{C}^{1 \times S}$. Notably, this computationally demanding evaluation, which is required for computing the beamforming gain in \texttt{Three\-Gpp\-Spectrum\-Propagation\-Loss\-Model}, leverages \texttt{Eigen}'s optimized algorithms whenever the library is installed in the host system.
+    \item The 3D matrix \texttt{Matrix\-Based\-Channel\-Model::\-Complex\-3D\-Vec\-tor}. This data structure is defined, regardless of \texttt{Eigen}'s availability, as an \texttt{std::\-vector} of \texttt{Matrix\-Based\-Channel\-Model::\-Complex2DVector}. In this case, the only method provided is \texttt{Multiply\-MatBy\-Left\-And\-RightVec}, which computes a product of the type $\bm{w}_T \bm{H} \bm{w}_R^T$, where $\bm{H} \in \mathbb{C}^{U \times S}$, $\bm{w}_T \in \mathbb{C}^{1 \times U}$ and $\bm{w}_R \in \mathbb{C}^{1 \times S}$. Notably, this computationally demanding evaluation, which is required for computing the beamforming gain in \texttt{Three\-Gpp\-Spectrum\-Propagation\-Loss\-Model}, leverages \texttt{Eigen}'s optimized algorithms whenever the library is installed in the host system.
 \end{itemize}
 
 Finally, we remark that the support for \texttt{Eigen} in the ns-3 codebase can possibly be further extended to improve the efficiency of other linear algebra operations, such as the \gls{svd} which is used in the \texttt{mmwave} and \texttt{nr} modules to compute optimal beamformers, and the matrix-by-matrix multiplications needed for relayed channels \cite{9810370}.
@@ -292,7 +269,7 @@ Finally, we exported the calibrated \gls{ftr} parameters into ns-3, by storing t
 We remark that this calibration process represents a pre-computation step which needs to be done only once. Indeed, when running a simulation with this channel model, the \gls{ftr} parameters get simply retrieved from the pre-computed lookup table by the \texttt{Get\-Ftr\-Parameters} function. Nevertheless, for the sake of reproducibility and maintainability of the code, we provide this functionality in the Python script \texttt{two-\-ray-\-to-\-three-\-gpp-\-ch-\-calibration.py}.
 
 \section{Benchmarks, examples and use cases}
-\label{sec:results}
+\label{sec:results-ch-perf}
 
 In this section, we provide an example on how to use the performance-oriented channel model presented above, in conjunction with the \gls{nr}~\cite{patriciello2019e2e} module, to simulate \gls{5g} \gls{mimo} networks. Moreover, we present benchmarks which quantify the simulation time reduction achieved with this work, and we outline some possible use cases.
 

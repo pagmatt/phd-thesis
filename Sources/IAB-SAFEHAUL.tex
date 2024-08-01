@@ -10,34 +10,6 @@
 % \newcommand{ \bfblue }{\bf \color{blue}}
 % \newcommand{ \bfcyan} {\bf \color{cyan}}
 
-% \let\mathsetfont\mathcal
-% \newcommand\setA{\mathsetfont A}
-% \newcommand\setB{\mathsetfont B}
-% \newcommand\setC{\mathsetfont C}
-% \newcommand\setD{\mathsetfont D}
-% \newcommand\setE{\mathsetfont E}
-% \newcommand\setF{\mathsetfont F}
-% \newcommand\setG{\mathsetfont G}
-% \newcommand\setH{\mathsetfont H}
-% \newcommand\setI{\mathsetfont I}
-% \newcommand\setJ{\mathsetfont J}
-% \newcommand\setK{\mathsetfont K}
-% \newcommand\setL{\mathsetfont L}
-% \newcommand\setM{\mathsetfont M}
-% \newcommand\setN{\mathsetfont N}
-% \newcommand\setO{\mathsetfont O}
-% \newcommand\setP{\mathsetfont P}
-% \newcommand\setQ{\mathsetfont Q}
-% \newcommand\setR{\mathsetfont R}
-% \newcommand\setS{\mathsetfont S}
-% \newcommand\setT{\mathsetfont T}
-% \newcommand\setU{\mathsetfont U}
-% \newcommand\setV{\mathsetfont V}
-% \newcommand\setW{\mathsetfont W}
-% \newcommand\setX{\mathsetfont X}
-% \newcommand\setY{\mathsetfont Y}
-\newcommand\setZ{\mathsetfont Z}
-
 \newcommand{\sref}[1]{Section~\ref{#1}}
 \newcommand{\tref}[1]{Table~\ref{#1}}
 
@@ -487,12 +459,12 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
   \vspace*{-3mm}
 \end{figure*}
 
-In our simulations, we consider realistic cellular base station deployments in Manhattan, New York City\footnote{The locations correspond to the network of T-Mobile, which has the largest deployment among the \glspl{mno}.} and in the historical city center of Padova. Specifically, for the former we collect the locations of $N=223$ 5G-NR base stations in an area of 15~$\text{Km}^2$ as depicted in Fig.~\ref{fig:manhattan}. On the other hand, in the Padova topology we combine locations of $N=100$ 4G-LTE \gls{bs} of different \glspl{mno} (WINDTRE, TIM, and Vodafone) in an area of 10~$\text{Km}^2$ as depicted in Fig.~\ref{fig:Padova_Map}, due to the lack of 5G-NR base station deployment at the time of writing of this paper. The detailed simulation parameters are provided in Table \ref{Tab:parameters}. We used the channel model outlined by 3GPP in TR 38.901 \cite{3gpp.38.901}, which provides a statistical channel model for 0.5-100 GHz, and analyzed the "Urban Micro (UMi)-StreetCanyon" scenario.
+In our simulations, we consider realistic cellular base station deployments in Manhattan, New York City\footnote{The locations correspond to the network of T-Mobile, which has the largest deployment among the \glspl{mno}.} and in the historical city center of Padova. Specifically, for the former we collect the locations of $N=223$ 5G-NR base stations in an area of 15~$\text{Km}^2$ as depicted in Fig.~\ref{fig:manhattan}. On the other hand, in the Padova topology we combine locations of $N=100$ 4G-LTE \gls{bs} of different \glspl{mno} (WINDTRE, TIM, and Vodafone) in an area of 10~$\text{Km}^2$ as depicted in Fig.~\ref{fig:Padova_Map}, due to the lack of 5G-NR base station deployment at the time of writing of this paper. The detailed simulation parameters are provided in Table \ref{Tab:parameters-safehaul}. We used the channel model outlined by 3GPP in TR 38.901 \cite{3gpp.38.901}, which provides a statistical channel model for 0.5-100 GHz, and analyzed the "Urban Micro (UMi)-StreetCanyon" scenario.
 
 \begin{table}[t!]
 \caption{Simulation parameters.}
 \centering
-\resizebox{0.8\columnwidth}{!}{\label{Tab:parameters}
+\resizebox{0.8\columnwidth}{!}{\label{Tab:parameters-safehaul}
 \centering
 \scriptsize
 \begin{tabular}{l|l}
