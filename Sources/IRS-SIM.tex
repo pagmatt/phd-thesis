@@ -37,9 +37,9 @@
 
 
 The rest of the paper is organized as follows. 
-In Sec.~\ref{sec:ch_model_ext} we present a mathematical characterization of the channel for IRS/AF relays, based on the 3GPP channel model for 5G networks.
-Sec.~\ref{sec:simulator} describes our simulation methodology for IRS/AF relays. %with a focus on the modifications we made to the 3GPP channel model for 5G networks.
-In Sec.~\ref{sec:results} we show our main numerical results, while Sec.~\ref{sec:conclusion} concludes the work with suggestions for future research.
+In Section~\ref{sec:ch_model_ext} we present a mathematical characterization of the channel for IRS/AF relays, based on the 3GPP channel model for 5G networks.
+Section~\ref{sec:simulator} describes our simulation methodology for IRS/AF relays. %with a focus on the modifications we made to the 3GPP channel model for 5G networks.
+In Section~\ref{sec:results} we show our main numerical results, while Section~\ref{sec:conclusion} concludes the work with suggestions for future research.
 
 
 %The introduction of \glspl{irs} and \gls{af} relays will also require modifications of the 5G NR protocol stack, as well as  For example, the configuration of the IRS/AF beamforming vectors calls for a revised initial access and beam tracking procedure. Moreover, ad hoc signaling will also be required.
@@ -84,7 +84,7 @@ In Sec.~\ref{sec:results} we show our main numerical results, while Sec.~\ref{se
 
 
 A realistic characterization of the channel is the first step to obtain accurate simulation results. 
-Therefore in this section we provide a mathematical model for the IRS and \gls{af} relay channels  (Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model}, respectively), based on the standard 3GPP channel model for 5G networks (Sec.~\ref{sec:baseline_model}). % we describe the standard 3GPP channel model for 5G networks, and in Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} we provide a mathematical model for the IRS and \gls{af} relay channels, respectively.
+Therefore in this section we provide a mathematical model for the IRS and \gls{af} relay channels  (Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model}, respectively), based on the standard 3GPP channel model for 5G networks (Section~\ref{sec:baseline_model}). % we describe the standard 3GPP channel model for 5G networks, and in Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} we provide a mathematical model for the IRS and \gls{af} relay channels, respectively.
 
 \emph{Notation.} We use boldface upper- and lower-case letters to refer to matrices and vectors, respectively, while lower-case letters denote scalars. We use $\bm{I}_{N}$ to denote the identity matrix of order $N$, $[ \bm{\Phi} ]_{j, k}$ to indicate the $(j, k)$-th
 entry of matrix $\bm{\Phi}$, $\mathrm{diag} ( \phi_1,\dots, \phi_N) $ to indicate an  $N$~$\times$~$N$ diagonal matrix with entries $\{\phi_j \, | \, j=1, \dots, N \}$. We use the superscripts T, H and~$*$ for transposition, Hermitian transposition, and conjugation, respectively.
@@ -92,9 +92,9 @@ entry of matrix $\bm{\Phi}$, $\mathrm{diag} ( \phi_1,\dots, \phi_N) $ to indicat
 
 %An accurate channel model is the underlying foundation of any system-level simulator. Accordingly, we begin the description of the proposed simulator by presenting an extension of the \gls{3gpp} TR~38.901 channel model which supports the presence of passive and regenerative relays between the communication endpoints. 
 
-%First, we describe our baseline, i.e, the \gls{3gpp} TR~38.901 channel model and the ns-3 \texttt{mmwave} module, in Sec.~\ref{sec:baseline_model}. Then, we outline physically accurate models of both \glspl{irs} and \gls{af} relays in Sec.s~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, respectively. 
-%Then, we describe our baseline,  Sec.~\ref{sec:baseline_impl}. 
-%Finally, we describe how to perform TR~38.901-based end-to-end simulations of passive and regenerative relays in Sec.~\ref{sec:ext_ch_model}.
+%First, we describe our baseline, i.e, the \gls{3gpp} TR~38.901 channel model and the ns-3 \texttt{mmwave} module, in Section~\ref{sec:baseline_model}. Then, we outline physically accurate models of both \glspl{irs} and \gls{af} relays in Sections~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, respectively. 
+%Then, we describe our baseline,  Section~\ref{sec:baseline_impl}. 
+%Finally, we describe how to perform TR~38.901-based end-to-end simulations of passive and regenerative relays in Section~\ref{sec:ext_ch_model}.
 
 
 \subsection{The TR~38.901 Channel Model for 5G NR}
@@ -108,19 +108,17 @@ In particular, the TR~38.901 model outlines the procedures for generating a chan
 To model multipath fading, each of these terms is computed as the superposition of $N$ different clusters, each of which consists of $M$ rays that arrive (depart) to (from) the antenna arrays with specific angles and powers. Based on~\cite{3gpp.38.901}, and using the simplifications proposed in~\cite{zugno2020implementation}, the generic entry $\bm{H}_{p, q} (t, \tau)$ of the channel matrix can then be computed as:
 
 \begin{equation}
-\label{eq:ch_model_full}
+\label{eq:ch_model_full_irs_sim}
 \begin{aligned}
 \bm{H}_{p, q}(t, \tau)=& \sum_{n=1}^{N} \sqrt{\frac{P_{n}}{M}} \sum_{m=1}^{M} \overline{\mathbf{F}}_{r x}\left(\theta_{n, m}^{A}, \phi_{n, m}^{A}\right) \\
 & \times\left[\begin{array}{cr}
 e^{j \Phi_{n, m}^{\theta, \theta}} & \sqrt{K_{n, m}^{-1}} e^{j \Phi_{n, m}^{\theta, \phi}} \\
 \sqrt{K_{n, m}^{-1}} e^{j \Phi_{n, m}^{\phi, \theta}} & e^{j \Phi_{n, m}^{\phi, \phi}}
-\end{array}\right] \\
-& \times \overline{\mathbf{F}}_{tx}\left(\theta_{n, m}^{D}, \phi_{n, m}^{D}\right) \\
-& \times e^{j \overline{\mathbf{k}}_{rx, n, m}^{T} \overline{\mathbf{d}}_{rx, p} e^{j \overline{\mathbf{k}}_{tx, n, m}^{T} \overline{\mathbf{d}}_{tx, q}}} \\
-& \times e^{j 2 \pi v_{n} t} \delta\left(\tau-\tau_{n}\right).
+\end{array}\right] \overline{\mathbf{F}}_{tx}\left(\theta_{n, m}^{D}, \phi_{n, m}^{D}\right) \\
+& \times e^{j \overline{\mathbf{k}}_{rx, n, m}^{T} \overline{\mathbf{d}}_{rx, p} e^{j \overline{\mathbf{k}}_{tx, n, m}^{T} \overline{\mathbf{d}}_{tx, q}}} e^{j 2 \pi v_{n} t} \delta\left(\tau-\tau_{n}\right).
 \end{aligned}
 \end{equation}
-For a complete description of the specific terms appearing in Eq.~\eqref{eq:ch_model_full} we refer the interested reader to~\cite{zugno2020implementation}.
+For a complete description of the specific terms appearing in Eq.~\eqref{eq:ch_model_full_irs_sim} we refer the interested reader to~\cite{zugno2020implementation}.
 
 Then, a frequency-flat path gain term is added to each channel coefficient as a function of the carrier frequency $f_c$ and the distance $d$ between the endpoints, i.e.,  %Therefore, the same gain $\mathcal{P}_{L}$ is added to all the subcarriers within the \gls{psd} of the signal. 
 %In line with~\cite{3gpp.38.901}, this path loss term is evaluated as:
@@ -132,12 +130,12 @@ where model parameters $A, B$ and $C$ depend on the propagation conditions and t
 
 \begin{figure}[t]
   \centering
-    \includegraphics[width=0.48\textwidth]{Figures/IrsSimulation/Scenario_high_level.pdf}
+    \includegraphics[width=0.75\textwidth]{Figures/IrsSimulation/Scenario_high_level.pdf}
   \caption{A typical urban scenario where a relay (R) can be used to bridge the signal from a source (S) to a destination (D), that would otherwise communicate in \acrshort{nlos}, i.e., the direct link between S and D is blocked due to obstacles such as buildings and/or vegetation.}
   \label{Fig:scenario_high_lvl}
 \end{figure}
 
-We consider the transmission of a single data stream $x_{\mathrm S}$, i.e., a sequence of signals, from a source S to a destination D via a relay R, as depicted in Fig.~\ref{Fig:scenario_high_lvl}. 
+We consider the transmission of a single data stream $x_{\mathrm S}$, i.e., a sequence of signals, from a source S to a destination D via a relay R, as depicted in Figure~\ref{Fig:scenario_high_lvl}. 
 Then, the channel matrix is combined with the beamforming vectors used at S and D, in order to obtain the \gls{sinr} experienced at D. 
 In particular, let $x_{\mathrm S}$ be the signal transmitted from S to D, and $\bm{w}_{\mathrm S}$, $\bm{w}_{\mathrm D}$ and $\bm{w}_{\mathrm I}$ be the beamforming vectors used at S, D and the I-th interferer, respectively. Moreover, we define the following matrices:
 $\bm{H}_{\mathrm SD}$ is the channel matrix between the source and the destination,
@@ -278,7 +276,7 @@ where in turn $\tilde{n}$ is defined as:
 \end{cases}
 \]
 where matrix $\bm{\Phi}$ is the relay matrix, i.e., a matrix which fully encodes the effect of the relay, i.e., either IRS or AF, as described in Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} for the single user case, respectively, over the wireless channel. 
-%The terms $\bm{H}_{\mathrm {SR}}$, $\bm{H}_{\mathrm {IR}}$, $\bm{H}_{\mathrm {RD}}$ represent the channel matrices between the source and the relay, the $\mathrm{I}$-th interferer and the relay, and the relay and the destination, respectively. Moreover, $\bm{H}_{\mathrm {SD}}$, $\bm{H}_{\mathrm {ID}}$ are the channel matrices of the direct link from the source and the $\mathrm{I}$- th interferer to the destination, as illustrated in Fig.~\ref{Fig:scenario_high_lvl}.
+%The terms $\bm{H}_{\mathrm {SR}}$, $\bm{H}_{\mathrm {IR}}$, $\bm{H}_{\mathrm {RD}}$ represent the channel matrices between the source and the relay, the $\mathrm{I}$-th interferer and the relay, and the relay and the destination, respectively. Moreover, $\bm{H}_{\mathrm {SD}}$, $\bm{H}_{\mathrm {ID}}$ are the channel matrices of the direct link from the source and the $\mathrm{I}$- th interferer to the destination, as illustrated in Figure~\ref{Fig:scenario_high_lvl}.
 Notably, S and D are either in \gls{nlos} (in this case they communicate via the relay, and we consider the direct link towards D to be unavailable), or in \gls{los} (in this case they do not use the relay). % thus we consider the secondary path reflected by such entity to be negligible.
 %These assumptions are motivated by the fact that we envision as the main use case for these kinds of relays scenarios in which the direct path between S and D is almost completely blocked by obstacles, such as building and/or vegetation.
 Accordingly, assuming that the source of interest is in NLOS with respect to its intended destination,~\eqref{eq:mimo_input_output_relay} becomes:
@@ -287,7 +285,7 @@ Accordingly, assuming that the source of interest is in NLOS with respect to its
 \begin{equation}
 \label{eq:mimo_input_output_relay_reduced}
 \begin{aligned}
-    y_{D} = \,\, & \bm{w}_{\mathrm{D}}^{\mathrm{T}} \bm{H}_{\mathrm{RD}} \bm{\Phi} \bm{H}_{\mathrm{SR}} \bm{w}_{\mathrm{S}} x_{S} + \sum_{\hat{I} \in  I_{\mathrm{LOS}}} \bm{w}_{\mathrm{D}}^{T} \bm{H}_{\mathrm{\hat{I}} D}  \bm{w}_{\mathrm{hat{I}}} x_{\mathrm{\hat{I}}} \\
+    y_{D} = \,\, & \bm{w}_{\mathrm{D}}^{\mathrm{T}} \bm{H}_{\mathrm{RD}} \bm{\Phi} \bm{H}_{\mathrm{SR}} \bm{w}_{\mathrm{S}} x_{S} + \sum_{\hat{I} \in  I_{\mathrm{LOS}}} \bm{w}_{\mathrm{D}}^{T} \bm{H}_{\mathrm{\hat{I}} D} \bm{w}_{\mathrm{\hat{I}}} x_{\mathrm{\hat{I}}} \\
   & + \sum_{ \bar{I} \in I_{\mathrm{NLOS}}} \bm{w}_{\mathrm{D}}^{T} \bm{H}_{\mathrm{RD}} \bm{\Phi} \bm{H}_{\mathrm{\bar{I} R}}  \bm{w}_{\mathrm{\bar{I}}} x_{\mathrm{\bar{I}}} + \tilde{n},
 \end{aligned}
 \end{equation}
@@ -305,7 +303,7 @@ If so, the \gls{psd} is computed according to the following steps.
     \item \emph{Channel matrices generation.} 
 %First of all, we identify the relay's antennas communicating towards S and D. 
 %For the sake of using a general model tailored to both forms of relays (i.e., IRS and AF), we assume that R features two antenna arrays, possibly pointing to different directions. %Depending on the type of relay, these arrays might then coincide in practice. 
-After having identified S and D as the two endpoints of the communication, the channel matrices $\bm{H}_{\textrm {SR}}$ and $\bm{H}_{\textrm {RD}}$ are computed based on~\eqref{eq:ch_model_full}~\cite{3gpp.38.901}. 
+After having identified S and D as the two endpoints of the communication, the channel matrices $\bm{H}_{\textrm {SR}}$ and $\bm{H}_{\textrm {RD}}$ are computed based on~\eqref{eq:ch_model_full_irs_sim}~\cite{3gpp.38.901}. 
 
 \item \emph{Configuration of the relay and beamforming vectors.}
 We assume that the choice of the beamforming vectors for both S and D ($\bm{w}_{\textrm D}$ and $\bm{w}_{\textrm S}$), as well as the relay configuration ($\bm{\Phi}$), consist in the choice of a \emph{codeword} from a pre-defined \emph{codebook}. The latter is computed offline by first defining a set of beam directions $\{ \omega_{n, m} \}$ which scan a given angular sector via steps of \gls{hpbw}. In particular, let $\bm{a}_{n,m}$ be the steering vector corresponding to direction $\omega_{n, m}$. This is computed~as:
@@ -387,7 +385,7 @@ where $\mathcal{P}_{n}(t, f)$ is the \gls{psd} of the thermal noise at D.
 \end{enumerate}
 
 \subsection{Integration of the IRS/AF Signal Model in the Simulator}
-In Sec.~\ref{sec:ext_ch_model} we described how our simulator computes the channel (in terms of \gls{psd}) in case of IRS/AF relays, which is then used to calculate the end-to-end SINR at the destination D. 
+In Section~\ref{sec:ext_ch_model} we described how our simulator computes the channel (in terms of \gls{psd}) in case of IRS/AF relays, which is then used to calculate the end-to-end SINR at the destination D. 
 Notice that the \gls{sinr} can refer to either the \gls{sinr} relative to the whole bandwidth, for narrowband signals over frequency-flat channels, or the \gls{sinr} experienced over a single subcarrier, for wideband signals transmitted over frequency-selective channels. 
 In the second case, the \glspl{sinr} corresponding to the various frequency chunks are then mapped into a single \gls{sinr} value, according to additional maps obtained from link-level simulations~\cite{lagen2020new}.
 Based on that, our simulator defines a \gls{l2sm}, i.e., a table which associates a given \gls{sinr} to a \gls{mac}-layer \gls{tb} error rate~\cite{mezzavilla2012lightweight}, in turn used to  decide whether the \gls{tb} has been correctly received or not.
@@ -412,23 +410,23 @@ The \gls{rlc} and \gls{pdcp} layers implement network functions such as packet s
 \section{Performance Evaluation}
 \label{sec:results}
 
-In this section we describe our simulation setup and parameters (Sec.~\ref{sub:simulation_setup}), and evaluate the performance of \glspl{irs} and \gls{af} relays, considering full-stack network metrics as a function of different antenna array configurations (Sec.~\ref{sub:numerical_results}).
+In this section we describe our simulation setup and parameters (Section~\ref{sub:simulation_setup}), and evaluate the performance of \glspl{irs} and \gls{af} relays, considering full-stack network metrics as a function of different antenna array configurations (Section~\ref{sub:numerical_results}).
 
 \subsection{Simulation Setup} % (fold)
 \label{sub:simulation_setup}
 
-In our simulations we consider two simple yet realistic urban canyon scenarios, where we deploy a single \gls{gnb}, $N_{\mathrm U}$ \glspl{ue}, with $N_{\mathrm U}=1$ (5) in Scenario 1 (2), as illustrated in Fig.~\ref{Fig:scenarios}, and a single relay, which can be either an \gls{irs} or an \gls{af} relay.
-The wireless channel is modeled as an \gls{uma} link~\cite{3gpp.38.901}. % with the extensions discussed in Sec.~\ref{sec:ext_ch_model} to incorporate IRS/AF functionalities.
+In our simulations we consider two simple yet realistic urban canyon scenarios, where we deploy a single \gls{gnb}, $N_{\mathrm U}$ \glspl{ue}, with $N_{\mathrm U}=1$ (5) in Scenario 1 (2), as illustrated in Figure~\ref{Fig:scenarios}, and a single relay, which can be either an \gls{irs} or an \gls{af} relay.
+The wireless channel is modeled as an \gls{uma} link~\cite{3gpp.38.901}. % with the extensions discussed in Section~\ref{sec:ext_ch_model} to incorporate IRS/AF functionalities.
 The \gls{los}/\gls{nlos} condition depends on the geometry of the scenario.
-In particular, we assume that the direct wireless link between the \glspl{ue} and the \gls{gnb} is blocked by a building, as illustrated in Fig.~\ref{Fig:scenarios}, which introduces an additional penetration loss modeled based on~\cite[Sec. 7.4.3.1]{3gpp.38.901}.
+In particular, we assume that the direct wireless link between the \glspl{ue} and the \gls{gnb} is blocked by a building, as illustrated in Figure~\ref{Fig:scenarios}, which introduces an additional penetration loss modeled based on~\cite[Section 7.4.3.1]{3gpp.38.901}.
 The end nodes can still communicate in \gls{los} via the relay. 
 Furthermore, we assume that at each \gls{tti} the relays can arbitrarily switch configuration to serve a given user and that their phase shifters have infinite resolution, i.e., we do not account for quantization loss.
  
-%The wireless channel is modeled as a TR. 38.901 \gls{uma} link, with the extensions discussed in Sec.~\ref{sec:ext_ch_model}. However, the \gls{los} condition is not stochastic as in~\cite[Sec. 7.4.2]{3gpp.38.901}. Instead, it is determined in a deterministic manner, based on the geometry of the scene.
-%$Therefore, all $N_{\mathrm U}$ \glspl{ue} experience a \gls{nlos} link towards the \gls{gnb}, while the relay offers a two-hop \gls{los} path from the base station to the user terminals. Moreover, for the \gls{nlos} links we consider an additional loss term, computed as per~\cite[Sec. 7.4.3.1]{3gpp.38.901}.
+%The wireless channel is modeled as a TR. 38.901 \gls{uma} link, with the extensions discussed in Section~\ref{sec:ext_ch_model}. However, the \gls{los} condition is not stochastic as in~\cite[Section 7.4.2]{3gpp.38.901}. Instead, it is determined in a deterministic manner, based on the geometry of the scene.
+%$Therefore, all $N_{\mathrm U}$ \glspl{ue} experience a \gls{nlos} link towards the \gls{gnb}, while the relay offers a two-hop \gls{los} path from the base station to the user terminals. Moreover, for the \gls{nlos} links we consider an additional loss term, computed as per~\cite[Section 7.4.3.1]{3gpp.38.901}.
 
 
-%A building is placed in between the , in such a way to block the direct wireless link among them. On the contrary, we deploy the relay in an unobstructed location between the \gls{gnb} and the \glspl{ue}, as depicted in Fig.~\ref{Fig:scenarios}.
+%A building is placed in between the , in such a way to block the direct wireless link among them. On the contrary, we deploy the relay in an unobstructed location between the \gls{gnb} and the \glspl{ue}, as depicted in Figure~\ref{Fig:scenarios}.
 
 Our simulation parameters are reported in Table~\ref{Tab:parameters}.
 Specifically, the \glspl{ue} download \gls{udp} data, modeled as a constant bit-rate stream of 50~Mbps, from a remote server. 
@@ -531,9 +529,9 @@ The IRS/AF performance will be evaluated against a baseline scenario (referred t
   \label{Fig:sinr}
 \end{figure}
 
-\paragraph{SINR} Our analysis starts with the \gls{sinr} statistics depicted in Fig.~\ref{Fig:sinr}, relative to Scenario 1 with $N_{\mathrm U}=1$.
-First, in Fig.~\ref{Fig:sinr_all} we observe that the presence of the relay improves the \gls{sinr} (on average up to $+55$ dB) compared to the ``gNB only'' baseline, in which the \gls{ue} communicates in \gls{nlos}. % and the signal is attenuated due to building penetration loss.
-Notably, as depicted in Fig.~\ref{Fig:sinr_vs_n}, both \gls{irs} and \gls{af} relays provide an end-to-end \gls{sinr} gain which scales proportionally 
+\paragraph{SINR} Our analysis starts with the \gls{sinr} statistics depicted in Figure~\ref{Fig:sinr}, relative to Scenario 1 with $N_{\mathrm U}=1$.
+First, in Figure~\ref{Fig:sinr_all} we observe that the presence of the relay improves the \gls{sinr} (on average up to $+55$ dB) compared to the ``gNB only'' baseline, in which the \gls{ue} communicates in \gls{nlos}. % and the signal is attenuated due to building penetration loss.
+Notably, as depicted in Figure~\ref{Fig:sinr_vs_n}, both \gls{irs} and \gls{af} relays provide an end-to-end \gls{sinr} gain which scales proportionally 
 %\todo{Actually closer to linear than quadratic (which is what we expect from theory)} 
 with respect to the number of radiating elements at the relay. %However, a different explanation for each can be found for this behavior. 
 %For the \gls{af}, the gain is produced by beamforming, which increases proportionally with the number of antenna elements.
@@ -560,10 +558,10 @@ Indeed, an \gls{irs} panel of $60\times120$ elements provides an average SINR of
 
 
 \paragraph{End-to-end throughput}
-In Fig.~\ref{fig:throughput} we plot the end-to-end throughput experienced at the application layer, thus considering the impact of the whole 5G NR protocol stack.
+In Figure~\ref{fig:throughput} we plot the end-to-end throughput experienced at the application layer, thus considering the impact of the whole 5G NR protocol stack.
 When $N_{\mathrm U}=1$ (Scenario 1) the average throughput is an indication of the ergodic capacity.
 We see that the throughput for the ``gNB only'' baseline is zero, given the very low SINR (below the sensitivity threshold of most commercial receivers) experienced at the physical layer. 
-Interestingly, even though the AF relay with $16\times 16$ antennas guarantees, on average, 15 dB higher SINR than an IRS with $60\times120$ elements (from Fig.~\ref{Fig:sinr_all}), we see that the end-to-end throughput of the two configurations is comparable. 
+Interestingly, even though the AF relay with $16\times 16$ antennas guarantees, on average, 15 dB higher SINR than an IRS with $60\times120$ elements (from Figure~\ref{Fig:sinr_all}), we see that the end-to-end throughput of the two configurations is comparable. 
 This demonstrates that, in a simple scenario with only one UE, an average SINR of 15 dB is enough to satisfy all traffic requests. 
 In this case, the IRS is more desirable than an AF relay given its simplicity. Also, it is not convenient to further increase the IRS size, given that the throughput is already maximized and equal to the UDP source rate (50 Mbps in our simulations).
 %Notice that the throughput improves by up to $15\%$ compared to the ``gNB only'' baseline when AF relays are deployed.
@@ -575,10 +573,10 @@ Even in Scenario 2, AF-assisted networks can still sustain the application sourc
 On the other hand, IRSs are constrained by the limited SINR available at the \gls{phy} layer, and are never able to achieve the full source rate offered by the application. The maximum achievable throughput is around $40$ Mbps for $60\times120$ elements, i.e., $-20$\% compared to the case of $N_{\mathrm U}=1$.
 
 
-%Notably, IRS/AF performance is poor even for LOS UEs (the end-to-end throughput is always lower than 100 Mbit/s even in good propagation conditions, as illustrated in the rightmost part of Fig. 27) as they are throttled by the Round Robin TDMA scheduler at the gNB. In fact, the UEs in NLOS result in very high levels of queuing and buffering, and consume most of available resources for retransmissions, at the expense of the other users in the system, which leads to throughput degradation. This issue can be solved by configuring larger IRSs (≫ 10 000 elements, despite the increased system complexity), and/or more powerful AF relays (despite the higher power consumption).
+%Notably, IRS/AF performance is poor even for LOS UEs (the end-to-end throughput is always lower than 100 Mbit/s even in good propagation conditions, as illustrated in the rightmost part of Figure 27) as they are throttled by the Round Robin TDMA scheduler at the gNB. In fact, the UEs in NLOS result in very high levels of queuing and buffering, and consume most of available resources for retransmissions, at the expense of the other users in the system, which leads to throughput degradation. This issue can be solved by configuring larger IRSs (≫ 10 000 elements, despite the increased system complexity), and/or more powerful AF relays (despite the higher power consumption).
 
 
-%However, for the most constrained UEs (those in NLOS) an IRS of 100 × 100 elements can provide significant performance boosts, as exemplified by the leftmost side of the ECDF in Fig. 26: in particular, we see that, while in the “gNB only” baseline around 10% of the UEs experience zero throughput, with a well-dimensioned IRS this is as low as 3%.
+%However, for the most constrained UEs (those in NLOS) an IRS of 100 × 100 elements can provide significant performance boosts, as exemplified by the leftmost side of the ECDF in Figure 26: in particular, we see that, while in the “gNB only” baseline around 10% of the UEs experience zero throughput, with a well-dimensioned IRS this is as low as 3%.
 
 \begin{figure}
 	\centering
@@ -601,28 +599,28 @@ On the other hand, IRSs are constrained by the limited SINR available at the \gl
 
 \paragraph{End-to-end latency}
 
-Finally, in Fig.~\ref{fig:latency} we plot the 95-th percentile of the end-to-end latency experienced at the application layer.
+Finally, in Figure~\ref{fig:latency} we plot the 95-th percentile of the end-to-end latency experienced at the application layer.
  %thus taking into account the correctly received packets only. despite
  We can see that the performance is generally poor even in the simple scenario in which only one UE is deployed (Scenario 1), where the latency is higher than $100$~ms for most relay configurations, suggesting that in these cases the system is unstable.  In fact, the use of relays featuring small antenna panels results in very high levels of queuing and buffering, which leads to latency degradation. This issue can be solved by configuring larger IRS and AF relays, despite the increased system complexity. 
  For example, an IRS of $60\times120$ elements and an AF relay with $\geq 8\times8$ elements can guarantee an end-to-end latency lower than $10$~ms, which is in line with most 5G application requirements. 
  Notice that the latency for the ``\gls{gnb} only'' configuration is not particularly representative, as it is relative to only the correctly received packets.
- In fact, without the relay, transmissions are in \gls{nlos} and result in several packet losses (see the \gls{per} in Fig.~\ref{fig:per}), which makes the system less congested; the (few) packets that make it to the application layer are then transmitted with lower delay. Nevertheless, the latency is still more than two orders of magnitude higher than considering the best IRS and AF configurations, an indication that relays are desirable in these types of networks.
+ In fact, without the relay, transmissions are in \gls{nlos} and result in several packet losses (see the \gls{per} in Figure~\ref{fig:per}), which makes the system less congested; the (few) packets that make it to the application layer are then transmitted with lower delay. Nevertheless, the latency is still more than two orders of magnitude higher than considering the best IRS and AF configurations, an indication that relays are desirable in these types of networks.
 
 % S1 comments from D2
-%The same conclusions can be drawn by looking at Fig.~\ref{fig:lat-s1}, which plots the end-to-end latency vs. the UE's source rate. Indeed, a latency of less than 5 ms, in line with the \glspl{kpi} of most 5G (and beyond) use cases, is achieved when considering IAB- or AF-assisted networks with 55 dB of amplification, while the latency becomes unacceptably high when considering IRSs, or AF relays with a small amplification factor (especially when considering saturated channels).
+%The same conclusions can be drawn by looking at Figure~\ref{fig:lat-s1}, which plots the end-to-end latency vs. the UE's source rate. Indeed, a latency of less than 5 ms, in line with the \glspl{kpi} of most 5G (and beyond) use cases, is achieved when considering IAB- or AF-assisted networks with 55 dB of amplification, while the latency becomes unacceptably high when considering IRSs, or AF relays with a small amplification factor (especially when considering saturated channels).
 
 When $N_{\mathrm U}=5$ (Scenario 2), the latency is generally higher compared to when $N_{\mathrm U}=1$. This is expected since \glspl{ue} are competing for the available resources. In addition, using \gls{udp} as transport protocol, thus with a full buffer source traffic model, each end-to-end flow does not self-regulate to the actual network conditions, thus congestion arises. 
 %In this case, both IRSs and AF relays get overwhelmed, with both access and forward links being constantly used. 
 Better performance could be achieved considering non-UDP traffic: for example, the congestion control mechanism available in \gls{tcp} would regulate the source traffic, and prevent network congestion and buffer~overflow.
 
 Notice that, even considering the most aggressive IRS architecture with $60\times120$ elements, the latency is on average above $1000$ ms, vs. $6.5$ ms in Scenario 1. 
-This is due to the fact that, in this scenario, more than 20\% of the packets are lost and retransmitted (see Fig.~\ref{fig:per}), which increases the packet delay.
+This is due to the fact that, in this scenario, more than 20\% of the packets are lost and retransmitted (see Figure~\ref{fig:per}), which increases the packet delay.
 For an AF relay with $16\times16$ antennas, instead, the latency is more than $10$ times lower and equal to around $130$~ms on average, with a \gls{per} as low as 3\%, which can still support some key target communication requirements.
 We can conclude that IRS-assisted networks, though consuming less power, are not appropriate in this scenario, unless very large IRS panels are~used.
 
 
 % \paragraph{PER.} 
-% Similar considerations can be drawn from Fig.~\ref{fig:per}, which depicts the average \gls{per} at the application layer.
+% Similar considerations can be drawn from Figure~\ref{fig:per}, which depicts the average \gls{per} at the application layer.
 % We can see that without relays the system in unstable, and almost $100\%$ of the packets are lost even when  $N_{\mathrm U}=1$. 
 % On the other hand, IRS and AF relays can improve the robustness of the system when many antennas are used. 
 % Notably, an AF relay with $16\times16$ antenna support 

@@ -12,24 +12,9 @@
 % \usepackage{tikzscale}
 % \usepackage{graphicx}
 
-\newacronym{geo}{GEO}{Geostationary Equatorial Orbit}
-\newacronym{meo}{MEO}{medium earth orbit}
-\newacronym{leo}{LEO}{Low Earth Orbit}
-\newacronym{vsat}{VSAT}{very small aperture terminal}
-\newacronym{nb}{NB}{node base}
-\newacronym{hap}{HAP}{High Altitute Platform}
-\newacronym{mtc}{MTC}{machine type communications}
-\newacronym{miot}{mIoT}{massive internet of things}
-\newacronym{gcs}{GCS}{global coordinate system}
-\newacronym{lcs}{LCS}{local coordinate system}
-\newacronym{isl}{ISL}{inter-satellite link}
-\newacronym{ecef}{ECEF}{Earth-Centered Earth-Fixed}
-\newacronym{fspl}{FSPL}{free space path loss}
-\newacronym{cnr}{CNR}{carrier-to-noise ratio}
-
 %\section{Introduction}
 
-%The rest of the paper is organized as follows. In Sec.~\ref{sec:channel} we describe the 3GPP channel for NTN, while our ns-3 implementation is reported in Sec.~\ref{sec:implementation}. In Sec.~\ref{sec:results-ntn} we validate the accuracy of our module against the 3GPP calibration results reported in 38.821~\cite{38821}. Then, we provide numerical results to measure the link-level and end-to-end performance as a function of different NTN parameters. Finally, Sec.~\ref{sec:conclusions} concludes the paper with suggestions for future research. 
+%The rest of the paper is organized as follows. In Section~\ref{sec:channel} we describe the 3GPP channel for NTN, while our ns-3 implementation is reported in Section~\ref{sec:implementation}. In Section~\ref{sec:results-ntn} we validate the accuracy of our module against the 3GPP calibration results reported in 38.821~\cite{38821}. Then, we provide numerical results to measure the link-level and end-to-end performance as a function of different NTN parameters. Finally, Section~\ref{sec:conclusions} concludes the paper with suggestions for future research. 
 
 %The implementation process is strictly related to the \gls{3gpp} recommendations for \gls{ntn} design, following the proposed procedures and methods, since they offer the state of the art regarding channel modeling, with parameters gathered in simulation campaigns in collaboration with industry leader organizations. All the created code undergoes a resource optimization analysis, being careful to use the appropriate data structures offered by C++ depending on the type of use and the size, staying coherent with the performance optimized ns-3. Furthermore, when a lack of guideline from \gls{3gpp} is found on certain matters and details, investigation in latest research findings is done to bring results as updated and as close to reality as possible.
 
@@ -95,16 +80,16 @@ Ionospheric scintillation is modeled based on the Gigahertz Scintillation Model~
 \begin{equation}
     PL_{S,dB} = \left ( \frac{f_{c}}{4} \right )^{-1.5}\frac{P_{fluc}\left ( 4 \text{ GHz} \right )}{\sqrt{2}},
 \end{equation}
-where $f_{c}$ is the carrier frequency, and $P_{fluc}\left ( 4 \text{ GHz} \right )$ is a scaling factor representing the ionospheric attenuation level at 99\% of the time observed in Hong Kong between March 1977 and March 1978 at a frequency of 4 GHz~\cite[Fig.~6.6.6.1.4-1]{38811}.
+where $f_{c}$ is the carrier frequency, and $P_{fluc}\left ( 4 \text{ GHz} \right )$ is a scaling factor representing the ionospheric attenuation level at 99\% of the time observed in Hong Kong between March 1977 and March 1978 at a frequency of 4 GHz~\cite[Figure~6.6.6.1.4-1]{38811}.
 
 \subsubsection{Tropospheric Scintillation}
 Unlike ionospheric scintillation, the effect of tropospheric scintillation increases with the frequency, and becomes significant above 10 GHz. Furthermore, it increases at low elevation due to the longer path of the signal.  %\gls{3gpp} recommends considering the path loss induced by this effect only in certain cases, and offers a direct method for calculation. 
-In these conditions, tropospheric scintillation is due to sudden changes in the refractive index due to the variation of temperature, water vapor content, and barometric pressure. For system-level simulations, the additional attenuation due to tropospheric scintillation is modeled as the attenuation level at 99\% of the time observed in Tolouse at 20 GHz, reported in~\cite[Fig.~6.6.6.2.1-1]{38811}. 
+In these conditions, tropospheric scintillation is due to sudden changes in the refractive index due to the variation of temperature, water vapor content, and barometric pressure. For system-level simulations, the additional attenuation due to tropospheric scintillation is modeled as the attenuation level at 99\% of the time observed in Tolouse at 20 GHz, reported in~\cite[Figure~6.6.6.2.1-1]{38811}. 
 
 \subsection{Fast Fading}
 As far as the fading is concerned, the 3GPP introduces both a flat-fading and a frequency-selective model. 
 The flat-fading model, however, can be applied only if specific conditions are met, including (i) minimum elevation angle of 20 degrees, (ii) quasi-LOS propagation, (iii) communication in the S-band, (iv) channel bandwidth of at most 5 MHz, and (v) rural, suburban or urban scenario.
-Hence, we consider the more general, though complex, frequency-selective fading model for \gls{ntn}. Then, the fading is based on the TR 38.901 model for cellular networks~\cite{TR38901} (already implemented in ns-3 in the \texttt{mmwave} module~\cite{zugno20implementation}), but with different parameters as described  in~\cite[Sec.~6.7.2]{38811}.
+Hence, we consider the more general, though complex, frequency-selective fading model for \gls{ntn}. Then, the fading is based on the TR 38.901 model for cellular networks~\cite{TR38901} (already implemented in ns-3 in the \texttt{mmwave} module~\cite{zugno20implementation}), but with different parameters as described  in~\cite[Section~6.7.2]{38811}.
 
 \subsection{Antenna Model}
 Different antenna models are defined, depending on the device (satellite, HAP or UAV, and ground terminal). 
@@ -136,7 +121,7 @@ Then, terrestrial nodes on the surface of the Earth are deployed so that $\sqrt{
 \label{sec:implementation}
 %The creation of the \gls{ntn} channel model follows the \gls{3gpp}~\cite{38811} guidelines presented in the previous section, which are considered a standard in the telecommunication landscape.  
 The proposed ns-3 implementation of the 3GPP TR 38.811~\cite{38811} \gls{ntn} channel model is based upon the TR 38.901 model presented in~\cite{zugno20implementation}. Despite the fact that the newly introduced methods and classes are designed with the goal of introducing minimal changes to the existing ns-3 APIs, %, thus minimal change to existing classes is preferred.Nevertheless, 
-some modifications to the existing code structure are still required. A schematic of these changes, which we make publicly available\footnote{\url{https://gitlab.com/mattiasandri/ns-3-ntn/-/tree/ntn-dev}}, can be found in Fig.~\ref{fig:ntn-uml}.
+some modifications to the existing code structure are still required. A schematic of these changes, which we make publicly available\footnote{\url{https://gitlab.com/mattiasandri/ns-3-ntn/-/tree/ntn-dev}}, can be found in Figure~\ref{fig:ntn-uml}.
 
 \begin{figure*}[t]
     \includegraphics[width=\textwidth]{Figures/ChannelNtn/uml-diagram.png}
@@ -180,7 +165,7 @@ These channel condition classes interact with the remainder of the \texttt{spect
 Whenever the \texttt{Get\-Channel\-Condition} method is called, the newly introduced NTN \texttt{Channel\-Condition\-Model} classes compute the channel state and cache it, along with its generation time. Then, the following calls to \texttt{Get\-Channel\-Condition} retrieve the previously stored value, if it has not expired. Otherwise, they compute a new \gls{los} condition. 
 
 \subsection{Path loss and shadowing}
-We implement the path loss and shadowing models of~\cite{38811} in four different classes, as depicted in Fig.~\ref{fig:ntn-uml}. The latter extend the \texttt{Three\-Gpp\-Propagation\-Loss\-Model} class, which in turn implements the \texttt{Propagation\-Loss\-Model} interface.
+We implement the path loss and shadowing models of~\cite{38811} in four different classes, as depicted in Figure~\ref{fig:ntn-uml}. The latter extend the \texttt{Three\-Gpp\-Propagation\-Loss\-Model} class, which in turn implements the \texttt{Propagation\-Loss\-Model} interface.
 
 The classes which implement this interface shall override the \texttt{Do\-Calc\-Rx\-Power}, returning the received power based on the positions of the communicating endpoints, and when considering frequency-flat phenomena only. 
 In the case of the \gls{ntn} propagation scenarios of~\cite{38811}, these phenomena comprise the typical free space path loss, on top of tropospheric and ionospheric scintillation, shadow fading, clutter loss, and atmospheric absorption.
@@ -222,7 +207,7 @@ In this section we validate the accuracy of our ns-3 module for the NTN channel,
 While ns-3 enables system-level simulations, an evaluation of the link-level performance is still useful to validate the technical accuracy of our module. Hence, in this section we run link-level simulations to compare the calibration results from the 3GPP~\cite{38821} with results from our module. 
 
 The 3GPP identifies 30 calibration study cases~\cite[Tab.~ 6.1.1.1-9]{38821}, which include a combination of different satellite orbits, frequency bands, and antenna configurations for the ground terminal. Link-level calibration results are reported in~\cite[Tab.~6.1.1.2]{38821}, including results for the \gls{fspl}, atmospheric loss (AL) and scintillation loss (SL), and the \gls{cnr}. 
-Specifically, the \gls{cnr} is calculated as described in \cite[Sec.~6.1.3.1]{38821}. 
+Specifically, the \gls{cnr} is calculated as described in \cite[Section~6.1.3.1]{38821}. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -259,7 +244,7 @@ For this comparison we selected four study cases, considering both \gls{ul} and 
     \item Study Case 9 (SC9): LEO satellite at 600 km, 90 degrees of elevation, UPA antenna for the ground terminal,	S-band.
     \item Study Case 14 (SC14): LEO satellite at 1200 km, 90 degrees of elevation, UPA antenna for the ground terminal,	S-band.
 \end{itemize}
-The complete list of parameters used in the calibration can be found in \cite[Sec. 6.1]{38821}. 
+The complete list of parameters used in the calibration can be found in \cite[Section 6.1]{38821}. 
 In Tab.~\ref{tab:ll-comp} we report the calibration results (``3GPP'') and those from our simulations (``Obtained''). We can see that, despite some minor variations, numerical result are compatible under all metrics, thereby validating the accuracy of our module. 
 As expected, the \gls{fspl} increases as the distance between the ground terminal and the satellite , as well as the carrier frequency, increase, due to the more severe effect of atmospheric losses. In particular, the impact of the carrier frequency is quite significant: for LEO satellites, for example, the \gls{fspl} grows from around 160 dB in the S-band (SC6) to around 180 dB in the Ka-band (SC9). In any case, we can see that,  even considering long-rage GEO satellites in the Ka-band, the \gls{cnr} is large enough to support adequate levels of communication, especially in downlink. 
 We shed light on two main trends. First, uplink communication is generally worse than downlink, except for SC6. This is reasonable, and due to the fact that ground terminals are more constrained in terms of power availability, capacity, and size (e.g., for antenna deployment).
@@ -268,7 +253,7 @@ Second, according to the 3GPP model, LEO satellites have more severe hardware co
 
 \subsection{Frequency Test}
 While the 3GPP identifies the S-band (at 2 GHz) and the Ka-band (at 20 GHz for \gls{dl} and 30 GHz for \gls{ul}) as frequencies of interests, the NTN channel model is valid for a wide range of frequencies, from 0.5 GHz to 100 GHz. 
-Therefore, in Fig.~\ref{fig:frequency-test} we plot the \gls{snr}, which is an indication of the quality of the channel, as a function of the carrier frequency, with a resolution of 8 MHz. The other parameters are summarized in Tab.~\ref{tab:frequency-test}.
+Therefore, in Figure~\ref{fig:frequency-test} we plot the \gls{snr}, which is an indication of the quality of the channel, as a function of the carrier frequency, with a resolution of 8 MHz. The other parameters are summarized in Tab.~\ref{tab:frequency-test}.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -290,7 +275,7 @@ Therefore, in Fig.~\ref{fig:frequency-test} we plot the \gls{snr}, which is an i
 \end{tabular}
 \end{table}
 
-We observe that the \gls{snr} decreases linearly (in the log scale) as the frequency increases, with a deep degradation at 60 GHz. This is because of the impact of atmospheric absorptions described in Sec.~\ref{sub:atm}, more specifically the additional signal attenuation experienced at 60 GHz due to oxygen absorption (as large as 15 dB/km).
+We observe that the \gls{snr} decreases linearly (in the log scale) as the frequency increases, with a deep degradation at 60 GHz. This is because of the impact of atmospheric absorptions described in Section~\ref{sub:atm}, more specifically the additional signal attenuation experienced at 60 GHz due to oxygen absorption (as large as 15 dB/km).
 
 \begin{figure}[t]
     \centering 
@@ -303,11 +288,11 @@ We observe that the \gls{snr} decreases linearly (in the log scale) as the frequ
 \end{figure}
 
 \subsection{Mobility Test}
-Our new mobility model for NTN (see Sec.~\ref{sub:mobility}) allows to change the position of the nodes during the simulation, thus to evaluate the effect of different parameters such as the elevation angle, the antenna radiation pattern, and the altitude. 
+Our new mobility model for NTN (see Section~\ref{sub:mobility}) allows to change the position of the nodes during the simulation, thus to evaluate the effect of different parameters such as the elevation angle, the antenna radiation pattern, and the altitude. 
 
 First, we run simulations where we iteratively change the coordinates of a satellite, which traces an arc of 6 degrees in the GEO orbit (from 8.8 to 14.8 degrees of longitude). %The altitude is constant. 
 The receiving node on the ground is deployed so that it is perpendicular to the satellite in the mid point of its trajectory. The rest of the parameters are set as in Tab.~\ref{tab:frequency-test}. Notably, the orientation of the antenna is not changed during the simulation, so that satellite and ground terminal are perfectly aligned only when the former is exactly perpendicular to the latter. 
-In Fig.~\ref{fig:movement-test} we plot the corresponding \gls{snr}, which resembles the circular antenna radiation pattern of the satellite as per Eq.~\eqref{eq:eq4}, which therefore defines the power profile of the received signal.
+In Figure~\ref{fig:movement-test} we plot the corresponding \gls{snr}, which resembles the circular antenna radiation pattern of the satellite as per Eq.~\eqref{eq:eq4}, which therefore defines the power profile of the received signal.
 
 \begin{figure}[t]
     \centering 
@@ -319,7 +304,7 @@ In Fig.~\ref{fig:movement-test} we plot the corresponding \gls{snr}, which resem
     \label{fig:movement-test}
 \end{figure}
 
-Second, in Fig.~\ref{fig:altitude-test} we plot the SNR for different  values of the altitude of the satellite, from 300 to 1\,600 km to consider different LEO satellite architectures. We see that the SNR decreases as the altitude of the satellite increases, even though it is consistently above 0 dB in all configurations.
+Second, in Figure~\ref{fig:altitude-test} we plot the SNR for different  values of the altitude of the satellite, from 300 to 1\,600 km to consider different LEO satellite architectures. We see that the SNR decreases as the altitude of the satellite increases, even though it is consistently above 0 dB in all configurations.
 
 \begin{table}[t]
 \caption{End-to-end performance. Acronyms: Orbit Type (OT), Transmit power (TxP), Throughput (TP), Drop Rate (DR), Frequency Band (FB), Terminal antenna (TA).}
@@ -349,7 +334,7 @@ Second, in Fig.~\ref{fig:altitude-test} we plot the SNR for different  values of
 
 \subsection{End-to-End Performance}
 Unlike other simulators, ns-3 incorporates an accurate model of the whole ISO/OSI protocol stack, thus enabling scalable end-to-end simulations. Notably, end-to-end results can be collected to validate and measure the performance of communication networks, so ns-3 stands out as a valid tool to dimension NTN systems too.
-To do so, we consider a downlink application transmitting data (in the form of UDP packets) at a constant rate of 10 Mbit/s. We test the four study cases presented in Sec.~\ref{sub:ll}, so to consider both GEO and LEO satellites, and different altitudes, antenna configurations, and both communication in the Ka- and S-band. 
+To do so, we consider a downlink application transmitting data (in the form of UDP packets) at a constant rate of 10 Mbit/s. We test the four study cases presented in Section~\ref{sub:ll}, so to consider both GEO and LEO satellites, and different altitudes, antenna configurations, and both communication in the Ka- and S-band. 
 Simulations results are reported in Tab.~\ref{tab:systemlev} in terms of end-to-end throughput (TP) and packet drop rate (DR), which is defined as the ratio between the number of received packets and the total number of packets sent at the application layer.
 We observe that both GEO-to-ground and LEO-to-ground communication is feasible, provided that the satellite operates with large-scale antennas offering fine-grained beams on the ground, and at high transmit power. 
 Notice that the DR is quite significant, especially in the Ka-band, which requires the design of appropriate Automatic Repeat reQuest (ARQ) schemes to deal with retransmissions.
