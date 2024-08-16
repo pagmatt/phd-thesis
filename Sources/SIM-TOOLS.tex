@@ -1,0 +1,106 @@
+\chapter{Simulation Tools for Future Cellular Networks}
+\label{ch:sim-tools}
+%%%%%%%%%%%%%%%%%%
+% INTRO IRS SIM
+%%%%%%%%%%%%%%%%%%
+
+\Gls{5g} networks are being rolled out worldwide 
+%(it is expected that 5G will reach 1 billion users in 3 years~\cite{statista}) 
+as a means to provide $20\times$ higher peak throughput and $10\times$ lower latency than previous generations.
+To accomplish this, the \gls{3gpp} has released a new set of innovations for 5G networks~\cite{38300}, including the support for network operations in the \gls{mmwave} spectrum, in combination with \gls{m-mimo} technologies.
+Transmissions at \glspl{mmwave}, in turn, introduce several propagation issues, first and foremost the severe path and penetration losses, which force the communication to be in short range~\cite{rangan2017potentials}.
+A possible solution could lie in a denser deployment of 5G \gls{mmwave} base stations, which however would be costly for network operators, especially in terms of sites acquisition campaigns, rental fees, and fiber optic layout to provide wired~backhauling~\cite{lopez2015towards}. 
+
+
+To solve this issue, the 3GPP approved, as part of its 5G NR specifications for Rel-16~\cite{38874}, \gls{iab} as a new paradigm to replace fiber-like infrastructures with self-configuring relays operating through wireless (\gls{mmwave}) backhaul links.
+Despite this potential, \mbox{\gls{m-mimo}-assisted} IAB still requires complex signal processing as well as costly and energy consuming hardware~\cite{polese2020integrated}.
+This issue is exacerbated in rural/remote areas, where harsh weather and terrain, and the lack of a powerful electrical grid in many cases, may further complicate IAB installation~\cite{chaoub20216g}.
+
+In light of this, new technologies based on \glspl{irs} and \gls{af} relays have been proposed as promising alternatives to overcome the coverage issues of \gls{mmwave} networks, with energy efficiency in mind~\cite{flamini2022towards}. 
+An \gls{irs} is a meta-surface that can be programmed to favorably alter an \gls{em} field towards an intended destination. 
+Specifically, \glspl{irs} are nodes which passively beamform the impinging signal, without amplification, thus being able to guarantee minimum capacity requirements in dead spots with lower power consumption compared to IAB~\cite{bjornson2019intelligent}. 
+\Gls{af} relays, instead, are envisioned to capture an incident electromagnetic wave %through a phased array typically pointed towards
+coming from a base station, to actively amplify the received signal, and to re-radiate it %by means of a second phased array that is pointed 
+towards a target area to be served. They are candidates for achieving higher capacity with respect to IRS nodes, at the expense of higher cost and amplification noise~\cite{huang2019reconfigurable}.
+
+Whether these technologies will be able to fulfill 5G (and beyond) service requirements and, if so, how to properly dimension IRS/AF systems, are still crucial issues that remain unsolved. 
+While field experiments with real hardware are infeasible due to scalability and flexibility concerns, as well as the high cost of testbed components, computer-based simulations represent a viable approach for testing and calibrating IRS/AF deployments. %solutions in 5G scenarios.
+Prior works, e.g.,~\cite{wu2018intelligent,9282349}, have addressed this task, though focusing on link-level analyses, which typically adopt conservative assumptions on the system architecture, and should be taken as a lower bound for more representative end-to-end performance studies.
+
+To fill this gap, in this paper we provide a more comprehensive system-level performance evaluation of IRS/AF deployments using a new simulation
+framework that operates end-to-end, thus incorporating the interplay with the \gls{5g} NR protocol stack and relative control tasks, as well as the impact of the upper (including transport and application) layers.
+Our framework is based on \mbox{ns-3}~\cite{ns3}, an open-source discrete-event simulator for wireless networks.
+Specifically, we describe our ns-3 implementation of the IRS/AF channel, based on the current 3GPP channel model for 5G networks standardized in~\cite{3gpp.38.901} and implemented, e.g., in the \texttt{ns3-mmwave} module~\cite{mezzavilla2018end}, which models the \gls{phy} and \gls{mac} layers of the \gls{5g} NR protocol stack.
+Based on this, we conduct an extensive simulation campaign to study the performance of IRS/AF nodes for relaying connectivity requests from end users, compared to a baseline solution in which relays are not deployed. 
+We demonstrate that IRSs and AF relays are valid solutions, especially in small networks, even though high-EIRP AF relays are required to support more aggressive traffic applications.
+Based on our simulations, we provide guidelines towards the optimal dimensioning of IRS and AF configurations, in terms of number of antenna elements and amplification power.
+
+%%%%%%%%%%%%%%%%%%
+%%%%%% INTRO CH NTN
+%%%%%%%%%%%%%%%%%%
+
+The large-scale deployment of cellular networks started at the end of last century.
+Since then, the number of connected users has rapidly increased, together with the capabilities provided by wireless networks, now towards their \gls{6g}~\cite{giordani2020toward}.
+This, together with the introduction of new applications in which millions or even billions of devices require connectivity services, such as \gls{iot} and \gls{v2x}, poses new challenges in terms of system capacity, network coverage, and service reliability. 
+In this context, the research community is investigating the adoption of \glspl{ntn}~\cite{giordani2021non}, and the \gls{3gpp} has consolidated the possible use of \gls{ntn} into the \gls{nr} standard in Release~17~\cite{21917}.
+In \gls{ntn}, \glspl{uav}, \glspl{hap}, and satellites can offer new connectivity opportunities, e.g., complementing already existing cellular systems, or providing broadband coverage to rural regions where it would otherwise be unfeasible to install cellular towers~\cite{Chaoub20216g}.
+%Moreover, \gls{ntn} can act as centralized flying gateways to collect and process data faster than onboard terrestrial devices~\cite{wang2020potential,traspadini2023real}.
+
+Satellites have been used from the 1990s to provide basic services such as phone and Internet access. Notably,  \gls{geo} satellites orbit at 35\,786 km, and offer global coverage at limited costs, despite the huge propagation delays. 
+Only in the early 2010s the costs for satellite launch and maintenance have been low enough to allow for huge constellations of satellites to be launched in the \gls{leo}~\cite{satcost}. In particular, LEO provides wide coverage on the Earth, while promoting low~latency. 
+
+Besides satellites, both \glspl{hap} and \glspl{uav} stand out as valid cost-effective alternatives for NTN. 
+\glspl{uav}, flying at low altitudes (typically no more than 1 km), can guarantee on-demand support for ground networks, for example providing immediate assistance when cellular towers are overwhelmed or unavailable. \glspl{hap} operate in the stratosphere (from 20 to 50 km), and can be used to shape large coverage beams in  unpopulated areas, or provide services like backhauling and \gls{mec}, e.g., to gather and process data generated on the ground~\cite{traspadini2023real,wang2020potential}. %The assistance offered to the existing network infrastructure by \gls{hap} and \gls{uav} can play an important role in the public safety scenario, creating an additional communication channel for where an when needed, i.e. during large events. \glspl{hap} have shown to be an effective solution both when working as \gls{nb} as well as repeater on a bent-pipe architecture \cite{hapstwoways}.
+
+Despite these premises, however, communication using space or airborne vehicles introduces new challenges compared to a terrestrial base station, including (i) severe \gls{pl} due to the longer propagation distance, (ii) additional attenuation from the atmosphere, such as scintillation, rain and clouds, (iii) Doppler shift due to the orbital mobility of satellites, and (iv) additional delays, mainly for propagation.
+While experiments with real testbeds are impractical due to limitations in the scalability and flexibility of platforms, as well as the high cost of hardware components, the option to test network configurations via simulations on a sandbox environment facilitates the research process. Furthermore, an open-source simulator encourages research in the field, and offers industries and research institutions a better way to categorize and evaluate technologies. Among other simulators, ns-3 is a perfect open-source highly-customizable software to evaluate the end-to-end full-stack performance of networks~\cite{henderson2008network}.
+
+%In this context, ns-3 offers full protocol stack and end-to-end implementations.
+In this context, most simulators for \gls{ntn}, e.g., 5G K-Simulator \cite{5gksimulator}, 5GVienna~\cite{vienna5gsimulator}, or Simu5G \cite{simu5g}, are proprietary, or require some type of commercial license to use. Some others, while being open-source, sacrifice the accuracy of the higher layers to reduce the computational complexity, e.g., 5G-air-simulator \cite{5gairsimulator}. 
+
+To fill these gaps, in this paper we present a new open-source module for ns-3 that implements the \gls{ntn} channel model based on the 3GPP specifications described in Technical Report 38.811~\cite{38811}.\footnote{The source code is publicly avaiable, and can be found at \cite{ntngitlab}.}
+While our implementation is mainly related to the channel and the physical layer, a deep understanding of the propagation model is the first step towards proper protocol design~\cite{lecci2021accuracy}, which makes our module a valuable and accurate tool in the study of NTN.
+Specifically, our module introduces: (i) new simulation scenarios for NTN; (ii) a new \gls{pl} model for the air/space channel in a wide range of frequencies (from 0.5 GHz to 100 GHz); (iii) the characterization of atmospheric absorptions; (iv) a new fast fading model for the space environment; (v) an antenna model for both terrestrial and non-terrestrial nodes; and (vi) a new coordinate system to account for the Geocentric Cartesian coordinate system of satellites. 
+
+%%%%%%%%%%%%%%%%%%
+%%%% INTRO CH PERF
+%%%%%%%%%%%%%%%%%%
+
+Mobile networks play a key role in our society and are poised to become ever more important in the coming years. In fact, the \gls{itu} foresees that in 2030 and beyond wireless broadband will be ubiquitous, and will be required to provide connectivity not only to humans, but also to a plethora of intelligent devices such as wearables, road vehicles, \glspl{uas} and robots~\cite{imt2030}. Moreover, novel use cases such as holographic communications, \gls{xr} and tactile applications will further exacerbate the throughput and latency requirements which were posed by \gls{embb} and \gls{urllc}~\cite{itu-r-2083}. 
+
+% Nowadays, mobile networks play a key role in our society, and their importance is poised to become ever more paramount in the coming years. In fact, the ITU foresees that in 2030 and beyond wireless broadband will be ubiquitous, and it will be required to provide connectivity not only to humans, but also to a plethora of intelligent devices such as wearables, cars, \glspl{uas} and robots~\cite{imt2030}. Moreover, novel use cases such as holographic communications, \gls{xr} and tactile applications will further exacerbate the throughput and latency requirements which were posed by \gls{embb} and \gls{urllc}~\cite{itu-r-2083}. 
+
+To meet these goals, future cellular systems will 
+%continue the evolution which is currently being brought forward by 
+further evolve \gls{5g} 
+% deployments, 
+networks,
+which have introduced a flexible, virtualized architecture, the support for \gls{mmwave} communications and the use of \gls{m-mimo} technologies~\cite{ghosh20195g}. Notably, the research community is considering a more central role for \glspl{mmwave}, a further expansion of the spectrum towards the \gls{thz} band, and an \gls{ai}-native network design, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{hoydis2021toward}.
+
+The \gls{thz} and \gls{mmwave} bands offer large chunks of untapped bandwidth which operators can leverage to meet the Tb/s peak rates that are envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is plagued by unfavorable propagation characteristics, comprising a marked free-space propagation loss 
+%is proportional to the square of the carrier frequency, and it is thus higher at THz and \gls{mmwave} frequencies compared to sub-6~GHz ones. Additionally, this portion of the spectrum is particularly 
+and susceptibility to blockages~\cite{han2018propagation, jornet2011channel}, which make it challenging to harvest its potential. Although the harsh propagation environment can be partially mitigated by using directional links 
+%, thus focusing the radiated signal towards the intended destination, 
+and densifying network deployments~\cite{polese2020toward}, 
+% can further increase the link budget, on top of limiting the blockage phenomena and reducing the \gls{nlos} probability.
+%Nevertheless, 
+the support for \gls{mmwave} and \gls{thz} bands entails a major redesign not only of the physical layer, but of the whole cellular protocol stack~\cite{shafi2018microwave}. For instance, the intrinsic directionality of the communication requires ad hoc control procedures~\cite{heng2021six},
+%for continuously adapting the beamforming configuration to the propagation environment and the user mobility. Furthermore, 
+while the frequent transitions between \gls{los} and \gls{nlos} conditions call for an ad hoc transport layer design, such as novel \gls{tcp} algorithms~\cite{zhang2019will}. 
+
+In addition, as the network progressively becomes increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with an \gls{ai}-native design which, thanks to the ongoing virtualization, will not be limited to the radio link level, but will encompass the orchestration of large scale deployments as well~\cite{polese2023understanding}.
+Nevertheless, how to design, test and eventually deploy management and orchestration algorithms is an open research challenge~\cite{polese2022colo}.
+First, the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Furthermore, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
+
+In these regards, system-level network simulators have a central role to play. Indeed, an end-to-end evaluation of algorithms and protocols becomes paramount when considering frequencies above 6~GHz, given the impact of their peculiar propagation characteristics on the whole protocol stack.
+% Mention that this can't be done analytically ?
+At the same time, end-to-end simulators can also serve as both sources of training data for \gls{ai} models, and testing platforms for preliminary evaluation of \gls{ml} algorithms prior to their deployment in commercial networks.
+However, the suitability of end-to-end network simulators to these tasks largely depends on the accuracy of the channel model~\cite{testolina2020scalable} and on the scalability for realistically-sized deployments.
+In fact, system-level simulators generally abstract the actual link-level transmission via an error model, which maps the \gls{sinr} of the wireless link to a packet error probability~\cite{lagen2020new}. Eventually, the latter is used to determine whether the packet has been successfully decoded by the receiver. As a consequence, the accuracy of the simulator heavily depends on the reliability of the \gls{sinr} estimation, especially when considering the \gls{mmwave} and \gls{thz} bands. 
+
+The well known ns-3 simulator features the implementation of the \gls{3gpp} channel model~\cite{TR38901}, which, according to the \gls{3gpp}, represents the state-of-the-art channel model for drop-based end-to-end simulations of devices operating at frequencies between 0.5 to 100~GHz. Despite its accuracy, the TR 38.901 channel model is particularly demanding from a computational point of view, and thus limits the scalability of the simulated scenarios. 
+%partially defeating the purpose of a system-level simulator. 
+At the same time, the simpler channel models which are found in analytical studies fail to capture the peculiar characteristics of \gls{mmwave} and \gls{thz} links. 
+
+To fill this gap, in this paper we propose optimizations to the ns-3 implementation of the TR 38.901 channel model of~\cite{tommaso:20}, both at the codebase and at the design level, which aim to provide wireless researchers with the tools for simulating future dense wireless scenarios in a computationally efficient manner. Specifically, we significantly improve the runtime of simulations involving the 3GPP TR 38.901 channel model~\cite{TR38901} by porting the intensive linear algebra operations to the open-source library \texttt{Eigen}~\cite{eigenweb}. To this end, we also design and implement a set of common linear algebra APIs, which increase the modularity of the \texttt{spectrum} module with respect to the underlying data structures and algorithms.
+Then, we propose a simplified channel model, based on~\cite{TR38901}, which aims to provide an additional order of magnitude of runtime reduction, at the cost of a slight accuracy penalty. Profiling results show that the support for \texttt{Eigen}, coupled with further TR 38.901 optimizations, leads to a decrease of up to 5 times in the simulation time of typical \gls{mimo} scenarios. Furthermore, the proposed performance-oriented channel model further improved the runtime of simulations, which now take as low as $6$~\% with respect to the full TR 38.901 channel model, with a negligible loss in accuracy.
