@@ -130,8 +130,7 @@ Considering first isotropic antennas, the gain pattern of a \gls{upa}, in terms 
 \end{equation}
 where $\bm{a_i}(\theta, \varphi)$ is the array response vector, whose generic entry $m,n$ with $m \in \{0, \ldots, U_v - 1 \}, n \in \{0, \ldots, U_h - 1 \}$ reads
 \begin{align}
-  a_i (\theta, \varphi)_{m, n} = & \exp \left( j\frac{2\pi}{\lambda}m d_v \cos(\theta) \right) \times \\
-    & \exp\left( j \frac{2\pi}{\lambda} n d_h \sin(\theta)\sin(\varphi) \right). \nonumber
+  a_i (\theta, \varphi)_{m, n} = & \exp \left( j\frac{2\pi}{\lambda}m d_v \cos(\theta) \right) \exp\left( j \frac{2\pi}{\lambda} n d_h \sin(\theta)\sin(\varphi) \right). \nonumber
 \end{align} 
 
 In this work, which supports arbitrary antennas, each antenna element $(m, n)$ actually exhibits a generic radiation pattern $g(\theta, \varphi)_{m, n}$ towards direction $(\theta, \varphi)$. In particular, we assume that $g(\theta, \varphi)_{m, n}$ is constant for all the elements of the array, i.e., $g(\theta, \varphi)_{m, n} \equiv g(\theta, \varphi)$. 
@@ -146,7 +145,7 @@ Figures~\ref{fig:pattern_iso} and~\ref{fig:pattern_3gpp} report $G_{T, R} (\thet
   \centering
   \begin{subfigure}[t]{\columnwidth}
     \centering 
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     \setlength\fheight{0.28\columnwidth}
     \input{Figures/ChannelPerformance/RadiationPatternIso.tex}
     %\vspace*{-4mm}
@@ -157,7 +156,7 @@ Figures~\ref{fig:pattern_iso} and~\ref{fig:pattern_3gpp} report $G_{T, R} (\thet
  \hfill
   \begin{subfigure}[t]{\columnwidth}
     \centering 
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     \setlength\fheight{0.28\columnwidth}
     \input{Figures/ChannelPerformance/RadiationPattern3gpp.tex}
     %\vspace*{-4mm}
@@ -202,7 +201,7 @@ A separate set of these samples has been retrieved for both \gls{los} and \gls{n
 \begin{figure}
     \centering 
     \setlength\fwidth{0.95\columnwidth}
-    \setlength\fheight{0.25\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/ChannelPerformance/FadingVsFcJoined.tex}
     \caption{Small-scale Fading Gain Statistics for the UMi Propagation Scenario Versus the Carrier Frequency $f_C$, for both \gls{los} and \gls{nlos} Channel Conditions}
     \label{fig:fading_vs_fc}
@@ -255,7 +254,7 @@ On the other hand, the \texttt{Eigen} optimizations simply require users to have
 \begin{figure}
     \centering 
     \setlength\fwidth{0.95\columnwidth}
-    \setlength\fheight{0.3\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/ChannelPerformance/Bench3gppOpt}
     \vspace*{-0.2cm}
     \caption{Ratio of the Median Simulation Times After the Merge of this Work with the Eigen Integration ($T_{A}^{3GPP}$) and as per ns-3.37 ($T_{B}$), when Using the 3GPP Channel Model of~\cite{TR38901}}
@@ -265,7 +264,7 @@ On the other hand, the \texttt{Eigen} optimizations simply require users to have
 \begin{figure}
     \centering 
     \setlength\fwidth{0.95\columnwidth}
-    \setlength\fheight{0.27\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/ChannelPerformance/BenchTwoRay.tex}
     \vspace*{-0.2cm}
     \caption{Ratio of the Median Simulation Times Using the Performance-Oriented Channel Model Presented in this Work ($T_{A}^{TR}$) and the 3GPP Channel Model of~\cite{TR38901} After the Merge of this Work. In this Case, \texttt{Eigen} is Disabled}
@@ -279,7 +278,7 @@ Similarly, Figure~\ref{fig:bench_tworay} depicts the ratio of the median simulat
 \begin{figure}
     \centering 
     \setlength\fwidth{0.95\columnwidth}
-    \setlength\fheight{0.27\columnwidth}
+    \setlength\fheight{0.25\columnwidth}
     \input{Figures/ChannelPerformance/AccuracyJoined.tex}
     \caption{ECDF of the \gls{sinr} Obtained Using the 3GPP Channel Model of~\cite{TR38901}, and the Performance-Oriented Channel Model Presented in this Work, for Different Propagation Scenarios}
     \label{fig:accuracy}

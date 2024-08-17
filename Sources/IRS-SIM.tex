@@ -440,13 +440,13 @@ For the AF relay, we consider antenna arrays from 16 to 256 elements.%, with a m
 
 \begin{figure}[t!]
   \centering
-    \begin{subfigure}[t]{0.8\columnwidth}
-    \includegraphics[width=1\columnwidth]{Figures/IrsSimulation/Scenario1.pdf}
+    \begin{subfigure}[t]{\columnwidth}
+    \includegraphics[width=0.75\columnwidth]{Figures/IrsSimulation/Scenario1.pdf}
     \caption{Scenario 1, with $N_{\mathrm U} = 1$.}
     \label{Fig:s1}
     \end{subfigure}
-     \begin{subfigure}[t]{0.8\columnwidth}
-    \includegraphics[width=1\columnwidth]{Figures/IrsSimulation/Scenario2.pdf}
+     \begin{subfigure}[t]{\columnwidth}
+    \includegraphics[width=0.75\columnwidth]{Figures/IrsSimulation/Scenario2.pdf}
     \caption{Scenario 2, with $N_{\mathrm U} = 5$.}
     \label{Fig:s2}
     \end{subfigure}
@@ -460,7 +460,7 @@ For the AF relay, we consider antenna arrays from 16 to 256 elements.%, with a m
   \caption{Simulation parameters.}
   \label{Tab:parameters}
   \centering
-  \scriptsize
+  \footnotesize
   \begin{tabular}{l|l}
     \toprule
     Parameter                  & Value \\ \midrule
@@ -506,8 +506,8 @@ The IRS/AF performance will be evaluated against a baseline scenario (referred t
   \centering
   \begin{subfigure}[t]{\columnwidth}
     \centering
-    \setlength\fwidth{0.8\columnwidth}
-    \setlength\fheight{0.5\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/IrsSimulation/Results/1UE/E2E_sinr_1ue.tex}
     \vspace*{-3mm}
     \caption{ECDF of the \gls{sinr} for different relay configurations.\vspace{0.5cm}}
@@ -516,8 +516,8 @@ The IRS/AF performance will be evaluated against a baseline scenario (referred t
  \hfill
   \begin{subfigure}[t]{\columnwidth}
     \centering
-    \setlength\fwidth{0.8\columnwidth}
-    \setlength\fheight{0.35\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/IrsSimulation/Results/1UE/Avg_sinr_vs_N_1ue.tex}
     \vspace*{-3mm}
     \caption{Average \gls{sinr} vs. the number of radiating elements at the relay.}
@@ -549,8 +549,8 @@ Indeed, an \gls{irs} panel of $60\times120$ elements provides an average SINR of
 
 \begin{figure}
 	\centering
-	\setlength\fwidth{0.8\columnwidth}
-	\setlength\fheight{0.5\columnwidth}
+	\setlength\fwidth{0.65\columnwidth}
+	\setlength\fheight{0.28\columnwidth}
 	\input{Figures/IrsSimulation/Results/Joined/E2E_Throughput_avg.tex}
 	\caption{End-to-end per-\gls{ue} throughput at the application layer in Scenario~1 (wide bars) and Scenario 2 (narrow bars) for different relay configurations.}
 	\label{fig:throughput}
@@ -580,8 +580,8 @@ On the other hand, IRSs are constrained by the limited SINR available at the \gl
 
 \begin{figure}
 	\centering
-	\setlength\fwidth{0.8\columnwidth}
-	\setlength\fheight{0.5\columnwidth}
+	\setlength\fwidth{0.65\columnwidth}
+	\setlength\fheight{0.28\columnwidth}
 	\input{Figures/IrsSimulation/Results/Joined/E2E_Latency_95th.tex}
 	\caption{95-th percentile of the end-to-end latency at the application layer in Scenario~1 (wide bars) and Scenario 2 (narrow bars) for different relay configurations.}
 	\label{fig:latency}
@@ -590,8 +590,8 @@ On the other hand, IRSs are constrained by the limited SINR available at the \gl
 
 \begin{figure}
 	\centering
-	\setlength\fwidth{0.8\columnwidth}
-	\setlength\fheight{0.4\columnwidth}
+	\setlength\fwidth{0.65\columnwidth}
+	\setlength\fheight{0.28\columnwidth}
 	\input{Figures/IrsSimulation/Results/Joined/PER.tex}
 	\caption{Average PER at the application layer in Scenario~1 (wide bars) and Scenario 2 (narrow bars) for different relay configurations.}
 	\label{fig:per}

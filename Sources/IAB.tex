@@ -18,7 +18,7 @@ Recently, wireless backhaul solutions for \gls{5g} networks have emerged as a vi
 \subsection{Contributions}
 \label{sec:contributions}
 
-This article tackles the access and backhaul partitioning problem by proposing an optimal, semi-centralized resource allocation scheme for \gls{3gpp} \gls{iab} networks, based on the \gls{mwm} problem on graphs.  It receives periodic L1 and/or L3 measurements from the nodes of the \gls{iab} deployment, a possibility which is explicitly mentioned by 3GPP in~\cite[Sec. 7.3.3]{3gpp_38_874}, constructs a spanning tree that represents the deployment, and uses a simplified, low-complexity version of the \gls{mwm} to partition the links between access and backhaul. After a feedback step, each node can then schedule the resources at a subframe-level among the connected devices. 
+This article tackles the access and backhaul partitioning problem by proposing an optimal, semi-centralized resource allocation scheme for \gls{3gpp} \gls{iab} networks, based on the \gls{mwm} problem on graphs.  It receives periodic L1 and/or L3 measurements from the nodes of the \gls{iab} deployment, a possibility which is explicitly mentioned by 3GPP in~\cite[Section 7.3.3]{3gpp_38_874}, constructs a spanning tree that represents the deployment, and uses a simplified, low-complexity version of the \gls{mwm} to partition the links between access and backhaul. After a feedback step, each node can then schedule the resources at a subframe-level among the connected devices. 
 
 To the best of our knowledge, this is the first \gls{mwm}-based resource allocation framework for \gls{3gpp} \gls{iab} networks at \glspl{mmwave}. As such, it exhibits the following benefits:
 \begin{enumerate*}[label=(\roman*)]
@@ -65,7 +65,7 @@ Concluding, the literature exhibits the presence of algorithms relying on a vary
 Conversely, this paper proposes a semi-centralized resource allocation scheme, which also has a low complexity, both computationally and in terms of required feedback. Moreover, we provide considerations on how our proposed solution can be implemented and deployed in standard-compliant \gls{3gpp} \gls{iab} networks, and compare such solution to the state of the art with an end-to-end, realistic performance analysis.
 
 \subsection{Paper structure}
-The remainder of this paper is organized as follows. Sec.~\ref{Sec:Sys-model} describes our assumptions and the system model. Then, Sec.~\ref{Sec:scheme_main} presents a novel scheme for resource partitioning in \gls{mmwave} \gls{iab} networks, along with considerations on how it can be implemented in \gls{3gpp} NR. Finally, Sec.~\ref{Sec:perf_eval} describes the performance evaluation results and Sec.~\ref{Sec:conc} concludes this paper.
+The remainder of this paper is organized as follows. Section~\ref{Sec:Sys-model} describes our assumptions and the system model. Then, Section~\ref{Sec:scheme_main} presents a novel scheme for resource partitioning in \gls{mmwave} \gls{iab} networks, along with considerations on how it can be implemented in \gls{3gpp} NR. Finally, Section~\ref{Sec:perf_eval} describes the performance evaluation results and Section~\ref{Sec:conc} concludes this paper.
 
 %TODO Is it a proper name?
 \section{IAB networks}
@@ -88,7 +88,7 @@ On the other hand, a \gls{dag} topology offers routing redundancy, which can be 
 %\label{Fig:IAB_topology}
 %\end{figure}
 
-%More details on such regard are given in Sec.~\ref{Subsec:sys_model}.
+%More details on such regard are given in Section~\ref{Subsec:sys_model}.
 
 \subsection{Multiple access schemes and scheduling}
 An in-band, dynamic partitioning of the access and backhaul spectrum resources is currently preferred by \gls{3gpp}~\cite{3gpp_38_874, 3gpp_38_174}, together with half-duplex operations of the \gls{iab}-nodes. Moreover, most of the literature suggests that \gls{5g} \gls{mmwave} systems will operate in a \gls{tdd} fashion~\cite{khan2011mmwave, dutta2017frame}. This choice is mainly driven by the stringent latency requirements which the next generation of mobile networks will be required to support, and by the usage of analog or hybrid beamforming. The usage of \gls{fdd}, in conjunction with the presence of large chunks of bandwidth, would lead to severe resource under-utilization and make channel estimation more difficult.
@@ -103,9 +103,9 @@ As a consequence, an \gls{iab}-network exhibits a marked and peculiar inter-depe
 	%\captionsetup{singlelinecheck=false, justification=justified}
   % this sets the width of the figure, adjust to your needs
   	\subfloat[\gls{st} and \gls{dag} topologies.\label{Fig:IAB_topology}]{
-  	\includegraphics[width=0.7\linewidth]{Figures/CentralResourceManagement/IAB_Topology.pdf}}\hfill
+  	\includegraphics[width=0.55\columnwidth]{Figures/CentralResourceManagement/IAB_Topology.pdf}}\hfill
   	\subfloat[System model notation.\label{Fig:IAB_notation}]{
-  	\includegraphics[width=0.7\linewidth]{Figures/CentralResourceManagement/IAB_Notation.pdf}}
+  	\includegraphics[width=0.55\columnwidth]{Figures/CentralResourceManagement/IAB_Notation.pdf}}
     \caption{Comparison of the \gls{iab} network topologies analyzed in~\cite{3gpp_38_874} and related notation.}
     \label{Fig:IAB_top_not}
     % \vspace{-.6cm}  
@@ -136,10 +136,10 @@ Nevertheless, the proposed framework can be easily extended to the case of a \gl
 \section{Semi-centralized resource allocation scheme for IAB networks}
 \label{Sec:scheme_main}
 
-This section presents an \gls{mwm} algorithm for \gls{st} topologies (Sec.~\ref{Sec:T-MWM}), an efficient and \gls{mwm}-based semi-centralized resource partitioning framework for \gls{iab} networks (Sec.~\ref{Sec:Cent-scheme}) and some considerations about its implementation (Sec.~\ref{Sec:ns3-impl}). 
+This section presents an \gls{mwm} algorithm for \gls{st} topologies (Section~\ref{Sec:T-MWM}), an efficient and \gls{mwm}-based semi-centralized resource partitioning framework for \gls{iab} networks (Section~\ref{Sec:Cent-scheme}) and some considerations about its implementation (Section~\ref{Sec:ns3-impl}). 
 Specifically, the proposed scheme collects at a controller installed on the \gls{iab}-donor L1 and/or L3 measurements from the various \glspl{gnb}. Then, it uses such information to build a weighted \gls{st} which represents the \gls{iab}-network. In particular, the network topology is inferred by examining the incoming parent-child associations. The edge weights are also computed from the received measurements, based on the specific policy (hence, of target \glspl{kpi}) of choice. Finally, the resource partitioning is optimized by computing an \gls{mwm} of the network and then prioritizing the links which comprise it. A high level diagram of is provided in Fig.~\ref{Fig:Diagram}.
 
-\begin{figure}[t]
+\begin{figure}[tbp]
     \subfloat[IAB protocol stack and topology.\label{Fig:IAB-net}]{
     \includegraphics[width=0.95\linewidth]{Figures/CentralResourceManagement/architecture_full.png}}\hfill
     \subfloat[High level diagram of the proposed \gls{mwm}-based framework.\label{Fig:Diagram}]{
@@ -268,7 +268,7 @@ Therefore, we can conclude that the overall asymptotic complexity of the algorit
 
 \subsection{Semi-centralized resource partitioning scheme}
 \label{Sec:Cent-scheme}
-Based on the system model introduced in Sec.~\ref{Sec:Sys-model}, and the \texttt{T-MWM} algorithm, we present a generic optimization framework which partially centralizes the backhaul/access resource partitioning process, in compliance with the guidelines of~\cite{3gpp_38_874}. 
+Based on the system model introduced in Section~\ref{Sec:Sys-model}, and the \texttt{T-MWM} algorithm, we present a generic optimization framework which partially centralizes the backhaul/access resource partitioning process, in compliance with the guidelines of~\cite{3gpp_38_874}. 
 The goal of this framework is to aid the distributed schedulers, adapting the number of \gls{ofdm} symbols allocated to the backhaul and access interfaces to the phenomena which exhibit a sufficiently slow evolution over time, i.e., large scale fading and local congestion. % Maybe mention also effectiveness of centralized is exarcebated by TDD constraints
 This optimization is undertaken with respect to a generic additive utility function $f_u$. An \gls{iab} network of arbitrary size is considered, composed of a single \gls{iab}-donor, multiple \gls{iab}-nodes and a (possibly time-varying) number of \glspl{ue} which connect to both types of \glspl{gnb}. %TODO Ask Tommaso/Michele 
 %The choice of neglecting cooperation among neighboring sectors is motivated by the fact that different \gls{iab}-donors are likely to be separated by a distance which is significantly greater than their respective coverage area (in fact, if this would not be the case, there would not be the need for \gls{iab} in the first place). % Not impossible, but arguably sub-optimal
@@ -307,7 +307,7 @@ It is important to note that since $\mathcal{G}$ contains only the \gls{iab}-nod
 \subsection{Implementation of semi-centralized allocation schemes in mmWave IAB networks}
 \label{Sec:ns3-impl}
 
-The remainder of this section discusses how the proposed scheme can be implemented in \gls{iab} deployments, with references to how the \gls{3gpp} specifications can support it. Moreover, an in-depth analysis of the framework's communication overhead and computational complexity is provided. To such end, let $\mathcal{G} = \{ V, E \}$ be the reduced network graph, computed as per Sec.~II-C, and, conversely, let $\mathcal{\bar{G}} = \{ \bar{V}, \bar{E} \}$ comprise all the nodes in the \gls{iab} network.
+The remainder of this section discusses how the proposed scheme can be implemented in \gls{iab} deployments, with references to how the \gls{3gpp} specifications can support it. Moreover, an in-depth analysis of the framework's communication overhead and computational complexity is provided. To such end, let $\mathcal{G} = \{ V, E \}$ be the reduced network graph, computed as per Section~II-C, and, conversely, let $\mathcal{\bar{G}} = \{ \bar{V}, \bar{E} \}$ comprise all the nodes in the \gls{iab} network.
 % presents an implementation of the proposed scheme in the network simulator ns-3, along with considerations on its implementation in real world deployments.
 
 In general, the resource allocation framework requires (i) a central controller, which is installed on the \gls{iab}-donor, or could be deployed in a \gls{ric} following the O-RAN architecture~\cite{bonati2020open}; and (ii) a scheduler which exchanges resource coordination information with the former. %and computes the weights for the resource allocation.
@@ -320,7 +320,7 @@ additional considerations can be made.
 \subsubsection{Initial setup}
 %The setup of the various centralized mechanisms is subdivided into two sub-phases: an initial configuration, where the relevant entities are initialized, and a periodic update of the topology information.
 %The initial configuration . 
-During this phase, which takes place when the \gls{iab}-nodes perform their first connection to the network, the controller acquires preliminary topology information by leveraging the configuration messages which are already exchanged during the typical Rel.16 \gls{ia} procedure~\cite[Sec. 9.6]{3gpp_38_874}. Therefore, no additional overhead is introduced. 
+During this phase, which takes place when the \gls{iab}-nodes perform their first connection to the network, the controller acquires preliminary topology information by leveraging the configuration messages which are already exchanged during the typical Rel.16 \gls{ia} procedure~\cite[Section 9.6]{3gpp_38_874}. Therefore, no additional overhead is introduced. 
 Specifically, a map which associates each \gls{iab}-node in the network to a list of its edges, identified by global identifiers (which from now on will be referred to as ``IDs"), is computed. %Since this phase takes place when no \gls{ue} has performed its \gls{ia} procedure yet, the exchanged topology information concerns the donor and \gls{iab}-nodes only.
 As a consequence, $\mathcal{O} \left( \vert V \vert \right) $ insertions in a sorted map are performed and this one-time setup exhibits a computational complexity of $\mathcal{O} \left( \vert V \vert \log( \vert V \vert ) \right) $.
 
@@ -367,7 +367,7 @@ Regardless of the specific policy used, the computation of the weights exhibits 
 Once the weights are computed, the controller obtains an \gls{mwm} of the network via an implementation of the aforementioned \texttt{T-MWM}. The algorithm outputs the activation set $\mathbf{E^*}$, i.e., a map associating the ID of the parent \glspl{gnb} to the one of their favored downstream node. Moreover, $\mathbf{E^*}$ is also used by the controller in order to keep track of which link has not been favored and for how long; this information may then be used to introduce a weight prediction mechanism, improving the robustness of the scheme with respect to the information collection period. 
 In terms of overhead, the reporting of $\mathbf{E^*}$ to the \glspl{gnb} would feature as payload just one C-\gls{rnti} per \gls{iab}-node (at most, since some nodes might not receive any whenever they are not active in the specific \gls{mwm} solution). In fact, by exploiting the \gls{bap}, we can encapsulate this payload as part of a \gls{bap} message, while the destination node is already included as part of the \gls{bap} header in the ``\gls{bap} destination'' field. Therefore, the payload size of the scheduling indications is 16 bits. 
 
-Finally, based on the previous considerations and the analysis of Sec.~\ref{Sec:T-MWM}, the overall complexity of this phase is $ \mathcal{O} \left( \vert E \vert + \vert E \vert + \vert V \vert \right)$, which, when considering \gls{st} topologies, is perfectly equivalent to $ \mathcal{O} \left(  \vert V \vert \right)$.
+Finally, based on the previous considerations and the analysis of Section~\ref{Sec:T-MWM}, the overall complexity of this phase is $ \mathcal{O} \left( \vert E \vert + \vert E \vert + \vert V \vert \right)$, which, when considering \gls{st} topologies, is perfectly equivalent to $ \mathcal{O} \left(  \vert V \vert \right)$.
 
 \subsubsection{Distributed scheduling allocation}
 The last phase of the resource allocation procedure consists in the distributed \gls{mac}-level scheduling. Before assigning the available resources, the various schedulers check whether any indication has been received from the controller. Based on this condition, the buffer occupancy information is then split into two groups.
@@ -422,13 +422,13 @@ The purpose of these simulations is to understand the performance of the propose
     \centering
     \subfloat[A realization of the simulation scenario; the dotted lines represent the cell-attachments of the \gls{iab}-nodes.\label{Fig:Sim_scen}]{
      % this sets the width of the figure, adjust to your needs
-     \setlength\fwidth{0.7\columnwidth}
+     \setlength\fwidth{0.45\columnwidth}
      % this sets the height of the figure, adjust to your needs
      \setlength\fheight{0.35\columnwidth}
        \raisebox{-.5\height}{\input{Figures/CentralResourceManagement/Sim_scenario.tex}}
     }\hfill
     \subfloat[Simulation parameters.\label{Tab:Sim_params}]{
-     \small
+    \footnotesize
    \begin{tabular}{cc}
    \multicolumn{2}{c}{\textsc{Simulation parameters}}\\
    \hline
@@ -456,17 +456,17 @@ The purpose of these simulations is to understand the performance of the propose
 	%\captionsetup{singlelinecheck=false, justification=justified}
   % this sets the width of the figure, adjust to your needs
   	\subfloat[$s_{UDP}$ = 100 B, i.e., \gls{udp} rate of 8 Mbps.\label{Fig:Thr_ECDF_100}]{
-  	\setlength\fwidth{0.85\columnwidth}
+  	\setlength\fwidth{0.68\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_throughput_ECDF_packet_size_100.tex}
   	}
   	\hfill
   	\subfloat[$s_{UDP}$ = 500 B, i.e., \gls{udp} rate of 40 Mbps.\label{Fig:Thr_ECDF_500}]{
   	% this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.85\columnwidth}
+    \setlength\fwidth{0.68\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_throughput_ECDF_packet_size_500.tex}
   	}
     \caption{Per-\gls{ue} end-to-end throughput \glspl{ecdf}. The thick dashed line represents the rate of the \gls{udp} sources.}
@@ -476,7 +476,7 @@ The purpose of these simulations is to understand the performance of the propose
 
 
 %TODO Not so important?
-%The channel model presented in Sec.~\ref{Sec:mimo_channel} is used, since its UMi-StreetCanyon pathloss configuration represents the most suitable option given the deployment configuration. However, given the lack of mobility its spatial-consistency extensions has been disabled, with the goal of reducing the simulations running time. 
+%The channel model presented in Section~\ref{Sec:mimo_channel} is used, since its UMi-StreetCanyon pathloss configuration represents the most suitable option given the deployment configuration. However, given the lack of mobility its spatial-consistency extensions has been disabled, with the goal of reducing the simulations running time. 
 
 Both the \gls{iab}-donor and the \gls{iab}-nodes are equipped with a phased array featuring 64 antenna elements, and transmit with a power of 33 dBm; conversely \glspl{ue} are equipped with 16 antenna elements and their transmission power is restricted to 23 dBm. Notably, the presence of additional antenna elements at the \glspl{gnb} is a key (but reasonable) assumption, as it allows base stations to achieve a high beamforming gain. In turn, it is possible to achieve a high capacity, which is fundamental to avoid performance bottlenecks, given the absence of a fiber backhaul.
 The \glspl{ue} download data which originates from sources that are installed on a remote host; both the \gls{udp} and the \gls{tcp} are used. For the \gls{udp} simulations, the rate of the sources is varied from 4 to 40 Mbps to introduce different degrees of saturation in the network. Therefore, in these simulations only DL traffic is considered.
@@ -490,7 +490,7 @@ The first metric which is inspected in this analysis is the end-to-end throughpu
 where $B(T, k, n)$ is the cumulative number of bits received up to time $T$ by the $k$-th \gls{ue}, during the $n$-th simulation run. Then, the distribution of 
 $\mathbf{S}^{\mathrm{APP}}$, namely, the vector containing the collection of the $S^{\mathrm{APP}}_{k, n}$ values across the different runs and \glspl{ue}, is analyzed.
 
-Figs.~\ref{Fig:Thr_ECDF_100} and~\ref{Fig:Thr_ECDF_500} report the \gls{ecdf} of $\mathbf{S}^{\mathrm{APP}}$, for a \gls{udp} packet size of 100 and 500 bytes, respectively, and the policies introduced in Sec.~\ref{Sec:ns3-impl}. In the former, we can notice that the introduction of the semi-centralized framework increases by up to 15\% the percentage of \glspl{ue} whose throughput almost matches the rate of the \gls{udp} sources, i.e., achieving approximately 7.9~Mbps.
+Figs.~\ref{Fig:Thr_ECDF_100} and~\ref{Fig:Thr_ECDF_500} report the \gls{ecdf} of $\mathbf{S}^{\mathrm{APP}}$, for a \gls{udp} packet size of 100 and 500 bytes, respectively, and the policies introduced in Section~\ref{Sec:ns3-impl}. In the former, we can notice that the introduction of the semi-centralized framework increases by up to 15\% the percentage of \glspl{ue} whose throughput almost matches the rate of the \gls{udp} sources, i.e., achieving approximately 7.9~Mbps.
 Moreover, by focusing on the leftmost portion of Fig.~\ref{Fig:Thr_ECDF_100} we can observe another interesting result, concerning the throughput experienced by the \glspl{ue} which do not fulfill their \gls{qos} requirements. In fact, with respect to the first quartile the distributed scheduler and the \gls{msr} policy achieve the worse performance.
 % with 25\% of the \glspl{ue} obtaining a throughput smaller than 3.4~Mbps. 
 On the other hand, the \gls{mrba} and \gls{ba} policies significantly improve these results, even though the extent of such improvements varies quite dramatically across the two.
@@ -502,20 +502,21 @@ These results can be explained as follows: since a \gls{udp} packet size of 100 
 In particular, the \gls{ba} policy exhibits the highest worst case throughput, while also satisfying the \gls{qos} requirements of approximately 40\% of the \glspl{ue}. Moreover, the bias towards high \gls{sinr} channels introduced by the \gls{mrba} strategy further improves the higher percentiles, compared to the \gls{ba} policy, and dramatically outperforms \gls{msr} and the baseline across all percentiles. 
 % which is better ? 
 \begin{figure*}[tbp]
+  \centering
 %\captionsetup[subfigure]{justification=centering}
   \subfloat[First quartile.\label{Fig:Throughput_first_quartile}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_first_quartile_throughput.tex}
 	}
   \hfill
 \subfloat[Third quartile.\label{Fig:Throughput_third_quartile}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_third_quartile_throughput.tex}
 	}
   %\captionsetup{singlelinecheck=false, justification=justified}
@@ -559,17 +560,17 @@ These trends are exacerbated by Fig.~\ref{Fig:Delay_third_quartile}, which shows
 	%\captionsetup{singlelinecheck=false, justification=justified}
     \subfloat[ECDF, for $s_{UDP}$ = 100 B.\label{Fig:Del_ECDF_100}]{
      % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_delay_ECDF_packet_size_100.tex}
     }
     \hfill
   \subfloat[Third quartile, for $s_{UDP}$ $\in$ $\{50, 100, 200, 500 \}$ B.\label{Fig:Delay_third_quartile}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
      \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_third_quartile_delay.tex}
     }
   %\captionsetup[figure]{singlelinecheck=false, justification=justified}
@@ -584,25 +585,25 @@ These trends are exacerbated by Fig.~\ref{Fig:Delay_third_quartile}, which shows
 %\captionsetup[subfigure]{justification=centering}
   \subfloat[Medians, toward \glspl{ue}.\label{Fig:BSR_median_ue}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.4\columnwidth}
+    \setlength\fwidth{0.28\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.32\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/Median_BSR_UE.tex}
     }
   \hfill
   \subfloat[Medians, toward \gls{iab}-nodes.\label{Fig:BSR_median_node}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.53\columnwidth}
+    \setlength\fwidth{0.28\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.32\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/Median_BSR_node.tex}
     }
   \hfill
   \subfloat[Third quartile vs. depth in the \gls{iab} network, for $s_{UDP}$ = 200 B.\label{Fig:BSR_third_quartile_depth}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.53\columnwidth}
+    \setlength\fwidth{0.28\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.32\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/Third_quartile_BSR_vs_depth.tex}
     }  
   %\captionsetup[figure]{singlelinecheck=false, justification=justified}
@@ -672,17 +673,17 @@ This subsection extends the aforementioned analysis by inspecting the performanc
 %\captionsetup[subfigure]{justification=centering}
   \subfloat[Delay \gls{ecdf}.\label{Fig:TCP_delay_ECDF_256}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/TCP_E2E_delay_ECDF_packet_size_256.tex}
     }
   \hfill
   \subfloat[Throughput \gls{ecdf}.\label{Fig:TCP_throughput_ECDF_256}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.33\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/TCP_E2E_throughput_ECDF_packet_size_256.tex}
     }
 %  \vspace*{-3mm}
@@ -712,17 +713,17 @@ Therefore, we can conclude that regardless of the specific policies used, the pr
 %\captionsetup[subfigure]{justification=centering}
   \subfloat[Combined per \gls{ue} end-to-end throughput first quartile and delay third quartile, as a function of the semi-centralized allocation period $T_{alloc}$.\label{Fig:Alloc_period_impact}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.3\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/Perf_vs_alloc_period.tex}
     }
   \hfill
   \subfloat[\gls{mwm} runtime as a function of the number of \gls{iab}-nodes in the network.\label{Fig:MWM_runtime}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.8\columnwidth}
+    \setlength\fwidth{0.65\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.3\columnwidth}
+    \setlength\fheight{0.28\columnwidth}
      \input{Figures/CentralResourceManagement/Sim_results/MWM_runtime_vs_nodes.tex}
     }
   %\captionsetup[figure]{singlelinecheck=false, justification=justified}
@@ -741,81 +742,10 @@ Actually, such analysis provides also insights regarding the effects of errors a
 
 To such end, Fig.~\ref{Fig:Alloc_period_impact} shows the performance of the proposed framework as a function of the semi-centralized allocation period $T_{alloc}$. In particular, each of the depicted points represents the joint end-to-end throughput and delay achieved with the different configurations.
 
-As expected, in general the effectiveness of the various semi-centralized policies progressively deteriorates as the frequency of the scheduling indications decreases. Interestingly, the \gls{ba} policy exhibits the lowest performance degradation with respect to an increase of the allocation period, which suggests that this phenomenon has a slower evolution over time compared to the one exhibited by the channels quality. Nevertheless, the key takeaway is that all of the proposed allocation strategies except \gls{msr} outperform the distributed solution, across both metrics. In fact, the latter exhibits the lowest throughput first quartile, but only because it introduces a strong bias towards high \gls{sinr} channels, as discussed in Sec.~\ref{subsec_thr}. However, the trend depicted by Fig.~\ref{Fig:Alloc_period_impact} also suggests that there exists a threshold value of $T_{alloc}$ after which the performance of the proposed frameworks brings only marginal performance benefits.
+As expected, in general the effectiveness of the various semi-centralized policies progressively deteriorates as the frequency of the scheduling indications decreases. Interestingly, the \gls{ba} policy exhibits the lowest performance degradation with respect to an increase of the allocation period, which suggests that this phenomenon has a slower evolution over time compared to the one exhibited by the channels quality. Nevertheless, the key takeaway is that all of the proposed allocation strategies except \gls{msr} outperform the distributed solution, across both metrics. In fact, the latter exhibits the lowest throughput first quartile, but only because it introduces a strong bias towards high \gls{sinr} channels, as discussed in Section~\ref{subsec_thr}. However, the trend depicted by Fig.~\ref{Fig:Alloc_period_impact} also suggests that there exists a threshold value of $T_{alloc}$ after which the performance of the proposed frameworks brings only marginal performance benefits.
 
-Additionally, the running time of the \gls{mwm} algorithm presented in Sec.~\ref{Sec:T-MWM} was analyzed, in order to understand whether it may partially invalidate the timely feedback assumption. Specifically, Fig.~\ref{Fig:MWM_runtime} presents the statistics of the various \gls{mwm} execution times, obtained on a machine equipped with an i7-6700 4-core processor clocked at 3.4~{GHz}. 
+Additionally, the running time of the \gls{mwm} algorithm presented in Section~\ref{Sec:T-MWM} was analyzed, in order to understand whether it may partially invalidate the timely feedback assumption. Specifically, Fig.~\ref{Fig:MWM_runtime} presents the statistics of the various \gls{mwm} execution times, obtained on a machine equipped with an i7-6700 4-core processor clocked at 3.4~{GHz}. 
 The first observation which can be made is that this empirical analysis confirms the previously estimated asymptotic complexity, depicting a running time which exhibits a linear dependence on the number of \glspl{gnb} in the network. Furthermore, it can be noted that the runtime of the \gls{mwm} algorithm does not exceed 6~$\mu$s, even for a significant number of \gls{iab}-nodes connected to the same \gls{iab}-donor. As a consequence, we can conclude that the execution times of the semi-centralized allocation process do not pose any threat to the timely feedback assumption, since they are reasonably smaller than the duration of the minimum semi-centralized allocation period. 
-
-
-
-
-% \begin{figure}[tbp]
-% 	%\captionsetup[figure]{singlelinecheck=false, justification=justified}
-%     % this sets the width of the figure, adjust to your needs
-%     \setlength\fwidth{0.85\columnwidth}
-%     % this sets the height of the figure, adjust to your needs
-%     \setlength\fheight{0.27\columnwidth}
-%     \input{Figures/CentralResourceManagement/Sim_results/Del_third_quartile_vs_k.tex}
-%    \caption{Delay versus k}
-%   \label{Fig:vs_k}
-% \end{figure}
-
-% \begin{figure}[tbp]
-% 	%\captionsetup[figure]{singlelinecheck=false, justification=justified}
-%     % this sets the width of the figure, adjust to your needs
-%     \setlength\fwidth{0.85\columnwidth}
-%     % this sets the height of the figure, adjust to your needs
-%     \setlength\fheight{0.27\columnwidth}
-%     \input{Figures/CentralResourceManagement/Sim_results/Del_third_quartile_vs_eta.tex}
-%    \caption{Delay versus eta}
-%   \label{Fig:vs_eta}
-% \end{figure}
-
-% \begin{figure}[tbp]
-% 	%\captionsetup[figure]{singlelinecheck=false, justification=justified}
-%     % this sets the width of the figure, adjust to your needs
-%     \setlength\fwidth{0.85\columnwidth}
-%     % this sets the height of the figure, adjust to your needs
-%     \setlength\fheight{0.27\columnwidth}
-%     \input{Figures/CentralResourceManagement/Sim_results/Del_third_quartile_vs_muThreshold.tex}
-%    \caption{Delay versus mu}
-%   \label{Fig:vs_mu}
-% \end{figure}
-
-
-% \begin{figure}[tbp]
-% 	%\captionsetup[figure]{singlelinecheck=false, justification=justified}
-%     % this sets the width of the figure, adjust to your needs
-%     \setlength\fwidth{0.85\columnwidth}
-%     % this sets the height of the figure, adjust to your needs
-%     \setlength\fheight{0.27\columnwidth}
-%     \input{Figures/CentralResourceManagement/Sim_results/Thr_first_quartile_vs_k.tex}
-%    \caption{Thr versus k}
-%   \label{Fig:T_vs_k}
-% \end{figure}
-
-% \begin{figure}[tbp]
-% 	%\captionsetup[figure]{singlelinecheck=false, justification=justified}
-%     % this sets the width of the figure, adjust to your needs
-%     \setlength\fwidth{0.85\columnwidth}
-%     % this sets the height of the figure, adjust to your needs
-%     \setlength\fheight{0.27\columnwidth}
-%     \input{Figures/CentralResourceManagement/Sim_results/Thr_first_quartile_vs_eta.tex}
-%    \caption{Thr versus eta}
-%   \label{Fig:T_vs_eta}
-% \end{figure}
-
-% \begin{figure}[tbp]
-% 	%\captionsetup[figure]{singlelinecheck=false, justification=justified}
-%     % this sets the width of the figure, adjust to your needs
-%     \setlength\fwidth{0.85\columnwidth}
-%     % this sets the height of the figure, adjust to your needs
-%     \setlength\fheight{0.27\columnwidth}
-%     \input{Figures/CentralResourceManagement/Sim_results/Thr_first_quartile_vs_muThreshold.tex}
-%    \caption{Thr versus mu}
-%   \label{Fig:T_vs_mu}
-% \end{figure}
-
 
 \section{Conclusions}
 \label{Sec:conc}
