@@ -200,7 +200,7 @@ A separate set of these samples has been retrieved for both \gls{los} and \gls{n
 \begin{figure}
     \centering 
     \setlength\fwidth{0.95\columnwidth}
-    \setlength\fheight{0.28\columnwidth}
+    \setlength\fheight{0.25\columnwidth}
     \input{Figures/ChannelPerformance/FadingVsFcJoined.tex}
     \caption{Small-scale Fading Gain Statistics for the UMi Propagation Scenario Versus the Carrier Frequency $f_C$, for both \gls{los} and \gls{nlos} Channel Conditions}
     \label{fig:fading_vs_fc}
@@ -253,7 +253,7 @@ On the other hand, the \texttt{Eigen} optimizations simply require users to have
 \begin{figure}
     \centering 
     \setlength\fwidth{0.95\columnwidth}
-    \setlength\fheight{0.28\columnwidth}
+    \setlength\fheight{0.25\columnwidth}
     \input{Figures/ChannelPerformance/Bench3gppOpt}
     \vspace*{-0.2cm}
     \caption{Ratio of the Median Simulation Times After the Merge of this Work with the Eigen Integration ($T_{A}^{3GPP}$) and as per ns-3.37 ($T_{B}$), when Using the 3GPP Channel Model of~\cite{TR38901}}
@@ -263,7 +263,7 @@ On the other hand, the \texttt{Eigen} optimizations simply require users to have
 \begin{figure}
     \centering 
     \setlength\fwidth{0.95\columnwidth}
-    \setlength\fheight{0.28\columnwidth}
+    \setlength\fheight{0.25\columnwidth}
     \input{Figures/ChannelPerformance/BenchTwoRay.tex}
     \vspace*{-0.2cm}
     \caption{Ratio of the Median Simulation Times Using the Performance-Oriented Channel Model Presented in this Work ($T_{A}^{TR}$) and the 3GPP Channel Model of~\cite{TR38901} After the Merge of this Work. In this Case, \texttt{Eigen} is Disabled}
@@ -298,7 +298,7 @@ Moreover, since the supported frequency range is $0.5 - 100$~GHz, this encompass
 \subsection{Conclusions and future work}
 \label{sec:conc}
 
-In this paper, we presented a set of optimizations concerning the simulation of \gls{mimo} wireless channels in ns-3. First, we introduced the support for the linear algebra library \texttt{Eigen} in ns-3, and reduced the computational complexity of the channel matrix generation procedure by avoiding the unnecessary repetition of trigonometric evaluations. Then, we designed and implemented in ns-3 a performance-oriented statistical channel model based on the \gls{ftr} fading model, which further reduces the simulation time of \gls{mimo} scenarios. %The main uses cases for these contributions are simulation scenarios featuring either a high number of devices and/or where the communication endpoints are equipped with antenna arrys comprising hundreds or more elements.
+In this paper, we presented a set of optimizations concerning the simulation of \gls{mimo} wireless channels in ns-3. First, we introduced the support for the linear algebra library \texttt{Eigen} in ns-3, and reduced the computational complexity of the channel matrix generation procedure by avoiding the unnecessary repetition of trigonometric evaluations. Then, we designed and implemented in ns-3 a performance-oriented statistical channel model based on the \gls{ftr} fading model, which further reduces the simulation time of \gls{mimo} scenarios. %The main uses cases for these contributions are simulation scenarios featuring either a high number of devices and/or where the communication endpoints are equipped with antenna arrays comprising hundreds or more elements.
 
 Profiling results showed that, thanks to this work, the simulation of \gls{mimo} deployments in ns-3 using the 3GPP TR 38.901 channel model takes as little as $20$\% of the original time. Furthermore, whenever the complexity of the simulations represents a major bottleneck, ns-3 users are now given the possibility of using an additional auxiliary channel model, which achieves a further reduction in simulation time, at the cost of a negligible accuracy penalty with respect to the full 3GPP TR 38.901 model.
 
