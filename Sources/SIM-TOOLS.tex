@@ -1,16 +1,21 @@
 \chapter{Simulation Tools for Future Cellular Networks}
 \label{ch:sim-tools}
 
-The preliminary, yet reliable performance evaluation of key technology enablers for future cellular networks is a vital step in identifying the most promising solutions before further research and development, and eventual deployment in real-world networks.
-To this end, while providing reliable performance estimates, experiments with real testbeds are often impractical due to limitations in the scalability and flexibility of the involved platforms, as well as the high cost of hardware components. At the same time, analytical models usually introduce strong assumptions for the sake of tractability.
-For these reasons, simulation plays a fundamental role in evaluating network performance, bridging the gap between evaluation based on analytical models, and emulation in testbeds and/or digital twins.
+The preliminary, yet reliable performance evaluation of disruptive research ideas is a vital step in identifying the most promising key technology enablers for future cellular networks, before further research and development, and eventual deployment in real-world networks.
+To this end, while providing reliable performance estimates, experiments with real testbeds are often impractical due to limitations in the scalability and flexibility of the involved platforms, as well as the high cost of hardware components. At the same time, analytical models usually introduce strong assumptions for the sake of tractability. End-to-end simulations fill these gaps, by coupling (possibly simplified) analytical models with the protocol stack accuracy exhibited by testbeds and/or digital twins.
+Furthermore, the ever increasing complexity and heterogeneous nature of wireless networks is poised to be coupled with an \gls{ai}-native design which, thanks to the ongoing virtualization, will not be limited to the radio link level, but will encompass the orchestration of large scale deployments as well~\cite{polese2023understanding}.
+Nevertheless, how to design, test and eventually deploy management and orchestration algorithms is an open research challenge~\cite{polese2022colo}.
+First, the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Secondly, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
+Both these requirements are met by end-to-end simulations, which will thus play a fundamental role in designing and evaluating the performance of the next generation of cellular networks.
+
 %In all these cases, the importance of testing network configurations via simulations on a sandbox environment becomes even more paramount.
 %Additionally, simulations can adapt better than testbeds to the large number of evolving use cases and deployment scenarios that such networks will serve. ns-3 is well positioned to be an important simulation tool for future wireless networks, thanks to the already available modules for mmWaves and NR [46, 47], IEEE 802.11ad/ay [48, 49], and to the activity to extend the wifi module to also support IEEE 802.11ax [50].
 
-Recently, both academy and industry researchers have been strongly favoring open-source simulators~\cite{hoydis2022sionna}, i.e., simulators which are made freely available for both use, modification and redistribution. In general, these characteristics lends these softwares to foster decentralized development and open collaboration.
-In this class of simulators, ns-3 is the facto standard in the wireless research space, and is poised to play a key role in the performance evaluation of future wireless networks, thanks to the already available modules for 5G NR~\cite{mezzavilla2018end, patriciello2019e2e}, IEEE 802.11ad/ay/ax~\cite{magrinValid2021, 10.1145/3460797.3460799, 7461452}.
+Recently, both academy and industry researchers have been strongly favoring open-source simulators~\cite{10465179}, i.e., simulators which are made freely available for both use, modification and redistribution. In general, these characteristics lends these softwares to foster decentralized development and open collaboration.
+In this class of simulators, ns-3 is the facto standard in the wireless research space, and is poised to play a key role in the end-to-end performance evaluation of future wireless networks, thanks to the already available modules for 5G NR~\cite{mezzavilla2018end, patriciello2019e2e}, IEEE 802.11ad/ay/ax~\cite{magrinValid2021, 10.1145/3460797.3460799, 7461452} and its implementation of the 3GPP TR 38.901 statistical channel model~\cite{zugno2020implementation}.
 
-SAY WHAT NS-3 WAS LACKINGs: models for IRSs and NTN, and performance.
+Nevertheless, ns-3 currently lacks physical propagation models for most disruptive 6G deployments solutions. Most notably, ns-3 lacks channel models for \gls{af} and \glspl{irs} relays, and/or \gls{ntn} communications. Both technologies are expected to play a key role in achieving the ubiquitous connectivity target set for 6G networks.
+Additionally, the ns-3 TR 38.901~\cite{3gpp.38.901} channel modeling framework exhibits limitation in its scalability, thus rendering infeasible the simulation of large-scale deployments and/or terminals featuring massive-\gls{mimo} arrays. [say something about problem for training AI models]
 
 However, the suitability of end-to-end network simulators to these tasks largely depends on the accuracy of the channel model~\cite{testolina2020scalable} and on the scalability for realistically-sized deployments.
 In fact, system-level simulators generally abstract the actual link-level transmission via an error model, which maps the \gls{sinr} of the wireless link to a packet error probability~\cite{lagen2020new}. Eventually, the latter is used to determine whether the packet has been successfully decoded by the receiver. As a consequence, the accuracy of the simulator heavily depends on the reliability of the \gls{sinr} estimation, especially when considering the \gls{mmwave} and \gls{thz} bands. 
@@ -24,7 +29,7 @@ Moreover, mmWave systems generally exploit beamforming to increase the link
 budget of the communication, and this element has to be introduced in the overall
 modeling process of the channel. Additionally, when considering MIMO systems,
 an exact characterization of the rank of the wireless channel is necessary for a
-proper evaluation of how many parallel streams can be supported [57].
+proper evaluation of how many parallel streams can be supported [57 from TZ].
 
 
 %%%%%%%%%%%%%%%%%%
@@ -102,7 +107,7 @@ To meet these goals, future cellular systems will
 further evolve \gls{5g} 
 % deployments, 
 networks,
-which have introduced a flexible, virtualized architecture, the support for \gls{mmwave} communications and the use of \gls{m-mimo} technologies~\cite{ghosh20195g}. Notably, the research community is considering a more central role for \glspl{mmwave}, a further expansion of the spectrum towards the \gls{thz} band, and an \gls{ai}-native network design, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{hoydis2021toward}.
+which have introduced a flexible, virtualized architecture, the support for \gls{mmwave} communications and the use of \gls{m-mimo} technologies~\cite{ghosh20195g}. Notably, the research community is considering a more central role for \glspl{mmwave}, a further expansion of the spectrum towards the \gls{thz} band, and an \gls{ai}-native network design, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{10465179}.
 
 The \gls{thz} and \gls{mmwave} bands offer large chunks of untapped bandwidth which operators can leverage to meet the Tb/s peak rates that are envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is plagued by unfavorable propagation characteristics, comprising a marked free-space propagation loss 
 %is proportional to the square of the carrier frequency, and it is thus higher at THz and \gls{mmwave} frequencies compared to sub-6~GHz ones. Additionally, this portion of the spectrum is particularly 
