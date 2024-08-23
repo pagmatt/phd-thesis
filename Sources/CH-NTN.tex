@@ -18,7 +18,7 @@
 
 %The implementation process is strictly related to the \gls{3gpp} recommendations for \gls{ntn} design, following the proposed procedures and methods, since they offer the state of the art regarding channel modeling, with parameters gathered in simulation campaigns in collaboration with industry leader organizations. All the created code undergoes a resource optimization analysis, being careful to use the appropriate data structures offered by C++ depending on the type of use and the size, staying coherent with the performance optimized ns-3. Furthermore, when a lack of guideline from \gls{3gpp} is found on certain matters and details, investigation in latest research findings is done to bring results as updated and as close to reality as possible.
 
-\section{The 3GPP Channel Model for Non-Terrestrial Networks}
+\section{Modeling non-terrestrial wireless channels}
 \label{sec:channel-ntn}
 The channel model for \gls{ntn} has been formalized by the \gls{3gpp} in TR 38.811~\cite{38811}, and is based on the structure of the cellular channel model described in TR 38.901 \cite{TR38901}, already implemented in ns-3~\cite{zugno20implementation}. 
 Following this rationale, in the following subsections we describe the \gls{ntn} channel model, including path loss, absorption, fading, and antenna models, as well as the coordinate system for satellites. 
@@ -117,7 +117,7 @@ The x-y plane defines the equatorial plane, with the x-axis pointing at 0-degree
 Then, terrestrial nodes on the surface of the Earth are deployed so that $\sqrt{x^{2}+y^{2}+z^{2}}=R$, while aerial/space nodes flying/orbiting around the Earth are deployed so that $\sqrt{x^{2}+y^{2}+z^{2}}> R$.
 
 
-\section{Implementation}
+\subsection{Implementation in ns-3}
 \label{sec:implementation}
 %The creation of the \gls{ntn} channel model follows the \gls{3gpp}~\cite{38811} guidelines presented in the previous section, which are considered a standard in the telecommunication landscape.  
 The proposed ns-3 implementation of the 3GPP TR 38.811~\cite{38811} \gls{ntn} channel model is based upon the TR 38.901 model presented in~\cite{zugno20implementation}. Despite the fact that the newly introduced methods and classes are designed with the goal of introducing minimal changes to the existing ns-3 APIs, %, thus minimal change to existing classes is preferred.Nevertheless, 
@@ -132,7 +132,7 @@ some modifications to the existing code structure are still required. A schemati
 The remainder of this section describes more in detail our implementation of the NTN channel model of~\cite{38811} in ns-3. 
 
 %\subsection{ThreeGppChannelModel}
-\subsection{Small-scale fading}
+\subsubsection{Small-scale fading}
 The most significant modifications to the pre-existing ns-3 classes concern the \texttt{Three\-Gpp\-Channel\-Model} class, which computes the small-scale propagation phenomena in the form of a complex channel matrix. Indeed, conversely from the procedure implemented in \cite{zugno20implementation}, in the \gls{ntn} channel model of~\cite{38811} most channel parameters depend on all the propagation scenario, \gls{los} condition, carrier frequency and elevation angle variables.  
 To account for this, we store the small-scale fading parameters in a \emph{nested map}. The choice of this data-structure is motivated by the good trade-off between code efficiency and readability which it provides, considering that the possible combinations of the input parameters is particularly high, i.e., $144$.
 %Taking into consideration four scenarios, two \gls{los} condition, two frequency band and nine elevation angle the final possible choices for a single parameters are 144. Given that the small scale parameters are more than 30 total values, a proper holding structure is needed to guarantee  bringing the choice to 
@@ -140,7 +140,7 @@ To account for this, we store the small-scale fading parameters in a \emph{neste
 In particular, we change the signature of the \texttt{GetThreeGppTable()} method to include the \texttt{Mobility\-Model} instances of both transmitting and receiving nodes. In such a way, we account for the dependence of the small scale parameters with respect to the elevation angle, which the model of~\cite{38811} exhibits.
 Finally, we include the required angular scaling factors for the propagation scenarios that have a lower number of clusters than the ones described in TR 38.901~\cite{TR38901}.
 
-\subsection{Coordinate systems}
+\subsubsection{Coordinate systems}
 Instead of the coordinate system described in~\cite{TR38901}, the NTN channel model of~\cite{38811} considers the \emph{Geocentric Cartesian} (or \gls{ecef}) coordinate system.
 We introduce this reference system in ns-3 via the \texttt{Geographic\-Positions} class, which provides methods to translate points represented using the coordinate system of~\cite{TR38901} to/from those of~\cite{38811}. 
 
@@ -150,7 +150,7 @@ To this end, we implement in the \texttt{Geographic\-Positions} class the method
 For the conversion between any of the newly introduced models, and the cartesian reference system of~\cite{TR38901}, we introduce a \emph{reference point} of translation between the two classes of coordinate systems, following the procedure outlined in \cite[Ch.~4]{coordinateconversion}.
 %To conversion between a coordinate system that places a terminal on a location of the Earth to one in which the node position lays in a imaginary plane,  Coordinates that uses a reference point of origin are called \emph{topocentric coordinates}, or \gls{enu} coordinates.
 
-\subsection{Channel condtion}
+\subsubsection{Channel condtion}
 To model the channel condition for the \gls{ntn} propagation scenarios, we create the classes: 
 \begin{itemize}
     \item \verb|ThreeGppNTNDenseUrbanChannelConditionMode|;
@@ -164,7 +164,7 @@ Each of these derives from the base class \texttt{Three\-Gpp\-Channel\-Condition
 These channel condition classes interact with the remainder of the \texttt{spectrum} module as follows.
 Whenever the \texttt{Get\-Channel\-Condition} method is called, the newly introduced NTN \texttt{Channel\-Condition\-Model} classes compute the channel state and cache it, along with its generation time. Then, the following calls to \texttt{Get\-Channel\-Condition} retrieve the previously stored value, if it has not expired. Otherwise, they compute a new \gls{los} condition. 
 
-\subsection{Path loss and shadowing}
+\subsubsection{Path loss and shadowing}
 We implement the path loss and shadowing models of~\cite{38811} in four different classes, as depicted in Figure~\ref{fig:ntn-uml}. The latter extend the \texttt{Three\-Gpp\-Propagation\-Loss\-Model} class, which in turn implements the \texttt{Propagation\-Loss\-Model} interface.
 
 The classes which implement this interface shall override the \texttt{Do\-Calc\-Rx\-Power}, returning the received power based on the positions of the communicating endpoints, and when considering frequency-flat phenomena only. 
@@ -172,7 +172,7 @@ In the case of the \gls{ntn} propagation scenarios of~\cite{38811}, these phenom
 
 %The latter perform the power calculation using \verb|GetLossLos|, \verb|GetLossNlos|  and \verb|GetShadowing| to get the mean total pathloss. %Since the shadowing loss is modeled as a log-normal random variable, it's calculation require the \verb|GetShadowingStd| method, that returns the standard deviation value for a specific scenario. 
 
-\subsection{Geocentric mobility models}
+\subsubsection{Geocentric mobility models}
 \label{sub:mobility}
 %The creation of a , comes primarily from the need of calculating the elevation angle, which is essential in the estimation of many channel parameters. 
 Along with the geographic coordinate systems, we implement a new mobility model, i.e., \texttt{Geocentric\-Constant\-Position\-Mobility\-Model}, which allows ns-3 users to position nodes using real world coordinates.
@@ -189,7 +189,7 @@ Notably, the conversion from geocentric cartesian or geographic coordinates, to 
 %Hence, conversion to and from this coordinates is crucial to
 %Additionally, the reference point for coordinates conversion can be set using, making the values obtained when using \verb|GetPosition()| more human readable.
 
-\subsection{Antenna models}
+\subsubsection{Antenna models}
 The circular aperture reflector antenna model currently implemented in ns-3, i.e., \texttt{Parabolic\-Antenna\-Model}, is based on a parabolic approximation of the main lobe radiation pattern, as described in~\cite{parabolicantenna3gpp} and~\cite{parabolicantennamodel}. This simplification reduces the computational complexity of the field pattern calculation, by avoiding the Bessel functions evaluations that the circular aperture antenna would require, and using trigonometric approximations instead. 
 
 As part of our contributions, we leverage the efficient implementation of the Bessel functions which has been introduced with C\texttt{++}17 to implement an exact circular aperture reflector antenna model. Specifically, we introduce this functionality extending the \texttt{Antenna\-Model} via the \texttt{Circular\-Aperture\-Antenna\-Model} class.
@@ -198,11 +198,11 @@ The latter allows ns-3 users to steer the pointing direction of the antenna via 
 Similarly, the operating frequency and the aperture radius %are essential parameters to correctly estimate the radiation pattern of a circular aperture antenna, thus 
 can be tuned by using the methods \texttt{Set\-Operating\-Frequency} and \texttt{Set\-Aperture\-Radius}.
 
-\section{Examples and Comparisons}
+\subsection{Examples and Comparisons}
 \label{sec:results-ntn}
 In this section we validate the accuracy of our ns-3 module for the NTN channel, and compare simulation results with the calibration reported in TR 38.821 \cite{38821}. Furthermore, we provide numerical results to measure link-level and end-to-end performance (including throughput and packet drop ratio). We focus on satellites, even though the model is valid for different NTN scenarios.
 
-\subsection{Link-Level Results}
+\subsubsection{Link-Level Results}
 \label{sub:ll}
 While ns-3 enables system-level simulations, an evaluation of the link-level performance is still useful to validate the technical accuracy of our module. Hence, in this section we run link-level simulations to compare the calibration results from the 3GPP~\cite{38821} with results from our module. 
 
@@ -253,7 +253,7 @@ We shed light on two main trends. First, uplink communication is generally worse
 Second, according to the 3GPP model, LEO satellites have more severe hardware constraints than GEO satellites (e.g., LEO's effective isotropic radiated power (EIRP) in the Ka-band is as low as 36 dBW, vs. 66 dBW for GEO): as a result, the CNR for SC6 is around 50\% lower than for SC1, which makes LEO communication more~difficult.
 
 
-\subsection{Frequency Test}
+\subsubsection{Frequency Test}
 While the 3GPP identifies the S-band (at 2 GHz) and the Ka-band (at 20 GHz for \gls{dl} and 30 GHz for \gls{ul}) as frequencies of interests, the NTN channel model is valid for a wide range of frequencies, from 0.5 GHz to 100 GHz. 
 Therefore, in Figure~\ref{fig:frequency-test} we plot the \gls{snr}, which is an indication of the quality of the channel, as a function of the carrier frequency, with a resolution of 8 MHz. The other parameters are summarized in Tab.~\ref{tab:frequency-test}.
 
@@ -291,7 +291,7 @@ We observe that the \gls{snr} decreases linearly (in the log scale) as the frequ
     \label{fig:frequency-test}
 \end{figure}
 
-\subsection{Mobility Test}
+\subsubsection{Mobility Test}
 Our new mobility model for NTN (see Section~\ref{sub:mobility}) allows to change the position of the nodes during the simulation, thus to evaluate the effect of different parameters such as the elevation angle, the antenna radiation pattern, and the altitude. 
 
 First, we run simulations where we iteratively change the coordinates of a satellite, which traces an arc of 6 degrees in the GEO orbit (from 8.8 to 14.8 degrees of longitude). %The altitude is constant. 
@@ -338,7 +338,7 @@ Second, in Figure~\ref{fig:altitude-test} we plot the SNR for different  values 
     \label{fig:altitude-test}
 \end{figure}
 
-\subsection{End-to-End Performance}
+\subsubsection{End-to-End Performance}
 Unlike other simulators, ns-3 incorporates an accurate model of the whole ISO/OSI protocol stack, thus enabling scalable end-to-end simulations. Notably, end-to-end results can be collected to validate and measure the performance of communication networks, so ns-3 stands out as a valid tool to dimension NTN systems too.
 To do so, we consider a downlink application transmitting data (in the form of UDP packets) at a constant rate of 10 Mbit/s. We test the four study cases presented in Section~\ref{sub:ll}, so to consider both GEO and LEO satellites, and different altitudes, antenna configurations, and both communication in the Ka- and S-band. 
 Simulations results are reported in Tab.~\ref{tab:systemlev} in terms of end-to-end throughput (TP) and packet drop rate (DR), which is defined as the ratio between the number of received packets and the total number of packets sent at the application layer.

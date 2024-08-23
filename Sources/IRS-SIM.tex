@@ -79,12 +79,11 @@ In Section~\ref{sec:results} we show our main numerical results, while Section~\
 % Therefore, in the following section we propose and describe an extension of the \gls{3gpp} TR~39.901 channel model which introduces the support for passive and regenerative relays, i.e., entities such as \glspl{irs} and \gls{af} relay, and the modifications needed to the \gls{5g} NR protocol stack to support these devices.
 
  
-\section{A 3GPP TR 38.901-Based Signal Model for IRS/AF-Assisted 5G Networks} 
+\section{Modeling AF and IRS relays-aided wireless channels}
 \label{sec:ch_model_ext}
 
-
 A realistic characterization of the channel is the first step to obtain accurate simulation results. 
-Therefore in this section we provide a mathematical model for the IRS and \gls{af} relay channels  (Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model}, respectively), based on the standard 3GPP channel model for 5G networks (Section~\ref{sec:baseline_model}). % we describe the standard 3GPP channel model for 5G networks, and in Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} we provide a mathematical model for the IRS and \gls{af} relay channels, respectively.
+To this end, in this section we provide a mathematical model for the IRS and \gls{af} relay channels (Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model}, respectively), based on the standard 3GPP channel model for 5G networks (Section~\ref{sec:baseline_model}). % we describe the standard 3GPP channel model for 5G networks, and in Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} we provide a mathematical model for the IRS and \gls{af} relay channels, respectively.
 
 \emph{Notation.} We use boldface upper- and lower-case letters to refer to matrices and vectors, respectively, while lower-case letters denote scalars. We use $\bm{I}_{N}$ to denote the identity matrix of order $N$, $[ \bm{\Phi} ]_{j, k}$ to indicate the $(j, k)$-th
 entry of matrix $\bm{\Phi}$, $\mathrm{diag} ( \phi_1,\dots, \phi_N) $ to indicate an  $N$~$\times$~$N$ diagonal matrix with entries $\{\phi_j \, | \, j=1, \dots, N \}$. We use the superscripts T, H and~$*$ for transposition, Hermitian transposition, and conjugation, respectively.
@@ -231,7 +230,7 @@ Then, the power of the noise term relayed by the \gls{af} relay to receiver D an
 %    \end{split}
 %\end{equation}
 
-\section{A Full-Stack Simulator for IRS/AF Relays}
+\subsection{A Full-Stack Simulator for IRS/AF Relays}
 \label{sec:simulator}
 
 Despite the availability of accurate sub-6 GHz and \gls{mmwave} channel models, analytical evaluations of the \gls{5g} NR protocol stack introduce several assumptions in the system architecture, and are generally not desirable~\cite{gkonis2020comprehensive}. 
@@ -254,7 +253,7 @@ Accordingly, our simulator extends the \texttt{ns-3 mmwave} module~\cite{mezzavi
  
 
 
-\subsection{Implementation of the IRS/AF Signal Model} 
+\subsubsection{Implementation of the IRS/AF Signal Model} 
 \label{sec:ext_ch_model}
  
 In line with~\cite{zugno2020implementation}, we assume that the transmission of the signal $x_{\mathrm S}$ occurs over a frequency-selective wireless channel as \gls{5g} NR supports network operations with a bandwidth up to 400 MHz, when using FR2~\cite{38101_1}. 
@@ -281,7 +280,6 @@ Notably, S and D are either in \gls{nlos} (in this case they communicate via the
 %These assumptions are motivated by the fact that we envision as the main use case for these kinds of relays scenarios in which the direct path between S and D is almost completely blocked by obstacles, such as building and/or vegetation.
 Accordingly, assuming that the source of interest is in NLOS with respect to its intended destination,~\eqref{eq:mimo_input_output_relay} becomes:
 
-%TODO: FIX THIS
 \begin{equation}
 \label{eq:mimo_input_output_relay_reduced}
 \begin{aligned}
@@ -384,7 +382,7 @@ Finally, the \gls{sinr} is evaluated as:
 where $\mathcal{P}_{n}(t, f)$ is the \gls{psd} of the thermal noise at D.
 \end{enumerate}
 
-\subsection{Integration of the IRS/AF Signal Model in the Simulator}
+\subsubsection{Integration of the IRS/AF Signal Model in the Simulator}
 In Section~\ref{sec:ext_ch_model} we described how our simulator computes the channel (in terms of \gls{psd}) in case of IRS/AF relays, which is then used to calculate the end-to-end SINR at the destination D. 
 Notice that the \gls{sinr} can refer to either the \gls{sinr} relative to the whole bandwidth, for narrowband signals over frequency-flat channels, or the \gls{sinr} experienced over a single subcarrier, for wideband signals transmitted over frequency-selective channels. 
 In the second case, the \glspl{sinr} corresponding to the various frequency chunks are then mapped into a single \gls{sinr} value, according to additional maps obtained from link-level simulations~\cite{lagen2020new}.
@@ -407,12 +405,12 @@ The \gls{rlc} and \gls{pdcp} layers implement network functions such as packet s
 %Conversely, most \gls{ofdm} system-level simulators pre-process most of these computations and abstract most of the signal processing procedures, thus achieving much greater computational efficiency.
 
 
-\section{Performance Evaluation}
+\subsection{Performance Evaluation}
 \label{sec:results}
 
 In this section we describe our simulation setup and parameters (Section~\ref{sub:simulation_setup}), and evaluate the performance of \glspl{irs} and \gls{af} relays, considering full-stack network metrics as a function of different antenna array configurations (Section~\ref{sub:numerical_results}).
 
-\subsection{Simulation Setup} % (fold)
+\subsubsection{Simulation Setup} % (fold)
 \label{sub:simulation_setup}
 
 In our simulations we consider two simple yet realistic urban canyon scenarios, where we deploy a single \gls{gnb}, $N_{\mathrm U}$ \glspl{ue}, with $N_{\mathrm U}=1$ (5) in Scenario 1 (2), as illustrated in Figure~\ref{Fig:scenarios}, and a single relay, which can be either an \gls{irs} or an \gls{af} relay.
@@ -618,60 +616,7 @@ This is due to the fact that, in this scenario, more than 20\% of the packets ar
 For an AF relay with $16\times16$ antennas, instead, the latency is more than $10$ times lower and equal to around $130$~ms on average, with a \gls{per} as low as 3\%, which can still support some key target communication requirements.
 We can conclude that IRS-assisted networks, though consuming less power, are not appropriate in this scenario, unless very large IRS panels are~used.
 
-
-% \paragraph{PER.} 
-% Similar considerations can be drawn from Figure~\ref{fig:per}, which depicts the average \gls{per} at the application layer.
-% We can see that without relays the system in unstable, and almost $100\%$ of the packets are lost even when  $N_{\mathrm U}=1$. 
-% On the other hand, IRS and AF relays can improve the robustness of the system when many antennas are used. 
-% Notably, an AF relay with $16\times16$ antenna support 
-
-
-%\begin{figure}
-%	\centering
-%	\setlength\fwidth{0.8\columnwidth}
-%	\setlength\fheight{0.4\columnwidth}
-%	\input{Figures/IrsSimulation/Results/1UE/Avg_sinr_vs_N_1ue.tex}
-%	\caption{Average \gls{snr} experienced at the \gls{ue} in Scenarios~1 vs. number of radiating elements at the relay.}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\setlength\fwidth{0.8\columnwidth}
-%	\setlength\fheight{0.6\columnwidth}
-%	\input{Figures/IrsSimulation/Results/1UE/E2E_sinr_1ue.tex}
-%	\caption{ECDF of the \gls{snr} experienced at the \gls{ue} in Scenarios~1 when using different relay configurations.}
-%\end{figure}
-
-
-
-
-%TODO table just for Huawei, kept here just in case
-
-%\def\arraystretch{1.3}
-%\begin{table*}%[H}
-%\centering
-%\scriptsize
-%\caption{System parameters.}
-%\label{tab:params}
-%\begin{tabular}{|c|c|c|c|c|c|}
-%\hline
-%\textbf{Parameter} & \textbf{gNB} & \textbf{IRS} & \textbf{AF Relay}  & \textbf{UE} \\
-%\hline
-%Carrier frequency & \multicolumn{4}{c|}{$28$ GHz}\\\hline
-%Overall system bandwidth & \multicolumn{4}{c|}{$100$ MHz}\\\hline
-%Coordinates & $(0,0)$ & $(100,75)$ & $(100,75)$ & Uniformly located near $(120,0)$   \\\hline
-%Array dimensions & $8$H $\times$ $8$V & \{$10$H$\times20$V,$20$H$\times40$V,$40$H$\times80$V,$60$H$\times120$V\} &  \{$4$H $\times4$V, $8$H $\times8$V, $16$H $\times16$V\} & $2$H $\times1$V\\\hline
-%Single-element modeling & \multicolumn{4}{c|}{$\lambda/2 \times \lambda/2$, modeled as \cite[Table 7.3-1]{3gpp.38.901}}\\\hline	
-%Single-element gain & $8$~dBi & $8$~dBi & $8$~dBi & $8$~dBi \\\hline
-%Additional losses & $0$~dB &  $3$~dB reflection & $0$~dB & $0$~dB \\\hline
-%% Noise spectral density & $-174$~dBm & n.a. (fully passive) & $-174$~dBm & $-174$~dBm \\\hline
-%Noise figure & n.a. & n.a. (fully passive) & $6.5$ dB & $6.5$ dB \\\hline
-%RF power & $33$ dBm & n.a. (fully passive) & \bigcell{c}{25 (max output power) dBm \\ 40 (max amplification) dBm} & n.a. \\\hline
-%%Cell radius (2/3 * 500 m) \hline
-%\end{tabular}
-%\end{table*}
-
-\section{Conclusions and Future Work}
+\subsection{Conclusions and Future Work}
 \label{sec:conclusion}
 \Glspl{irs} and \gls{af} relays are among the most promising technologies to facilitate the next generations of cellular networks.
 Not only can these elements improve both communication and coverage of wireless devices, but they also promote lower energy consumption compared to IAB systems.
