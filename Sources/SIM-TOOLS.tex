@@ -1,5 +1,32 @@
 \chapter{Simulation Tools for Future Cellular Networks}
 \label{ch:sim-tools}
+
+The preliminary, yet reliable performance evaluation of key technology enablers for future cellular networks is a vital step in identifying the most promising solutions before further research and development, and eventual deployment in real-world networks.
+To this end, while providing reliable performance estimates, experiments with real testbeds are often impractical due to limitations in the scalability and flexibility of the involved platforms, as well as the high cost of hardware components. At the same time, analytical models usually introduce strong assumptions for the sake of tractability.
+For these reasons, simulation plays a fundamental role in evaluating network performance, bridging the gap between evaluation based on analytical models, and emulation in testbeds and/or digital twins.
+%In all these cases, the importance of testing network configurations via simulations on a sandbox environment becomes even more paramount.
+%Additionally, simulations can adapt better than testbeds to the large number of evolving use cases and deployment scenarios that such networks will serve. ns-3 is well positioned to be an important simulation tool for future wireless networks, thanks to the already available modules for mmWaves and NR [46, 47], IEEE 802.11ad/ay [48, 49], and to the activity to extend the wifi module to also support IEEE 802.11ax [50].
+
+Recently, both academy and industry researchers have been strongly favoring open-source simulators~\cite{hoydis2022sionna}, i.e., simulators which are made freely available for both use, modification and redistribution. In general, these characteristics lends these softwares to foster decentralized development and open collaboration.
+In this class of simulators, ns-3 is the facto standard in the wireless research space, and is poised to play a key role in the performance evaluation of future wireless networks, thanks to the already available modules for 5G NR~\cite{mezzavilla2018end, patriciello2019e2e}, IEEE 802.11ad/ay/ax~\cite{magrinValid2021, 10.1145/3460797.3460799, 7461452}.
+
+SAY WHAT NS-3 WAS LACKINGs: models for IRSs and NTN, and performance.
+
+However, the suitability of end-to-end network simulators to these tasks largely depends on the accuracy of the channel model~\cite{testolina2020scalable} and on the scalability for realistically-sized deployments.
+In fact, system-level simulators generally abstract the actual link-level transmission via an error model, which maps the \gls{sinr} of the wireless link to a packet error probability~\cite{lagen2020new}. Eventually, the latter is used to determine whether the packet has been successfully decoded by the receiver. As a consequence, the accuracy of the simulator heavily depends on the reliability of the \gls{sinr} estimation, especially when considering the \gls{mmwave} and \gls{thz} bands. 
+
+The channel model, however, is one of the most important components of a
+wireless network simulator, as the results can only be as accurate as the channel
+abstraction [55]. In particular, when it comes to mmWaves, the harsh propa-
+gation conditions may severely impact the performance of the higher layers of
+the protocol stack, much more so than at traditional sub-6 GHz frequencies [56].
+Moreover, mmWave systems generally exploit beamforming to increase the link
+budget of the communication, and this element has to be introduced in the overall
+modeling process of the channel. Additionally, when considering MIMO systems,
+an exact characterization of the rank of the wireless channel is necessary for a
+proper evaluation of how many parallel streams can be supported [57].
+
+
 %%%%%%%%%%%%%%%%%%
 % INTRO IRS SIM
 %%%%%%%%%%%%%%%%%%
