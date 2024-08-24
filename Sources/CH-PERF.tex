@@ -295,13 +295,25 @@ Notably, a preliminary version of the \texttt{Eigen} port has been used in conju
 
 Moreover, since the supported frequency range is $0.5 - 100$~GHz, this encompasses not only terrestrial \gls{5g} and \gls{lte} deployments, but also most non-terrestrial networks and IEEE \glspl{rat}. Finally, the proposed \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} can be further extended to support frequencies above $100$~GHz using reference fading and path loss statistics.
 
-\subsection{Conclusions and future work}
+\section{Conclusions and future work}
 \label{sec:conc}
 
-In this paper, we presented a set of optimizations concerning the simulation of \gls{mimo} wireless channels in ns-3. First, we introduced the support for the linear algebra library \texttt{Eigen} in ns-3, and reduced the computational complexity of the channel matrix generation procedure by avoiding the unnecessary repetition of trigonometric evaluations. Then, we designed and implemented in ns-3 a performance-oriented statistical channel model based on the \gls{ftr} fading model, which further reduces the simulation time of \gls{mimo} scenarios. %The main uses cases for these contributions are simulation scenarios featuring either a high number of devices and/or where the communication endpoints are equipped with antenna arrays comprising hundreds or more elements.
+%%%%%%%%%%%%%%%%%%%%
+%%%%%% IRS SIM %%%%%
+%%%%%%%%%%%%%%%%%%%%a
 
-Profiling results showed that, thanks to this work, the simulation of \gls{mimo} deployments in ns-3 using the 3GPP TR 38.901 channel model takes as little as $20$\% of the original time. Furthermore, whenever the complexity of the simulations represents a major bottleneck, ns-3 users are now given the possibility of using an additional auxiliary channel model, which achieves a further reduction in simulation time, at the cost of a negligible accuracy penalty with respect to the full 3GPP TR 38.901 model.
+In this chapter, we proposed a signal model for \glspl{irs} and \gls{af} relays based on the 3GPP TR 38.901 channel for 5G NR networks, and explained the methodology we used to perform network-level simulations of 5G and beyond scenarios with IRS and AF relay nodes.
+Based on this framework, we performed simulations to provide numerical guidelines to dimension IRS/AF-assisted networks. Moreover, we presented an ns-3 implementation of the \gls{3gpp} channel model for NTNs, developed following the specifications provided in \cite{38811}.
+The code, which is publicly available at~\cite{ntngitlab}, well integrates with the rest of the ns-3 framework, and enables full-stack end-to-end simulations in different \gls{ntn} scenarios. We validated the link-level and end-to-end accuracy of our module against 3GPP calibration results reported in~\cite{38821}. Finally, we presented a set of optimizations concerning the simulation of \gls{mimo} wireless channels in ns-3. These optimizations comprise the optimization of the related linear algebra routines, and the design and implementation in ns-3 of a performance-oriented statistical channel model based on the \gls{ftr} fading model, which further reduces the simulation time of \gls{mimo} scenarios. %Th
 
-As part of our future work, we plan to study more refined beamforming gain correction factors, using the 3GPP statistical channel model as a reference, and possibly making the estimation of such term scenario-dependent. Moreover, we envision to design more efficient storage/access data structures and linear algebra operations for 3D matrices, by better leveraging \texttt{Eigen} also in this context.
+
+As part of our future work, we plan to extend our smart relays simulator by considering more sophisticated
+scenarios in which heterogeneous types of relays are deployed, and compare the numerical performance of
+IRS/AF relays with that of IAB. Moreover, we will also relax some of our assumptions by considering quantization of the
+relay phase shifters.
+
+Furthermore, we foresee to further extend our NTN module to simulate end-to-end NTN 5G NR networks. To this end, we will incorporate additional functionalities, such as a delay model, along with the adaptations to the terrestrial 5G NR protocol stack which it entails, and the support for satellite mobility.
+
+Additionally, we plan to further improve the scalability of the wireless channel simulation framework in ns-3 by studying more refined beamforming gain correction factors, and possibly making the estimation of such term scenario-dependent. Moreover, we envision to design more efficient storage/access data structures and linear algebra operations for 3D matrices, by better leveraging \texttt{Eigen} also in this context.
 Finally, we will consider using \gls{simd} for speeding up the evaluation of trigonometric functions, and caching the beamforming gain in the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class to further reduce the simulation time of \gls{mimo} scenarios in ns-3.
 

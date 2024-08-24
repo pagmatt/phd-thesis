@@ -351,11 +351,3 @@ To do so, we consider a downlink application transmitting data (in the form of U
 Simulations results are reported in Tab.~\ref{tab:systemlev} in terms of end-to-end throughput (TP) and packet drop rate (DR), which is defined as the ratio between the number of received packets and the total number of packets sent at the application layer.
 We observe that both GEO-to-ground and LEO-to-ground communication is feasible, provided that the satellite operates with large-scale antennas offering fine-grained beams on the ground, and at high transmit power. 
 Notice that the DR is quite significant, especially in the Ka-band, which requires the design of appropriate Automatic Repeat reQuest (ARQ) schemes to deal with retransmissions.
-
-
-\section{Conclusions}
-\label{sec:conclusions}
-This paper presented an ns-3 implementation of the \gls{3gpp} channel model for NTN, developed following the specifications provided in \cite{38811}.
-The code, which is publicly available at~\cite{ntngitlab}, well integrates with the rest of the ns-3 framework, and enables full-stack end-to-end simulations in different \gls{ntn} scenarios. After introducing the 3GPP NTN channel, we described in detail our ns-3 implementation, including simulation scenarios, new attenuation, fading, and mobility models for the space/air channel, and a new coordinate system specifically tailored to satellites. Finally, we run link-level and end-to-end simulations to validate the accuracy of our module, also against 3GPP calibration results reported in~\cite{38821}.
-
-As part of our future work, we plan to further extend our NTN module to incorporate additional functionalities, for example a delay model able to accurately characterize the propagation time, the support for moving nodes in orbits, and the simulation of ground terminals in indoor scenarios.
