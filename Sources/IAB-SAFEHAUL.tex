@@ -34,17 +34,14 @@
 % \newcommand\freefootnote[1]{\let\thefootnote\relax \footnotetext{#1}\let\thefootnote\svthefootnote }
 
 
-\chapter{Risk-Averse Learning for Reliable mmWave Self-Backhauling}
+\section{Risk-Averse Learning for Latency Minimization in mmWave Integrated Access and Backhaul Networks}
 \label{s:introduction}
-
-The emergence of mmWave cellular systems created a unique opportunity for \glspl{mno} to leverage a scalable and cost-effective approach to deal with network densification. The fact that mmWave base stations can support fiber-like data rates facilitates the use of the same base station for both access and backhaul traffic, a solution which in 3GPP parlance is referred to as \gls{iab}. Consequently, 3GPP has included IAB in the standard \cite{3gpp.38.300, 3gpp_38_174} covering the details on architecture, higher layer protocols, and the radio. Although Release 17 of 5G-NR defines the interfaces, architectures, and certain system parameters, the actual configuration and resource allocation is left to \glspl{mno}.
-
-Traditional self-backhauled networks featured fixed-wireless links decoupled from access networks with static configurations. In contrast, IAB should account for the dynamic nature of the backhaul links (particularly in mmWave deployments) and their integration with the access network. Further, IAB allows the traffic to traverse several hops (i.e., base stations) to reach its destination, thus increasing the problem's complexity. \textit{In addition to the scheduling problem, an IAB network should: $(i)$ solve the problem of path selection and link activation at the backhaul while considering inter-cell interference, and $(ii)$ decide on serving access or backhaul traffic depending on the access load and the ingress backhaul traffic from neighboring base stations.}
 
 \textbf{Prior work.} Methodologically, the majority of the existing works~\cite{pan2017joint, alizadeh2019load, huang2015joint, nguyen2020nonsmooth, rasekh2015interference, kwon2019joint, pizzo2017optimal, kulkarni2018max,9839601} focus on classic optimization techniques to solve the above-mentioned problem. However, given the large number of parameters involved, such formulations often result in non-convex problems that are too complex for real-time operations, but are nonetheless valuable indicators as performance upper bounds. Recently, some works focus on more practical solutions which can be deployed in real networks\cite{lei2020deep, ZHANG2021108248, 9473755}. Specifically, these works leverage \gls{rl} to tackle both resource allocation and/or path selection in IAB mmWave networks and demonstrate that \gls{rl}-based solutions achieve real-time performance. 
 
 Regardless of the methodology,  prior works mostly aim at maximizing the network capacity~\cite{pan2017joint, alizadeh2019load, huang2015joint, nguyen2020nonsmooth, rasekh2015interference, kwon2019joint, pizzo2017optimal, kulkarni2018max}, minimizing latency~\cite{vu2018path, ortiz2019scaros} and improving throughput fairness~\cite{alizadeh2019load, pagin2022}. Although these approaches successfully improve the network performance, \glspl{mno} are often more \textit{concerned about their reliability}. 
 For this reason many commercial products rely on \textit{simplified} but reliable algorithms for resource allocation, despite their sub-optimal performance. 
+
 In this article, we propose \name{}, a reinforcement learning-based solution for reliable scheduling and path selection in IAB mmWave systems under network dynamics. We use the concept of risk aversion, commonly used in economics \cite{Rockafellar2000, Levy1998}, to measure and enhance the reliability of \name{}. The following summarizes our contributions: 
 
 \begin{itemize}
@@ -58,7 +55,7 @@ To this aim, we propose \name{}, a learning approach that leverages the coherent
 \item Exploiting the above simulator, we evaluate and benchmark~\name{} against two state-of-the-art algorithms~\cite{ortiz2019scaros, polese2018distributed} based on deployment in two different locations (Manhattan and Padova). The results confirm that \name{} is significantly more reliable than the considered benchmarks, as it exhibits much tighter variance in terms of both latency (up to 71.4\% smaller) and packet drop rate (at least 39.1\% lower). Further, \name{} achieves up to 43.2\% lower average latency and 11.7\% higher average throughput than the reference schemes. \end{itemize}
 
  
-\section{System Model}
+\subsection{System Model}
 \label{s:sys_model}
 We consider a cellular system with $N$ base stations capable of self-backhauling and $D$ base stations with a fiber connection to the core network. Following 3GPP terminology, we refer to self-backhauled base stations as IAB-nodes (\nodes{}) and to fiber base stations as IAB-donors (\donors{})\footnote{Please note that throughout the paper we will use interchangeably \nodes{} and IAB-nodes (and similarly for \donors{} and IAB-donors)}. 
 Each \node{} connects to the core network via a (multi-hop) wireless link to a \donor{}. 
@@ -99,11 +96,11 @@ Accordingly, we define the average maximum end-to-end latency in the system $\ba
 \end{equation}
 
 
- \section{Problem Formulation}
+ \subsection{Problem Formulation}
 \label{s:prob_formulation}
 The joint minimization of the average maximum end-to-end latency and the expected value of its tail loss in IAB-enabled networks is formulated in this section. We first introduce \gls{cvar}, the risk metric accounting for minimizing the events in which the end-to-end latency is higher than $T_\mathrm{max}$. Next, we formulate the optimization problem in the complete network.
  
-\subsection{Preliminaries on \gls{cvar}}
+\subsubsection{Preliminaries on \gls{cvar}}
 Traditionally, latency minimization in IAB-enabled networks has focused on optimizing the expected value of a latency function~\cite{vu2018path, ortiz2019scaros}.
 However, such an approach fails to capture the time variability of the latency distribution, thus potentially leading to unreliable systems in which $T_{n,d,i}>T_\mathrm{max}$, for any  $i=1,...,I$, $n\in \mathcal{N}$ and $d\in\mathcal{D}$.
 \textit{For this purpose, we consider not only the average end-to-end latency $\bar{T}$ in the system, but also its expected tail loss based on the \gls{cvar}}\cite{Rockafellar2000, Rockafellar2002}.
@@ -122,7 +119,7 @@ Conversely,
 $\lim\limits_{\alpha\rightarrow 0}\mathrm{\gls{cvar}}_\alpha(T_{n,d}) = \sup\{T_{n,d}\}$.
 \gls{cvar} has been shown to be a coherent risk measure, i.e., it fulfills monotonicity, subadditivity, translation invariance, and positive homogeneity properties \cite{Pflug2000}. 
 
-\subsection{Optimization Problem}
+\subsubsection{Optimization Problem}
 We jointly minimize the average maximum end-to-end latency and its expected tail loss for each \node{}. 
 For this purpose, we decide which of the $(n,l)$ links to activate in each time slot $i$ during the finite time horizon $I$.
 In the following, we formulate the optimization problem from the network perspective and consider the sum over all \nodes{} in the system. 
@@ -150,7 +147,7 @@ For this reason, we present in Sec. \ref{s:algo} \name{}, a multi-agent learning
  
 
 
- \section{Our proposed solution: \name}
+ \subsection{Our proposed solution: \name}
 \label{s:algo}
 In this section, we describe \name{}, a multi-agent learning approach for the joint minimization of the average maximum end-to-end latency and its expected tail loss in IAB mmWave networks. 
 In \name{}, each \node{} independently decides which links $(n,l)$ to activate in every time slot $i$ by leveraging a multi-armed bandit formulation. The consensus among the \nodes{} is reached by exploiting the centralized resource coordination and topology management role of \gls{iab}-donors~\cite[Sec. 4.7.1]{3gpp.38.300}. 
@@ -159,7 +156,7 @@ In \name{}, each \node{} independently decides which links $(n,l)$ to activate i
 For instance, time and frequency resources of the \glspl{du} in the \gls{iab} network can be reserved to particular \node{} by marking them as either \textit{hard} or \textit{unavailable}~\cite[Sec. 10.9]{3gpp.38.300}. Similarly, information regarding the buffer statuses can be retrieved using the related \gls{bap} layer functionality~\cite[Sec. 4.7.3]{3gpp.38.300}.
 \end{comment}
 
-\subsection{Multi-Armed Bandit Formulation}
+\subsubsection{Multi-Armed Bandit Formulation}
 Multi-armed bandit is a tool well suited to problems in which an agent makes sequential decisions in an unknown environment\cite{Sutton2018}. 
 In our scenario, each \node{} $n$ decides, in each time slot $i$, which of the links $(n,l)$ to activate without requiring prior knowledge about the system dynamics.
 The multi-armed bandit problem at \node{} $n$ can be characterized by a set $\mathcal{A}_n$ of actions and a set $\mathcal{R}_n$ of possible rewards. 
@@ -186,7 +183,7 @@ where $\hat{T}_{l,d,i}$ is calculated as $\hat{T}_{l,d,i} = \underset{(l,m) \in 
 
 
 
-\subsection{Latency and \gls{cvar} Estimation}
+\subsubsection{Latency and \gls{cvar} Estimation}
 As given in \eqref{eq:rewards}, \node{} $n$ learns which links $(n,l)$ to activate by building estimates of the expected latency $\hat{T}_{n,l}$ associated to each of them.
 Let $K_{n,l,i}=\sum_{j=1}^i x_{n,l,i}$ be the number of times link $(n,l)$ has been activated up to time slot $i$. The estimated $\hat{T}_{n,l}$ is updated using the sample mean as 
 \begin{equation}
@@ -216,14 +213,7 @@ Note that \eqref{eq:Qvalue} is aligned with the objective function in \eqref{eq:
 
 
 
-
-
-
-
-
-
-
-\subsection{Consensus}
+\subsubsection{Consensus}
 \label{s:consensus}
 All the \nodes{} independently decide which links to activate based on their estimates of the end-to-end latency. 
 As a consequence, conflicting actions may be encountered. 
@@ -234,7 +224,7 @@ Then, we let the \gls{iab}-donor mark as \textit{unavailable} the time resources
 Note that as the learning is performed at each \node{}, only the link activation decision and the weighted sum of $t^\mathrm{q}_{n,i}$ and $B_{n,i}$ are transmitted.
 Thus, low communication overhead is achieved.
 
-\subsection{Implementation of \name{}}
+\subsubsection{Implementation of \name{}}
 Here, we describe how the above-mentioned solution can be implemented in a real system. Specifically, we elaborate on the required inputs and the interactions among the different entities as well as the pseudo-code of \name{}, see Alg. \ref{alg:algo}. 
 
 \name{} is executed at each \node{} $n$. For its implementation, the \gls{mno} provides $\alpha$, $\eta$ and $\mathcal{A}_n$ as an input. $\alpha$ is the risk level parameter that influences the level of reliability achieved in the system. Similarly, $\eta$ controls the impact of the minimization of the latency in the $\alpha$-worst cases on the overall performance. Both parameters, $\alpha$ and $\eta$, are set by the \gls{mno} depending on its own reliability requirements.
@@ -282,7 +272,7 @@ Once the action $a_{n,i+1}$ is selected, it is shared with other \nodes{} in the
 As described in Section~\ref{s:consensus}, this goes through the control channel. 
 If conflicts arise, consensus is reached by prioritizing the transmission of the \node{} with the largest loads and queuing times (line \ref{line:consensus}).
 
-\subsection{Regret Analysis}
+\subsubsection{Regret Analysis}
 The regret $\zeta$ is defined as the expected loss caused by the fact that the optimal action is not always selected \cite{Auer2002}. 
 Let $\bar{T}^*$ and $\Bar{T}_{a_n}$ be the expected delay associated to the optimal action $a^* \in \mathcal{A}_n$ and the non-optimal action $a_n \in \mathcal{A}_n$, respectively. Similarly, let $\mathrm{\gls{cvar}}^*$ and $\mathrm{\gls{cvar}}_{a_n}$ be the \gls{cvar} of the optimal action $a^* \in \mathcal{A}_n$ and the non-optimal action $a_n\in \mathcal{A}_n$, respectively.
 Formally, the regret $\zeta_i$ after $i$ time slots is defined as
@@ -333,7 +323,9 @@ The bound is obtained by including the result of Proposition \ref{prop:probNonOp
 \end{align}
 As every term in square brackets decreases monotonically in $i'$, the regret $\zeta_i$ grows sub-linearly.
 
-\end{proof}  \section{Simulation setup}
+\end{proof}  
+
+\subsection{Simulation setup}
 \label{s:simulation_setup}
 Given the lack of access to actual 5G (and beyond) network deployments, prior works mostly rely on \textit{home-grown} simulators for performance evaluation. Although this is a valid approach, these simulators often cannot fully capture the real network dynamics, introducing strong assumptions in the physical and/or the upper layers of the protocol stack. 
 Until very recently, the most complete  simulator for \gls{iab} networks was a system-level simulator~\cite{8514996} developed as an extension of the ns-3 \textit{mmWave} module~\cite{8344116}. However, despite accurate modeling of the \gls{iab} protocol stack, it is currently behind the latest \gls{iab} specifications\footnote{For instance due to the assumption of L-3 (instead of L-2) relaying at the \gls{iab}-nodes which was based on a draft version of TR 38.874~\cite{3gpp_38_874_old}.}. Moreover, the ns-3 \gls{iab} extension is unsuitable for large simulations with hundreds of nodes due to reliance on an older version of the \textit{mmWave} module. Therefore, in our work we opt for Sionna~\cite{hoydis2022sionna}, which is an open-source GPU-accelerated toolkit based on TensorFlow. 
@@ -351,11 +343,11 @@ However, unlike the aforementioned ns-3 module, Sionna is a physical layer-focus
 
 
 
-\subsection{Extensions to Sionna's physical layer module}
+\subsubsection{Extensions to Sionna's physical layer module}
 \label{sub:additionalSionna}
 In this section, we describe the physical layer modification that were necessary to evaluate IAB scenarios using Sionna. 
 
-\subsubsection{Codebook-based Beamforming}
+\paragraph{Codebook-based Beamforming}
 Sionna's native beamforming only supports \gls{zf} pre-coding in downlink. Therefore, as a first step, we extend Sionna by implementing an NR-like codebook-based analog beamforming both at the transmitter and at the receiver.
 Specifically, we assume that the beamforming vectors at the transmitter $w_{tx}$ and at the receiver $w_{rx}$ are a pair of codewords selected from a predefined codebook. The codebook is computed by defining a set of beam directions $\{ \omega_{p,q} \}$ which scans a given angular sector with a fixed beamwidth. The steering vector $a_{p,q}$ corresponding to direction $\omega_{p, q}$ can be computed as:
 \medmuskip=1mu
@@ -375,7 +367,7 @@ where $N_{H}$ and $N_{V}$ are the number of horizontal and vertical antenna elem
 In line with the 5G-NR beam management procedure~\cite{giordani2018tutorial}, we assume the lack of complete channel knowledge, i.e., the communication endpoints do not know the corresponding channel matrix. Accordingly, an exhaustive search is conducted to identify the best pair of codewords resulting in the highest \gls{sinr}. We leverage a hierarchical search, in which the communication pairs first perform a wide-beam search
 in which the transmitter and the receiver approximate the direction of communication, see Figure~\ref{fig:beamforming}. Next, the beamforming direction is fine-tuned through a beam refinement procedure going through a codebook with narrow beams. Consequently, we employ two types of codebooks, one with wide beams for sector sweep and another with narrow beams for beam refinement.   
 
-\subsubsection{SINR Computations}
+\paragraph{SINR Computations}
 
 Since Sionna does not natively calculate the \gls{sinr}, we add this functionality to the simulator to better model the impact of interference in our simulations. We compute the \gls{sinr} experienced by \glspl{tb} by combining the power of the intended signal with that of the interferers and of the thermal noise. Specifically, we first compute the power $P_{n}(i,f)$ of the intended signal at receiver $n$ over frequency $f$ and in time slot $i$. Then, we obtain the overall interference power by leveraging the superposition principle and summing the received power from all other interfering base stations $P_{m} (i, f)$ where $m \neq n$. For the purposes of this computation, we assume that each interferer employs the beamforming vector yielding the highest \gls{snr} towards its intended destination. Similarly, the transmitter and the receiver use the beamforming configuration estimated via the hierarchical search procedure. Finally, the \gls{sinr} is $
 \label{EQ_CGAN1}
@@ -393,20 +385,22 @@ where $\sigma^2(i,f)$ is the thermal noise power at the receiver.
 As mentioned, Sionna is mainly a physical layer simulator. However, to get closer to \gls{iab} networks as specified in Rel. 17, we have extended Sionna by implementing a selection of system-level features. To such end, we introduced a discrete-event network simulator for modeling \gls{iab} networks. This system-level extension operates on top of Sionna and provides basic functionalities such as a \gls{mac}-level scheduler, layer-2 buffers, and data flow and path selection mechanisms. Our simulator, depicted in Figure~\ref{fig:simulator_design}, generates a variety of system-level KPIs such as latency, throughput, and packet drop rate. 
 
 
-\subsubsection{Data Flow and buffer}
+\paragraph{Data Flow and buffer}
 \label{sub:Dataflow}
 3GPP has opted for a layer-2 relaying architecture for \nodes{} where hop-by-hop \gls{rlc} channels are established. This enables retransmissions to take place on the affected hops only, thus preventing the need for traversing again the whole route from the \donor{} whenever a physical layer \gls{tb} cannot be successfully decoded. This design results in a more efficient recovery from transmission failures and reduces buffering at the communication endpoints~\cite{madapatha2020integrated}. To mimic this architecture, we have implemented RLC-like buffers at each base station. Specifically, each \node{} features layer-2 buffers for both received and transmitted packets.
 For instance, the data flow for an uplink packet is the following.
 The \gls{ue} generates packets and sends a transmission request to the base station. Consequently, the scheduler allocates OFDM symbols for this transmission, which is eventually received and stored at the RX buffer of its \gls{du}. Next, the packet is placed into the TX buffer to be forwarded to the suitable next hop \node{}. This procedure is repeated until the packet crosses all the wireless-backhaul hops and reaches the \donor. Note that the packet can be dropped due to latency constraints or to interference.
 
-\subsubsection{\gls{bap}}
+\paragraph{\gls{bap}}
 \label{sub:bap}
 To manage routing within the wireless-backhauled network, the 3GPP introduced \gls{bap}, i.e., an adaptation layer above \gls{rlc} which is responsible for packet forwarding between the \donor{} and the access \nodes~\cite{3gpp_38_340}. Our simulator mimics this by associating each \node{} to a unique \gls{bap} ID. Moreover, we append a \gls{bap} routing ID to each packet at its entry point in the \gls{ran} (i.e., the \donor{} and the \glspl{ue} for DL and UL data, respectively).  Then, this identifier is used to discern the (possibly multiple) routes toward the packet's intended destination~\cite{3gpp_38_340}. The choice of the specific route is managed by \name{}.
 
 
-\subsubsection{Scheduler}
+\paragraph{Scheduler}
 \label{sub:scheduler}
-Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdma} mode. The scheduler periodically allocates the time resources to backhaul or access transmissions in a Round-Robin fashion\footnote{The choice of the specific scheduling algorithm is outside of the scope of the 3GPP NR specifications, and is thus left to the MNOs. Accordingly, a Round-Robin scheduling policy represents a typical baseline assumption.}. Specifically, each cell first estimates the number of OFDM symbols needed by each data flow by examining the corresponding buffer. Then, the subframe's OFDM symbols are equally allocated to the users. If a user requires fewer symbols to transmit its complete buffer, the excess symbols (the difference between the available slot length and the needed slot length) are distributed to the other active users. \section {Performance Evaluation}
+Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdma} mode. The scheduler periodically allocates the time resources to backhaul or access transmissions in a Round-Robin fashion\footnote{The choice of the specific scheduling algorithm is outside of the scope of the 3GPP NR specifications, and is thus left to the MNOs. Accordingly, a Round-Robin scheduling policy represents a typical baseline assumption.}. Specifically, each cell first estimates the number of OFDM symbols needed by each data flow by examining the corresponding buffer. Then, the subframe's OFDM symbols are equally allocated to the users. If a user requires fewer symbols to transmit its complete buffer, the excess symbols (the difference between the available slot length and the needed slot length) are distributed to the other active users. 
+
+\subsection {Performance Evaluation}
 \label{s:simulation_analysis}
 
 \begin{figure}
@@ -492,7 +486,7 @@ IAB antenna gain & 33~dB \\
 
 Our evaluation consists of six scenarios, in which we study the convergence of the algorithms to a steady state, the number of \nodes{}, the number of \donors{}, and the impact of risk aversion. When demonstrating the results, we show the average throughput, latency, and packet drop rate per UE. Furthermore, we show the statistical variance of the obtained results using candlesticks which include the corresponding max, min, mean, and 10 and 90 percentiles. 
 
-\subsection{Scenario 1: Average Network Performance}
+\subsubsection{Scenario 1: Average Network Performance}
 \label{sub:netPerformance}
 Analyzing the performance of the algorithms as a function of time is crucial to determine the convergence speed of the learning-based techniques, i.e.,  \name{} and \gls{scaros}. Hence, in Figure~\ref{fig:avgNetPerfomance} we show the average network performance over time for three metrics: latency, throughput, and packet drop rate.
 
@@ -505,7 +499,7 @@ The performance of \name{} is comparable to that of \gls{scaros}, approximately 
 The performance shown in Figure \ref{fig:avgDropRate} is consistent with the behavior observed in Figure \ref{fig:avgE2EDelay}. As \name{} additionally minimizes the $\alpha$-worst latency, it achieves the lowest packet drop rate compared to the reference schemes, namely, $30.1$\% ($84.0$\%) lower than \gls{scaros} (\gls{mlr}).
 
 
-\subsection{Scenario 2: Impact of the Network Size}
+\subsubsection{Scenario 2: Impact of the Network Size}
 \label{sub:netSize}
 In Figure~\ref{fig:avgNetPerfomance_s2} we evaluate the reliability of the three considered approaches for different network sizes. Specifically, we vary the number of \nodes{} from 25 to 200.  At the same time, we increase the load in the network by increasing the number of \gls{ue}s.
 From the figures, we can clearly see that \name{} consistently achieves a lower variation compared to the reference schemes. This verifies that \name{} achieves the intended optimization goal, i.e., the joint minimization of the average end-to-end delay and its expected tail loss.
@@ -516,7 +510,7 @@ As shown in Figure~\ref{fig:avgTput_s2}, the average throughput of the learning-
 
 The packet drop rate for different numbers of \nodes{} is shown in Figure~\ref{fig:avgDropRate_s2}. \name{} not only consistently outperforms the reference schemes, but also has the minimum variation in the results (at least $47.3$\% lower compared to the benchmarks). Considering the largest network size and load, i.e., 200 \nodes{} and 400 \glspl{ue}, \name{} achieves $49.3$\% and $81.2$\% lower packet drop rate compared to \gls{scaros} and \gls{mlr}, respectively. 
 
-\subsection{Scenario 3: Impact of the number of \donors{}}
+\subsubsection{Scenario 3: Impact of the number of \donors{}}
 \label{sec:multiDonors}
 Although the benchmark schemes do not support multiple \donors{}, \name{} is designed to accommodate such scenarios. In Figure~\ref{fig:avgNetPerfomance_s3}, we investigate the impact of the number of \nodes{} on \name{}. To this end, we keep the number of \glspl{ue} and their data rate constant. 
 \begin{figure*}
@@ -550,7 +544,7 @@ Finally, Figure \ref{fig:avgDropRate_s3} shows that increasing the number of \do
       \label{fig:riskParam}
 \end{figure}
 
-\subsection{Scenario 4: Impact of the risk parameter $\alpha$}
+\subsubsection{Scenario 4: Impact of the risk parameter $\alpha$}
 The definition of losses in the tail of the latency distribution is controlled by the risk level parameter $\alpha$. Its impact on the average latency is shown in Figure \ref{fig:riskParam}, where an increasing behavior is observed for $\alpha\leq 0.7$. The lowest latency is achieved for $\alpha=0.1$, which corresponds to the most risk-averse, and therefore the most reliable, case out of all the considered ones.
 The non-monotonic behavior of the average latency versus $\alpha$ can be explained by the so-called exploration-exploitation trade-off: the higher $\alpha$, the higher the level of risk, which in turn leads \name{} to learn more about the environment and choose a more reliable action. Eventually, as $\alpha$ grows beyond approximately $0.7$, the performance of \name{} tends to that of the risk-neutral case. As a consequence, the algorithm undertakes excessive exploration, which causes a degradation of the average latency performance.
 
@@ -616,7 +610,7 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
   \vspace*{-3mm}
 \end{figure*}
 
-\subsection{Scenario 5: Performance in different topologies}
+\subsubsection{Scenario 5: Performance in different topologies}
 
 
 To verify the generality of the proposed algorithms, it is essential to examine how they perform in different topologies, and consider both typical network performance metrics (i.e., along the lines of Scenario 1) and their stability with respect to the number of \nodes{} and \donors{} (Scenarios 2 and 3). To this end, we ran additional simulations in the deployment depicted in Figure~\ref{fig:Padova_Map}, which mimics the \nodes{} locations of the historic center of Padova. We report the average network performance over time, in terms of end-to-end packet drop rate, throughput, and latency in Figure~\ref{fig:avgNetPerfomancePadova}. Overall, the outcomes of this simulation campaign are in line with those obtained in Scenario 1. 
@@ -631,7 +625,7 @@ As can be seen in Figure~\ref{fig:avgNetPerfomance_s3Padova}, increasing the num
 
 In summary, the results obtained in the additional topology mimicking the historical center of Padova are well aligned with those obtained in the Manhattan topology. Although the specific values of the network metrics achieved by the considered schemes in the two topologies are different (for instance, SCAROS achieves a 66\% lower packet drop rate in Scenario~1 compared to Scenario~5), the trends among the various schemes are the same. Specifically, we observed that \name{} consistently achieves the best performance in comparison to SCAROS and MLR across different metrics, which supports the claim that the proposed scheduler is capable of learning how to optimize arbitrary deployment topologies.
 
-\subsection{Scenario 6: Network resilience}
+\subsubsection{Scenario 6: Network resilience}
 In networking, resilience refers to the ability of a network to recover in a quick and effective fashion from disruptions, thus providing reliable and high-quality communication services to its users.
 Specifically, the ability to recover from link failures is particularly important in \gls{iab} networks, where backhaul links are susceptible to the typical disruptions which plague the \gls{ran} due to its mobile and wireless nature. For instance, the links among \nodes{} can be degraded by adverse environmental conditions such as heavy rain and monsoons, physical obstacles and network congestion. These disruptions can cause temporary or permanent communication failures, which in turn result in degraded performance and/or loss of connectivity for the end users. 
 To prevent and/or recover from these undesired events, a backhaul scheduler must detect, mitigate, and recover from various types of disruptions and failures, and must maintain the required level of service availability and performance despite the time-varying channel conditions.
@@ -681,7 +675,7 @@ Since the failed node(s) is (are) chosen at random, we run multiple simulations 
 Results show that MLR is unable to react to the link failure(s) due to its static and myopic policy. Specifically, the disruption causes an increase of~33\% (60\%) in latency, and a decrease of up to 15\% (23\%) in throughput when considering one (three) link failure(s).
 On the other hand, both \name{} and SCAROS are capable of adapting the scheduling to the new topology. Indeed, both schemes show a transient region where the performance is slightly degraded since the algorithms are learning new routes and resource partitions to account for the lost link. Nevertheless, \name{} and SCAROS eventually converge to a solution which provides approximately the same network performance as before the failures, in both cases of one and three lost links.
 
-\section {Related work}
+\subsection {Related work}
 \label{s:related}
 
 Self-backhauling wireless networks have been studied in different contexts. Ranging from the so-called \glspl{hetnet} and \gls{iab} 5G \gls{nr} systems, to \glspl{cran}, each has considered a different set of premises and optimization goals. In this section, we review the related work in the context of basic assumptions and their optimization goals. 
@@ -696,14 +690,14 @@ In fact, the 3GPP does not impose any limits on the number of \gls{iab}-nodes wh
 \textbf{Optimization goals.} The works in the literature focus on different optimization goals. Therefore, they prioritize different network metrics. For instance, the authors of~\cite{hur2013millimeter} aim to optimize the beam alignment between \glspl{mbs} and \glspl{sbs}. Instead, the work of~\cite{alizadeh2019load} aims to compute the optimal user-to-base-station association. However, they neglect backhaul associations and focus on the access only. In~\cite{kwon2019joint, alizadeh2019load, zhu2016qos, yuan2018optimal} the objective function is a function of the users data-rate. In particular, the authors of~\cite{yuan2018optimal} optimize the max-min user throughput, arguing that such a metric better captures the performance of the bottleneck links. In~\cite{vu2018path}, the average rate of each link is maximized under bounded delay constraints. In our work, we focus on reliability by minimizing not only the average end-to-end delay, but also the expected value of the worst-case performance.
 The work closest to this article is SCAROS~\cite{ortiz2019scaros},  a learning-based latency-aware scheme for resource allocation and path selection in self-backhauled networks. Assuming a single IAB-donor, the authors study arbitrary multi-tier \gls{iab} networks considering the impact of interference and network dynamics. In contrast, we aim at enhancing the reliability of the IAB-network by jointly minimizing the average end-to-end delay and its expected tail loss. 
 
-\section{Conclusion}
+\subsection{Conclusion}
 \label{s:conclusion}
 In this work, we proposed the first reliability-focused scheduling and path selection algorithm for \gls{iab} mmWave networks. We illustrated that our \gls{rl}-based solution can cope with the network dynamics including channel, interference, and load.  Furthermore, we demonstrated that \name{} not only  exhibits highly reliable performance in the presence of the above-mentioned network dynamics, but also outperforms the benchmark schemes in terms of throughput, latency and packet-drop rate. The reliability of \name{} stems from the joint minimization of the average latency, and the expected value of its tail losses, by leveraging \gls{cvar} as a risk metric.
 
 Reliability is a highly under-explored topic that definitely deserves more investigation. Some interesting research directions are the maximization of reliability under the assumption of statistical system knowledge, or the evaluation of the network's reliability when the functionality of the \gls{bap} layer is compromised.
 Furthermore, our system-level extension to Sionna can be further developed to support an arbitrary number of RF chains and in-band backhauling, allowing more extensive investigation of IAB protocols and architectures.
 
-\section*{Appendix}
+\subsection*{Appendix}
 \label{sec:appendix}
 For the proof of Proposition \ref{prop:probNonOptArm}, Theorem 3 in \cite{Luo2017} is needed. For completeness, we first present the theorem in \cite{Luo2017} for the special case in which the considered random variables are independent. Next, we present the proof of Proposition \ref{prop:probNonOptArm}.
 \begin{theorem} \label{eq:Theorem2_part2}
