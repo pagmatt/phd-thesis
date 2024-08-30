@@ -3,9 +3,12 @@
 %%%%%%%%%%%%%%%
 
 \section{Semi-centralized framework for resource management in 5G NR Integrated Access and Backhaul}
-This section reviews relevant research on resources allocation in a multi-hop wireless network, deployed through either \gls{iab} or other wireless mesh solutions~\cite{gambiroza2004end}.
+\label{sec:iab-res-man}
 
-The literature adopts different approaches to model and solve the resource allocation problem. The first, discussed in~\cite{qualcomm1, qualcomm2, kulkarni2018max, lei2020deep, rasekh2015interference, bilal2014time, cruz2003optimal} is based on conventional optimization techniques.
+%This section reviews relevant research on resources allocation in a multi-hop wireless network, deployed through either \gls{iab} or other wireless mesh solutions~\cite{gambiroza2004end}.
+
+The literature adopts different approaches to model and solve the resource allocation problem in multi-hop wireless networks. 
+The first, discussed in~\cite{qualcomm1, qualcomm2, kulkarni2018max, lei2020deep, rasekh2015interference, bilal2014time, cruz2003optimal} is based on conventional optimization techniques.
 Specifically, the authors of~\cite{qualcomm1} present a simple and thus tractable system model and find the minimal number of \glspl{gnb} featuring a wired backhaul that are needed to sustain a given traffic load. Their work is further extended in~\cite{qualcomm2}, which provides an analysis of the performance benefits introduced by additional, fiber-less \glspl{gnb}. 
 In~\cite{kulkarni2018max}, the mobile network is modeled as a noise-limited, $k$-ring deployment. Such model is then used to obtain closed-form expressions for the max-min rates achieved by \glspl{ue} in the network. Moreover,~\cite{lei2020deep} proposes a system model which leads to an NP-hard optimization problem, even though it considers single-hop backhaul networks only, and uses deep \gls{rl} to reduce its computation complexity. In~\cite{rasekh2015interference}, the joint routing and resource allocation problem is tackled via a \gls{lp} technique. Notably, this work assumes that data can be transmitted (received) toward (from) multiple nodes at the same time.
 Similarly, the authors of~\cite{bilal2014time} formulate a \gls{tdd}, multi-hop resource allocation optimization problem which leverages the directionality of \gls{mmwave} antennas, albeit in the context of \gls{wpans}. Since such problem is also NP-hard, a sub-optimum solution is found. Finally,~\cite{cruz2003optimal} focuses on joint link scheduling, routing and power allocation in multi-hop wireless networks. As in previous cases the obtained optimization problem is not tractable: in this instance such obstacle is overcome by studying the dual problem via an iterative approach.
@@ -21,12 +24,12 @@ the problem is solved using both convex optimization and \gls{rl} techniques. In
 Finally, only a small portion of the literature~\cite{polese2018end, polese2018iab, polese2020integrated} analyzes the end-to-end performance of \gls{iab} networks. Specifically, the authors of~\cite{polese2018end} extend the ns-3 \gls{mmwave} module, introducing realistic \gls{iab} functionalities which are then used to characterize the benefit of deploying wireless relays in \gls{mmwave} networks. Their work is extended in~\cite{polese2018iab}, where path selection policies are formulated and their impact on the system performance is inspected. A further end-to-end analysis of \gls{iab} networks is carried out in~\cite{polese2020integrated}, providing insights into the potentials of this technology and the related open research challenges.
 
 Concluding, the literature exhibits the presence of algorithms relying on a varying degree of assumptions on the network topology and the knowledge of system. Furthermore, most of the aforementioned studies lack an end-to-end, full-stack system-level analysis of the proposed solution.
-Conversely, this paper proposes a semi-centralized resource allocation scheme, which also has a low complexity, both computationally and in terms of required feedback. Moreover, we provide considerations on how our proposed solution can be implemented and deployed in standard-compliant \gls{3gpp} \gls{iab} networks, and compare such solution to the state of the art with an end-to-end, realistic performance analysis
+To fill these gaps, this section proposes a semi-centralized resource allocation scheme which exhibits low complexity, both computationally and in terms of required feedback. Moreover, we provide considerations on how our proposed solution can be implemented and deployed in standard-compliant \gls{3gpp} \gls{iab} networks, and compare such solution to the state of the art with an end-to-end, realistic performance analysis
 
 \subsection{Contributions}
 \label{sec:contributions}
 
-This article tackles the access and backhaul partitioning problem by proposing an optimal, semi-centralized resource allocation scheme for \gls{3gpp} \gls{iab} networks, based on the \gls{mwm} problem on graphs.  It receives periodic L1 and/or L3 measurements from the nodes of the \gls{iab} deployment, a possibility which is explicitly mentioned by 3GPP in~\cite[Section 7.3.3]{3gpp_38_874}, constructs a spanning tree that represents the deployment, and uses a simplified, low-complexity version of the \gls{mwm} to partition the links between access and backhaul. After a feedback step, each node can then schedule the resources at a subframe-level among the connected devices. 
+This remainder of this section tackles the access and backhaul partitioning problem by proposing an optimal, semi-centralized resource allocation scheme for \gls{3gpp} \gls{iab} networks, based on the \gls{mwm} problem on graphs. It receives periodic L1 and/or L3 measurements from the nodes of the \gls{iab} deployment, a possibility which is explicitly mentioned by 3GPP in~\cite[Section 7.3.3]{3gpp_38_874}, constructs a spanning tree that represents the deployment, and uses a simplified, low-complexity version of the \gls{mwm} to partition the links between access and backhaul. After a feedback step, each node can then schedule the resources at a subframe-level among the connected devices. 
 
 To the best of our knowledge, this is the first \gls{mwm}-based resource allocation framework for \gls{3gpp} \gls{iab} networks at \glspl{mmwave}. As such, it exhibits the following benefits:
 \begin{enumerate*}[label=(\roman*)]
@@ -44,16 +47,7 @@ Finally, the algorithm operates with a low complexity, i.e., we propose a versio
 
 Furthermore, we evaluate the performance of the proposed scheme with an end-to-end, full-stack system-level simulation, using the ns-3 mmWave module~\cite{mezzavilla2018end} and its \gls{iab} extension~\cite{polese2018end}. This represents the first evaluation of an optimized resource allocation scheme for \gls{iab} with a simulator that is based on a \gls{3gpp}-compliant protocol stack, uses \gls{3gpp} channel models, and integrates realistic applications and transport protocols. The extended performance evaluation highlights how the proposed scheme improves the throughput of a diverse set of applications, with a 5-fold increase for the worst case users, with different packet sizes and transport protocols, while decreasing the latency and buffering at intermediate nodes by up to 25 times for the smallest packet sizes.
 
-%\subsection{State of the Art}
-%TODO keep this subdvision wrt to the approach ? 
-%TODO slim down
-% Since this new-found interest on wireless backhauling for cellular networks is relatively recent, such topic has not been exhaustively studied yet. Nevertheless, m
-
-% Multi-hop wireless networks have been already thoroughly studied in scenarios others from cellular networks, for instance in the context of wireless mesh networks~\cite{gambiroza2004end}. 
-
-
-\subsection{Paper structure}
-The remainder of this paper is organized as follows. Section~\ref{Sec:Sys-model} describes our assumptions and the system model. Then, Section~\ref{Sec:scheme_main} presents a novel scheme for resource partitioning in \gls{mmwave} \gls{iab} networks, along with considerations on how it can be implemented in \gls{3gpp} NR. Finally, Section~\ref{Sec:perf_eval} describes the performance evaluation results and Section~\ref{Sec:conc} concludes this paper.
+The remainder of this section is organized as follows. Section~\ref{Sec:Sys-model} describes our assumptions and the system model. Then, Section~\ref{Sec:scheme_main} presents a novel scheme for resource partitioning in \gls{mmwave} \gls{iab} networks, along with considerations on how it can be implemented in \gls{3gpp} NR. Finally, Section~\ref{Sec:perf_eval} describes the performance evaluation results.
 
 %TODO Is it a proper name?
 \subsection{IAB networks}
@@ -110,7 +104,7 @@ require at most minimal changes to the Rel.15 \gls{5gc} and \gls{nr}.
 
 According to these assumptions and referring to Fig.~\ref{Fig:IAB_notation}., a generic \gls{iab} network can be modeled as a directed graph $\mathcal{G} = \{\mathcal{N},  \mathcal{E} \}$, where the set of nodes $\mathcal{N} \mathop = \limits^{\Delta} \, \{ n_1, \, n_2, \, \ldots \, n_{\vert \mathcal{N} \vert }  \}$ comprises the \gls{iab}-donor, the various \gls{iab}-nodes and the \glspl{ue}. 
 Accordingly, the set of directed edges $\mathcal{E} \mathop = \limits^{\Delta} \, \{ e_{1} , \, e_{2}, \, \ldots \, \allowbreak e_{\vert \mathcal{E} \vert} \} \equiv \{ e_{n_j \to n_k} \}_{j, k} $, where the edge $e_{n_j \to n_k}$ originates at the parent node $n_j$ and terminates at the children $n_k$, comprises in all the active cell attachments, either of mobile terminals to a \gls{gnb} or from \gls{iab}-nodes towards their parent node.
-Since the goal of this paper is to study backhaul/access resource partitioning policies, this generic model can be actually simplified: in fact, all the \glspl{ue} connected to a given \gls{gnb} can be represented by a single node in $\mathcal{G}$ without any loss of generality. Similarly, the same holds true for their links toward the serving \gls{gnb}, which can then be represented by a single edge. 
+Since the goal of this section is to study backhaul/access resource partitioning policies, this generic model can be actually simplified: in fact, all the \glspl{ue} connected to a given \gls{gnb} can be represented by a single node in $\mathcal{G}$ without any loss of generality. Similarly, the same holds true for their links toward the serving \gls{gnb}, which can then be represented by a single edge. 
 %TODO Maybe mention that as a consequence the number of edges is significantly reduced, taking into consideration the expected # of UEs connected to a BS in 5G systems
 Furthermore, this work focuses on \gls{st} topologies only. 
 
@@ -269,7 +263,7 @@ The proposed framework can be subdivided into the following phases, which are pe
 \begin{enumerate}
 \item \label{Enum_frameword:item_one} \textbf{Initial setup}. This step, which is depicted in Fig.~\ref{Fig:Phase0}, consists in the computation of the simplified \gls{iab} network graph $\mathcal{G} \equiv \{ \mathcal{V}, \mathcal{E} \}$. Specifically, after this phase $\mathcal{V}$ comprises the donor and the various \gls{iab}-nodes. Accordingly, $\mathcal{E}$ contains their active cell associations.
 
-\item \label{Enum_frameword:item_two} \textbf{Information collection}. During this phase, the various \gls{iab}-nodes send to the central controller a pre-established set of information for each of their children in $\mathcal{G}$. For instance, this feedback may consist in their congestion status and/or  information regarding their channel quality. To such end, the implementation of this paper uses modified versions of pre-existing \gls{nr} Release 16 \glspl{ce}, as strongly recommended in the \gls{iab} SI~\cite{3gpp_38_874}. However, the scheme does not actually impose any limitations in such regard.
+\item \label{Enum_frameword:item_two} \textbf{Information collection}. During this phase, the various \gls{iab}-nodes send to the central controller a pre-established set of information for each of their children in $\mathcal{G}$. For instance, this feedback may consist in their congestion status and/or  information regarding their channel quality. To such end, the implementation presented in this section uses modified versions of pre-existing \gls{nr} Release 16 \glspl{ce}, as strongly recommended in the \gls{iab} SI~\cite{3gpp_38_874}. However, the scheme does not actually impose any limitations in such regard.
 \item \label{Enum_frameword:item_three} \textbf{Centralized scheduling indication}. Upon reception of the feedback information, the central controller updates $\mathcal{G}$ by inspecting the received node-parent associations. Then, the set of weights $\mathcal{W}$ is calculated and an \gls{mwm} of $\mathcal{G}$ is computed, using the \texttt{T-MWM} algorithm. The output of this procedure is the activation set $\mathbf{E^*}$, which yields a globally optimum solution with respect to the chosen utility function. Subsequently, $\mathbf{E^*}$ is used as to create a set of \textit{favored} downstream nodes, i.e., of children which will be served with the highest priority by their parent, as depicted in Fig.~\ref{Fig:Phase2}. Finally, these scheduling indications are forwarded to the various \gls{iab}-nodes which act as parents in the edges of $\mathbf{E^*}$.
 
 \begin{figure}[tbp]
@@ -439,14 +433,14 @@ The purpose of these simulations is to understand the performance of the propose
 \subsection{Performance evaluation}
 \label{Sec:perf_eval}
 
-\begin{figure*}[tbp]
+\begin{figure}[tbp]
 	\centering
 	%\captionsetup{singlelinecheck=false, justification=justified}
   % this sets the width of the figure, adjust to your needs
   	\subfloat[$s_{UDP}$ = 100 B, i.e., \gls{udp} rate of 8 Mbps.\label{Fig:Thr_ECDF_100}]{
   	\setlength\fwidth{0.68\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.28\columnwidth}
+    \setlength\fheight{0.27\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_throughput_ECDF_packet_size_100.tex}
   	}
   	\hfill
@@ -454,17 +448,13 @@ The purpose of these simulations is to understand the performance of the propose
   	% this sets the width of the figure, adjust to your needs
     \setlength\fwidth{0.68\columnwidth}
     % this sets the height of the figure, adjust to your needs
-    \setlength\fheight{0.28\columnwidth}
+    \setlength\fheight{0.27\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_throughput_ECDF_packet_size_500.tex}
   	}
     \caption{Per-\gls{ue} end-to-end throughput \glspl{ecdf}. The thick dashed line represents the rate of the \gls{udp} sources.}
     \label{Fig:thr_ECDF}   
     \vspace{-.6cm} 
-\end{figure*}
-
-
-%TODO Not so important?
-%The channel model presented in Section~\ref{Sec:mimo_channel} is used, since its UMi-StreetCanyon pathloss configuration represents the most suitable option given the deployment configuration. However, given the lack of mobility its spatial-consistency extensions has been disabled, with the goal of reducing the simulations running time. 
+\end{figure}
 
 Both the \gls{iab}-donor and the \gls{iab}-nodes are equipped with a phased array featuring 64 antenna elements, and transmit with a power of 33 dBm; conversely \glspl{ue} are equipped with 16 antenna elements and their transmission power is restricted to 23 dBm. Notably, the presence of additional antenna elements at the \glspl{gnb} is a key (but reasonable) assumption, as it allows base stations to achieve a high beamforming gain. In turn, it is possible to achieve a high capacity, which is fundamental to avoid performance bottlenecks, given the absence of a fiber backhaul.
 The \glspl{ue} download data which originates from sources that are installed on a remote host; both the \gls{udp} and the \gls{tcp} are used. For the \gls{udp} simulations, the rate of the sources is varied from 4 to 40 Mbps to introduce different degrees of saturation in the network. Therefore, in these simulations only DL traffic is considered.
@@ -554,6 +544,7 @@ These trends are exacerbated by Fig.~\ref{Fig:Delay_third_quartile}, which shows
     \input{Figures/CentralResourceManagement/Sim_results_v2/E2E_delay_ECDF_packet_size_100.tex}
     }
     \hfill
+    \centering
   \subfloat[Third quartile, for $s_{UDP}$ $\in$ $\{50, 100, 200, 500 \}$ B.\label{Fig:Delay_third_quartile}]{
     % this sets the width of the figure, adjust to your needs
     \setlength\fwidth{0.65\columnwidth}
@@ -573,23 +564,21 @@ These trends are exacerbated by Fig.~\ref{Fig:Delay_third_quartile}, which shows
 %\captionsetup[subfigure]{justification=centering}
   \subfloat[Medians, toward \glspl{ue}.\label{Fig:BSR_median_ue}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.28\columnwidth}
+    \setlength\fwidth{0.23\columnwidth}
     % this sets the height of the figure, adjust to your needs
     \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/Median_BSR_UE.tex}
     }
-  \hfill
-  \subfloat[Medians, toward \gls{iab}-nodes.\label{Fig:BSR_median_node}]{
+  \subfloat[Medians, toward \\ \gls{iab}-nodes.\label{Fig:BSR_median_node}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.28\columnwidth}
+    \setlength\fwidth{0.23\columnwidth}
     % this sets the height of the figure, adjust to your needs
     \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/Median_BSR_node.tex}
     }
-  \hfill
   \subfloat[Third quartile vs. depth in the \gls{iab} network, for $s_{UDP}$ = 200 B.\label{Fig:BSR_third_quartile_depth}]{
     % this sets the width of the figure, adjust to your needs
-    \setlength\fwidth{0.28\columnwidth}
+    \setlength\fwidth{0.23\columnwidth}
     % this sets the height of the figure, adjust to your needs
     \setlength\fheight{0.28\columnwidth}
     \input{Figures/CentralResourceManagement/Sim_results_v2/Third_quartile_BSR_vs_depth.tex}
@@ -735,8 +724,8 @@ As expected, in general the effectiveness of the various semi-centralized polici
 Additionally, the running time of the \gls{mwm} algorithm presented in Section~\ref{Sec:T-MWM} was analyzed, in order to understand whether it may partially invalidate the timely feedback assumption. Specifically, Fig.~\ref{Fig:MWM_runtime} presents the statistics of the various \gls{mwm} execution times, obtained on a machine equipped with an i7-6700 4-core processor clocked at 3.4~{GHz}. 
 The first observation which can be made is that this empirical analysis confirms the previously estimated asymptotic complexity, depicting a running time which exhibits a linear dependence on the number of \glspl{gnb} in the network. Furthermore, it can be noted that the runtime of the \gls{mwm} algorithm does not exceed 6~$\mu$s, even for a significant number of \gls{iab}-nodes connected to the same \gls{iab}-donor. As a consequence, we can conclude that the execution times of the semi-centralized allocation process do not pose any threat to the timely feedback assumption, since they are reasonably smaller than the duration of the minimum semi-centralized allocation period. 
 
-\subsection{Conclusions}
-\label{Sec:conc}
+%\subsection{Conclusions}
+%\label{Sec:conc}
 
 In this paper we proposed a semi-centralized resource partitioning scheme for \gls{5g} and beyond \gls{iab} networks, coupled with a set of allocation policies. We showed that the introduction of this light resource allocation cooperation dramatically improves the end-to-end throughput and delay achieved by the system already, preventing (or at the very least limiting) the insurgence of network congestion on the backhaul links. Specifically, the \gls{mrba} policy exhibits the most promising results, offering up to a 3-fold increase in the worst-case throughput and approximately a 30\% smaller worst-case latency, compared to the distributed scheduler. On the other hand, the effectiveness of the \gls{ba} and \gls{msr} policies varies quite significantly across the specific system configuration and inspected metric. %Nevertheless, better than SoA
 %TODO Maybe add more detailed results
