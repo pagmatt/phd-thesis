@@ -96,7 +96,8 @@ xtick style = {draw=none},
 %axis background/.style={fill=white},
 %xmajorgrids,
 %ymajorgrids,
-legend style={at={(0.38,0.97)}, anchor=north west, legend cell align=left, font=\footnotesize, align=left, draw=white!15!black}
+legend style={at={(0.5,1,02)}, anchor=north west, legend cell align=left, font=\footnotesize, align=left, draw=white!15!black},
+legend columns=3,
 ]
 \addplot[ybar, bar width=0.2, preaction={fill, mycolor1}, thick, pattern={north east lines}, pattern color=black, draw=black, area legend] table[row sep=crcr] {%
 1	0.0004\\
@@ -135,147 +136,6 @@ legend style={at={(0.38,0.97)}, anchor=north west, legend cell align=left, font=
 \addlegendentry{CWC $Z=80$}
 \legend{}
 \end{axis}
-
-
-
-% width=0.45\fwidth,
-% height=0.35\fwidth,
-% at={(1.1\fwidth,0.12\fwidth)},
-% scale only axis,
-% xmin=50,
-% xmax=90,
-% xtick={50,60,70,80,90},
-% xlabel style={font=\color{white!15!black}},
-% xlabel={},
-% ymin=0,
-% ymax=0.1,
-% %ymode = log,
-% ytick={0.02,0.04,0.06,0.08,0.1},
-% yticklabels={{0.02},{0.04},{0.06},{0.08},{0.1}},
-% axis background/.style={fill=white},
-% xmajorgrids,
-% ymajorgrids
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ZOOOOOM
-
-% \begin{axis}[%
-% width=0.45\fwidth,
-% height=0.3\fwidth,
-% at={(0.05\fwidth,0.12\fwidth)},
-% scale only axis,
-% bar shift auto,
-% xmin=0.5,
-% xmax=2.5,
-% ybar=5.5pt,
-% xtick={1,2,3},
-% xticklabels={{$10$H$\times20$V},{$20$H$\times40$V}},
-% ymin=0.0001,
-% ymax=0.04,
-% %ymode=log,
-% log origin=infty,
-%     xlabel style={font=\footnotesize},
-%     ylabel style={font=\footnotesize},
-% axis background/.style={fill=white},
-% xmajorgrids,
-% ymajorgrids,
-% legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, font=\footnotesize, align=left, draw=none},
-% axis line style={draw=none}
-% ]
-% \addplot[ybar, bar width=0.2, preaction={fill, mycolor2}, thick, pattern={north east lines}, pattern color=white, draw=black, area legend] table[row sep=crcr] {%
-% 1	0.0009\\
-% 2	0.0049\\
-% };
-% \addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
-% 0.511111111111111	0\\
-% 4.48888888888889	0\\
-% };
-% \addlegendentry{ICWC $Z=20$}
-
-% \addplot[ybar, bar width=0.2, preaction={fill, mycolor2}, thick, pattern={Dots[radius=1.2]}, pattern color=white, area legend] table[row sep=crcr] {%
-% 1	0.0021\\
-% 2	0.0236\\
-% };
-% \addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
-% 0.511111111111111	0\\
-% 4.48888888888889	0\\
-% };
-% \addlegendentry{ICWC $Z=50$}
-
-% \addplot[ybar, bar width=0.2, preaction={fill, mycolor2}, thick, pattern={grid}, pattern color=white, area legend] table[row sep=crcr] {%
-% 1	0.0022\\
-% 2	0.0363\\
-% };
-% \addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
-% 0.511111111111111	0\\
-% 4.48888888888889	0\\
-% };
-% \addlegendentry{ICWC $Z=80$}
-% \legend{}
-% \end{axis}
-
-
-% \begin{axis}[%
-% width=0.45\fwidth,
-% height=0.3\fwidth,
-% at={(0.05\fwidth,0.12\fwidth)},
-% scale only axis,
-% bar shift auto,
-% ybar=5.5pt,
-% xmin=0.57,
-% xmax=2.57,
-% xtick={1,2},
-% % xticklabels={{}, {}, {},{}},
-% % ymin=0,
-% % ymax=500,
-% % ylabel style={font=\normalsize},
-% % xlabel style={font=\normalsize},
-% % xtick={},
-% ytick={},
-% xticklabels={{}, {}, {},{}},
-% yticklabels={},
-% ymin=0.0001,
-% ymax=0.04,
-% %ymode=log,
-% log origin=infty,
-% xtick style = {draw=none},
-% %ylabel={$\bar{C}$ [Mbit/time slot]},
-% %axis background/.style={fill=white},
-% %xmajorgrids,
-% %ymajorgrids,
-% legend style={at={(0.38,0.97)}, anchor=north west, legend cell align=left, font=\footnotesize, align=left, draw=white!15!black}
-% ]
-% \addplot[ybar, bar width=0.2, preaction={fill, mycolor1}, thick, pattern={north east lines}, pattern color=black, draw=black, area legend] table[row sep=crcr] {%
-% 1	0.0004\\
-% 2	0.0026\\
-% };
-% \addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
-% 0.511111111111111	0\\
-% 4.48888888888889	0\\
-% };
-% \addlegendentry{CWC $Z=20$}
-
-% \addplot[ybar, bar width=0.2, preaction={fill, mycolor1}, thick, pattern={Dots[radius=1.2]}, pattern color=black, draw=black, area legend] table[row sep=crcr] {%
-% 1	0.0006\\
-% 2	0.0045\\
-% };
-% \addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
-% 0.511111111111111	0\\
-% 4.48888888888889	0\\
-% };
-% \addlegendentry{CWC $Z=50$}
-
-% \addplot[ybar, bar width=0.2, preaction={fill, mycolor1}, thick, pattern={grid}, pattern color=black, area legend] table[row sep=crcr] {%
-% 1	0.0007\\
-% 2	0.0060\\
-% };
-% \addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
-% 0.511111111111111	0\\
-% 4.48888888888889	0\\
-% };
-% \addlegendentry{CWC $Z=80$}
-% \legend{}
-% \end{axis}
-
 
 \begin{axis}[%
     width=\fwidth,
@@ -338,54 +198,6 @@ xtick style = {draw=none},
 \legend{}
 \end{axis}
 
-
-% \begin{axis}[%
-%    width=0.45\fwidth,
-% height=0.3\fwidth,
-% at={(0.05\fwidth,0.12\fwidth)},
-% scale only axis,
-% xmin=0.57,
-% xmax=2.57,
-% xtick={1,2},
-% % xticklabels={{}, {}, {},{}},
-% % ymin=0,
-% % ymax=500,
-% % ylabel style={font=\normalsize},
-% % xlabel style={font=\normalsize},
-% % xtick={},
-% ytick={},
-% xticklabels={{}, {}, {},{}},
-% yticklabels={},
-% ymin=0.0001,
-% ymax=0.04,
-% %ymode=log,
-% log origin=infty,
-% xtick style = {draw=none},
-% ]
-% \addplot [color=mycolor7, very thick]
-%   table[row sep=crcr]{%
-% 0.595	0.0026\\
-% 1.45	0.0026\\
-% };
-% \addlegendentry{Unclustered}
-% \addplot [color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star]
-%   table[row sep=crcr]{%
-% 1.0225 0.0026\\
-% };
-
-% \addplot [color=mycolor7, very thick]
-%   table[row sep=crcr]{%
-% 1.605	0.0371\\
-% 2.46	0.0371\\
-% };
-% \addlegendentry{Unclustered}
-% \addplot [color=mycolor7, only marks, very thick, mark size=3.0pt, mark=star]
-%   table[row sep=crcr]{%
-% 2.04 0.0371\\
-% };
-% \legend{}
-% \end{axis}
-
 \begin{axis}[%
     width=\fwidth,
     height=\fheight,
@@ -403,13 +215,13 @@ xtick style = {draw=none},
     ytick style = {draw=none},
     legend style={
             /tikz/every even column/.append style={column sep=0.2cm},
-            at={(0.17, 0.5)}, 
+            at={(0.5, 1.02)}, 
             anchor=south, 
             draw=white!80!black, 
             font=\scriptsize,
             fill opacity=0.8
             },
-        legend columns=1
+        legend columns=3
 ]
 
 \addlegendimage{color = mycolor7, mark=star, very thick,  mark size=3.0pt}
