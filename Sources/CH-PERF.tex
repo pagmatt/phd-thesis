@@ -101,27 +101,6 @@ The proposed model supports the presence of multiple antenna elements at the tra
 In this implementation, we focus on \glspl{upa}, although the methodology is general and can be applied to arbitrary antenna arrays.
 
 Let $\theta$ and $\varphi$ be the relative zenith and azimuth angles between transmitter and receiver, respectively, and let $\bm{w}\left(\theta_0, \varphi_0\right)$ denote the beamforming vector pointing towards the steering direction $\left(\theta_0, \varphi_0\right)$. We denote with $U = U_h U_v $ the total, horizontal, and vertical number of antenna elements, respectively, and with $ d_h, d_v $ their spacing in the horizontal and vertical domains of the array, respectively. %Since we consider analog beamforming vectors only, $\bm{w}\left(\theta_0, \varphi_0\right)$  
-\begin{comment}
-The gain pattern of the antenna array, in terms of received power relative to a single radiating element, can be expressed as~\cite{ASPLUND202089}
-\begin{equation}
-  G_{T, R}(\theta, \varphi) = \left|\bm{a}^{\mathrm{T}}(\theta, \varphi)  \bm{w}\left(\theta_0, \varphi_0\right)\right|^2,
-\end{equation}
-where $\bm{a}^{\mathrm{T}}(\theta, \varphi)$ is the array response vector. A generic entry $m,n, m \in \{0, \ldots, U_v - 1 \}, n \in \{0, \ldots, U_h - 1 \}$ of this vector is defined as
-\begin{align}
-  a(\theta, \varphi)_{m, n} = g(\theta, \varphi)_{m, n} & \exp(j\frac{2\pi}{\lambda}m d_v \cos(\theta)) \times \\
-    & \exp(j \frac{2\pi}{\lambda} n d_h \sin(\theta)\sin(\varphi)), \nonumber
-\end{align}
-where $g(\theta, \varphi)_{m, n}$ is the single-element gain of radiating element $(m, n)$ towards direction $(\theta, \varphi)$.
-%
-In our implementation, we assume that $g(\theta, \varphi)_{m, n}$ is constant for all the elements of the arrays, i.e., $g(\theta, \varphi)_{m, n} \equiv g(\theta, \varphi)$. Accordingly, we define
-\begin{equation}
-    \bm{a_i(\theta, \varphi)} \doteq \left[ a_i(\theta, \varphi)_{m, n} \right]_{m, n} = \left[ g(\theta, \varphi)_{m, n}^{-1} a(\theta, \varphi)_{m, n} \right]_{m, n}
-\end{equation}
-and then compute $G_{T, R}(\theta, \varphi)$ in the \texttt{Compute\-Beamforming\-Gain} function of the \texttt{Two\-Ray\-Spectrum\-Propagation\-Loss\-Model} class as
-\begin{equation}
-  G_{T, R}(\theta, \varphi) = \left| g(\theta, \varphi) \left[ \bm{a_i}^{\mathrm{T}}(\theta, \varphi)  \bm{w}\left(\theta_0, \varphi_0\right) \right] \right|^2.
-\end{equation}
-\end{comment}
 
 Considering first isotropic antennas, the gain pattern of a \gls{upa}, in terms of received power relative to a single radiating element, can be expressed as~\cite{ASPLUND202089}
 \begin{equation}

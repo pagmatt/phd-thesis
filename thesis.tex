@@ -148,6 +148,10 @@
 \usepgfplotslibrary{patchplots,groupplots,patchplots,fillbetween}
 \usepackage{tikzscale}
 \def\si{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+% Labels and tick default size
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+\pgfplotsset{every axis/.append style={label style={font=\footnotesize}, tick label style={font=\footnotesize}}}
 %\DeclareUnicodeCharacter{2212}{-} % TEMPORARY, just for TikZ
 
 % Externalize TikZ figures

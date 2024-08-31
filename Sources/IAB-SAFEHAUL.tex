@@ -37,12 +37,10 @@
 \section{Risk-Averse Learning for Latency Minimization in mmWave Integrated Access and Backhaul Networks}
 \label{sec:iab-safehaul}
 
-\textbf{Prior work.} Methodologically, the majority of the existing works~\cite{pan2017joint, alizadeh2019load, huang2015joint, nguyen2020nonsmooth, rasekh2015interference, kwon2019joint, pizzo2017optimal, kulkarni2018max,9839601} focus on classic optimization techniques to solve the above-mentioned problem. However, given the large number of parameters involved, such formulations often result in non-convex problems that are too complex for real-time operations, but are nonetheless valuable indicators as performance upper bounds. Recently, some works focus on more practical solutions which can be deployed in real networks\cite{lei2020deep, ZHANG2021108248, 9473755}. Specifically, these works leverage \gls{rl} to tackle both resource allocation and/or path selection in IAB mmWave networks and demonstrate that \gls{rl}-based solutions achieve real-time performance. 
+% Methodologically, the majority of the existing works~\cite{pan2017joint, alizadeh2019load, huang2015joint, nguyen2020nonsmooth, rasekh2015interference, kwon2019joint, pizzo2017optimal, kulkarni2018max,9839601} focus on classic optimization techniques to solve the above-mentioned problem. However, given the large number of parameters involved, such formulations often result in non-convex problems that are too complex for real-time operations, but are nonetheless valuable indicators as performance upper bounds. Recently, some works focus on more practical solutions which can be deployed in real networks\cite{lei2020deep, ZHANG2021108248, 9473755}. Specifically, these works leverage \gls{rl} to tackle both resource allocation and/or path selection in IAB mmWave networks and demonstrate that \gls{rl}-based solutions achieve real-time performance. 
 
 Regardless of the methodology,  prior works mostly aim at maximizing the network capacity~\cite{pan2017joint, alizadeh2019load, huang2015joint, nguyen2020nonsmooth, rasekh2015interference, kwon2019joint, pizzo2017optimal, kulkarni2018max}, minimizing latency~\cite{vu2018path, ortiz2019scaros} and improving throughput fairness~\cite{alizadeh2019load, pagin2022}. Although these approaches successfully improve the network performance, \glspl{mno} are often more \textit{concerned about their reliability}. 
-For this reason many commercial products rely on \textit{simplified} but reliable algorithms for resource allocation, despite their sub-optimal performance. 
-
-In this article, we propose \name{}, a reinforcement learning-based solution for reliable scheduling and path selection in IAB mmWave systems under network dynamics. We use the concept of risk aversion, commonly used in economics \cite{Rockafellar2000, Levy1998}, to measure and enhance the reliability of \name{}. The following summarizes our contributions: 
+For this reason many commercial products rely on \textit{simplified} but reliable algorithms for resource allocation, despite their sub-optimal performance. In this section, we address these limitations by proposing \name{}, a reinforcement learning-based solution for scheduling and path selection in IAB mmWave systems which reaps the benefits of learning-based algorithms, while guaranteeing reliable network performance. To this end, we use the concept of risk aversion, commonly used in economics \cite{Rockafellar2000, Levy1998}, to measure and enhance the reliability of \name{}. The following summarizes our contributions: 
 
 \begin{itemize}
 \item We model the scheduling and path selection problem in IAB mmWave networks as a multi-agent multi-armed bandit problem (Section~\ref{s:prob_formulation}). We consider multiple fiber base stations, simultaneously supporting many self-backhauled mmWave base stations. In our model, the self-backhauled base stations independently decide the links to activate. The consensus among the base stations is reached via standard-defined procedures (Section~\ref{s:consensus}).
@@ -57,7 +55,7 @@ To this aim, we propose \name{}, a learning approach that leverages the coherent
  
 \subsection{System Model}
 \label{s:sys_model}
-We consider a cellular system with $N$ base stations capable of self-backhauling and $D$ base stations with a fiber connection to the core network. Following 3GPP terminology, we refer to self-backhauled base stations as IAB-nodes (\nodes{}) and to fiber base stations as IAB-donors (\donors{})\footnote{Please note that throughout the paper we will use interchangeably \nodes{} and IAB-nodes (and similarly for \donors{} and IAB-donors)}. 
+We consider a cellular system with $N$ base stations capable of self-backhauling and $D$ base stations with a fiber connection to the core network. Following 3GPP terminology, we refer to self-backhauled base stations as IAB-nodes (\nodes{}) and to fiber base stations as IAB-donors (\donors{})\footnote{Please note that throughout the section we will use interchangeably \nodes{} and IAB-nodes (and similarly for \donors{} and IAB-donors)}. 
 Each \node{} connects to the core network via a (multi-hop) wireless link to a \donor{}. 
 The sets of all BS-nodes and BS-donors are denoted by $\mathcal{N}=\{1,\dots,N\}$ and $ \mathcal{D}=\{N+1,\dots, N+D\}$, respectively.
 The system works in a time-slotted fashion starting from time slot $i=1$ until a finite time horizon $I$. 
@@ -151,10 +149,6 @@ For this reason, we present in Sec. \ref{s:algo} \name{}, a multi-agent learning
 \label{s:algo}
 In this section, we describe \name{}, a multi-agent learning approach for the joint minimization of the average maximum end-to-end latency and its expected tail loss in IAB mmWave networks. 
 In \name{}, each \node{} independently decides which links $(n,l)$ to activate in every time slot $i$ by leveraging a multi-armed bandit formulation. The consensus among the \nodes{} is reached by exploiting the centralized resource coordination and topology management role of \gls{iab}-donors~\cite[Sec. 4.7.1]{3gpp.38.300}. 
-
-\begin{comment}
-For instance, time and frequency resources of the \glspl{du} in the \gls{iab} network can be reserved to particular \node{} by marking them as either \textit{hard} or \textit{unavailable}~\cite[Sec. 10.9]{3gpp.38.300}. Similarly, information regarding the buffer statuses can be retrieved using the related \gls{bap} layer functionality~\cite[Sec. 4.7.3]{3gpp.38.300}.
-\end{comment}
 
 \subsubsection{Multi-Armed Bandit Formulation}
 Multi-armed bandit is a tool well suited to problems in which an agent makes sequential decisions in an unknown environment\cite{Sutton2018}. 
@@ -335,7 +329,7 @@ However, unlike the aforementioned ns-3 module, Sionna is a physical layer-focus
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[scale=0.18]{Figures/Safehaul/Beamforming-2.pdf}
+    \includegraphics[scale=0.28]{Figures/Safehaul/Beamforming-2.pdf}
       \caption{Schematic of the hierarchical beam management procedure. First, the general direction is estimated using wide beams (top). Then, the search is refined using the narrow beams codebook.}
       \label{fig:beamforming}
       \vspace{-5mm}
@@ -369,17 +363,18 @@ in which the transmitter and the receiver approximate the direction of communica
 
 \paragraph{SINR Computations}
 
-Since Sionna does not natively calculate the \gls{sinr}, we add this functionality to the simulator to better model the impact of interference in our simulations. We compute the \gls{sinr} experienced by \glspl{tb} by combining the power of the intended signal with that of the interferers and of the thermal noise. Specifically, we first compute the power $P_{n}(i,f)$ of the intended signal at receiver $n$ over frequency $f$ and in time slot $i$. Then, we obtain the overall interference power by leveraging the superposition principle and summing the received power from all other interfering base stations $P_{m} (i, f)$ where $m \neq n$. For the purposes of this computation, we assume that each interferer employs the beamforming vector yielding the highest \gls{snr} towards its intended destination. Similarly, the transmitter and the receiver use the beamforming configuration estimated via the hierarchical search procedure. Finally, the \gls{sinr} is $
-\label{EQ_CGAN1}
-\gamma_{n} (i, f)= \frac{P_{n}(i,f)}{\sum\limits_{m \neq n} P_{m}(i,f) + \sigma^2(i,f)}
-$
+Since Sionna does not natively calculate the \gls{sinr}, we add this functionality to the simulator to better model the impact of interference in our simulations. We compute the \gls{sinr} experienced by \glspl{tb} by combining the power of the intended signal with that of the interferers and of the thermal noise. Specifically, we first compute the power $P_{n}(i,f)$ of the intended signal at receiver $n$ over frequency $f$ and in time slot $i$. Then, we obtain the overall interference power by leveraging the superposition principle and summing the received power from all other interfering base stations $P_{m} (i, f)$ where $m \neq n$. For the purposes of this computation, we assume that each interferer employs the beamforming vector yielding the highest \gls{snr} towards its intended destination. Similarly, the transmitter and the receiver use the beamforming configuration estimated via the hierarchical search procedure. Finally, the \gls{sinr} is 
+\begin{equation}
+    \label{EQ_CGAN1}
+    \gamma_{n} (i, f)= \frac{P_{n}(i,f)}{\sum\limits_{m \neq n} P_{m}(i,f) + \sigma^2(i,f)} ,
+\end{equation}
 where $\sigma^2(i,f)$ is the thermal noise power at the receiver.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{Figures/Safehaul/simulator_diagram.pdf}
-\label{bigpicture}
+\includegraphics[width=0.85\textwidth]{Figures/Safehaul/simulator_diagram.pdf}
 \caption{Overall design of our Sionna's extension. The red blocks represent our additions to the baseline simulator, i.e., Sionna~\cite{hoydis2022sionna}.}
+\label{fig:simulator_design}
 \end{figure}
 
 As mentioned, Sionna is mainly a physical layer simulator. However, to get closer to \gls{iab} networks as specified in Rel. 17, we have extended Sionna by implementing a selection of system-level features. To such end, we introduced a discrete-event network simulator for modeling \gls{iab} networks. This system-level extension operates on top of Sionna and provides basic functionalities such as a \gls{mac}-level scheduler, layer-2 buffers, and data flow and path selection mechanisms. Our simulator, depicted in Figure~\ref{fig:simulator_design}, generates a variety of system-level KPIs such as latency, throughput, and packet drop rate. 
@@ -406,10 +401,10 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
 \begin{figure}
     \centering
     \subfloat[][Manhattan (223 \nodes{}).]{
-\includegraphics[scale=0.3]{Figures/Safehaul/manhattan_new.pdf}
+\includegraphics[scale=0.45]{Figures/Safehaul/manhattan_new.pdf}
     \label{fig:manhattan}}
     \subfloat[][Padova (100 \nodes{}).]{
-\includegraphics[scale=0.3]{Figures/Safehaul/padova_new.pdf}
+\includegraphics[scale=0.45]{Figures/Safehaul/padova_new.pdf}
     \label{fig:Padova_Map}}
     \caption{Locations of \nodes{} (red dots) and of the \donor{} (green triangle) in the Manhattan (left) and Padova (right) topologies.}
 \end{figure}
@@ -418,15 +413,16 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
 \begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_lat_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S1_lat_vs_time.pdf}
     \label{fig:avgE2EDelay}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_thr_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S1_thr_vs_time.pdf}
     \label{fig:avgTput}
     }
+\hfill
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_drop_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S1_drop_vs_time.pdf}
     \label{fig:avgDropRate}
     }
   
@@ -436,15 +432,16 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
 \begin{figure*}
 \centering
 \subfloat[][Per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_lat.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_lat.pdf}
     \label{fig:avgE2EDelay_s2}
     }
 \subfloat[][Per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_thr.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_thr.pdf}
     \label{fig:avgTput_s2}
     }
+\hfill
 \subfloat[][Per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_drop.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_drop.pdf}
     \label{fig:avgDropRate_s2}
     }
   
@@ -453,9 +450,9 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
   \vspace*{-3mm}
 \end{figure*}
 
-In our simulations, we consider realistic cellular base station deployments in Manhattan, New York City\footnote{The locations correspond to the network of T-Mobile, which has the largest deployment among the \glspl{mno}.} and in the historical city center of Padova. Specifically, for the former we collect the locations of $N=223$ 5G-NR base stations in an area of 15~$\text{Km}^2$ as depicted in Figure~\ref{fig:manhattan}. On the other hand, in the Padova topology we combine locations of $N=100$ 4G-LTE \gls{bs} of different \glspl{mno} (WINDTRE, TIM, and Vodafone) in an area of 10~$\text{Km}^2$ as depicted in Figure~\ref{fig:Padova_Map}, due to the lack of 5G-NR base station deployment at the time of writing of this paper. The detailed simulation parameters are provided in Table \ref{Tab:parameters-safehaul}. We used the channel model outlined by 3GPP in TR 38.901 \cite{3gpp.38.901}, which provides a statistical channel model for 0.5-100 GHz, and analyzed the "Urban Micro (UMi)-StreetCanyon" scenario.
+In our simulations, we consider realistic cellular base station deployments in Manhattan, New York City\footnote{The locations correspond to the network of T-Mobile, which has the largest deployment among the \glspl{mno}.} and in the historical city center of Padova. Specifically, for the former we collect the locations of $N=223$ 5G-NR base stations in an area of 15~$\text{Km}^2$ as depicted in Figure~\ref{fig:manhattan}. On the other hand, in the Padova topology we combine locations of $N=100$ 4G-LTE \gls{bs} of different \glspl{mno} (WINDTRE, TIM, and Vodafone) in an area of 10~$\text{Km}^2$ as depicted in Figure~\ref{fig:Padova_Map}, due to the lack of 5G-NR base station deployment at the time of writing of this thesis. The detailed simulation parameters are provided in Table \ref{Tab:parameters-safehaul}. We used the channel model outlined by 3GPP in TR 38.901 \cite{3gpp.38.901}, which provides a statistical channel model for 0.5-100 GHz, and analyzed the "Urban Micro (UMi)-StreetCanyon" scenario.
 
-\begin{table}[t!]
+\begin{table}[t]
 \caption{Simulation parameters.}
 \centering
 \resizebox{0.8\columnwidth}{!}{\label{Tab:parameters-safehaul}
@@ -464,7 +461,6 @@ In our simulations, we consider realistic cellular base station deployments in M
 \begin{tabular}{l|l}
     \toprule
     Parameter & Value \\ \midrule
-
     Carrier frequency and bandwidth & 28~GHz and 400~MHz \\
 IAB RF chains &   2 (1 access + 1 backhaul) \\
 Pathloss model & UMi-Street Canyon \cite{3gpp.38.901} \\
@@ -516,15 +512,16 @@ Although the benchmark schemes do not support multiple \donors{}, \name{} is des
 \begin{figure*}
 \centering
 \subfloat[][Average per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_lat.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_lat.pdf}
     \label{fig:avgE2EDelay_s3}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_thr.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_thr.pdf}
     \label{fig:avgTput_s3}
     }
+\hfill
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_drop.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_drop.pdf}
     \label{fig:avgDropRate_s3}
     }
   
@@ -549,18 +546,19 @@ The definition of losses in the tail of the latency distribution is controlled b
 The non-monotonic behavior of the average latency versus $\alpha$ can be explained by the so-called exploration-exploitation trade-off: the higher $\alpha$, the higher the level of risk, which in turn leads \name{} to learn more about the environment and choose a more reliable action. Eventually, as $\alpha$ grows beyond approximately $0.7$, the performance of \name{} tends to that of the risk-neutral case. As a consequence, the algorithm undertakes excessive exploration, which causes a degradation of the average latency performance.
 
 
-\begin{figure*}[t!]
+\begin{figure*}[t]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_lat_vs_time_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S1_lat_vs_time_padova.pdf}
     \label{fig:avgE2EDelayPadova}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_thr_vs_time_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S1_thr_vs_time_padova.pdf}
     \label{fig:avgTputPadova}
     }
+\hfill
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S1_drop_vs_time_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S1_drop_vs_time_padova.pdf}
     \label{fig:avgDropRatePadova}
     }
   
@@ -573,15 +571,16 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
 \begin{figure*}
 \centering
 \subfloat[][Per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_lat_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_lat_padova.pdf}
     \label{fig:avgE2EDelay_s2Padova}
     }
 \subfloat[][Per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_thr_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_thr_padova.pdf}
     \label{fig:avgTput_s2Padova}
     }
+\hfill
 \subfloat[][Per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S2_drop_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_drop_padova.pdf}
     \label{fig:avgDropRate_s2Padova}
     }
   
@@ -593,15 +592,16 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
 \begin{figure*}
 \centering
 \subfloat[][Average per-UE end-to-end Latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_lat_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_lat_padova.pdf}
     \label{fig:avgE2EDelay_s3Padova}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_thr_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_thr_padova.pdf}
     \label{fig:avgTput_s3Padova}
     }
+\hfill
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S3_drop_padova.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_drop_padova.pdf}
     \label{fig:avgDropRate_s3Padova}
     }
   
@@ -633,15 +633,16 @@ To prevent and/or recover from these undesired events, a backhaul scheduler must
 \begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S6_lat_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S6_lat_vs_time.pdf}
     \label{fig:avgE2EDelay_Re}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S6_thr_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S6_thr_vs_time.pdf}
     \label{fig:avgTput_Re}
     }
+\hfill
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S6_drop_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S6_drop_vs_time.pdf}
     \label{fig:avgDropRate_Re}
     }
   
@@ -653,15 +654,16 @@ To prevent and/or recover from these undesired events, a backhaul scheduler must
 \begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S7_lat_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S7_lat_vs_time.pdf}
     \label{fig:avgE2EDelay_Re2}
     }
 \subfloat[][Average per-UE throughput]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S7_thr_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S7_thr_vs_time.pdf}
     \label{fig:avgTput_Re2}
     }
+\hfill
 \subfloat[][Average per-UE packet drop rate]{
-    \includegraphics[width=.25\linewidth]{Figures/Safehaul/S7_drop_vs_time.pdf}
+    \includegraphics[width=.45\linewidth]{Figures/Safehaul/S7_drop_vs_time.pdf}
     \label{fig:avgDropRate_Re2}
     }
   
@@ -689,13 +691,6 @@ In fact, the 3GPP does not impose any limits on the number of \gls{iab}-nodes wh
 
 \textbf{Optimization goals.} The works in the literature focus on different optimization goals. Therefore, they prioritize different network metrics. For instance, the authors of~\cite{hur2013millimeter} aim to optimize the beam alignment between \glspl{mbs} and \glspl{sbs}. Instead, the work of~\cite{alizadeh2019load} aims to compute the optimal user-to-base-station association. However, they neglect backhaul associations and focus on the access only. In~\cite{kwon2019joint, alizadeh2019load, zhu2016qos, yuan2018optimal} the objective function is a function of the users data-rate. In particular, the authors of~\cite{yuan2018optimal} optimize the max-min user throughput, arguing that such a metric better captures the performance of the bottleneck links. In~\cite{vu2018path}, the average rate of each link is maximized under bounded delay constraints. In our work, we focus on reliability by minimizing not only the average end-to-end delay, but also the expected value of the worst-case performance.
 The work closest to this article is SCAROS~\cite{ortiz2019scaros},  a learning-based latency-aware scheme for resource allocation and path selection in self-backhauled networks. Assuming a single IAB-donor, the authors study arbitrary multi-tier \gls{iab} networks considering the impact of interference and network dynamics. In contrast, we aim at enhancing the reliability of the IAB-network by jointly minimizing the average end-to-end delay and its expected tail loss. 
-
-\subsection{Conclusion}
-\label{s:conclusion}
-In this work, we proposed the first reliability-focused scheduling and path selection algorithm for \gls{iab} mmWave networks. We illustrated that our \gls{rl}-based solution can cope with the network dynamics including channel, interference, and load.  Furthermore, we demonstrated that \name{} not only  exhibits highly reliable performance in the presence of the above-mentioned network dynamics, but also outperforms the benchmark schemes in terms of throughput, latency and packet-drop rate. The reliability of \name{} stems from the joint minimization of the average latency, and the expected value of its tail losses, by leveraging \gls{cvar} as a risk metric.
-
-Reliability is a highly under-explored topic that definitely deserves more investigation. Some interesting research directions are the maximization of reliability under the assumption of statistical system knowledge, or the evaluation of the network's reliability when the functionality of the \gls{bap} layer is compromised.
-Furthermore, our system-level extension to Sionna can be further developed to support an arbitrary number of RF chains and in-band backhauling, allowing more extensive investigation of IAB protocols and architectures.
 
 \subsection*{Appendix}
 \label{sec:appendix}

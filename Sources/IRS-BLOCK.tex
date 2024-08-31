@@ -120,24 +120,6 @@ In any case, a constraint on the number of reconfigurations (and relative period
 The limitation on the number of \gls{irs} reconfigurations in a given time frame has been initially studied in \cite{mu2021capacity}, where the authors evaluate the capacity of both \gls{oma} and \gls{noma} schemes of a 2-user \gls{irs}-assisted \gls{siso} system under Rayleigh fading conditions. Still, additional research efforts is required to fully characterize the impact of IRS reconfigurations constraints on the network.
 
 \subsection{Contributions}
-\begin{comment}
-In this paper, we propose a \gls{tdma} scheduling policy for downlink cellular transmissions based on clustering algorithms, to maximize the sum capacity in \gls{irs}-assisted network deployments with practical constraints.
-Notably, we assume a fixed maximum number of \gls{irs} reconfigurations within a time frame and aim at optimizing both the reconfiguration time and the resulting \gls{irs} configuration(s).
-The limit on the number of reconfigurations sets a simple constraint on the overhead entailed by the control of the \gls{irs}. 
-Our contributions can be summarized as follows.
-First, we formalize an optimization problem to determine the optimal \gls{irs} configuration(s) to maximize the sum capacity. Specifically, we partition the \glspl{ue} into disjoint groups, and propose an algorithm that iteratively optimizes the \gls{irs} configuration for each group, as well as the relative beamformers to be used for transmission.
-Secondly, we convert the sum capacity problem into a clustering problem to determine the optimal set of groups, or clusters, for the \glspl{ue} based on their channel characteristics. 
-Accordingly, we design clustering algorithms for the \glspl{ue}, such that all \glspl{ue} in the same cluster will adopt the same \gls{irs} configuration. The goal is to minimize the capacity loss associated with a suboptimal \gls{irs} configuration for each \gls{ue} in the cluster, for promoting communication efficiency and reducing the overhead.
-We investigate two clustering techniques: 
-\begin{enumerate*}[label=(\textit{\roman*})]
-\item distance-based clustering, which adjusts the cluster configuration based on the distance with the optimal \gls{irs} configuration of each \gls{ue} in the cluster;
-\item capacity-based clustering, which adjusts the cluster configuration to maximize the sum capacity and/or the user fairness.
- Specifically, we propose three clustering algorithms. The first, named \gls{cwc}, iteratively adjusts the clusters' centroids weighting the points in each cluster by the capacity achieved by each \gls{ue} in the cluster, therefore favoring the best users and maximizing the sum capacity. The second, named \gls{oscbc}, is a low-complexity approach where the centroids are simply the optimal configurations of the \glspl{ue} experiencing the highest \gls{snr} in each cluster, without considering the impact of the remaining \glspl{ue}.  Finally, \gls{icwc} promotes fairness among the \glspl{ue} by weighting the points in the clusters by the inverse of the \glspl{ue}' achievable rate.
- \end{enumerate*}
-
-Moreover, we compare via simulation the performance of the distance- and capacity-based clustering in different \gls{irs}-assisted scenarios.
-Extensive numerical results show that there exists a trade-off between the achievable sum capacity and fairness, even though capacity-based clustering techniques can guarantee satisfactory performance, despite some reconfiguration constraints. Also, we demonstrate that scheduling based on clustering can reduce by 50\% the number of \gls{irs} reconfigurations, thus promoting communication efficiency, in view of minor degradation in terms of sum capacity. 
-\end{comment}
  % MP: Trimmed
 In this paper, we propose a \gls{tdma} scheduling policy for downlink cellular transmissions based on clustering algorithms, to maximize the sum capacity in \gls{irs}-assisted network deployments with practical constraints.
 Our main contributions are summarized as follows:

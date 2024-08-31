@@ -87,7 +87,7 @@ The spectrum above 100 GHz has several sub-bands that could provide bandwidths w
 
 In recent years, the literature has closed several gaps in terms of circuit, antenna design~\cite{singh2020design} and physical and \gls{mac} layer solutions for sub-terahertz systems~\cite{ghafoor2020mac}.
 %
-When it comes to \gls{iab} with mixed sub-terahertz and \gls{mmwave} links,\footnote{In this paper, we consider the FR2 range of 3GPP NR (24.25 GHz to 71 GHz) as \glspl{mmwave}.} however, there are still several open questions in terms of network design and path selection. In this paper, we consider the problem of identifying a viable topology between \gls{iab} nodes and the \gls{iab} donors, including the carrier frequency of the backhaul links, and profile the performance that network planners can expect when mixing sub-terahertz and \gls{mmwave} \gls{iab} links.
+When it comes to \gls{iab} with mixed sub-terahertz and \gls{mmwave} links,\footnote{In this section, we consider the FR2 range of 3GPP NR (24.25 GHz to 71 GHz) as \glspl{mmwave}.} however, there are still several open questions in terms of network design and path selection. In this work, we consider the problem of identifying a viable topology between \gls{iab} nodes and the \gls{iab} donors, including the carrier frequency of the backhaul links, and profile the performance that network planners can expect when mixing sub-terahertz and \gls{mmwave} \gls{iab} links.
 
 To this end, 
 %
@@ -95,21 +95,14 @@ we develop a greedy path generation algorithm that automatically selects the fre
 
 We model the \gls{iab} network in a custom-developed \gls{3gpp} Release 17 simulator based on the open-source tool Sionna~\cite{hoydis2022sionna}, with \gls{3gpp} and state-of-the-art \gls{mmwave} and sub-terahertz channel models, and realistic and detailed \gls{3gpp}-based physical and \gls{mac} layers. Our results quantify for the first time the performance improvement that sub-terahertz links can introduce in \gls{iab} networks, which can push beyond the limits of the in-band \gls{mmwave} backhaul and support more than 50 users with 120 Mbps streams and a single donor without congestion (compared to about 33 Mbps for in-band \glspl{mmwave}). 
 
-This is the first paper that provides a numerical evaluation of the potential associated with sub-terahertz links for \gls{iab}. Notably, \cite{9135258} evaluates the sub-\gls{thz} potential in backhaul networks from a physical layer perspective. This research demonstrates that sub-THz spectrum links can achieve multi-Gbps ratios in outdoor backhaul scenarios. \cite{9163026} proposed \gls{uav}-assisted backhaul solution to improve network coverage and data rate in heterogeneous networks with multiple tiers composed of sub-6 GHz, THz and \gls{uav} layers. In addition, the authors of \cite{9136652} successfully adopted concurrent scheduling to increase system throughput in dense THz backhaul scheduling. Finally,~\cite{saha2018integrated} considers a multi-band \gls{iab} deployment, but with a bandwidth that is more limited than those considered in future 6G scenarios. 
+This is the first work that provides a numerical evaluation of the potential associated with sub-terahertz links for \gls{iab}. Notably, \cite{9135258} evaluates the sub-\gls{thz} potential in backhaul networks from a physical layer perspective. This research demonstrates that sub-THz spectrum links can achieve multi-Gbps ratios in outdoor backhaul scenarios. \cite{9163026} proposed \gls{uav}-assisted backhaul solution to improve network coverage and data rate in heterogeneous networks with multiple tiers composed of sub-6 GHz, THz and \gls{uav} layers. In addition, the authors of \cite{9136652} successfully adopted concurrent scheduling to increase system throughput in dense THz backhaul scheduling. Finally,~\cite{saha2018integrated} considers a multi-band \gls{iab} deployment, but with a bandwidth that is more limited than those considered in future 6G scenarios. 
 
-The rest of the paper is organized as follows. Sec.~\ref{sec:system} introduces the system model. Sec.~\ref{sub:THzLinkSel} describes the algorithm for frequency and path selection, which is then numerically evaluated in Sec.~\ref{sec:PerfEval}. Finally, Sec.~\ref{sec:concl} concludes the paper. 
+The rest of the section is organized as follows. Sec.~\ref{sec:system} introduces the system model. Sec.~\ref{sub:THzLinkSel} describes the algorithm for frequency and path selection, which is then numerically evaluated in Sec.~\ref{sec:PerfEval}.
 
 
 % \hl{Matteo: Rename this ?}
 \subsection{System Model}
 \label{sec:system}
-
-% \subsection{System Model}
-\begin{comment} % Rephrased to mention uplink only
-We consider an \gls{iab} \gls{tdma} system in which a single \gls{iab} donor, featuring a fiber connectivity towards the \gls{cn} and the Internet, provides wireless backahuling functionality to $N_{\mathrm{I}}$ \gls{iab} nodes. On the access side, $N_{\mathrm{U}}$ \glspl{ue} %that are uniformly distributed in the coverage area 
-exchange data with the \gls{iab} donor. %In line with the 3GPP specifications, 
-The IAB nodes can be either connected to the latter, or to neighboring base stations thus possibly realizing a multi-hop wireless backhaul. 
-\end{comment}
 
 We consider a \gls{tdma} system in which a single \gls{iab} donor, featuring a fiber connectivity towards the \gls{cn} and the Internet, exchanges data with $N_{\mathrm{U}}$ \glspl{ue}. Without loss of generality, we consider uplink traffic only.
 To achieve uniform coverage, the donor is aided by $N_{\mathrm{I}}$ \gls{iab} nodes, which can be connected either to the former or to neighboring base stations, thus possibly realizing a multi-hop wireless backhaul. 
@@ -243,7 +236,7 @@ Specifically, we first describe the pre-processing steps, referred to as \textit
 % , links must be scheduled for each time step.
 % MP explain why [done]
 
-\begin{algorithm}[b]
+\begin{algorithm}[t]
 \small
 	\caption{Distance Aware Path Generation} 
 	\begin{algorithmic}
@@ -358,7 +351,7 @@ by choosing a list of paths to be activated in each subframe. The rationale behi
 \end{algorithm}
 
 
-\begin{algorithm}
+\begin{algorithm}[t]
 \small
 	\caption{\gls{sinr}-based Scheduler} 
 	\begin{algorithmic}
@@ -442,8 +435,8 @@ We consider a scenario with a single donor to focus on the issues related to the
 
 \begin{figure}
     \centering
-    \setlength\fwidth{0.6\columnwidth}
-    \setlength\fheight{0.5\columnwidth}
+    \setlength\fwidth{0.5\columnwidth}
+    \setlength\fheight{0.45\columnwidth}
     \input{Figures/IabThzLinks/IABlocations.tex}
     %     \setlength\abovecaptionskip{0cm}
     % \setlength\belowcaptionskip{-.3cm}
@@ -496,8 +489,6 @@ We consider a scenario with a single donor to focus on the issues related to the
 \subsubsection{Results}
 \label{sub:results-iab-thz}
 
-% MP I think the main problem with this section is that the results are somewhat obvious - you increase the bandwidth and your throughput increases. The results would be less obvious if you find ways of connecting them to specific choices you take in the three algorithms + what I was saying the other day, this becomes more interesting if you show that you make a good and efficient use of your resources (rather than simply adding more resources). If I were a reviewer, this would probably be my main criticism of the paper.
-
 In this section we report the outcomes of our numerical evaluation, focusing on end-to-end metrics measured at the IAB donor. We compare the performance achieved by different backhaul configurations, i.e., different maximum ratios of THz links and bandwidth, in terms of throughput, latency and packet drop ratio. We consider two baselines: \textit{Random Scheduler (RS)} and \textit{Random Links (RL)}. The former uses Alg.~\ref{algo:thzLink} and chooses at random a feasible set of active links during each subframe. On the contrary, RL randomly picks which links to set as \gls{thz}, and uses Alg.~\ref{algo:sinr} for scheduling. 10 simulations per configuration are executed, to obtain estimates which are averaged over the realizations of the wireless channels.
 % MP how many simulations? Where do the randomness come from (channel instances, traffic generation, noise)? [done]
 
@@ -507,8 +498,8 @@ Moreover, Alg.~\ref{algo:thzLink} introduces an additional throughput increase o
 %MPag: Figures/IabThzLinks are kind of hard to read, probably adding a RORS baseline would make sense as well..
 \begin{figure}
     \centering
-    \setlength\fwidth{0.8\columnwidth}
-    \setlength\fheight{0.7\columnwidth}
+    \setlength\fwidth{0.55\columnwidth}
+    \setlength\fheight{0.35\columnwidth}
     \input{Figures/IabThzLinks/Random_scheduler.tex}
     %     \setlength\abovecaptionskip{0cm}
     % \setlength\belowcaptionskip{-.3cm}
@@ -518,15 +509,10 @@ Moreover, Alg.~\ref{algo:thzLink} introduces an additional throughput increase o
 
 Fig.~\ref{fig:Throughput} illustrates the \gls{ue} throughput for various configurations of sub-\gls{thz} backhauling links and different UE source rates. 
 The performance always improves by adding more bandwidth to the system through sub-THz links, despite the harsher propagation environment at higher frequencies.
-% With a slightly greater throughput in \gls{thz} cases versus \gls{mmwave}, the performance for five configurations at the lower source rates (20 Mbps) is similar.
-% The performance differences between \gls{mmwave} and \gls{thz} included links are significant when the source rate is increased to 40, 80, and in particular the 200 Mbps. 
+
 The performance gap increases with the user source rate. Indeed, 
 \glspl{mmwave} successfully sustain a source system rate of 1 Gbps (20 Mbps for 50 UE), 
-%
-% MP why is this the desired rate? [done]
-%
 but cannot match higher source rates, as the capacity saturates.
-% and the throughput does not match the source rate. 
 The configuration with sub-THz links achieves a higher throughput in all scenarios and in particular for $\rho_{max} = 0.3$, 32 GHz achieves the highest throughput for all source rates. It is obvious that increasing the bandwidth improves the performance; nevertheless, increasing the percentage of the \gls{thz} links from $\rho_{max} = 0.1$ to $\rho_{max} = 0.3$ has a more significant impact on throughput. 
 % MP well this is also increasing the system bandwidth! [not]
 This may be explained by considering the effects of replacing bottleneck backhauling mmWave links with \gls{thz} links with higher bandwidth.
@@ -535,8 +521,8 @@ This may be explained by considering the effects of replacing bottleneck backhau
 
 \begin{figure}
     \centering
-    \setlength\fwidth{0.8\columnwidth}
-    \setlength\fheight{0.7\columnwidth}
+    \setlength\fwidth{0.55\columnwidth}
+    \setlength\fheight{0.35\columnwidth}
     \input{Figures/IabThzLinks/S2_thr_bar.tex}
     %     \setlength\abovecaptionskip{0cm}
     % \setlength\belowcaptionskip{-.3cm}
@@ -551,8 +537,8 @@ The highest and lowest packet drop percentages across all \gls{ue} source rates 
 
 \begin{figure}
     \centering
-    \setlength\fwidth{0.8\columnwidth}
-    \setlength\fheight{0.7\columnwidth}
+    \setlength\fwidth{0.55\columnwidth}
+    \setlength\fheight{0.35\columnwidth}
     \input{Figures/IabThzLinks/S2_drop_bar}
     %     \setlength\abovecaptionskip{0cm}
     % \setlength\belowcaptionskip{-.3cm}
@@ -562,26 +548,19 @@ The highest and lowest packet drop percentages across all \gls{ue} source rates 
 
 Fig.~\ref{fig:Latency} depicts the \gls{ecdf} of the \gls{e2e} latency experienced by packets which reach the donor, for different bachkaul configurations. Accordingly, both latencies accumulated over the fronthaul and backhaul links are taken into account, from the time packets are generated at the \gls{ue} until they eventually reach the \gls{iab} donor. The plot shows that packet latency decreases as more sub-THz links are added to the network. In accordance with the aforementioned observations (Fig.~\ref{fig:Throughput} and Fig.~\ref{fig:packetDrop}), $\rho_{max} = 0.3$, 32 GHz has the lowest latency, whereas \gls{mmwave} has the highest latency. The average latency for $\rho_{max} = 0.3$, 32 GHz, $\rho_{max} = 0.3$, 10 GHz, $\rho_{max} = 0.1$, 32 GHz, and $\rho_{max} = 0.1$, 10 GHz is approximately 51\%, 24\%, 24\%, and 18\% less than in \gls{mmwave}.
 
-% \begin{comment}
 \begin{figure}
     \centering
-    \setlength\fwidth{0.8\columnwidth}
-    \setlength\fheight{0.7\columnwidth}
+    \setlength\fwidth{0.55\columnwidth}
+    \setlength\fheight{0.35\columnwidth}
     \input{Figures/IabThzLinks/lat_cdf.tex}
     %     \setlength\abovecaptionskip{0cm}
     % \setlength\belowcaptionskip{-.3cm}
     \caption{\Gls{e2e} latency \gls{ecdf} for different configurations for 80 Mbps user rate.}
-        % MP what source rate? [done]
-        % MP this is incredibly low. For example, look at the scenario figure, the node at the top left has about 6 hops to get to the donor. This means less than 2 ms per hop in some cases, how do you relay so quickly? each time step is 1ms [each packet can reaches in time step i and if resources is exist transmit in time steo i+1]. 6 hops is maximum and the most of the delays greater than 20 ms is based on that, just notice that if packet exists more than 50 ms we droped it.  [done]
     \label{fig:Latency}
 \end{figure}
-% \end{comment}
 
-% Finally, to understand the impact of the \gls{thz} link ratio per source rate, it is essential to analyze the backhauling performance as a function of the system throughput. 
 Finally, the average system throughput for different ratios $\rho_{max}$ of \gls{thz} link is shown in Fig.~\ref{fig:THZtotal}.
-% Our analysis demonstrates that 
 The system throughput increases with the inclusion of additional \gls{thz} links. 
-% It is obvious that the maximum increase in throughput for all source speeds varies from $\rho_{max} = 0.0$ to $\rho_{max} = 0.1$ of the \gls{thz} link ratio. 
 The figure also shows that system source rates of 2 Gbps, 4 Gbps, and 10 Gbps can be satisfied by a single donor when $\rho_{max}$ is properly set.
 %
 % converge to maximum source rates in the entire presence of \gls{thz} links, 
@@ -591,8 +570,8 @@ $\rho_{max} = 0.1$ and $1$ can increase the system throughput by up to four time
 
 \begin{figure}
     \centering
-    \setlength\fwidth{0.8\columnwidth}
-    \setlength\fheight{0.7\columnwidth}
+    \setlength\fwidth{0.55\columnwidth}
+    \setlength\fheight{0.35\columnwidth}
     \input{Figures/IabThzLinks/thz_per.tex}
     %     \setlength\abovecaptionskip{0cm}
     % \setlength\belowcaptionskip{-.3cm}
@@ -601,16 +580,36 @@ $\rho_{max} = 0.1$ and $1$ can increase the system throughput by up to four time
 \end{figure}
 
 
-\subsection{Conclusions and Future Work}
-\label{sec:concl}
+\section{Conclusions and Future Work}
+\label{sec:concl-iab}
+
+%%%%%%%%%
+%% RES MAN
+%%%%%%%%
+
+In this paper we proposed a semi-centralized resource partitioning scheme for \gls{5g} and beyond \gls{iab} networks, coupled with a set of allocation policies. We showed that the introduction of this light resource allocation cooperation dramatically improves the end-to-end throughput and delay achieved by the system already, preventing (or at the very least limiting) the insurgence of network congestion on the backhaul links. Specifically, the \gls{mrba} policy exhibits the most promising results, offering up to a 3-fold increase in the worst-case throughput and approximately a 30\% smaller worst-case latency, compared to the distributed scheduler. On the other hand, the effectiveness of the \gls{ba} and \gls{msr} policies varies quite significantly across the specific system configuration and inspected metric. %Nevertheless, better than SoA
+
+We provided considerations on the implementation of a semi-centralized resource allocation controller in real world deployments. In particular, we acknowledged that the proposed scheme relies on the assumption of \gls{iab}-nodes being capable of exchanging timely feedback information with the \gls{iab}-donor. Even though the amount of signaling data which the proposed solution requires is quite low, and its performance is quite robust with respect to an increase of the central allocation period, we argue that this remains a significant constraint. Moreover, such drawback is exacerbated by the unfavorable \glspl{mmwave} propagation characteristics.
+As a consequence, we deem that solutions involving a central controller, which rely on timely exchange of control information with the \gls{iab}-donor, are likely to require dedicated control channels, possibly at sub-6~{GHz}, in order to grant the utmost priority and reliability to the feedback information. Therefore, we can conclude that the aforementioned framework can bring dramatic performance benefits to \gls{iab} networks, although its introduction in \gls{5g} and beyond deployments requires additional research efforts.
+
+For this reason, as part of our future work we plan to design machine-learning algorithms which predict the network evolution at the \gls{iab}-donor. This improvement will allow us to relax the timely feedback assumption, by increasing the minimum semi-centralized allocation period which leads to performance benefits over distributed strategies. 
+Moreover, we foresee to implement mechanisms which adapt the parameters of the \gls{mrba} policy to the system load and configuration, and additional resource partitioning strategies. 
+Finally, the generalization of the proposed framework to \gls{sdma} systems will be studied. 
+The use of such multiple access scheme should significantly improve the performance of \gls{mmwave} wireless backhauling by introducing the possibility of concurrently serving multiple terminals, provided that they exhibit a sufficient distance among them.
+
+%%%%%%%%%%
+%% SAFEHAUL
+%%%%%%%%%
+
+In this work, we proposed the first reliability-focused scheduling and path selection algorithm for \gls{iab} mmWave networks. We illustrated that our \gls{rl}-based solution can cope with the network dynamics including channel, interference, and load.  Furthermore, we demonstrated that \name{} not only  exhibits highly reliable performance in the presence of the above-mentioned network dynamics, but also outperforms the benchmark schemes in terms of throughput, latency and packet-drop rate. The reliability of \name{} stems from the joint minimization of the average latency, and the expected value of its tail losses, by leveraging \gls{cvar} as a risk metric.
+
+Reliability is a highly under-explored topic that definitely deserves more investigation. Some interesting research directions are the maximization of reliability under the assumption of statistical system knowledge, or the evaluation of the network's reliability when the functionality of the \gls{bap} layer is compromised.
+Furthermore, our system-level extension to Sionna can be further developed to support an arbitrary number of RF chains and in-band backhauling, allowing more extensive investigation of IAB protocols and architectures.
+
+%%%%%%%%
+%%% WONS
+%%%%%%%%%
+
+
 This paper provides the first performance evaluation of the possibilities of sub-terahertz frequencies for 6G IAB using a customized extension of the open-source Sionna simulator. This permits the use of greedy algorithms to evaluate the deployment of mixed mmWave and sub-terahertz links to boost the backhaul network's capacity.
 We will broaden the analysis of the network performance to cover a broader range of source traffic patterns, scenarios (including multi-donor instances, deployments with lower node density, or more realistic map-based scenarios as in~\cite{gemmi2023on,gemmi2022on}), and protocol stack implementations as future work.
-
-% \section{acknowledgement}
-% This research supported by the European Commission through Grant No. 861222 (H2020 ITN MINTS project).
-
-
-% \bibliographystyle{IEEEtran}
-% \bibliography{IEEEabrv, bibl}
-
-% \end{document}
