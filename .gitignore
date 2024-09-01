@@ -24,7 +24,7 @@
 *.swp
 *.synctex.gz
 *.toc
-
+*.glsdefs
 *.run.xml
 *-blx.bib
 
