@@ -85,12 +85,13 @@
 \chapter{Downlink Clustering-Based Scheduling of IRS-Assisted Communications With Reconfiguration Constraints}
 \label{sec:introduction}
 
-The ever-increasing growth of mobile traffic has called both academia and industry to identify and develop solutions for extending the radio spectrum beyond the crowded sub-6 GHz bands. As a result, the use of \gls{mmwave} band for cellular communications has been included in the latest releases of the \gls{3gpp}  standard, namely \gls{5g} New Radio (NR)~\cite{3gpp.38.104}. Moreover, \gls{thz} frequencies are being investigated as enablers for \gls{6g} networks as well~\cite{tariq2020speculative}.
+%The ever-increasing growth of mobile traffic has called both academia and industry to identify and develop solutions for extending the radio spectrum beyond the crowded sub-6 GHz bands. As a result, the use of \gls{mmwave} band for cellular communications has been included in the latest releases of the \gls{3gpp}  standard, namely \gls{5g} New Radio (NR)~\cite{3gpp.38.104}. Moreover, \gls{thz} frequencies are being investigated as enablers for \gls{6g} networks as well~\cite{tariq2020speculative}.
 
-However, transmissions in the \gls{mmwave} and \gls{thz} bands are subject to challenging propagation conditions, mainly due to severe path loss and susceptibility to blockages~\cite{rangan2017potentials}.
-To mitigate these limitations, the research community has explored solutions to improve network coverage, for example using \gls{iab} nodes, as also approved by the \gls{3gpp} as part of \gls{5g} \gls{nr} specifications for Rel-16~\cite{3gpp.38.174}.
-In particular, \gls{iab} allows base stations, or \glspl{gnb} in 5G NR parlance, to establish wireless (rather than traditional fiber-like) backhaul links, possibly through multiple hops,  to a donor, thus reducing deployment costs~\cite{polese2020integrated}. Still, \gls{iab} involves complex signal processing and saturation of the available resources and may be costly and energy-consuming for network operators.
+%However, transmissions in the \gls{mmwave} and \gls{thz} bands are subject to challenging propagation conditions, mainly due to severe path loss and susceptibility to blockages~\cite{rangan2017potentials}.
+%To mitigate these limitations, the research community has explored solutions to improve network coverage, for example using \gls{iab} nodes, as also approved by the \gls{3gpp} as part of \gls{5g} \gls{nr} specifications for Rel-16~\cite{3gpp.38.174}.
+%In particular, \gls{iab} allows base stations, or \glspl{gnb} in 5G NR parlance, to establish wireless (rather than traditional fiber-like) backhaul links, possibly through multiple hops, to a donor, thus reducing deployment costs~\cite{polese2020integrated}. 
 
+Despite the potential of \gls{iab} for improving network coverage, and its lower cost compared to wired-backhaul deployments, the former involves complex signal processing and saturation of the available resources, and may still be too costly and energy-consuming for network operators.
 In light of this, \glspl{irs} are being investigated as solutions to overcome the harsh propagation conditions shown by \gls{mmwave} and \gls{thz} bands in a cost- and energy-efficient manner~\cite{flamini2022towards}. 
 \glspl{irs} are meta-surfaces, whose radiating elements can \emph{passively} tune the phase shift of impinging signals to favorably alter an electromagnetic field towards an intended destination. They can be configured to beamform the reflected signal virtually in any direction, hence acting as a relay to improve the signal quality without an active (power-consuming) amplification~\cite{bjornson2019intelligent}. 
 
@@ -111,7 +112,7 @@ Finally, \glspl{irs} with energy harvesting capabilities are considered in~\cite
 
 Still, most of the literature poses little to no reconfiguration constraints for the IRS.
 However, early \gls{irs} control circuitry prototypes, which have low power consumption (i.e., a few hundreds of mW), have a non-negligible phase-shifts reconfiguration time \cite{mu2021capacity, ETSIGRRIS003}, thus posing additional constraints in the system design. For example, the prototypes in \cite{rossanese2022designing} and \cite{alexandropoulos2023ris} have a reconfiguration time of a few tens of ms, even though architectures based on \gls{fpga} such as in \cite{yezhen2020novel} promise to achieve much lower configuration times, i.e., in the order of tens of microseconds.
-Still, the overhead (in terms of time)  increases as the number of IRS elements increases, as investigated in \cite{jamali2022low, nadeem2020asymptotic, Qian22joint}. 
+Still, the overhead (in terms of time) increases as the number of IRS elements increases, as investigated in \cite{jamali2022low, nadeem2020asymptotic, Qian22joint}. 
 In any case, a constraint on the number of reconfigurations (and relative period) is desirable to ensure system synchronization and minimize the IRS downtime during reconfiguration. In this regard, it is of interest to 
 \begin{enumerate*}[label=(\textit{\roman*})]
   \item investigate the level of performance degradation experienced by \gls{irs}-assisted systems when considering practical constraints, including limitations in the number of reconfigurations, and
@@ -121,7 +122,7 @@ The limitation on the number of \gls{irs} reconfigurations in a given time frame
 
 \subsection{Contributions}
  % MP: Trimmed
-In this paper, we propose a \gls{tdma} scheduling policy for downlink cellular transmissions based on clustering algorithms, to maximize the sum capacity in \gls{irs}-assisted network deployments with practical constraints.
+In this chapter, we propose a \gls{tdma} scheduling policy for downlink cellular transmissions based on clustering algorithms, to maximize the sum capacity in \gls{irs}-assisted network deployments with practical constraints.
 Our main contributions are summarized as follows:
 \begin{itemize}%[label=(\textit{\roman*})]
     \item We account for practical \gls{irs} limitations by considering a fixed maximum number of reconfigurations of IRS reflecting elements within a time frame, thus setting a simple constraint on the overhead entailed by the control of the \gls{irs}.
@@ -144,7 +145,7 @@ our work focuses on optimizing user scheduling in conjunction with \gls{irs} con
 \item %With respect to \cite{mu2021capacity}, the authors consider a scenario with single-antenna \glspl{gnb} and \glspl{ue}. 
 %Moreover, their \gls{irs} model differs significantly from ours, as the \gls{irs} panel is divided into equal-size sub-surfaces, which are configured individually. 
 While \cite{mu2021capacity} characterizes the capacity region for %both \gls{oma} and \gls{noma} strategies with 
-$K>1$ \glspl{ue}, the computational complexity of the proposed scheme limits its applicability to $K=2$ \glspl{ue}. In contrast, our solution supports more realistic scenarios,  where $K \gg 1$.
+$K>1$ \glspl{ue}, the computational complexity of the proposed scheme limits its applicability to $K=2$ \glspl{ue}. In contrast, our solution supports more realistic scenarios, where $K \gg 1$.
 %\item In \cite{jamali2022low}, the \gls{irs} optimization is performed to constantly guarantee a minimum \gls{snr} requirement at a single \gls{ue} moving with constant speed within the blockage area of the cell. This method, which is based on the \gls{ue} positioning and mobility model, reduces the overhead required for \gls{irs} reconfiguration in the single-\gls{ue} context. Our work, on the other hand, optimizes \gls{irs} configurations for data transmissions to subsets of \glspl{ue} in a multi-user scenario.
 \item The authors of \cite{jamali2022low} use the position estimate of a moving \gls{ue} to minimize the \gls{irs} reconfiguration overhead while guaranteeing a minimum \gls{snr} in the single-\gls{ue} context. In our work, on the other hand, 
 we consider a multi-user scenario and reduce the number of \gls{irs} configurations by clustering \glspl{ue} in the \gls{csi} domain.
@@ -152,7 +153,7 @@ we consider a multi-user scenario and reduce the number of \gls{irs} configurati
 These fundamental differences in system setup and assumptions prevent a meaningful simulation-based comparison.
 
 \subsection{Organization and Notation}
-The rest of the paper is organized as follows. In Section \ref{sec:system_model}, we introduce the system model. In Section~\ref{sec:sumcapoptimization}, we present the sum capacity optimization problem. In Section \ref{sec:optimization}, we describe the scheduling framework, while in Sections \ref{sec:dist_based} and \ref{sec:cap_based} we present distance-based and capacity-based clustering algorithms, respectively. In Section~\ref{sec:numerical_results}, we show numerical results and compare the different scheduling and clustering solutions. Finally, Section~\ref{sec:conclusions} draws the main conclusions.
+The rest of the chapter is organized as follows. In Section \ref{sec:system_model_irs_tdma}, we introduce the system model. In Section~\ref{sec:sumcapoptimization}, we present the sum capacity optimization problem. In Section \ref{sec:optimization}, we describe the scheduling framework, while in Sections \ref{sec:dist_based} and \ref{sec:cap_based} we present distance-based and capacity-based clustering algorithms, respectively. In Section~\ref{sec:numerical_results}, we show numerical results and compare the different scheduling and clustering solutions. Finally, Section~\ref{sec:conclusions} draws the main conclusions.
 
 Scalars are denoted by italic letters; vectors and matrices by boldface lowercase and uppercase letters, respectively; sets are denoted by calligraphic uppercase letters.
 $\diag(\bm{a})$ indicates a square diagonal matrix with the elements of $\bm{a}$ on the principal diagonal, and $\vect(\bm{A})$ denotes the vectorization operator, staking the columns of matrix $\bm{A}$ into a column vector. 
@@ -164,7 +165,7 @@ Finally, $\mathbb{E}[\cdot]$ denotes statistical expectation.
 
 
 \section{System Model}
-\label{sec:system_model}
+\label{sec:system_model_irs_tdma}
 
 \begin{figure}[t]
     \centering
@@ -194,7 +195,7 @@ Let $x_k$ be the single-stream signal transmitted by the \gls{gnb} to \gls{ue} $
     z_k = \bm{v}_k^{\mathrm T} \bm{G}_k \bm{\Phi} \bm{H}  \bm{w}_kx_k + \bm{v}_k^{\mathrm T} \bm{n}_{k},
 \end{equation}
 where $\bm{n}_k\in \mathbb{C}^{N_{\mathrm U}\times 1}$ represents the circularly symmetric complex Gaussian noise vector with entries having zero mean and variance $\sigma^2_{n}$, while $\bm{\Phi} \in \mathbb{C}^{N_{\mathrm I}\times N_{\mathrm I}}$ is the {\gls{irs} configuration}, i.e., a diagonal matrix defined as $\bm{\Phi} = \diag(\phi_1,\ldots,\phi_{N_{\mathrm I}})$.
-Note that different, and specific, \gls{irs} configurations can be adopted for different \glspl{ue}. Accordingly, in the rest of the paper we let $\bm{\Phi}_k$ be the \gls{irs} configuration adopted when \gls{ue} $k$ is served.
+Note that different, and specific, \gls{irs} configurations can be adopted for different \glspl{ue}. Accordingly, in the rest of the chapter we let $\bm{\Phi}_k$ be the \gls{irs} configuration adopted when \gls{ue} $k$ is served.
 
 The \gls{snr} at \gls{ue} $k$ under \gls{irs} configuration $\bm{\Phi}_k$ is
 \begin{equation}\label{snr_k}
@@ -202,7 +203,7 @@ The \gls{snr} at \gls{ue} $k$ under \gls{irs} configuration $\bm{\Phi}_k$ is
 \end{equation}
 where $\sigma_{x}^2$ is the power of the transmitted signal.
 To maximize the \gls{snr} of a given \gls{ue}, a specific \gls{irs} configuration should be adopted, tailored to the \gls{ue} position in the cell and the channel conditions.
-However, the goal of this paper is to limit the number of \gls{irs} reconfigurations to comply with realistic overhead constraints, as well as to improve the communication efficiency, and algorithms seeking to comply with these requirements will be presented in Section~\ref{sec:optimization}.
+However, the goal of this work is to limit the number of \gls{irs} reconfigurations to comply with realistic overhead constraints, as well as to improve the communication efficiency, and algorithms seeking to comply with these requirements will be presented in Section~\ref{sec:optimization}.
 
 \section{Sum Capacity Optimization Problem}\label{sec:sumcapoptimization}
 
@@ -260,18 +261,18 @@ In this section, we provide heuristic solutions to \eqref{optproblem}. First, we
 $Z = K$, as in this case all \glspl{ue} are served in a \gls{tdma} fashion and with their optimal \gls{irs} configuration.
 The phase coefficients of the optimal \gls{irs} configuration matrices are then chosen as the initial points of a procedure leveraging clustering algorithms in the $N_{\mathrm I}$-dimensional space, as explained in Section~\ref{sec:clust_tdma}.
 
-\subsection{Optimal Individual IRS Configurations  }
+\subsection{Optimal Individual IRS Configurations}
 \label{sec:ind_opt}
 In \gls{mimo} systems, both the \gls{gnb} and the \glspl{ue} adopt properly tuned beamformers to match the signal transmissions and receptions to the spatial direction providing the highest channel gain~\cite{flamini2022towards}. For the optimization of the \gls{irs} configuration of each individual \gls{ue}, we adopt a procedure similar to that presented in \cite{Qian22joint}, focusing on single-stream transmissions and, without loss of generality, on \gls{ue} $k$.
 
 
-For a given \gls{irs} configuration, the optimal beamforming vectors  $\bm{v}_k$ and $\bm{w}_k$ coincide with the singular vectors corresponding to the highest singular value of the wireless channel matrix. In particular, we calculate the \gls{svd} of the overall cascade channel matrix
+For a given \gls{irs} configuration, the optimal beamforming vectors $\bm{v}_k$ and $\bm{w}_k$ coincide with the singular vectors corresponding to the highest singular value of the wireless channel matrix. In particular, we calculate the \gls{svd} of the overall cascade channel matrix
 \begin{equation}\label{eq:svd}
     \bm{G}_k \bm{\Phi}_k \bm{H} = \bm{U}\bm{\Sigma}\bm{V}^\dagger,
 \end{equation}
 where the right and left singular vectors of $\bm{G}_k \bm{\Phi}_k \bm{H}$ are the columns of $\bm{V}$ and $\bm{U}$, and the corresponding singular values are the diagonal entries of $\bm{\Sigma}$.
 
-In our formulation, the \gls{irs} configuration $\bm{\Phi}_k$ is one of the optimization variables.  Indeed, given $\bm{v}_k$ and $\bm{w}_k$, we can solve
+In our formulation, the \gls{irs} configuration $\bm{\Phi}_k$ is one of the optimization variables. Indeed, given $\bm{v}_k$ and $\bm{w}_k$, we can solve
 \begin{subequations}
 	\begin{IEEEeqnarray}{rCl}
 		\bm{\Phi}^*_k = &\argmax_{\substack{\bm{\Phi}_k}} \; & R_k(\bm{\Phi}_k), \label{optproblem_single}\\
@@ -301,34 +302,10 @@ Then, it is sufficient to observe that the \gls{snr} is maximized when the phase
 \end{equation}
 Note that, in general, we need to know the estimated phase shift of each component resulting from the Khatri-Rao product in \eqref{eq:theta_opt}, rather than the exact phase coefficients of $\bm{H}$ and $\bm{G}_k$. Moreover, as pointed out in \cite{Swindlehurst2022Channel}, for structured channel models adopted at \glspl{mmwave}, where multipath scattering is sparse and propagation is often dominated by strong specular components, the estimation of the separated channel matrices $\bm{H}$ and $\bm{G}_k$ can be simply accommodated by optimizing a limited number of parameters.
 
-% In our formulation, the \gls{irs} configuration $\bm{\Phi}_k$ is one of the optimization variables.  Indeed, given $\bm{v}_k$ and $\bm{w}_k$, we can solve
-% \begin{subequations}
-%     \begin{equation}\label{optproblem_single}
-%     \bm{\Phi}^*_k = \argmax_{\substack{\bm{\Phi}_k}} R_k(\bm{\Phi}_k), %\vspace{-10pt}
-%     \end{equation}
-%     \begin{alignat}{2}
-%     & \text{s.t.}\; \quad & \angle[\bm{\Phi}_k]_{n,n} \in \mathcal{P}_{\theta},\quad n =1,\ldots,N_{\mathrm I} \, ,
-%     \end{alignat}
-%     \end{subequations}
-% where $R_k$ is the achievable capacity of \gls{ue} $k$, $1\leq k\leq K$, according to \eqref{eq:rate}.
-% By defining $\bm{s}_k = \bm{v}_k^{\mathrm T} \bm{G}$ and $\bm{u}_k = \bm{H} \bm{w}_k$, the signal power can be re-written as
-% \medmuskip=-1mu
-% \thickmuskip=-1mu
-% \begin{equation}
-%     \left|\bm{s}_k\bm{\Phi}_k \bm{u}_k\right|^2 = \left|\sum_{n = 1}^{N_{\mathrm I}} |[\bm{s}_k]_{n}||[\bm{u}_k]_{n}|e^{j(\angle[\bm{s}_k]_{n}+\theta_n+\angle[\bm{u}_k]_{n})}  \right|^2.
-% \end{equation}
-% \medmuskip=6mu
-% \thickmuskip=6mu
-% Then, it is sufficient to observe that the \gls{snr} is maximized when the phase shifts introduced by the \gls{irs} are aligned with the phase shifts accumulated along the various paths, i.e., 
-% \begin{equation}
-% \label{eq:theta_opt}
-%     \theta_{k, n} = -(\angle[\bm{s}_k]_{n} + \angle[\bm{u}_k]_{n}), \quad \forall n.
-% \end{equation}
-
 Taking into account the possible quantization, the optimal phase shifts are given by
 \begin{equation}
     \angle[\bm{\Phi}^*_k]_{n,n} \leftarrow
-    \argmin_{\substack{\psi \in \mathcal{P}_{\theta}}}\left(\angle e^{j(\theta_{k, n}-\psi)}\right), \quad \forall n.  
+    \argmin_{\substack{\psi \in \mathcal{P}_{\theta}}}\left(\angle e^{j(\theta_{k, n}-\psi)}\right), \quad \forall n.
 \end{equation}
 
 % \begin{figure}[t]
@@ -345,7 +322,7 @@ Taking into account the possible quantization, the optimal phase shifts are give
 \State$	\theta_{k, n} \gets -(\angle\left[\left(\bm{w}_k^{\mathrm T}\bm{H}^{\mathrm T}\diamond\bm{v}_k^{\mathrm T}\bm{G}_k\right)\right]_{n}), \quad \forall n$
 %\STATE$\theta_{k, n} \gets -(\angle[\bm{s}_k]_{n} + \angle[\bm{u}_k]_{n})$
 \State$\angle[\bm{\Phi}_{k, t}]_{n,n} \gets \argmin_{\substack{\psi \in \mathcal{P}_{\theta}}}(\angle e^{j(\theta_{k, n}-\psi)})$
-\State$\bm{U}, \bm{\Sigma}, \bm{V}^\dagger \gets$  SVD  of $\bm{v}_k^{\mathrm T}\bm{G}_k \bm{\Phi}_k \bm{H}\bm{w}_k $
+\State$\bm{U}, \bm{\Sigma}, \bm{V}^\dagger \gets$  SVD of $\bm{v}_k^{\mathrm T}\bm{G}_k \bm{\Phi}_k \bm{H}\bm{w}_k $
 \State$\bm{v}_k \gets$ column of $\bm{V}$ corresponding to \\\quad\quad the largest singular value
 \State$\bm{w}_k \gets$ column of $\bm{U}$ corresponding to \\\quad\quad the largest singular value
 \State$t \gets t+1$
@@ -379,7 +356,7 @@ The core idea of this procedure is to use clustering algorithms to group \glspl{
 In the case of quantized phase shifts, once the clustering procedure is performed, clusters may share the same centroid and be merged. Therefore, $Z$ represents the \textit{maximum number of clusters}, not the effective number.
 Moreover, we remark that the procedure above does not rely on the assumption of perfect \gls{csi}, as the grouping strategy (Step 2) and the individual optimization step (Step 1) are performed independently. Nevertheless, in the case of imperfect \gls{csi}, the estimated individual optimal configurations may differ from the actual optimal configurations, leading to a suboptimal grouping.
 
-In the following, we propose different techniques to build the clusters based on either a {distance metric} (Section~\ref{sec:dist_based}) or the {achievable rate}  (Section \ref{sec:cap_based}).
+In the following, we propose different techniques to build the clusters based on either a {distance metric} (Section~\ref{sec:dist_based}) or the {achievable rate} (Section \ref{sec:cap_based}).
 
 \section{Distance-Based Clustering Algorithms}
 \label{sec:dist_based}
@@ -432,7 +409,7 @@ In our setup, clusters are initialized as the optimal phase vectors, which thus 
     The proposed distance-based clustering techniques converge to a local minimum of \eqref{distancemin}.
 \end{theorem}
 \begin{IEEEproof}[Proof] 
-\textcolor{blue}{The proof directly derives from the well-known results of clustering with Euclidean distance. The exact proofs for each of the considered algorithms under distance metric \eqref{circdist} are reported in the Appendix.}
+The proof directly derives from the well-known results of clustering with Euclidean distance. The exact proofs for each of the considered algorithms under distance metric \eqref{circdist} are reported in the Appendix.
 \end{IEEEproof}
 
 \section{Capacity-Based Clustering Algorithms}
@@ -446,8 +423,8 @@ Similarly to distance-based clustering, also \gls{cwc} proceeds iteratively. How
 In this approach, the clustering algorithm itself weighs the \glspl{ue} based on their achievable capacity, so that the parameters of the resulting clusters are closer to those preferred by the \glspl{ue} with higher rates, thus promoting the maximization of the sum capacity.
 
 Let $\bm{\Phi}^{(z)}_{i}$ be the \gls{irs} configuration of cluster $\mathcal{U}_{z, i}$ at iteration $i$.
-\glspl{ue} are initially sorted in decreasing order of achievable rate.  The algorithm then selects the $Z$ \glspl{ue} providing the highest achievable capacity based on the expression in \eqref{eq:rate} with their optimal \gls{irs} configurations.  Without loss of generality, we let $z=1, \dots, Z$ be the  index of those \glspl{ue}, and set $\bm{\Phi}_1^{(z)} = \bm{\Phi}^*_z$, $\forall\; 1\leq z\leq Z$, as the centroids of the initial clusters $\mathcal{U}_{1, 0}, \ldots, \mathcal{U}_{Z, 0}$. 
-In the following, for simplicity, we denote with $z_{k, i}$ the cluster such that $k \in \mathcal{U}_{z, i}$.  
+\glspl{ue} are initially sorted in decreasing order of achievable rate. The algorithm then selects the $Z$ \glspl{ue} providing the highest achievable capacity based on the expression in \eqref{eq:rate} with their optimal \gls{irs} configurations. Without loss of generality, we let $z=1, \dots, Z$ be the index of those \glspl{ue}, and set $\bm{\Phi}_1^{(z)} = \bm{\Phi}^*_z$, $\forall\; 1\leq z\leq Z$, as the centroids of the initial clusters $\mathcal{U}_{1, 0}, \ldots, \mathcal{U}_{Z, 0}$. 
+In the following, for simplicity, we denote with $z_{k, i}$ the cluster such that $k \in \mathcal{U}_{z, i}$.
 Each \gls{ue} $k > Z$ is assigned to the cluster whose centroid provides the lowest rate difference with respect to its ideal configuration. Let $R_k(\bm{\Phi}^*_k)$ be the maximum achievable rate of \gls{ue} $k$, obtained from the solution of problem \eqref{alg:ind_opt}. \gls{ue} $k$ is assigned to cluster
 \begin{equation}
 \label{cluster_assignment}
@@ -502,7 +479,7 @@ This two-step procedure is repeated until convergence, which is reached when the
 \Ensure{$\mathcal{U}_1, \ldots, \mathcal{U}_Z$, $\mathcal{I}$}
 \State Compute $\bm{\Phi}^*_k, \forall k$ with the procedure of Algorithm~\ref{alg:ind_opt}
 %\STATE $i \gets 1$
-\State Sort the \glspl{ue} in decreasing order of  $R_k(\bm{\Phi}^*_k)$
+\State Sort the \glspl{ue} in decreasing order of $R_k(\bm{\Phi}^*_k)$
 \State Select the $Z$ \glspl{ue} providing the highest $R_k(\bm{\Phi}^*_k)$,  
 \State Set $\bm{\Phi}_1^{(z)} = \bm{\Phi}^*_k$, $z = 1,\ldots, Z$ as the initial centroids.
 \Repeat
@@ -532,7 +509,7 @@ Therefore, we propose another lower-complexity clustering algorithm, denoted as 
 
 As in \gls{cwc}, also in \gls{oscbc}:
 \begin{enumerate*}[label=(\textit{\roman*})]
-\item the \glspl{ue} are sorted in decreasing order of achievable rate; \item the $Z$ \gls{irs} configurations of the $Z$ \glspl{ue} experiencing the highest rates are chosen as initial centroids for the clusters; and \item  the remaining \glspl{ue} are assigned to the closest centroid in terms of circular distance, as per \eqref{circdist}. 
+\item the \glspl{ue} are sorted in decreasing order of achievable rate; \item the $Z$ \gls{irs} configurations of the $Z$ \glspl{ue} experiencing the highest rates are chosen as initial centroids for the clusters; and \item the remaining \glspl{ue} are assigned to the closest centroid in terms of circular distance, as per \eqref{circdist}. 
 \end{enumerate*}
 Then, compared to \gls{cwc}, instead of recomputing the coordinates of the centroids at each iteration until convergence, the algorithm stops right after the initial association.
 Therefore, with \gls{oscbc} the computed centroids are the optimal configurations relative to the $Z$ \glspl{ue} achieving the highest individual rate, which provides suboptimal (non-optimized) performance for the rest of the \glspl{ue} in the clusters.
@@ -590,7 +567,7 @@ In Table~\ref{tab:clustering} and in the following text we characterize the comp
 
 %\vspace{2pt}\noindent
 \emph{Distance-based clustering.}
-These algorithms do not require specific initialization.  
+These algorithms do not require specific initialization.
 For \gls{km}, based on the Lloyd implementation in \cite{Kmeans}, each iteration involves calculating the distances between data points and centroids. As a result, the computational complexity is influenced by the number of iterations required for convergence, the number of data points, the number of clusters, and the dimensionality of data, resulting in an overall complexity $O(IZKN_{\mathrm I})$.  
 \gls{kmed} can be solved with the \gls{pam} algorithm~\cite{van2003new}, so the computational complexity is $O(Z^3K^2N_{\mathrm I})$ due to the pairwise distance computations between data points and medoids. Finally, the computational complexity of the agglomerate \gls{hc} is primarily determined by the computation of pairwise distances among all data points, resulting in a total complexity $O(K^3N_{\mathrm I})$ \cite{xu2015comprehensive}.
 
@@ -647,15 +624,15 @@ After presenting our various simulation scenarios and evaluation metrics in~Sect
 Our simulation parameters are reported in Table~\ref{Tab:parameters-irs-block}.
 
 %\vspace{2pt}\noindent
-\emph{Scenario.} All devices are assumed to lie on a 2D plane, and  we consider an \gls{umi} scenario, according to the 3GPP nomenclature~\cite{3gpp.38.901}, with the \gls{gnb} placed at the center. According to the 3GPP specifications, the coverage area of the \gls{gnb} is characterized by an average radius of $167$~m and is assumed to lie in the positive $x$-axis region.
+\emph{Scenario.} All devices are assumed to lie on a 2D plane, and we consider an \gls{umi} scenario, according to the 3GPP nomenclature~\cite{3gpp.38.901}, with the \gls{gnb} placed at the center. According to the 3GPP specifications, the coverage area of the \gls{gnb} is characterized by an average radius of $167$~m and is assumed to lie in the positive $x$-axis region.
 
-We assume that $K=100$ \glspl{ue} are randomly deployed according to a uniform distribution within the cell area, to be served in downlink by the \gls{gnb}, assisted by an \gls{irs} at coordinates  $(75, 100)$~m. 
+We assume that $K=100$ \glspl{ue} are randomly deployed according to a uniform distribution within the cell area, to be served in downlink by the \gls{gnb}, assisted by an \gls{irs} at coordinates $(75, 100)$~m. 
 The \gls{gnb} is equipped with a \gls{upa} with $8$H$\times8$V antennas (i.e., $N_{\mathrm g}=64$), and the \glspl{ue} with \glspl{ula} of $2$H$\times1$V antennas (i.e., $N_{\mathrm U} = 2$). 
 For the \gls{irs}, if not otherwise specified, we adopt a $40$H$\times80$V reflective panel ($N_{\mathrm I}= 3200$).
 
 %\vspace{2pt}\noindent
 \emph{Channel and Frame Structure.}
-The system operates at a carrier frequency of $28$~GHz (that is in the lower part of the \gls{mmwave} bands), the transmission power at the \gls{gnb} is set to $33$~dBm, the noise power spectral density at the receivers is $-174$~dBm/Hz,  and the total system bandwidth is $100$~MHz. We consider the fourth numerology of the \gls{nr} frame structure \cite{3gpp.38.211}, wherein each $10$~ms frame is split into $160$ slots. With this assumption, as already pointed out in Section~\ref{sec:system_model}, channels can be considered constant over the entire frame duration.
+The system operates at a carrier frequency of $28$~GHz (that is in the lower part of the \gls{mmwave} bands), the transmission power at the \gls{gnb} is set to $33$~dBm, the noise power spectral density at the receivers is $-174$~dBm/Hz, and the total system bandwidth is $100$~MHz. We consider the fourth numerology of the \gls{nr} frame structure \cite{3gpp.38.211}, wherein each $10$~ms frame is split into $160$ slots. With this assumption, as already pointed out in Section~\ref{sec:system_model}, channels can be considered constant over the entire frame duration.
 We consider the \gls{3gpp} TR~38.901 spatial channel model~\cite{3gpp.38.901}, which supports a wide range of frequencies, from $0.5$ to $100$ GHz (and including therefore our carrier frequency of $28$~GHz), and can be integrated with realistic beamforming models.
 As such, channel matrices, and multipath fading, are computed based on the superposition of $N$ different clusters, each of which consists of $M$ rays that arrive (depart) to (from) the antenna arrays with specific angles and powers.
 Based on~\cite{3gpp.38.901}, and using the simplifications proposed in~\cite{zugno20implementation}, the generic entry $[\bm{A}]_{pq}$ of the channel matrix can then be computed as:
@@ -689,7 +666,7 @@ p_k^{\mathrm LoS}(d_k) =
 \end{equation}
 where $d_k$ is the distance (in m) between the \gls{irs} and \gls{ue} $k$. In the considered \gls{umi} scenario, and based on 3GPP specifications~\cite{3gpp.38.901}, the average \gls{los} probability in~\eqref{losprob} is~$0.35$.
 
-For each wireless link, based on the presence of the \gls{los} component, the path loss is then derived according to \cite[Table 7.4.1-1]{3gpp.38.901}, with shadowing standard deviation set to $\sigma_{\mathrm SF}=0$.  
+For each wireless link, based on the presence of the \gls{los} component, the path loss is then derived according to \cite[Table 7.4.1-1]{3gpp.38.901}, with shadowing standard deviation set to $\sigma_{\mathrm SF}=0$.
 For the optimal individual \gls{irs} configuration (Section~\ref{sec:ind_opt}), we set $\nu = 10^{-6}$~[bit/s/Hz].
 
 %\vspace{2pt}\noindent
@@ -698,7 +675,7 @@ In the following subsections, we present extensive simulation results to compare
 The \gls{km} clustering has been implemented with the Lloyd algorithm \cite{Kmeans} with a maximum number of $I_{\mathrm max}^{\mathrm KM}=50$ iterations. 
 Instead, for both \gls{cwc} and \gls{icwc}, we set $\mu = 10^{-3}$~[bit/s].
 
-As an upper bound to the system performance, we also consider an ``unclustered'' scheduling, wherein we assume that all \glspl{ue} are served with their optimal \gls{irs} configuration. This scheduling clearly violates the constraint on the maximum numbers of reconfiguration per frame,  but can be regarded as the limit case when $Z = K$, i.e., all \glspl{ue} belong to a cluster with cardinality one. As such, it is a suitable approach for benchmarking the performance of more practical schemes.
+As an upper bound to the system performance, we also consider an ``unclustered'' scheduling, wherein we assume that all \glspl{ue} are served with their optimal \gls{irs} configuration. This scheduling clearly violates the constraint on the maximum numbers of reconfiguration per frame, but can be regarded as the limit case when $Z = K$, i.e., all \glspl{ue} belong to a cluster with cardinality one. As such, it is a suitable approach for benchmarking the performance of more practical schemes.
 
 \subsection{Performance Metrics}
 \label{sec:metrics}
@@ -711,7 +688,7 @@ It is derived from \eqref{eq:sumrate} as
 \begin{equation}
     \bar{C} = \frac{1}{K}\mathbb{E}\left[C(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})\right],
 \end{equation}
-where the expectation is computed across the different channel realizations. Moreover, as each \gls{ue} is served in its specific slot, we average over the  \gls{tdma} frame length, dividing the empirical expectation by the number of \glspl{ue} (slots)~$K$.  
+where the expectation is computed across the different channel realizations. Moreover, as each \gls{ue} is served in its specific slot, we average over the \gls{tdma} frame length, dividing the empirical expectation by the number of \glspl{ue} (slots)~$K$.
 
 %\vspace{2pt}\noindent
 \emph{Fairness.}
@@ -719,7 +696,7 @@ We consider the $95$\% percentile of the achieved individual user capacity, comp
 \begin{equation}\label{C95}
     C_{95\%} = \frac{B}{K}\inf\{x: {\mathrm CDF}(x) \geq 0.95\},
 \end{equation}
-where ${\mathrm CDF}(\cdot)$ is the empirical cumulative distribution function  of $R_k(\bm{\Phi}^{(z)})$, $\forall k, z$.
+where ${\mathrm CDF}(\cdot)$ is the empirical cumulative distribution function of $R_k(\bm{\Phi}^{(z)})$, $\forall k, z$.
 Notice that the $95$\% percentile of the user capacity is a practical and meaningful way to evaluate fairness, as it measures the performance of the majority of the \glspl{ue}, excluding only the top 5\%.
 
 \subsection{Scheduling Performance}
@@ -753,14 +730,14 @@ Finally, the gap between \gls{cwc} and \gls{oscbc} is almost negligible: this im
     \setlength\fheight{0.35\columnwidth}
     \input{Figures/IrsClustering/quantile0bitslos.tex}
     %\vspace{-20pt}
-    \caption{$95$\% percentile of the user capacity as a function of the maximum number of clusters   $Z$, for an unquantized $40$H$\times80$V \gls{irs}, and considering a \gls{plos} channel for the \gls{irs}-\glspl{ue} links.}
+    \caption{$95$\% percentile of the user capacity as a function of the maximum number of clusters $Z$, for an unquantized $40$H$\times80$V \gls{irs}, and considering a \gls{plos} channel for the \gls{irs}-\glspl{ue} links.}
     %\vspace{-10pt}
     \label{fig:quantile0bitsplos}
 \end{figure}
 
 
 Fig.~\ref{fig:quantile0bitsplos} compares the fairness performance of the different clustering algorithms, measured as the $95$\% percentile of the average sum capacity $C_{95\%}$, as a function of the maximum number of clusters $Z$ in \gls{plos} conditions. 
-Our results identify \gls{icwc} as the best clustering approach in terms of fairness, which comes at the cost of a lower sum capacity,  as shown in Fig.~\ref{fig:sumcap0bitlos}. 
+Our results identify \gls{icwc} as the best clustering approach in terms of fairness, which comes at the cost of a lower sum capacity, as shown in Fig.~\ref{fig:sumcap0bitlos}. 
 Therefore, there exists a trade-off between the achievable sum capacity and fairness. 
 We also observe that \gls{oscbc} achieves very low fairness, as the \glspl{ue} with worst channel conditions are forced to aggregate to the strongest \glspl{ue}, thus via a suboptimal \gls{irs} configuration. On the other hand, we see that \gls{cwc} is more than acceptable in terms of fairness, and achieves comparable performance than most of the distance-based clustering algorithms.
 Furthermore, $C_{95\%}$ increases as $Z$ increases, and eventually approaches the ``unclustered'' baseline for $Z=K$. This is due to the fact that the \gls{los} probability in the \gls{plos} scenario increases with the number of clusters, i.e., as the inter-cluster distance becomes smaller, which permits to experience better channel conditions, thus a higher capacity, even for the worst \glspl{ue}.
@@ -783,7 +760,7 @@ Finally, despite performing worse than their capacity-based counterparts, the di
     \setlength\fheight{0.35\columnwidth}
     \input{Figures/IrsClustering/Los_comparison_quant}
     %\vspace{-10pt}
-    \caption{$95$\% percentile of the user capacity as a function of the maximum number of clusters  $Z$,  for $N_{\mathrm I}=3200$, unquantized phase shifts, and for different channel conditions.} %The zoom inside the figure is for $50\leq Z \leq 90$.}
+    \caption{$95$\% percentile of the user capacity as a function of the maximum number of clusters $Z$, for $N_{\mathrm I}=3200$, unquantized phase shifts, and for different channel conditions.} %The zoom inside the figure is for $50\leq Z \leq 90$.}
     %\vspace{-10pt}
     \label{fig:quantitelos}
 \end{figure}
@@ -835,9 +812,9 @@ As expected, both fairness (measured in terms of the $95$\% percentile of the av
 For example, we observe that \gls{cwc} is able to approach the optimal sum capacity with as few as $20$ clusters for small-sized \gls{irs}, i.e., with $10$H$\times20$V or $20$H$\times40$V arrays. The same trends are shown also in Fig.~\ref{fig:quantile_vs_size} in terms of fairness.
 Still, notice that $\bar{C}$ is below 100~Mbps, which is not compatible with the requirement of most 5G applications when the \gls{irs} is made of fewer than 200 elements, which justifies the use of larger \gls{irs} panels~\cite{pagin2022end}. 
 
-Nevertheless, we still observe that the number of reflecting elements has an impact on the number of clusters that are needed to provide maximum performance. 
+Nevertheless, we still observe that the number of reflecting elements has an impact on the number of clusters that are needed to provide maximum performance.
 Indeed, the number of possible \gls{irs} configurations increases as we consider larger \gls{irs} antennas. In turn, this decreases the likelihood of \glspl{ue} having the same (or similar) ideal configurations, and therefore, it increases the probability of being associated with increasingly suboptimal centroids if the number of clusters is small. However, if the number of phase shifters is large, the suboptimality is mitigated by the increasing number of reconfigurations. Typically, the \gls{irs} reconfiguration cost is proportional to the number of
-radiating elements, and therefore the specific reconfiguration cost may be different for different \glspl{irs} in general. A detailed quantitative analysis of this issue would need to go into the specifics of the various \gls{irs} architectures, which goes beyond the scope of the present paper, and will be considered in our future work.
+radiating elements, and therefore the specific reconfiguration cost may be different for different \glspl{irs} in general. A detailed quantitative analysis of this issue would need to go into the specifics of the various \gls{irs} architectures, which goes beyond the scope of the present work, and will be considered in our future work.
 
 \begin{figure}[t]
     \centering
@@ -845,7 +822,7 @@ radiating elements, and therefore the specific reconfiguration cost may be diffe
     \setlength\fheight{0.35\columnwidth}
     \input{Figures/IrsClustering/cap_quant.tex}
     %\vspace{-10pt}
-    \caption{Average sum capacity as a function of the maximum number of clusters   $Z$, for $N_{\mathrm I}=3200$ and for different degrees of quantization of the phase shifts, and considering a \gls{plos} channel for the \gls{irs}-\glspl{ue} links.}
+    \caption{Average sum capacity as a function of the maximum number of clusters $Z$, for $N_{\mathrm I}=3200$ and for different degrees of quantization of the phase shifts, and considering a \gls{plos} channel for the \gls{irs}-\glspl{ue} links.}
     %\vspace{-10pt}
     \label{fig:cap_vs_bits}
 \end{figure}
@@ -855,7 +832,7 @@ radiating elements, and therefore the specific reconfiguration cost may be diffe
     \setlength\fheight{0.35\columnwidth}
     \input{Figures/IrsClustering/quantile_quant}
     %\vspace{-10pt}
-    \caption{$95$\% percentile of the user capacity as a function of the maximum number of clusters   $Z$, for $N_{\mathrm I}=3200$ and for different degrees of quantization of the phase shifts, and considering a \gls{plos} channel for the \gls{irs}-\glspl{ue} links.}
+    \caption{$95$\% percentile of the user capacity as a function of the maximum number of clusters $Z$, for $N_{\mathrm I}=3200$ and for different degrees of quantization of the phase shifts, and considering a \gls{plos} channel for the \gls{irs}-\glspl{ue} links.}
     %\vspace{-10pt}
     \label{fig:quantile_vs_bits}
 \end{figure}
@@ -906,7 +883,7 @@ In any case, we can conclude that our proposed capacity-based clustering algorit
 \emph{Scalability.} Finally, we prove the scalability performance of the proposed clustering algorithms. 
 To do so, we first show the performance of capacity-based clustering as a function of the number of \glspl{ue} in Figs~\ref{fig:sumcap_vs_ZK} and~\ref{fig:quantcap_vs_ZK}. In particular, we compare \gls{cwc} and \gls{icwc} with \gls{hc} as a function of the ratio $K/N$, for an unquantized $40$H$\times80$V \gls{irs}, $K = \{50, 100, 150\}$ \glspl{ue}, and considering a \gls{plos} channel for the \gls{irs}-\glspl{ue} links.
 The results are in line with the plots in Figs~\ref{fig:sumcap0bitlos} and \ref{fig:quantile0bitsplos}, which demonstrates the scalability of the proposed clustering techniques for different numbers of \glspl{ue}.
-Finally, Fig.~\ref{fig:minconfvsN} depicts the average minimum number of \gls{irs} configurations  $Z_{\mathrm min}$ needed to achieve 80\% of the maximum achievable sum capacity (``unclustered'' baseline) as a function of the number of \glspl{ue} $K$ in the system.
+Finally, Fig.~\ref{fig:minconfvsN} depicts the average minimum number of \gls{irs} configurations $Z_{\mathrm min}$ needed to achieve 80\% of the maximum achievable sum capacity (``unclustered'' baseline) as a function of the number of \glspl{ue} $K$ in the system.
 Notably, we observe that \gls{cwc} and \gls{oscbc} are confirmed to be the best algorithms to optimize the sum capacity, even for a limited number of \gls{irs} configurations. For example, both solutions achieve 80\% of the maximum sum capacity with less than half the number of configurations than in the ``unclustered'' deployment. 
 Moreover, we recognize the same trends as in the previous results. Specifically, capacity-based clustering outperforms distance-based clustering and requires fewer \gls{irs} reconfigurations to maximize the sum capacity (up to $-37\%$ considering \gls{cwc} vs. \gls{kmed}). Furthermore, the gap increases as the number of \glspl{ue} increases.
 
@@ -917,7 +894,6 @@ Then, we proposed clustering-based scheduling algorithms, which group \glspl{ue}
 Different clustering algorithms were numerically evaluated in terms of computational complexity, sum capacity, and fairness under different channel conditions, as a function of the size of the \gls{irs} size and the number of users, and with or without quantization of phase shifts.
 The results showed that capacity-based clustering outperforms distance-based clustering, and can achieve up to $85$\% of the sum capacity obtained in an ideal deployment (with no reconfiguration constraints), reducing by $50$\% the number of \gls{irs} reconfigurations.
 
-\textcolor{blue}{
 \appendix
 \section*{Proof of Theorem~\ref{th_distancebased}}
 \begin{IEEEproof}[Proof for \gls{km} (LLoyd)]
@@ -932,4 +908,3 @@ The results showed that capacity-based clustering outperforms distance-based clu
 \begin{IEEEproof}[Proof for \gls{kmed} (\gls{pam})]
     Since, at each iteration, a swap is performed only when it leads to a lower value of the intra-cluster sum of squares, $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$ does not increase over different iterations. Given the finite number of data points and possible configurations, the algorithm is guaranteed to converge to a configuration where no swap can further decrease the objective function, thus reaching a local~minimum.
 \end{IEEEproof}
-}

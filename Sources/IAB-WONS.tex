@@ -80,7 +80,7 @@
 % % 3GPP does not want us to use New Radio, so we disable the expansion of the acronym
 % \glsunset{nr}
 
-\section{High-capacity Integrated Access and Backhaul Networks using sub-Terahertz Links}
+\section{High-capacity integrated access and backhaul networks using sub-terahertz links}
 \label{sec:iab-wons}
 
 The spectrum above 100 GHz has several sub-bands that could provide bandwidths wider than 10 GHz, thus potentially data rates in the excess of tens of Gbps~\cite{akyildiz2014terahertz}. Backhaul---a static deployment---is a promising use case for sub-terahertz links, which need pencil-sharp beams to close the link budget and are thus less resilient to mobility compared to traditional sub-6 GHz or \gls{mmwave} frequencies. 
@@ -580,36 +580,34 @@ $\rho_{max} = 0.1$ and $1$ can increase the system throughput by up to four time
 \end{figure}
 
 
-\section{Conclusions and Future Work}
+\section{Conclusions and future work}
 \label{sec:concl-iab}
 
 %%%%%%%%%
 %% RES MAN
 %%%%%%%%
 
-In this paper we proposed a semi-centralized resource partitioning scheme for \gls{5g} and beyond \gls{iab} networks, coupled with a set of allocation policies. We showed that the introduction of this light resource allocation cooperation dramatically improves the end-to-end throughput and delay achieved by the system already, preventing (or at the very least limiting) the insurgence of network congestion on the backhaul links. Specifically, the \gls{mrba} policy exhibits the most promising results, offering up to a 3-fold increase in the worst-case throughput and approximately a 30\% smaller worst-case latency, compared to the distributed scheduler. On the other hand, the effectiveness of the \gls{ba} and \gls{msr} policies varies quite significantly across the specific system configuration and inspected metric. %Nevertheless, better than SoA
-
-We provided considerations on the implementation of a semi-centralized resource allocation controller in real world deployments. In particular, we acknowledged that the proposed scheme relies on the assumption of \gls{iab}-nodes being capable of exchanging timely feedback information with the \gls{iab}-donor. Even though the amount of signaling data which the proposed solution requires is quite low, and its performance is quite robust with respect to an increase of the central allocation period, we argue that this remains a significant constraint. Moreover, such drawback is exacerbated by the unfavorable \glspl{mmwave} propagation characteristics.
-As a consequence, we deem that solutions involving a central controller, which rely on timely exchange of control information with the \gls{iab}-donor, are likely to require dedicated control channels, possibly at sub-6~{GHz}, in order to grant the utmost priority and reliability to the feedback information. Therefore, we can conclude that the aforementioned framework can bring dramatic performance benefits to \gls{iab} networks, although its introduction in \gls{5g} and beyond deployments requires additional research efforts.
-
-For this reason, as part of our future work we plan to design machine-learning algorithms which predict the network evolution at the \gls{iab}-donor. This improvement will allow us to relax the timely feedback assumption, by increasing the minimum semi-centralized allocation period which leads to performance benefits over distributed strategies. 
-Moreover, we foresee to implement mechanisms which adapt the parameters of the \gls{mrba} policy to the system load and configuration, and additional resource partitioning strategies. 
-Finally, the generalization of the proposed framework to \gls{sdma} systems will be studied. 
-The use of such multiple access scheme should significantly improve the performance of \gls{mmwave} wireless backhauling by introducing the possibility of concurrently serving multiple terminals, provided that they exhibit a sufficient distance among them.
-
+In this chapter we proposed a semi-centralized resource partitioning scheme for \gls{5g} and beyond \gls{iab} networks, coupled with a set of allocation policies. We showed that the introduction of this light resource allocation cooperation dramatically improves the end-to-end throughput and delay achieved by the system already, preventing (or at the very least limiting) the insurgence of network congestion on the backhaul links. %Specifically, the \gls{mrba} policy exhibits the most promising results, offering up to a 3-fold increase in the worst-case throughput and approximately a 30\% smaller worst-case latency, compared to the distributed scheduler. On the other hand, the effectiveness of the \gls{ba} and \gls{msr} policies varies quite significantly across the specific system configuration and inspected metric. %Nevertheless, better than SoA
+We provided considerations on the implementation of a semi-centralized resource allocation controller in real world deployments. In particular, we acknowledged that the proposed scheme relies on the assumption of \gls{iab}-nodes being capable of exchanging timely feedback information with the \gls{iab}-donor. Even though the amount of signaling data which the proposed solution requires is quite low, and its performance is quite robust with respect to an increase of the central allocation period, we argue that this remains a significant constraint. 
+%Moreover, such drawback is exacerbated by the unfavorable \glspl{mmwave} propagation characteristics.
+As a consequence, we deem that solutions involving a central controller, which rely on timely exchange of control information with the \gls{iab}-donor, are likely to require dedicated control channels, possibly at sub-6~{GHz}, in order to grant the utmost priority and reliability to the feedback information. 
+Therefore, we conclude that semi-centralized frameworks can bring dramatic performance benefits to \gls{iab} networks, although their introduction in \gls{5g} and beyond deployments requires additional research efforts.
 %%%%%%%%%%
 %% SAFEHAUL
 %%%%%%%%%
 
-In this work, we proposed the first reliability-focused scheduling and path selection algorithm for \gls{iab} mmWave networks. We illustrated that our \gls{rl}-based solution can cope with the network dynamics including channel, interference, and load.  Furthermore, we demonstrated that \name{} not only  exhibits highly reliable performance in the presence of the above-mentioned network dynamics, but also outperforms the benchmark schemes in terms of throughput, latency and packet-drop rate. The reliability of \name{} stems from the joint minimization of the average latency, and the expected value of its tail losses, by leveraging \gls{cvar} as a risk metric.
-
-Reliability is a highly under-explored topic that definitely deserves more investigation. Some interesting research directions are the maximization of reliability under the assumption of statistical system knowledge, or the evaluation of the network's reliability when the functionality of the \gls{bap} layer is compromised.
-Furthermore, our system-level extension to Sionna can be further developed to support an arbitrary number of RF chains and in-band backhauling, allowing more extensive investigation of IAB protocols and architectures.
-
+Moreover, we proposed the first reliability-focused scheduling and path selection algorithm for \gls{iab} mmWave networks. We illustrated that our \gls{rl}-based solution can cope with the network dynamics including channel, interference, and load. Furthermore, we demonstrated that \name{} not only  exhibits highly reliable performance in the presence of the above-mentioned network dynamics, but also outperforms the benchmark schemes in terms of throughput, latency and packet-drop rate. The reliability of \name{} stems from the joint minimization of the average latency, and the expected value of its tail losses, by leveraging \gls{cvar} as a risk metric.
 %%%%%%%%
 %%% WONS
 %%%%%%%%%
 
+Finally, we provided the first performance evaluation of the possibilities of sub-terahertz frequencies for 6G IAB using a customized extension of the open-source Sionna simulator. This permits the use of greedy algorithms to evaluate the deployment of mixed mmWave and sub-terahertz links to boost the backhaul network's capacity.
 
-This paper provides the first performance evaluation of the possibilities of sub-terahertz frequencies for 6G IAB using a customized extension of the open-source Sionna simulator. This permits the use of greedy algorithms to evaluate the deployment of mixed mmWave and sub-terahertz links to boost the backhaul network's capacity.
-We will broaden the analysis of the network performance to cover a broader range of source traffic patterns, scenarios (including multi-donor instances, deployments with lower node density, or more realistic map-based scenarios as in~\cite{gemmi2023on,gemmi2022on}), and protocol stack implementations as future work.
+
+%% Future work res man
+As part of our future work on IAB optimization frameworks, we plan to design efficient machine-learning algorithms which predict the network evolution at the \gls{iab}-donor. This improvement will allow us to relax the timely feedback assumption, by increasing the minimum semi-centralized allocation period which leads to performance benefits over distributed strategies. Moreover, we foresee to implement mechanisms which adapt the parameters of the \gls{mrba} policy to the system load and configuration, additional resource partitioning strategies, and the generalization of the proposed framework to \gls{sdma} systems. 
+%The use of such multiple access scheme should significantly improve the performance of \gls{mmwave} wireless backhauling by introducing the possibility of concurrently serving multiple terminals, provided that they exhibit a sufficient distance among them.
+%% Future work Safehaul
+Additionally, we identify network reliability as a highly under-explored topic that deserves further investigation. Some interesting research directions in this space are the maximization of reliability under the assumption of statistical system knowledge, or the evaluation of the network's reliability when the functionality of the \gls{bap} layer is compromised. Furthermore, our system-level extension to Sionna can be further developed to support an arbitrary number of RF chains and in-band backhauling, allowing more extensive investigation of IAB protocols and architectures.
+%% Future work WONS
+Finally, we will broaden the performance analysis of sub-terahertz IAB deployments to cover a broader range of source traffic patterns, scenarios (including multi-donor instances, deployments with lower node density, or more realistic map-based scenarios as in~\cite{gemmi2023on,gemmi2022on}), and protocol stack implementations as future work.
