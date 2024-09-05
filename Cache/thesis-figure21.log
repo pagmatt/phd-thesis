@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.6)  31 AUG 2024 10:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.6)  5 SEP 2024 22:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1753,70 +1753,68 @@ LaTeX Warning: Citation '1990Gabow' on page 2 undefined on input line 5.
 ) (./Sources/SIM-TOOLS.tex
 chapter 2.
 
-LaTeX Warning: Citation 'polese2023understanding' on page 3 undefined on input line 6.
+LaTeX Warning: Citation 'polese2023understanding' on page 3 undefined on input line 7.
 
 
-LaTeX Warning: Citation 'polese2022colo' on page 3 undefined on input line 7.
+LaTeX Warning: Citation 'polese2022colo' on page 3 undefined on input line 8.
 
 
-LaTeX Warning: Citation 'lacava2022programmable' on page 3 undefined on input line 8.
+LaTeX Warning: Citation 'lacava2022programmable' on page 3 undefined on input line 9.
 
 
-LaTeX Warning: Citation 'amir2023safehaul' on page 3 undefined on input line 8.
+LaTeX Warning: Citation 'amir2023safehaul' on page 3 undefined on input line 9.
 
 
-Overfull \hbox (68.72266pt too wide) in paragraph at lines 4--10
-\T1/pplj/m/n/10.95 degra-da-tion to ac-tual net-work de-ploy-ments [[], []].
- []
+LaTeX Warning: Citation '10465179' on page 3 undefined on input line 15.
 
 
-LaTeX Warning: Citation '10465179' on page 3 undefined on input line 14.
+LaTeX Warning: Citation 'mezzavilla2018end' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Citation 'mezzavilla2018end' on page 3 undefined on input line 17.
+LaTeX Warning: Citation 'patriciello2019e2e' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Citation 'patriciello2019e2e' on page 3 undefined on input line 17.
+LaTeX Warning: Citation 'magrinValid2021' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Citation 'magrinValid2021' on page 3 undefined on input line 17.
+LaTeX Warning: Citation '10.1145/3460797.3460799' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Citation '10.1145/3460797.3460799' on page 3 undefined on input line 17.
+LaTeX Warning: Citation '7461452' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Citation '7461452' on page 3 undefined on input line 17.
+LaTeX Warning: Citation 'zugno2020implementation' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Citation 'zugno2020implementation' on page 3 undefined on input line 17.
+LaTeX Warning: Citation '3gpp.38.901' on page 3 undefined on input line 20.
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 3 undefined on input line 19.
-
-
-Overfull \hbox (45.19046pt too wide) in paragraph at lines 14--20
+Overfull \hbox (45.19046pt too wide) in paragraph at lines 15--21
 \T1/pplj/m/n/10.95 NR [[], []], IEEE 802.11ad/ay/ax [[],
  []
 
 
-LaTeX Warning: Citation 'testolina2020scalable' on page 4 undefined on input line 21.
-
-
-LaTeX Warning: Citation 'lagen2020new' on page 4 undefined on input line 22.
-
-
-LaTeX Warning: Citation 'shafi2018microwave' on page 4 undefined on input line 22.
-
-
-LaTeX Warning: Citation 'heng2021six' on page 4 undefined on input line 22.
-
-
-LaTeX Warning: Citation 'zhang2019will' on page 4 undefined on input line 22.
-
-
-Overfull \hbox (78.29306pt too wide) in paragraph at lines 21--23
-\T1/pplj/m/n/10.95 eval-u-a-tion tools largely de-pends on the ac-cu-racy of the chan-nel model [[]]
+Overfull \hbox (24.4028pt too wide) in paragraph at lines 15--21
+\T1/pplj/m/n/10.95 con-nec-tiv-ity tar-get set for 6G net-works. More-over, the ns-3 TR 38.901 [[]]
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+LaTeX Warning: Citation 'testolina2020scalable' on page 4 undefined on input line 22.
+
+
+LaTeX Warning: Citation 'lagen2020new' on page 4 undefined on input line 23.
+
+
+LaTeX Warning: Citation 'shafi2018microwave' on page 4 undefined on input line 23.
+
+
+LaTeX Warning: Citation 'heng2021six' on page 4 undefined on input line 23.
+
+
+LaTeX Warning: Citation 'zhang2019will' on page 4 undefined on input line 23.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1835,16 +1833,6 @@ LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 9.30756pt on input line 27.
 
 LaTeX Warning: Citation 'mezzavilla2018end' on page 5 undefined on input line 27.
-
-
-Overfull \hbox (0.53723pt too wide) in paragraph at lines 26--28
-[]\T1/pplj/m/n/10.95 In par-tic-u-lar, Sec-tion [] de-scribes a new chan-nel model for ns-3 for IRS/AF-
- []
-
-
-Overfull \hbox (1.35893pt too wide) in paragraph at lines 26--28
-\T1/pplj/m/n/10.95 can be used in con-junc-tion with the \T1/fvm/m/n/10.95 ns3-mmwave \T1/pplj/m/n/10.95 mod-ule [[]],
- []
 
 
 LaTeX Warning: Reference `sec:channel-ntn' on page 5 undefined on input line 29.
@@ -1870,279 +1858,296 @@ LaTeX Warning: Citation 'eigenweb' on page 5 undefined on input line 33.
 
 LaTeX Warning: Citation 'TR38901' on page 5 undefined on input line 34.
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 ) (./Sources/IRS-SIM.tex
 
-LaTeX Warning: Reference `sec:irs_phy_model' on page 7 undefined on input line 81.
+LaTeX Warning: Citation 'flamini2022towards' on page 7 undefined on input line 80.
 
 
-LaTeX Warning: Reference `sec:af_phy_model' on page 7 undefined on input line 81.
+LaTeX Warning: Citation 'bjornson2019intelligent' on page 7 undefined on input line 82.
 
 
-LaTeX Warning: Reference `sec:baseline_model' on page 7 undefined on input line 81.
+LaTeX Warning: Citation 'huang2019reconfigurable' on page 7 undefined on input line 85.
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 7 undefined on input line 97.
+LaTeX Warning: Citation 'wu2018intelligent' on page 7 undefined on input line 89.
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 7 undefined on input line 102.
+LaTeX Warning: Citation '9282349' on page 7 undefined on input line 89.
 
 
-LaTeX Warning: Citation 'zugno2020implementation' on page 7 undefined on input line 102.
+LaTeX Warning: Reference `sec:irs_phy_model' on page 7 undefined on input line 95.
+
+
+LaTeX Warning: Reference `sec:af_phy_model' on page 7 undefined on input line 95.
+
+
+LaTeX Warning: Reference `sec:baseline_model' on page 7 undefined on input line 95.
+
+
+LaTeX Warning: Citation '3gpp.38.901' on page 8 undefined on input line 111.
+
+
+LaTeX Warning: Citation '3gpp.38.901' on page 8 undefined on input line 116.
+
+
+LaTeX Warning: Citation 'zugno2020implementation' on page 8 undefined on input line 116.
+
+
+LaTeX Warning: Reference `eq:ch_model_full_irs_sim' on page 8 undefined on input line 129.
+
+
+LaTeX Warning: Citation 'zugno2020implementation' on page 8 undefined on input line 129.
+
+
+Underfull \vbox (badness 5652) has occurred while \output is active []
+
+
+LaTeX Warning: Citation 'zugno2020implementation' on page 9 undefined on input line 137.
+
+The command '\includegraphics [width=0.75\textwidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
+
+LaTeX Warning: Reference `Fig:scenario_high_lvl' on page 9 undefined on input line 146.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `eq:ch_model_full_irs_sim' on page 8 undefined on input line 115.
+LaTeX Warning: Citation 'bjornson2019intelligent' on page 10 undefined on input line 169.
 
 
-LaTeX Warning: Citation 'zugno2020implementation' on page 8 undefined on input line 115.
+Overfull \hbox (38.84012pt too wide) in paragraph at lines 168--170
+\T1/pplj/m/n/10.95 thus sav-ing power com-pared with other re-lay-ing so-lu-tions [[]]. 
+ []
 
-
-LaTeX Warning: Citation 'zugno2020implementation' on page 8 undefined on input line 123.
-
-The command '\includegraphics [width=0.75\textwidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
-
-LaTeX Warning: Reference `Fig:scenario_high_lvl' on page 8 undefined on input line 132.
-
-
-LaTeX Warning: Citation 'bjornson2019intelligent' on page 9 undefined on input line 155.
-
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 163.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 177.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-
-LaTeX Warning: Citation 'gkonis2020comprehensive' on page 10 undefined on input line 231.
-
-
-LaTeX Warning: Citation 'bonati2020open' on page 10 undefined on input line 233.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation 'wilhelmi2021usage' on page 10 undefined on input line 234.
+LaTeX Warning: Citation 'gkonis2020comprehensive' on page 11 undefined on input line 245.
 
 
-Overfull \hbox (73.90202pt too wide) in paragraph at lines 231--235
+LaTeX Warning: Citation 'bonati2020open' on page 11 undefined on input line 247.
+
+
+LaTeX Warning: Citation 'wilhelmi2021usage' on page 11 undefined on input line 248.
+
+
+Overfull \hbox (73.90202pt too wide) in paragraph at lines 245--249
 \T1/pplj/m/n/10.95 tions in the sys-tem ar-chi-tec-ture, and are gen-er-ally not de-sir-able [[]].
  []
 
 
-LaTeX Warning: Citation 'mezzavilla2018end' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'mezzavilla2018end' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'choi20195g' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'choi20195g' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'nardini2020simu5g' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'nardini2020simu5g' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'patriciello2019e2e' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'patriciello2019e2e' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'pratschner2018versatile' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'pratschner2018versatile' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'muller2018flexible' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'muller2018flexible' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'jao2018wise' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'jao2018wise' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'drago2020millicar' on page 10 undefined on input line 236.
+LaTeX Warning: Citation 'drago2020millicar' on page 11 undefined on input line 250.
 
 
-LaTeX Warning: Citation 'polese2018end' on page 10 undefined on input line 239.
+LaTeX Warning: Citation 'polese2018end' on page 11 undefined on input line 253.
 
 
-LaTeX Warning: Citation 'heimann2021modeling' on page 10 undefined on input line 240.
+LaTeX Warning: Citation 'heimann2021modeling' on page 11 undefined on input line 254.
 
 
-Overfull \hbox (48.1258pt too wide) in paragraph at lines 236--241
+LaTeX Warning: Citation 'mezzavilla2018end' on page 11 undefined on input line 258.
+
+
+LaTeX Warning: Reference `sec:irs_phy_model' on page 11 undefined on input line 258.
+
+
+LaTeX Warning: Reference `sec:af_phy_model' on page 11 undefined on input line 258.
+
+
+Overfull \hbox (48.1258pt too wide) in paragraph at lines 250--259
 \T1/pplj/m/n/10.95 the lit-er-a-ture [[], [], [], [],
  []
 
 
-Overfull \hbox (8.01602pt too wide) in paragraph at lines 236--241
+Overfull \hbox (8.01602pt too wide) in paragraph at lines 250--259
 []\T1/pplj/m/n/10.95 , [], [], []].
  []
 
 
-Overfull \hbox (8.14366pt too wide) in paragraph at lines 236--241
+Overfull \hbox (8.14366pt too wide) in paragraph at lines 250--259
 \T1/pplj/m/n/10.95 port pas-sive re-lays like IRSs. More-over, the au-thors in [[]]
  []
 
 
-LaTeX Warning: Citation 'mezzavilla2018end' on page 11 undefined on input line 245.
+LaTeX Warning: Citation 'zugno2020implementation' on page 12 undefined on input line 264.
 
 
-LaTeX Warning: Reference `sec:irs_phy_model' on page 11 undefined on input line 245.
+LaTeX Warning: Citation '38101_1' on page 12 undefined on input line 264.
 
 
-LaTeX Warning: Reference `sec:af_phy_model' on page 11 undefined on input line 245.
+LaTeX Warning: Reference `eq:input_output_nodev' on page 12 undefined on input line 266.
 
 
-Overfull \hbox (2.53008pt too wide) in paragraph at lines 242--246
-\T1/pplj/m/n/10.95 ule [[]] (among the most pop-u-lar 5G-oriented NR-compliant
- []
+LaTeX Warning: Citation 'bjornson2019intelligent' on page 12 undefined on input line 266.
 
 
-LaTeX Warning: Citation 'zugno2020implementation' on page 11 undefined on input line 254.
+LaTeX Warning: Citation 'wu2019intelligent' on page 12 undefined on input line 266.
 
 
-LaTeX Warning: Citation '38101_1' on page 11 undefined on input line 254.
+LaTeX Warning: Reference `sec:irs_phy_model' on page 13 undefined on input line 282.
 
 
-LaTeX Warning: Reference `eq:input_output_nodev' on page 11 undefined on input line 256.
+LaTeX Warning: Reference `sec:af_phy_model' on page 13 undefined on input line 282.
 
 
-LaTeX Warning: Citation 'bjornson2019intelligent' on page 11 undefined on input line 256.
+LaTeX Warning: Reference `eq:mimo_input_output_relay' on page 13 undefined on input line 286.
 
 
-LaTeX Warning: Citation 'wu2019intelligent' on page 11 undefined on input line 256.
+LaTeX Warning: Reference `eq:ch_model_full_irs_sim' on page 13 undefined on input line 309.
 
 
-LaTeX Warning: Reference `sec:irs_phy_model' on page 12 undefined on input line 272.
+LaTeX Warning: Citation '3gpp.38.901' on page 13 undefined on input line 309.
 
 
-LaTeX Warning: Reference `sec:af_phy_model' on page 12 undefined on input line 272.
+LaTeX Warning: Citation 'giordani2018tutorial' on page 14 undefined on input line 329.
 
 
-LaTeX Warning: Reference `eq:mimo_input_output_relay' on page 12 undefined on input line 276.
-
-
-LaTeX Warning: Reference `eq:ch_model_full_irs_sim' on page 12 undefined on input line 299.
-
-
-LaTeX Warning: Citation '3gpp.38.901' on page 12 undefined on input line 299.
-
-
-Underfull \vbox (badness 1675) has occurred while \output is active []
-
-
-LaTeX Warning: Citation 'giordani2018tutorial' on page 13 undefined on input line 319.
-
-
-Overfull \hbox (10.11696pt too wide) in paragraph at lines 318--320
+Overfull \hbox (10.11696pt too wide) in paragraph at lines 328--330
 \T1/pplj/m/n/10.95 line with the []5G NR beam man-age-ment pro-ce-dure [[]],
  []
 
 
-LaTeX Warning: Citation 'zugno2020implementation' on page 13 undefined on input line 327.
+LaTeX Warning: Citation 'zugno2020implementation' on page 14 undefined on input line 337.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `eq:p-rx-sdr' on page 14 undefined on input line 338.
+LaTeX Warning: Reference `eq:p-rx-sdr' on page 15 undefined on input line 348.
 
 
-LaTeX Warning: Reference `eq:pl' on page 14 undefined on input line 365.
+LaTeX Warning: Reference `eq:pl' on page 15 undefined on input line 375.
 
 
-LaTeX Warning: Reference `eq:mimo_input_output_relay' on page 14 undefined on input line 365.
+LaTeX Warning: Reference `eq:mimo_input_output_relay' on page 15 undefined on input line 375.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (23.30342pt too wide) in paragraph at lines 372--376
+Overfull \hbox (23.30342pt too wide) in paragraph at lines 382--386
 []\T1/pplj/m/it/10.95 Interference and []SINR. \T1/pplj/m/n/10.95 As the last step, we eval-u-ate the []PSDs $\OMS/zplm/m/n/10.95 fP[]\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 t\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 )\OMS/zplm/m/n/10.95 g[]$
  []
 
 
-LaTeX Warning: Reference `sec:ext_ch_model' on page 15 undefined on input line 381.
+LaTeX Warning: Reference `sec:ext_ch_model' on page 16 undefined on input line 391.
 
 
-LaTeX Warning: Citation 'lagen2020new' on page 15 undefined on input line 383.
+LaTeX Warning: Citation 'lagen2020new' on page 16 undefined on input line 393.
 
 
-LaTeX Warning: Citation 'mezzavilla2012lightweight' on page 15 undefined on input line 384.
+LaTeX Warning: Citation 'mezzavilla2012lightweight' on page 16 undefined on input line 394.
 
 
-Overfull \hbox (24.14377pt too wide) in paragraph at lines 381--387
+Overfull \hbox (24.14377pt too wide) in paragraph at lines 391--397
 []\T1/pplj/m/n/10.95 SINR to a []MAC-layer []Trans-port Block (TB) er-ror rate [[]],
  []
 
 
-LaTeX Warning: Citation 'mezzavilla2018end' on page 15 undefined on input line 388.
-
-
-LaTeX Warning: Reference `sub:simulation_setup' on page 16 undefined on input line 406.
-
-
-LaTeX Warning: Reference `sub:numerical_results' on page 16 undefined on input line 406.
-
-
-LaTeX Warning: Reference `Fig:scenarios' on page 16 undefined on input line 411.
-
-
-LaTeX Warning: Citation '3gpp.38.901' on page 16 undefined on input line 412.
-
-
-LaTeX Warning: Reference `Fig:scenarios' on page 16 undefined on input line 414.
-
-
-LaTeX Warning: Citation '3gpp.38.901' on page 16 undefined on input line 414.
-
-
-LaTeX Warning: Reference `Tab:parameters' on page 16 undefined on input line 424.
+LaTeX Warning: Citation 'mezzavilla2018end' on page 16 undefined on input line 398.
 
 The command '\includegraphics [width=0.75\columnwidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 438.
+(Font)              scaled to size 9.37807pt on input line 404.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 438.
+(Font)              scaled to size 7.29405pt on input line 404.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 438.
+(Font)              scaled to size 5.21004pt on input line 404.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 438.
+(Font)              scaled to size 9.37807pt on input line 404.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 438.
+(Font)              scaled to size 7.29405pt on input line 404.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 438.
+(Font)              scaled to size 5.21004pt on input line 404.
 The command '\includegraphics [width=0.75\columnwidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 446.
+(Font)              scaled to size 10.42007pt on input line 412.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 446.
+(Font)              scaled to size 7.91925pt on input line 412.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 446.
+(Font)              scaled to size 10.42007pt on input line 412.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 446.
+(Font)              scaled to size 7.91925pt on input line 412.
 
-LaTeX Warning: Citation '3gpp.38.901' on page 16 undefined on input line 470.
+LaTeX Warning: Reference `sub:simulation_setup' on page 17 undefined on input line 419.
 
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 484.
+
+LaTeX Warning: Reference `sub:numerical_results' on page 17 undefined on input line 419.
+
+
+LaTeX Warning: Reference `Fig:scenarios' on page 17 undefined on input line 424.
+
+
+LaTeX Warning: Citation '3gpp.38.901' on page 17 undefined on input line 425.
+
+
+LaTeX Warning: Reference `Fig:scenarios' on page 17 undefined on input line 427.
+
+
+LaTeX Warning: Citation '3gpp.38.901' on page 17 undefined on input line 427.
+
+
+LaTeX Warning: Citation '3gpp.38.901' on page 17 undefined on input line 450.
+
+
+LaTeX Warning: Reference `Tab:parameters' on page 17 undefined on input line 456.
+
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 470.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-)
-Underfull \vbox (badness 3039) has occurred while \output is active []
-
-(./Figures/IrsSimulation/Results/1UE/E2E_sinr_1ue.tex
+) (./Figures/IrsSimulation/Results/1UE/E2E_sinr_1ue.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 ) (./Figures/IrsSimulation/Results/1UE/Avg_sinr_vs_N_1ue.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `Fig:sinr' on page 18 undefined on input line 525.
+LaTeX Warning: Reference `Fig:sinr' on page 19 undefined on input line 511.
 
 
-LaTeX Warning: Reference `Fig:sinr_all' on page 18 undefined on input line 526.
+LaTeX Warning: Reference `Fig:sinr_all' on page 19 undefined on input line 512.
 
 
-LaTeX Warning: Reference `Fig:sinr_vs_n' on page 18 undefined on input line 527.
+LaTeX Warning: Reference `Fig:sinr_vs_n' on page 19 undefined on input line 513.
 
 
-LaTeX Warning: Citation 'bjornson2020reconfigurable' on page 18 undefined on input line 532.
+LaTeX Warning: Citation 'bjornson2020reconfigurable' on page 19 undefined on input line 518.
 
 (./Figures/IrsSimulation/Results/Joined/E2E_Throughput_avg.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:throughput' on page 19 undefined on input line 554.
+LaTeX Warning: Reference `fig:throughput' on page 20 undefined on input line 540.
 
 
-LaTeX Warning: Reference `Fig:sinr_all' on page 19 undefined on input line 557.
+LaTeX Warning: Reference `Fig:sinr_all' on page 20 undefined on input line 543.
 
 (./Figures/IrsSimulation/Results/Joined/E2E_Latency_95th.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
@@ -2153,270 +2158,270 @@ Underfull \vbox (badness 3128) has occurred while \output is active []
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:latency' on page 20 undefined on input line 595.
+LaTeX Warning: Reference `fig:latency' on page 21 undefined on input line 581.
 
 
-LaTeX Warning: Reference `fig:per' on page 20 undefined on input line 600.
+LaTeX Warning: Reference `fig:per' on page 21 undefined on input line 586.
 
 
-LaTeX Warning: Reference `fig:per' on page 21 undefined on input line 610.
+LaTeX Warning: Reference `fig:per' on page 22 undefined on input line 596.
 
 ) (./Sources/CH-NTN.tex
 
-LaTeX Warning: Citation 'satcost' on page 22 undefined on input line 24.
+LaTeX Warning: Citation 'satcost' on page 23 undefined on input line 24.
 
 
-LaTeX Warning: Citation 'traspadini2023real' on page 22 undefined on input line 27.
+LaTeX Warning: Citation 'traspadini2023real' on page 23 undefined on input line 26.
 
 
-LaTeX Warning: Citation 'wang2020potential' on page 22 undefined on input line 27.
+LaTeX Warning: Citation 'wang2020potential' on page 23 undefined on input line 26.
 
 
-LaTeX Warning: Citation '38811' on page 22 undefined on input line 31.
+LaTeX Warning: Citation '38811' on page 23 undefined on input line 30.
 
 
-LaTeX Warning: Citation 'TR38901' on page 22 undefined on input line 35.
+LaTeX Warning: Citation 'TR38901' on page 23 undefined on input line 34.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation 'giordani2020satellite' on page 23 undefined on input line 57.
+LaTeX Warning: Citation 'giordani2020satellite' on page 24 undefined on input line 56.
 
 
-LaTeX Warning: Reference `eq:pl-fsp' on page 23 undefined on input line 59.
+LaTeX Warning: Reference `eq:pl-fsp' on page 24 undefined on input line 58.
 
 
-LaTeX Warning: Citation '38811' on page 23 undefined on input line 59.
+LaTeX Warning: Citation '38811' on page 24 undefined on input line 58.
 
 
-LaTeX Warning: Citation 'itup676' on page 24 undefined on input line 68.
+LaTeX Warning: Citation 'itup676' on page 25 undefined on input line 67.
 
 
-LaTeX Warning: Citation '38811' on page 25 undefined on input line 82.
+LaTeX Warning: Citation '38811' on page 26 undefined on input line 81.
 
 
-Overfull \hbox (6.20929pt too wide) in paragraph at lines 82--83
+Overfull \hbox (6.20929pt too wide) in paragraph at lines 81--82
 []\T1/pplj/m/n/10.95 While a com-plete ab-sorp-tion model would un-nec-es-sar-ily com-pli-cate system-
  []
 
 
-LaTeX Warning: Citation 'itup531' on page 25 undefined on input line 86.
+LaTeX Warning: Citation 'itup531' on page 26 undefined on input line 85.
 
 
-Overfull \hbox (55.75797pt too wide) in paragraph at lines 86--87
+Overfull \hbox (55.75797pt too wide) in paragraph at lines 85--86
 \T1/pplj/m/n/10.95 Ionospheric scin-til-la-tion is mod-eled based on the Gi-ga-hertz Scin-til-la-tion Model [[]].
  []
 
 
-LaTeX Warning: Citation '38811' on page 25 undefined on input line 90.
+LaTeX Warning: Citation '38811' on page 26 undefined on input line 89.
 
 
-LaTeX Warning: Citation '38811' on page 25 undefined on input line 94.
+LaTeX Warning: Citation '38811' on page 26 undefined on input line 93.
 
 
-LaTeX Warning: Citation 'TR38901' on page 25 undefined on input line 99.
+LaTeX Warning: Citation 'TR38901' on page 26 undefined on input line 98.
 
 
-LaTeX Warning: Citation 'zugno20implementation' on page 25 undefined on input line 99.
+LaTeX Warning: Citation 'zugno20implementation' on page 26 undefined on input line 98.
 
 
-LaTeX Warning: Citation '38811' on page 25 undefined on input line 99.
+LaTeX Warning: Citation '38811' on page 26 undefined on input line 98.
 
 
-LaTeX Warning: Citation 'TR38901' on page 26 undefined on input line 114.
+LaTeX Warning: Citation 'TR38901' on page 27 undefined on input line 113.
 
 
-LaTeX Warning: Reference `eq:eq4' on page 26 undefined on input line 116.
-
-
-LaTeX Warning: Citation '38811' on page 27 undefined on input line 130.
-
-
-LaTeX Warning: Citation 'zugno20implementation' on page 27 undefined on input line 130.
-
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 131.
-
-LaTeX Warning: Reference `fig:ntn-uml' on page 27 undefined on input line 131.
-
-
-Overfull \hbox (40.01115pt too wide) in paragraph at lines 130--132
-\T1/pplj/m/n/10.95 nel model is based upon the TR 38.901 model pre-sented in [[]].
- []
+LaTeX Warning: Reference `eq:eq4' on page 27 undefined on input line 115.
 
 The command '\includegraphics [width=\textwidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 
-LaTeX Warning: Citation '38811' on page 27 undefined on input line 139.
+LaTeX Warning: Citation '38811' on page 28 undefined on input line 136.
 
 
-LaTeX Warning: Citation 'zugno20implementation' on page 27 undefined on input line 143.
+LaTeX Warning: Citation 'zugno20implementation' on page 28 undefined on input line 136.
+
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 7.65005pt on input line 137.
+
+LaTeX Warning: Reference `fig:ntn-uml' on page 28 undefined on input line 137.
 
 
-LaTeX Warning: Citation '38811' on page 27 undefined on input line 143.
+LaTeX Warning: Citation '38811' on page 28 undefined on input line 138.
 
 
-Underfull \vbox (badness 4569) has occurred while \output is active []
+Overfull \hbox (40.01115pt too wide) in paragraph at lines 136--139
+\T1/pplj/m/n/10.95 nel model is based upon the TR 38.901 model pre-sented in [[]].
+ []
 
 
-LaTeX Warning: Citation '38811' on page 28 undefined on input line 147.
+LaTeX Warning: Citation 'zugno20implementation' on page 28 undefined on input line 142.
 
 
-LaTeX Warning: Citation 'TR38901' on page 28 undefined on input line 148.
+LaTeX Warning: Citation '38811' on page 28 undefined on input line 142.
 
 
-LaTeX Warning: Citation 'TR38901' on page 28 undefined on input line 151.
+Underfull \vbox (badness 5607) has occurred while \output is active []
 
 
-LaTeX Warning: Citation '38811' on page 28 undefined on input line 151.
+LaTeX Warning: Citation '38811' on page 29 undefined on input line 146.
 
 
-LaTeX Warning: Citation 'TR38901' on page 28 undefined on input line 152.
+LaTeX Warning: Citation 'TR38901' on page 29 undefined on input line 147.
 
 
-LaTeX Warning: Citation '38811' on page 28 undefined on input line 152.
+LaTeX Warning: Citation 'TR38901' on page 29 undefined on input line 150.
 
 
-LaTeX Warning: Citation '38811' on page 28 undefined on input line 154.
+LaTeX Warning: Citation '38811' on page 29 undefined on input line 150.
 
 
-LaTeX Warning: Citation 'TR38901' on page 29 undefined on input line 157.
+LaTeX Warning: Citation 'TR38901' on page 29 undefined on input line 151.
 
 
-LaTeX Warning: Citation 'coordinateconversion' on page 29 undefined on input line 157.
+LaTeX Warning: Citation '38811' on page 29 undefined on input line 151.
 
 
-Overfull \hbox (0.85075pt too wide) in paragraph at lines 171--173
+LaTeX Warning: Citation '38811' on page 29 undefined on input line 153.
+
+
+LaTeX Warning: Citation 'TR38901' on page 30 undefined on input line 156.
+
+
+LaTeX Warning: Citation 'coordinateconversion' on page 30 undefined on input line 156.
+
+
+Overfull \hbox (0.85075pt too wide) in paragraph at lines 170--172
 []\T1/pplj/m/n/10.95 These chan-nel con-di-tion classes in-ter-act with the re-main-der of the \T1/fvm/m/n/10.95 spectrum
  []
 
 
-LaTeX Warning: Citation '38811' on page 29 undefined on input line 175.
+LaTeX Warning: Citation '38811' on page 30 undefined on input line 174.
 
 
-LaTeX Warning: Reference `fig:ntn-uml' on page 29 undefined on input line 175.
+LaTeX Warning: Reference `fig:ntn-uml' on page 30 undefined on input line 174.
 
 
-LaTeX Warning: Citation '38811' on page 29 undefined on input line 178.
+LaTeX Warning: Citation '38811' on page 30 undefined on input line 177.
 
 
-LaTeX Warning: Citation 'parabolicantenna3gpp' on page 30 undefined on input line 200.
+LaTeX Warning: Citation 'parabolicantenna3gpp' on page 31 undefined on input line 199.
 
 
-LaTeX Warning: Citation 'parabolicantennamodel' on page 30 undefined on input line 200.
+LaTeX Warning: Citation 'parabolicantennamodel' on page 31 undefined on input line 199.
 
 
-Overfull \hbox (0.19412pt too wide) in paragraph at lines 200--201
+Overfull \hbox (0.19412pt too wide) in paragraph at lines 199--200
 \T1/pplj/m/n/10.95 and [[]]. This sim-pli-fi-ca-tion re-duces the com-pu-ta-tional
  []
 
 
-Overfull \hbox (10.8301pt too wide) in paragraph at lines 200--201
+Overfull \hbox (10.8301pt too wide) in paragraph at lines 199--200
 \T1/pplj/m/n/10.95 eval-u-a-tions that the cir-cu-lar aper-ture an-tenna would re-quire, and us-ing trigono-
  []
 
 
-LaTeX Warning: Citation '38821' on page 31 undefined on input line 210.
+LaTeX Warning: Citation '38821' on page 32 undefined on input line 209.
 
 
-LaTeX Warning: Citation '38821' on page 31 undefined on input line 214.
+LaTeX Warning: Citation '38821' on page 32 undefined on input line 213.
 
 
-LaTeX Warning: Citation '38821' on page 31 undefined on input line 216.
+LaTeX Warning: Citation '38821' on page 32 undefined on input line 215.
 
 
-LaTeX Warning: Citation '38821' on page 31 undefined on input line 216.
+LaTeX Warning: Citation '38821' on page 32 undefined on input line 215.
 
 
-LaTeX Warning: Citation '38821' on page 31 undefined on input line 217.
+LaTeX Warning: Citation '38821' on page 32 undefined on input line 216.
 
 
-LaTeX Warning: Citation '38821' on page 31 undefined on input line 256.
+LaTeX Warning: Citation '38821' on page 32 undefined on input line 255.
 
 
-LaTeX Warning: Reference `tab:ll-comp' on page 31 undefined on input line 257.
-
-
-LaTeX Warning: Reference `fig:frequency-test' on page 33 undefined on input line 265.
-
-
-LaTeX Warning: Reference `tab:frequency-test' on page 33 undefined on input line 265.
-
-
-LaTeX Warning: Reference `sub:atm' on page 33 undefined on input line 289.
+LaTeX Warning: Reference `tab:ll-comp' on page 32 undefined on input line 256.
 
 (./Figures/ChannelNtn/freq_test.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `tab:frequency-test' on page 33 undefined on input line 297.
+LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 286.
 
 
-LaTeX Warning: Reference `tab:frequency-test' on page 33 undefined on input line 297.
+LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 286.
 
 
-LaTeX Warning: Reference `sub:mobility' on page 33 undefined on input line 302.
+LaTeX Warning: Reference `fig:frequency-test' on page 34 undefined on input line 293.
+
+
+LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 293.
+
+
+LaTeX Warning: Reference `sub:atm' on page 34 undefined on input line 298.
+
+
+LaTeX Warning: Reference `sub:mobility' on page 34 undefined on input line 301.
 
 
 Underfull \vbox (badness 1454) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 305.
+LaTeX Warning: Reference `tab:frequency-test' on page 35 undefined on input line 304.
 
 
-LaTeX Warning: Reference `fig:movement-test' on page 34 undefined on input line 306.
+LaTeX Warning: Reference `fig:movement-test' on page 35 undefined on input line 305.
 
 
-LaTeX Warning: Reference `eq:eq4' on page 34 undefined on input line 306.
+LaTeX Warning: Reference `eq:eq4' on page 35 undefined on input line 305.
 
 (./Figures/ChannelNtn/movement_test.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 314.
+LaTeX Warning: Reference `tab:frequency-test' on page 35 undefined on input line 313.
 
 
-LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 314.
+LaTeX Warning: Reference `tab:frequency-test' on page 35 undefined on input line 313.
 
 
-LaTeX Warning: Reference `fig:altitude-test' on page 34 undefined on input line 318.
+LaTeX Warning: Reference `fig:altitude-test' on page 35 undefined on input line 317.
 
 (./Figures/ChannelNtn/altitude_test.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 344.
+LaTeX Warning: Reference `tab:frequency-test' on page 35 undefined on input line 343.
 
 
-LaTeX Warning: Reference `tab:frequency-test' on page 34 undefined on input line 344.
+LaTeX Warning: Reference `tab:frequency-test' on page 35 undefined on input line 343.
 
 
-LaTeX Warning: Reference `sub:ll' on page 34 undefined on input line 350.
+LaTeX Warning: Reference `sub:ll' on page 35 undefined on input line 349.
 
 
-LaTeX Warning: Reference `tab:systemlev' on page 34 undefined on input line 351.
+LaTeX Warning: Reference `tab:systemlev' on page 35 undefined on input line 350.
 
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 (./Sources/CH-PERF.tex
 
-LaTeX Warning: Citation 'andrews2017modeling' on page 36 undefined on input line 6.
+LaTeX Warning: Citation 'andrews2017modeling' on page 37 undefined on input line 6.
 
 
-LaTeX Warning: Citation 'lecci2020simplified' on page 36 undefined on input line 6.
+LaTeX Warning: Citation 'lecci2020simplified' on page 37 undefined on input line 6.
 
 
-LaTeX Warning: Citation 'TR38901' on page 36 undefined on input line 7.
+LaTeX Warning: Citation 'TR38901' on page 37 undefined on input line 7.
 
 
-LaTeX Warning: Citation 'tommaso:20' on page 36 undefined on input line 14.
+LaTeX Warning: Citation 'tommaso:20' on page 37 undefined on input line 14.
 
 
-LaTeX Warning: Citation '10.1145/3460797.3460801' on page 36 undefined on input line 14.
+LaTeX Warning: Citation '10.1145/3460797.3460801' on page 37 undefined on input line 14.
 
 
-LaTeX Warning: Citation '10.1145/3532577.3532596' on page 36 undefined on input line 14.
+LaTeX Warning: Citation '10.1145/3532577.3532596' on page 37 undefined on input line 14.
 
 
 Overfull \hbox (24.43001pt too wide) in paragraph at lines 6--16
@@ -2424,19 +2429,19 @@ Overfull \hbox (24.43001pt too wide) in paragraph at lines 6--16
  []
 
 
-LaTeX Warning: Citation 'jin2020efficient' on page 36 undefined on input line 17.
+LaTeX Warning: Citation 'jin2020efficient' on page 37 undefined on input line 17.
 
 
-LaTeX Warning: Citation 'jin2021efficient' on page 36 undefined on input line 17.
+LaTeX Warning: Citation 'jin2021efficient' on page 37 undefined on input line 17.
 
 
-LaTeX Warning: Citation 'jin2021eesm' on page 36 undefined on input line 17.
+LaTeX Warning: Citation 'jin2021eesm' on page 37 undefined on input line 17.
 
 
-LaTeX Warning: Citation 'liu2021performance' on page 36 undefined on input line 18.
+LaTeX Warning: Citation 'liu2021performance' on page 37 undefined on input line 18.
 
 
-LaTeX Warning: Citation 'QD' on page 36 undefined on input line 18.
+LaTeX Warning: Citation 'QD' on page 37 undefined on input line 18.
 
 
 Overfull \hbox (24.8126pt too wide) in paragraph at lines 17--19
@@ -2444,16 +2449,16 @@ Overfull \hbox (24.8126pt too wide) in paragraph at lines 17--19
  []
 
 
-LaTeX Warning: Citation 'TR38901' on page 37 undefined on input line 27.
+LaTeX Warning: Citation 'TR38901' on page 38 undefined on input line 27.
 
 
-LaTeX Warning: Citation 'testolina2020scalable' on page 37 undefined on input line 28.
+LaTeX Warning: Citation 'testolina2020scalable' on page 38 undefined on input line 28.
 
 
-LaTeX Warning: Citation 'tommaso:20' on page 37 undefined on input line 30.
+LaTeX Warning: Citation 'tommaso:20' on page 38 undefined on input line 30.
 
 
-LaTeX Warning: Citation 'eigenweb' on page 38 undefined on input line 33.
+LaTeX Warning: Citation 'eigenweb' on page 39 undefined on input line 33.
 
 
 Overfull \hbox (2.60121pt too wide) in paragraph at lines 42--43
@@ -2481,43 +2486,43 @@ Overfull \hbox (0.42511pt too wide) in paragraph at lines 48--49
  []
 
 
-LaTeX Warning: Citation '9810370' on page 39 undefined on input line 51.
+LaTeX Warning: Citation '9810370' on page 40 undefined on input line 51.
 
 
-LaTeX Warning: Citation 'tommaso:20' on page 39 undefined on input line 58.
+LaTeX Warning: Citation 'tommaso:20' on page 40 undefined on input line 58.
 
 
-LaTeX Warning: Citation 'TR38901' on page 39 undefined on input line 58.
+LaTeX Warning: Citation 'TR38901' on page 40 undefined on input line 58.
 
 
 Underfull \vbox (badness 3954) has occurred while \output is active []
 
 
-LaTeX Warning: Citation '8445856' on page 40 undefined on input line 60.
+LaTeX Warning: Citation '8445856' on page 41 undefined on input line 60.
 
 
-LaTeX Warning: Citation 'TR38901' on page 40 undefined on input line 71.
+LaTeX Warning: Citation 'TR38901' on page 41 undefined on input line 71.
 
 
-LaTeX Warning: Citation 'tommaso:20' on page 40 undefined on input line 71.
+LaTeX Warning: Citation 'tommaso:20' on page 41 undefined on input line 71.
 
 
 Underfull \vbox (badness 4505) has occurred while \output is active []
 
 
-LaTeX Warning: Citation '8422746' on page 41 undefined on input line 98.
+LaTeX Warning: Citation '8422746' on page 42 undefined on input line 98.
 
 
-LaTeX Warning: Citation 'ASPLUND202089' on page 41 undefined on input line 105.
+LaTeX Warning: Citation 'ASPLUND202089' on page 42 undefined on input line 105.
 
 
 Underfull \vbox (badness 7133) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `fig:pattern_iso' on page 42 undefined on input line 120.
+LaTeX Warning: Reference `fig:pattern_iso' on page 43 undefined on input line 120.
 
 
-LaTeX Warning: Reference `fig:pattern_3gpp' on page 42 undefined on input line 120.
+LaTeX Warning: Reference `fig:pattern_3gpp' on page 43 undefined on input line 120.
 
 
 Overfull \hbox (1.75835pt too wide) in paragraph at lines 118--121
@@ -2530,22 +2535,22 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to di
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Citation 'TR38901' on page 42 undefined on input line 141.
+LaTeX Warning: Citation 'TR38901' on page 43 undefined on input line 141.
 
 
-LaTeX Warning: Citation 'TR38901' on page 42 undefined on input line 141.
+LaTeX Warning: Citation 'TR38901' on page 43 undefined on input line 141.
 
 
-LaTeX Warning: Citation 'TR38901' on page 42 undefined on input line 145.
+LaTeX Warning: Citation 'TR38901' on page 43 undefined on input line 145.
 
 
-LaTeX Warning: Citation 'TR38901' on page 42 undefined on input line 145.
+LaTeX Warning: Citation 'TR38901' on page 43 undefined on input line 145.
 
 
-LaTeX Warning: Citation 'chizhik2000capacities' on page 42 undefined on input line 149.
+LaTeX Warning: Citation 'chizhik2000capacities' on page 43 undefined on input line 149.
 
 
-LaTeX Warning: Citation 'kulkarni2018correction' on page 42 undefined on input line 150.
+LaTeX Warning: Citation 'kulkarni2018correction' on page 43 undefined on input line 150.
 
 
 Overfull \hbox (12.81207pt too wide) in paragraph at lines 149--151
@@ -2553,28 +2558,28 @@ Overfull \hbox (12.81207pt too wide) in paragraph at lines 149--151
  []
 
 
-LaTeX Warning: Citation 'yacoub2007kappa' on page 42 undefined on input line 154.
+LaTeX Warning: Citation 'yacoub2007kappa' on page 43 undefined on input line 154.
 
 
-LaTeX Warning: Citation 'cotton2014human' on page 42 undefined on input line 154.
+LaTeX Warning: Citation 'cotton2014human' on page 43 undefined on input line 154.
 
 
-LaTeX Warning: Citation 'mavridis2015near' on page 42 undefined on input line 154.
+LaTeX Warning: Citation 'mavridis2015near' on page 43 undefined on input line 154.
 
 
-LaTeX Warning: Citation '7917287' on page 42 undefined on input line 155.
+LaTeX Warning: Citation '7917287' on page 43 undefined on input line 155.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation '7917287' on page 43 undefined on input line 171.
+LaTeX Warning: Citation '7917287' on page 44 undefined on input line 171.
 
 
-LaTeX Warning: Citation 'TR38901' on page 43 undefined on input line 177.
+LaTeX Warning: Citation 'TR38901' on page 44 undefined on input line 177.
 
 
-LaTeX Warning: Reference `fig:fading_vs_fc' on page 43 undefined on input line 177.
+LaTeX Warning: Reference `fig:fading_vs_fc' on page 44 undefined on input line 177.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2583,10 +2588,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Citation 'anderson1954test' on page 44 undefined on input line 191.
+LaTeX Warning: Citation 'anderson1954test' on page 45 undefined on input line 191.
 
 
-LaTeX Warning: Citation 'anderson1954test' on page 44 undefined on input line 191.
+LaTeX Warning: Citation 'anderson1954test' on page 45 undefined on input line 191.
 
 
 Overfull \hbox (3.42795pt too wide) in paragraph at lines 190--192
@@ -2604,10 +2609,7 @@ Overfull \hbox (48.73897pt too wide) in paragraph at lines 190--192
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-LaTeX Warning: Citation 'patriciello2019e2e' on page 45 undefined on input line 212.
+LaTeX Warning: Citation 'patriciello2019e2e' on page 46 undefined on input line 212.
 
 
 Overfull \hbox (1.46272pt too wide) in paragraph at lines 212--213
@@ -2631,50 +2633,45 @@ Overfull \hbox (17.36249pt too wide) in paragraph at lines 226--227
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Citation 'TR38901' on page 46 undefined on input line 238.
+LaTeX Warning: Citation 'TR38901' on page 47 undefined on input line 238.
 
 
-LaTeX Warning: Citation 'TR38901' on page 46 undefined on input line 238.
+LaTeX Warning: Citation 'TR38901' on page 47 undefined on input line 238.
 
 (./Figures/ChannelPerformance/BenchTwoRay.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Citation 'TR38901' on page 46 undefined on input line 248.
+LaTeX Warning: Citation 'TR38901' on page 47 undefined on input line 248.
 
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 8.50006pt on input line 248.
 
-LaTeX Warning: Citation 'TR38901' on page 46 undefined on input line 248.
+LaTeX Warning: Citation 'TR38901' on page 47 undefined on input line 248.
 
 
-LaTeX Warning: Reference `fig:bench_eigen' on page 46 undefined on input line 252.
+LaTeX Warning: Reference `fig:bench_eigen' on page 47 undefined on input line 252.
 
 
-LaTeX Warning: Reference `fig:bench_tworay' on page 46 undefined on input line 253.
+LaTeX Warning: Reference `fig:bench_tworay' on page 47 undefined on input line 253.
 
 
-LaTeX Warning: Citation 'tommaso:20' on page 46 undefined on input line 253.
+LaTeX Warning: Citation 'tommaso:20' on page 47 undefined on input line 253.
 
 (./Figures/ChannelPerformance/AccuracyJoined.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Citation 'TR38901' on page 47 undefined on input line 261.
+LaTeX Warning: Citation 'TR38901' on page 48 undefined on input line 261.
 
 
-LaTeX Warning: Citation 'TR38901' on page 47 undefined on input line 261.
+LaTeX Warning: Citation 'TR38901' on page 48 undefined on input line 261.
 
 
-Underfull \hbox (badness 2790) in paragraph at lines 261--261
-[][]|\T1/pplj/m/n/10 ECDF of the []SINR Ob-tained Us-ing the 3GPP Chan-nel Model
- []
+LaTeX Warning: Citation 'tommaso:20' on page 48 undefined on input line 265.
 
 
-LaTeX Warning: Citation 'tommaso:20' on page 47 undefined on input line 265.
-
-
-LaTeX Warning: Reference `fig:accuracy' on page 47 undefined on input line 265.
+LaTeX Warning: Reference `fig:accuracy' on page 48 undefined on input line 265.
 
 
 Overfull \hbox (8.72777pt too wide) in paragraph at lines 265--266
@@ -2687,22 +2684,19 @@ Overfull \hbox (4.33205pt too wide) in paragraph at lines 265--266
  []
 
 
-LaTeX Warning: Citation 'magrin2019simulation' on page 47 undefined on input line 267.
+LaTeX Warning: Citation 'magrin2019simulation' on page 48 undefined on input line 267.
 
 
-LaTeX Warning: Citation 'tommaso:20' on page 47 undefined on input line 272.
+LaTeX Warning: Citation 'tommaso:20' on page 48 undefined on input line 272.
 
 
-LaTeX Warning: Citation 'mezzavilla2018end' on page 47 undefined on input line 272.
+LaTeX Warning: Citation 'mezzavilla2018end' on page 48 undefined on input line 272.
 
 
-LaTeX Warning: Citation 'mezzavilla2018end' on page 47 undefined on input line 273.
+LaTeX Warning: Citation 'mezzavilla2018end' on page 48 undefined on input line 273.
 
 
-LaTeX Warning: Citation 'pagin2022' on page 47 undefined on input line 273.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation 'pagin2022' on page 48 undefined on input line 273.
 
 
 Overfull \hbox (0.54366pt too wide) in paragraph at lines 275--276
@@ -2710,13 +2704,13 @@ Overfull \hbox (0.54366pt too wide) in paragraph at lines 275--276
  []
 
 
-LaTeX Warning: Citation '38811' on page 48 undefined on input line 285.
+LaTeX Warning: Citation '38811' on page 49 undefined on input line 286.
 
 
-LaTeX Warning: Citation 'ntngitlab' on page 48 undefined on input line 286.
+LaTeX Warning: Citation 'ntngitlab' on page 49 undefined on input line 286.
 
 
-LaTeX Warning: Citation '38821' on page 48 undefined on input line 286.
+LaTeX Warning: Citation '38821' on page 49 undefined on input line 286.
 
 ) (./Sources/IAB.tex
 chapter 3.
@@ -2996,226 +2990,226 @@ Overfull \hbox (16.71028pt too wide) in paragraph at lines 57--58
 \T1/pplj/m/n/10.95 The fol-low-ing para-graphs iden-tify the char-ac-ter-is-tics and con-straints of []mmWave
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-LaTeX Warning: Reference `Fig:IAB_top_not' on page 58 undefined on input line 60.
-
-
-LaTeX Warning: Citation '3gpp_38_874' on page 58 undefined on input line 61.
-
-
-LaTeX Warning: Citation '3gpp_38_874' on page 58 undefined on input line 62.
-
-
-LaTeX Warning: Reference `Fig:IAB_topology' on page 58 undefined on input line 62.
-
-
-LaTeX Warning: Citation '3gpp_38_874' on page 58 undefined on input line 76.
-
-
-LaTeX Warning: Citation '3gpp_38_174' on page 58 undefined on input line 76.
-
-
-LaTeX Warning: Citation 'khan2011mmwave' on page 58 undefined on input line 76.
-
-
-LaTeX Warning: Citation 'dutta2017frame' on page 58 undefined on input line 76.
-
-
-LaTeX Warning: Citation 'qualcomm1' on page 58 undefined on input line 78.
-
-
-Overfull \hbox (61.65842pt too wide) in paragraph at lines 76--82
-\T1/pplj/m/n/10.95 ture sug-gests that []5G []mmWave sys-tems will op-er-ate in a []TDD fash-ion [[],
- []
-
 The command '\includegraphics [width=0.55\columnwidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 The command '\includegraphics [width=0.55\columnwidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 
-Overfull \hbox (73.81444pt too wide) in paragraph at lines 88--91
+Overfull \hbox (73.81444pt too wide) in paragraph at lines 64--67
  [][] 
  []
 
 
-Overfull \hbox (73.81444pt too wide) in paragraph at lines 88--91
+Overfull \hbox (73.81444pt too wide) in paragraph at lines 64--67
  [] 
  []
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 59 undefined on input line 91.
+LaTeX Warning: Citation '3gpp_38_874' on page 57 undefined on input line 67.
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 59 undefined on input line 91.
+LaTeX Warning: Citation '3gpp_38_874' on page 57 undefined on input line 67.
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 59 undefined on input line 97.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation '3gpp_38_174' on page 59 undefined on input line 97.
+LaTeX Warning: Reference `Fig:IAB_top_not' on page 58 undefined on input line 73.
 
 
-LaTeX Warning: Reference `Fig:IAB_notation' on page 59 undefined on input line 105.
+LaTeX Warning: Citation '3gpp_38_874' on page 58 undefined on input line 74.
 
 
-Overfull \hbox (14.62341pt too wide) in paragraph at lines 105--110
+LaTeX Warning: Citation '3gpp_38_874' on page 58 undefined on input line 75.
+
+
+LaTeX Warning: Reference `Fig:IAB_topology' on page 58 undefined on input line 75.
+
+
+LaTeX Warning: Citation '3gpp_38_874' on page 58 undefined on input line 79.
+
+
+LaTeX Warning: Citation '3gpp_38_174' on page 58 undefined on input line 79.
+
+
+LaTeX Warning: Citation 'khan2011mmwave' on page 58 undefined on input line 79.
+
+
+LaTeX Warning: Citation 'dutta2017frame' on page 58 undefined on input line 79.
+
+
+LaTeX Warning: Citation 'qualcomm1' on page 58 undefined on input line 81.
+
+
+Overfull \hbox (61.65842pt too wide) in paragraph at lines 79--85
+\T1/pplj/m/n/10.95 ture sug-gests that []5G []mmWave sys-tems will op-er-ate in a []TDD fash-ion [[],
+ []
+
+
+LaTeX Warning: Citation '3gpp_38_874' on page 59 undefined on input line 87.
+
+
+LaTeX Warning: Citation '3gpp_38_174' on page 59 undefined on input line 87.
+
+
+LaTeX Warning: Reference `Fig:IAB_notation' on page 59 undefined on input line 95.
+
+
+Overfull \hbox (14.62341pt too wide) in paragraph at lines 95--100
 \T1/pplj/m/n/10.95 the []UEs. Ac-cord-ingly, the set of di-rected edges $\OMS/zplm/m/n/10.95 E [] f\OML/zplm/m/it/10.95 e[]\OT1/pplx/m/n/10.95 ,  \OML/zplm/m/it/10.95 e[]\OT1/pplx/m/n/10.95 ,  []  \OML/zplm/m/it/10.95 e[]\OMS/zplm/m/n/10.95 g ^^Q f\OML/zplm/m/it/10.95 e[]\OMS/zplm/m/n/10.95 g[]$\T1/pplj/m/n/10.95 ,
  []
 
 
-LaTeX Warning: Citation 'Korte2002' on page 60 undefined on input line 112.
+LaTeX Warning: Citation 'Korte2002' on page 60 undefined on input line 102.
 
 
-LaTeX Warning: Citation '1990Gabow' on page 60 undefined on input line 115.
+LaTeX Warning: Citation '1990Gabow' on page 60 undefined on input line 105.
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 60 undefined on input line 115.
+LaTeX Warning: Citation '3gpp_38_874' on page 60 undefined on input line 105.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `Sec:T-MWM' on page 61 undefined on input line 121.
+LaTeX Warning: Reference `Sec:T-MWM' on page 61 undefined on input line 111.
 
 
-LaTeX Warning: Reference `Sec:Cent-scheme' on page 61 undefined on input line 121.
+LaTeX Warning: Reference `Sec:Cent-scheme' on page 61 undefined on input line 111.
 
 
-LaTeX Warning: Reference `Sec:ns3-impl' on page 61 undefined on input line 121.
+LaTeX Warning: Reference `Sec:ns3-impl' on page 61 undefined on input line 111.
 
 
-LaTeX Warning: Reference `Fig:Diagram' on page 61 undefined on input line 122.
+LaTeX Warning: Reference `Fig:Diagram' on page 61 undefined on input line 112.
 
 The command '\includegraphics [width=0.95\linewidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 The command '\includegraphics [width=0.95\linewidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 
-Overfull \hbox (73.81444pt too wide) in paragraph at lines 126--129
+Overfull \hbox (73.81444pt too wide) in paragraph at lines 116--119
 [][]
  []
 
 
-Overfull \hbox (73.81444pt too wide) in paragraph at lines 126--129
+Overfull \hbox (73.81444pt too wide) in paragraph at lines 116--119
 [] 
  []
 
 
-LaTeX Warning: Reference `Alg:tmwm' on page 62 undefined on input line 146.
+LaTeX Warning: Reference `Alg:tmwm' on page 62 undefined on input line 136.
 
 
-LaTeX Warning: Reference `lemma_utils' on page 62 undefined on input line 146.
+LaTeX Warning: Reference `lemma_utils' on page 62 undefined on input line 136.
 
 
-LaTeX Warning: Reference `lemma_active_edges' on page 62 undefined on input line 146.
+LaTeX Warning: Reference `lemma_active_edges' on page 62 undefined on input line 136.
 
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 155.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 145.
 
 LaTeX Font Warning: Font shape `T1/fvm/m/sc' undefined
-(Font)              using `T1/fvm/m/n' instead on input line 160.
+(Font)              using `T1/fvm/m/n' instead on input line 150.
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 179--179
+Underfull \hbox (badness 2165) in paragraph at lines 169--169
 \T1/pplj/m/n/10 get ac-ti-vated mul-ti-ple
  []
 
 
-Overfull \hbox (30.87155pt too wide) in paragraph at lines 225--227
+Overfull \hbox (30.87155pt too wide) in paragraph at lines 215--217
 \T1/pplj/m/n/10.95 Finally, such util-ity is clearly max-i-mized when $\OML/zplm/m/it/10.95 n[]$ \T1/pplj/m/n/10.95 is cho-sen as $[] \OMS/zplm/m/n/10.95 f\OT1/zplm/b/n/10.95 W\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 e[]\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@
  []
 
 
-LaTeX Warning: Reference `lemma_utils' on page 64 undefined on input line 232.
+LaTeX Warning: Reference `lemma_utils' on page 64 undefined on input line 222.
 
 
-LaTeX Warning: Reference `Sec:Sys-model' on page 65 undefined on input line 253.
+LaTeX Warning: Reference `Sec:Sys-model' on page 65 undefined on input line 243.
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 65 undefined on input line 253.
+LaTeX Warning: Citation '3gpp_38_874' on page 65 undefined on input line 243.
 
 
-LaTeX Warning: Reference `Fig:Phase0' on page 65 undefined on input line 264.
+LaTeX Warning: Reference `Fig:Phase0' on page 65 undefined on input line 254.
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 65 undefined on input line 266.
+LaTeX Warning: Citation '3gpp_38_874' on page 65 undefined on input line 256.
 
 
-LaTeX Warning: Reference `Fig:Phase2' on page 66 undefined on input line 267.
+LaTeX Warning: Reference `Fig:Phase2' on page 66 undefined on input line 257.
 
 The command '\includegraphics [width=0.7\linewidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 The command '\includegraphics [width=0.7\linewidth ]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 
-Overfull \hbox (77.00089pt too wide) in paragraph at lines 275--279
+Overfull \hbox (77.00089pt too wide) in paragraph at lines 265--269
  [][] 
  []
 
 
-Overfull \hbox (77.00089pt too wide) in paragraph at lines 275--279
+Overfull \hbox (77.00089pt too wide) in paragraph at lines 265--269
  [] 
  []
 
 
-LaTeX Warning: Citation 'bonati2020open' on page 67 undefined on input line 295.
+LaTeX Warning: Citation 'bonati2020open' on page 67 undefined on input line 285.
 
 
-Overfull \hbox (14.49681pt too wide) in paragraph at lines 295--298
+Overfull \hbox (14.49681pt too wide) in paragraph at lines 285--288
 \T1/pplj/m/n/10.95 In-tel-li-gent Con-troller (RIC) fol-low-ing the O-RAN ar-chi-tec-ture [[]];
  []
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 67 undefined on input line 305.
+LaTeX Warning: Citation '3gpp_38_874' on page 67 undefined on input line 295.
 
 
-LaTeX Warning: Citation '3gpp_38_321' on page 68 undefined on input line 319.
+LaTeX Warning: Citation '3gpp_38_321' on page 68 undefined on input line 309.
 
 
-LaTeX Warning: Citation '3gpp_38_321' on page 68 undefined on input line 320.
+LaTeX Warning: Citation '3gpp_38_321' on page 68 undefined on input line 310.
 
 
-LaTeX Warning: Citation '3gpp_r1_1713763' on page 68 undefined on input line 320.
+LaTeX Warning: Citation '3gpp_r1_1713763' on page 68 undefined on input line 310.
 
 
 Underfull \vbox (badness 1466) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `Sec:T-MWM' on page 70 undefined on input line 352.
+LaTeX Warning: Reference `Sec:T-MWM' on page 70 undefined on input line 342.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation '3gpp_38_321' on page 72 undefined on input line 367.
+LaTeX Warning: Citation '3gpp_38_321' on page 72 undefined on input line 357.
 
 
-LaTeX Warning: Citation '3gpp_38_340' on page 72 undefined on input line 367.
+LaTeX Warning: Citation '3gpp_38_340' on page 72 undefined on input line 357.
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 72 undefined on input line 371.
+LaTeX Warning: Citation '3gpp_38_874' on page 72 undefined on input line 361.
 
 
-LaTeX Warning: Citation 'mezzavilla2018end' on page 72 undefined on input line 374.
+LaTeX Warning: Citation 'mezzavilla2018end' on page 72 undefined on input line 364.
 
 
-LaTeX Warning: Citation 'polese2018end' on page 72 undefined on input line 374.
+LaTeX Warning: Citation 'polese2018end' on page 72 undefined on input line 364.
 
 
-Overfull \hbox (20.20335pt too wide) in paragraph at lines 374--375
+Overfull \hbox (20.20335pt too wide) in paragraph at lines 364--365
 \T1/pplj/m/n/10.95 open source sim-u-la-tor ns-3, ex-ploit-ing the []mmWave mod-ule [[]]
  []
 
 
-LaTeX Warning: Citation 'baldo2011open' on page 72 undefined on input line 376.
+LaTeX Warning: Citation 'baldo2011open' on page 72 undefined on input line 366.
 
 
-LaTeX Warning: Citation 'zugno2020implementation' on page 72 undefined on input line 377.
+LaTeX Warning: Citation 'zugno2020implementation' on page 72 undefined on input line 367.
 
 
-LaTeX Warning: Citation 'polese2018end' on page 72 undefined on input line 378.
+LaTeX Warning: Citation 'polese2018end' on page 72 undefined on input line 368.
 
 
-LaTeX Warning: Citation '3gpp_38_874' on page 72 undefined on input line 378.
+LaTeX Warning: Citation '3gpp_38_874' on page 72 undefined on input line 368.
 
 
-Overfull \hbox (2.39874pt too wide) in paragraph at lines 376--379
+Overfull \hbox (2.39874pt too wide) in paragraph at lines 366--369
 []\T1/pplj/m/n/10.95 The ns-3 []mmWave mod-ule is based on [[]] and fea-tures highly
  []
 
@@ -3223,99 +3217,102 @@ Overfull \hbox (2.39874pt too wide) in paragraph at lines 376--379
 Underfull \vbox (badness 1314) has occurred while \output is active []
 
 
-LaTeX Warning: Citation 'polese2018end' on page 73 undefined on input line 383.
+LaTeX Warning: Citation 'polese2018end' on page 73 undefined on input line 373.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-LaTeX Warning: Reference `Fig:Sim_scen' on page 74 undefined on input line 399.
-
-
-LaTeX Warning: Citation 'polese2018iab' on page 74 undefined on input line 399.
-
-
-LaTeX Warning: Reference `Tab:Sim_params' on page 74 undefined on input line 399.
-
 (./Figures/CentralResourceManagement/Sim_scenario.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 411--429
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 397--415
  [][] 
  []
+
+
+LaTeX Warning: Reference `Fig:Sim_scen' on page 74 undefined on input line 418.
+
+
+LaTeX Warning: Citation 'polese2018iab' on page 74 undefined on input line 418.
+
+
+LaTeX Warning: Reference `Tab:Sim_params' on page 74 undefined on input line 418.
 
 (./Figures/CentralResourceManagement/Sim_results_v2/E2E_throughput_ECDF_packet_size_100.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 ) (./Figures/CentralResourceManagement/Sim_results_v2/E2E_throughput_ECDF_packet_size_500.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 445--454
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 435--444
  [][] 
  []
 
 
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 445--454
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 435--444
  [] 
  []
 
 
-LaTeX Warning: Citation 'polese2018end' on page 74 undefined on input line 461.
+LaTeX Warning: Citation 'polese2018end' on page 74 undefined on input line 451.
 
 
-LaTeX Warning: Reference `Fig:Thr_ECDF_100' on page 75 undefined on input line 471.
+LaTeX Warning: Reference `Fig:Thr_ECDF_100' on page 75 undefined on input line 461.
 
 
-LaTeX Warning: Reference `Fig:Thr_ECDF_500' on page 75 undefined on input line 471.
+LaTeX Warning: Reference `Fig:Thr_ECDF_500' on page 75 undefined on input line 461.
 
 
-LaTeX Warning: Reference `Sec:ns3-impl' on page 75 undefined on input line 471.
+LaTeX Warning: Reference `Sec:ns3-impl' on page 75 undefined on input line 461.
 
 
-LaTeX Warning: Reference `Fig:Thr_ECDF_100' on page 75 undefined on input line 472.
+LaTeX Warning: Reference `Fig:Thr_ECDF_100' on page 75 undefined on input line 462.
 
 (./Figures/CentralResourceManagement/Sim_results_v2/E2E_first_quartile_throughput.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 ) (./Figures/CentralResourceManagement/Sim_results_v2/E2E_third_quartile_throughput.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 491--502
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 481--492
  [][] 
  []
 
 
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 491--502
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 481--492
  [] 
  []
 
 
-LaTeX Warning: Reference `Fig:Thr_ECDF_500' on page 76 undefined on input line 508.
+LaTeX Warning: Reference `Fig:Thr_ECDF_500' on page 76 undefined on input line 498.
 
 
-LaTeX Warning: Reference `Fig:Thr_ECDF_500' on page 76 undefined on input line 509.
+LaTeX Warning: Reference `Fig:Thr_ECDF_500' on page 76 undefined on input line 499.
 
 
-LaTeX Warning: Reference `Fig:Throughput_quartiles' on page 77 undefined on input line 511.
+LaTeX Warning: Reference `Fig:Throughput_quartiles' on page 77 undefined on input line 501.
 
 
-LaTeX Warning: Reference `Fig:Throughput_third_quartile' on page 77 undefined on input line 511.
+LaTeX Warning: Reference `Fig:Throughput_third_quartile' on page 77 undefined on input line 501.
 
 
-LaTeX Warning: Reference `Fig:Del_ECDF_100' on page 78 undefined on input line 523.
+Underfull \vbox (badness 4995) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `Fig:Delay_third_quartile' on page 78 undefined on input line 525.
+LaTeX Warning: Reference `Fig:Del_ECDF_100' on page 78 undefined on input line 513.
+
+
+LaTeX Warning: Reference `Fig:Delay_third_quartile' on page 78 undefined on input line 515.
 
 (./Figures/CentralResourceManagement/Sim_results_v2/E2E_delay_ECDF_packet_size_100.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 ) (./Figures/CentralResourceManagement/Sim_results_v2/E2E_third_quartile_delay.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 545--557
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 535--547
  [][] 
  []
 
 
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 545--557
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 535--547
  [] 
  []
 
@@ -3339,67 +3336,67 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to di
 ) (./Figures/CentralResourceManagement/Sim_results_v2/Third_quartile_BSR_vs_depth.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
-Overfull \hbox (932.77475pt too wide) in paragraph at lines 571--588
+Overfull \hbox (932.77475pt too wide) in paragraph at lines 561--578
  [][][][] 
  []
 
 
-LaTeX Warning: Reference `Fig:BSR_median_ue' on page 79 undefined on input line 597.
+LaTeX Warning: Reference `Fig:BSR_median_ue' on page 79 undefined on input line 587.
 
 
-LaTeX Warning: Reference `Fig:BSR_median_node' on page 79 undefined on input line 597.
+LaTeX Warning: Reference `Fig:BSR_median_node' on page 79 undefined on input line 587.
 
 
-LaTeX Warning: Reference `Fig:BSR_third_quartile_depth' on page 79 undefined on input line 606.
+LaTeX Warning: Reference `Fig:BSR_third_quartile_depth' on page 79 undefined on input line 596.
 
 (./Figures/CentralResourceManagement/Sim_results_v2/TCP_E2E_delay_ECDF_packet_size_256.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 ) (./Figures/CentralResourceManagement/Sim_results_v2/TCP_E2E_throughput_ECDF_packet_size_256.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 657--667
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 647--657
  [][] 
  []
 
 
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 657--667
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 647--657
  [] 
  []
 
 
-LaTeX Warning: Reference `Fig:TCP_delay_ECDF_256' on page 79 undefined on input line 673.
+LaTeX Warning: Reference `Fig:TCP_delay_ECDF_256' on page 79 undefined on input line 663.
 
 
-LaTeX Warning: Reference `Fig:TCP_throughput_ECDF_256' on page 79 undefined on input line 673.
+LaTeX Warning: Reference `Fig:TCP_throughput_ECDF_256' on page 79 undefined on input line 663.
 
 (./Figures/CentralResourceManagement/Sim_results_v2/Perf_vs_alloc_period.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 ) (./Figures/CentralResourceManagement/Sim_results/MWM_runtime_vs_nodes.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 697--707
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 687--697
 [][]
  []
 
 
-Overfull \hbox (55.12282pt too wide) in paragraph at lines 697--707
+Overfull \hbox (55.12282pt too wide) in paragraph at lines 687--697
 [] 
  []
 
 
-LaTeX Warning: Reference `Fig:Alloc_period_impact' on page 81 undefined on input line 720.
+LaTeX Warning: Reference `Fig:Alloc_period_impact' on page 81 undefined on input line 710.
 
 
-LaTeX Warning: Reference `subsec_thr' on page 81 undefined on input line 722.
+LaTeX Warning: Reference `subsec_thr' on page 81 undefined on input line 712.
 
 
-LaTeX Warning: Reference `Fig:Alloc_period_impact' on page 81 undefined on input line 722.
+LaTeX Warning: Reference `Fig:Alloc_period_impact' on page 81 undefined on input line 712.
 
 
-LaTeX Warning: Reference `Sec:T-MWM' on page 81 undefined on input line 724.
+LaTeX Warning: Reference `Sec:T-MWM' on page 81 undefined on input line 714.
 
 
-LaTeX Warning: Reference `Fig:MWM_runtime' on page 81 undefined on input line 724.
+LaTeX Warning: Reference `Fig:MWM_runtime' on page 81 undefined on input line 714.
 
 ) (./Sources/IAB-SAFEHAUL.tex
 
@@ -4226,10 +4223,13 @@ LaTeX Warning: Reference `algo:distanceAware' on page 116 undefined on input lin
 LaTeX Warning: Reference `algo:thzLink' on page 117 undefined on input line 303.
 
 
-LaTeX Warning: Reference `algo:sinr' on page 117 undefined on input line 311.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `algo:distanceAware' on page 117 undefined on input line 311.
+LaTeX Warning: Reference `algo:sinr' on page 118 undefined on input line 311.
+
+
+LaTeX Warning: Reference `algo:distanceAware' on page 118 undefined on input line 311.
 
 
 LaTeX Warning: Reference `sec:SimSetup' on page 118 undefined on input line 389.
@@ -4270,22 +4270,22 @@ Overfull \hbox (47.88498pt too wide) in paragraph at lines 395--420
  []
 
 
-LaTeX Warning: Reference `fig:SimulationScenario' on page 118 undefined on input line 424.
+LaTeX Warning: Reference `fig:SimulationScenario' on page 119 undefined on input line 424.
 
 
-LaTeX Warning: Reference `Tab:parameters-iab-thz' on page 118 undefined on input line 426.
+LaTeX Warning: Reference `Tab:parameters-iab-thz' on page 119 undefined on input line 426.
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 118 undefined on input line 426.
+LaTeX Warning: Citation '3gpp.38.901' on page 119 undefined on input line 426.
 
 
-LaTeX Warning: Citation '5995306' on page 118 undefined on input line 426.
+LaTeX Warning: Citation '5995306' on page 119 undefined on input line 426.
 
 
-LaTeX Warning: Reference `sub:thzchannel' on page 118 undefined on input line 426.
+LaTeX Warning: Reference `sub:thzchannel' on page 119 undefined on input line 426.
 
 
-LaTeX Warning: Citation 'sen2022terahertz' on page 118 undefined on input line 429.
+LaTeX Warning: Citation 'sen2022terahertz' on page 119 undefined on input line 429.
 
 (./Figures/IabThzLinks/IABlocations.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
@@ -4295,31 +4295,34 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 447.
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 119 undefined on input line 465.
+LaTeX Warning: Citation '3gpp.38.901' on page 120 undefined on input line 465.
 
 
-LaTeX Warning: Citation '5995306' on page 119 undefined on input line 466.
+LaTeX Warning: Citation '5995306' on page 120 undefined on input line 466.
 
 
-LaTeX Warning: Reference `algo:thzLink' on page 119 undefined on input line 492.
+LaTeX Warning: Reference `algo:thzLink' on page 120 undefined on input line 492.
 
 
-LaTeX Warning: Reference `algo:sinr' on page 119 undefined on input line 492.
+LaTeX Warning: Reference `algo:sinr' on page 120 undefined on input line 492.
 
 
-LaTeX Warning: Reference `fig:ThroughputPerDifferAlg' on page 119 undefined on input line 496.
+LaTeX Warning: Reference `fig:ThroughputPerDifferAlg' on page 121 undefined on input line 496.
 
 
-LaTeX Warning: Reference `algo:sinr' on page 119 undefined on input line 496.
+LaTeX Warning: Reference `algo:sinr' on page 121 undefined on input line 496.
 
 
-LaTeX Warning: Reference `algo:thzLink' on page 119 undefined on input line 497.
+LaTeX Warning: Reference `algo:thzLink' on page 121 undefined on input line 497.
 
 (./Figures/IabThzLinks/Random_scheduler.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:Throughput' on page 120 undefined on input line 510.
+LaTeX Warning: Reference `fig:Throughput' on page 121 undefined on input line 510.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (2.29912pt too wide) in paragraph at lines 513--519
@@ -4330,587 +4333,558 @@ Overfull \hbox (2.29912pt too wide) in paragraph at lines 513--519
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:packetDrop' on page 121 undefined on input line 535.
+LaTeX Warning: Reference `fig:packetDrop' on page 122 undefined on input line 535.
 
 
-LaTeX Warning: Reference `fig:Throughput' on page 121 undefined on input line 536.
+LaTeX Warning: Reference `fig:Throughput' on page 122 undefined on input line 536.
 
 (./Figures/IabThzLinks/S2_drop_bar.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:Latency' on page 121 undefined on input line 549.
+LaTeX Warning: Reference `fig:Latency' on page 122 undefined on input line 549.
 
 
-LaTeX Warning: Reference `fig:Throughput' on page 121 undefined on input line 549.
+LaTeX Warning: Reference `fig:Throughput' on page 122 undefined on input line 549.
 
 
-LaTeX Warning: Reference `fig:packetDrop' on page 121 undefined on input line 549.
+LaTeX Warning: Reference `fig:packetDrop' on page 122 undefined on input line 549.
 
 (./Figures/IabThzLinks/lat_cdf.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:THZtotal' on page 121 undefined on input line 563.
+LaTeX Warning: Reference `fig:THZtotal' on page 123 undefined on input line 562.
 
 (./Figures/IabThzLinks/thz_per.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Citation 'gemmi2023on' on page 123 undefined on input line 618.
+LaTeX Warning: Citation 'gemmi2023on' on page 124 undefined on input line 613.
 
 
-LaTeX Warning: Citation 'gemmi2022on' on page 123 undefined on input line 618.
+LaTeX Warning: Citation 'gemmi2022on' on page 124 undefined on input line 613.
 
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-(./Sources/IRS-BLOCK.tex
-\@gls@deffile=\write9
-\openout9 = `Cache/thesis-figure21.glsdefs'.
-
+) (./Sources/IRS-BLOCK.tex
 chapter 4.
 
-LaTeX Warning: Citation '3gpp.38.104' on page 127 undefined on input line 88.
+LaTeX Warning: Citation 'flamini2022towards' on page 127 undefined on input line 73.
 
 
-LaTeX Warning: Citation 'tariq2020speculative' on page 127 undefined on input line 88.
+LaTeX Warning: Citation 'bjornson2019intelligent' on page 127 undefined on input line 74.
 
 
-LaTeX Warning: Citation 'rangan2017potentials' on page 127 undefined on input line 90.
+LaTeX Warning: Citation 'wu2020towards' on page 127 undefined on input line 78.
 
 
-LaTeX Warning: Citation '3gpp.38.174' on page 127 undefined on input line 91.
+LaTeX Warning: Citation 'abeywickrama2020intelligent' on page 127 undefined on input line 78.
 
 
-LaTeX Warning: Citation 'polese2020integrated' on page 127 undefined on input line 92.
+LaTeX Warning: Citation 'wu2019intelligent' on page 127 undefined on input line 78.
 
 
-LaTeX Warning: Citation 'flamini2022towards' on page 127 undefined on input line 94.
+LaTeX Warning: Citation 'pagin2022end' on page 127 undefined on input line 78.
 
 
-LaTeX Warning: Citation 'bjornson2019intelligent' on page 127 undefined on input line 95.
+LaTeX Warning: Citation 'liu2022path' on page 127 undefined on input line 78.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation 'liaskos2018realizing' on page 127 undefined on input line 78.
 
 
-LaTeX Warning: Citation 'wu2020towards' on page 128 undefined on input line 99.
+LaTeX Warning: Citation 'flamini2022towards' on page 127 undefined on input line 79.
 
 
-LaTeX Warning: Citation 'abeywickrama2020intelligent' on page 128 undefined on input line 99.
-
-
-LaTeX Warning: Citation 'wu2019intelligent' on page 128 undefined on input line 99.
-
-
-LaTeX Warning: Citation 'pagin2022end' on page 128 undefined on input line 99.
-
-
-LaTeX Warning: Citation 'liu2022path' on page 128 undefined on input line 99.
-
-
-LaTeX Warning: Citation 'liaskos2018realizing' on page 128 undefined on input line 99.
-
-
-LaTeX Warning: Citation 'flamini2022towards' on page 128 undefined on input line 100.
-
-
-Overfull \hbox (82.12546pt too wide) in paragraph at lines 98--101
+Overfull \hbox (82.12546pt too wide) in paragraph at lines 77--80
 \T1/pplj/m/n/10.95 con-trol, pos-si-bly im-ple-mented with low-cost tech-nolo-gies [[], []].
  []
 
 
-LaTeX Warning: Citation 'Yang20IRS' on page 128 undefined on input line 103.
+LaTeX Warning: Citation 'Yang20IRS' on page 128 undefined on input line 82.
 
 
-LaTeX Warning: Citation 'Lee23Harmony' on page 128 undefined on input line 103.
+LaTeX Warning: Citation 'Lee23Harmony' on page 128 undefined on input line 82.
 
 
-LaTeX Warning: Citation 'guo2021intelligent' on page 128 undefined on input line 104.
+LaTeX Warning: Citation 'guo2021intelligent' on page 128 undefined on input line 83.
 
 
-LaTeX Warning: Citation 'zhang2021throughput' on page 128 undefined on input line 106.
+LaTeX Warning: Citation 'zhang2021throughput' on page 128 undefined on input line 85.
 
 
-LaTeX Warning: Citation 'alobiedollah2023self' on page 128 undefined on input line 106.
+LaTeX Warning: Citation 'alobiedollah2023self' on page 128 undefined on input line 85.
 
 
-LaTeX Warning: Citation 'Zhang22Learning' on page 128 undefined on input line 108.
+LaTeX Warning: Citation 'Zhang22Learning' on page 128 undefined on input line 87.
 
 
-LaTeX Warning: Citation 'Bansal21Rate' on page 128 undefined on input line 109.
+LaTeX Warning: Citation 'Bansal21Rate' on page 128 undefined on input line 88.
 
 
-LaTeX Warning: Citation 'Fu21Resource' on page 128 undefined on input line 109.
+LaTeX Warning: Citation 'Fu21Resource' on page 128 undefined on input line 88.
 
 
-LaTeX Warning: Citation 'Zhuo22Partial' on page 128 undefined on input line 109.
+LaTeX Warning: Citation 'Zhuo22Partial' on page 128 undefined on input line 88.
 
 
-LaTeX Warning: Citation 'hu2021robust' on page 128 undefined on input line 110.
+LaTeX Warning: Citation 'hu2021robust' on page 128 undefined on input line 89.
 
 
-Overfull \hbox (0.52618pt too wide) in paragraph at lines 102--111
+Overfull \hbox (0.52618pt too wide) in paragraph at lines 81--90
 \T1/pplj/m/n/10.95 widely stud-ied in dif-fer-ent do-mains, each with its own the-o-ret-i-cal con-straints.
  []
 
 
-Overfull \hbox (27.7771pt too wide) in paragraph at lines 102--111
+Overfull \hbox (27.7771pt too wide) in paragraph at lines 81--90
 \T1/pplj/m/n/10.95 been stud-ied in  [[], []]. The au-thors of [[]]
  []
 
 
-LaTeX Warning: Citation 'mu2021capacity' on page 129 undefined on input line 113.
+LaTeX Warning: Citation 'mu2021capacity' on page 128 undefined on input line 92.
 
 
-LaTeX Warning: Citation 'ETSIGRRIS003' on page 129 undefined on input line 113.
+LaTeX Warning: Citation 'ETSIGRRIS003' on page 128 undefined on input line 92.
 
 
-LaTeX Warning: Citation 'rossanese2022designing' on page 129 undefined on input line 113.
+LaTeX Warning: Citation 'rossanese2022designing' on page 128 undefined on input line 92.
 
 
-LaTeX Warning: Citation 'alexandropoulos2023ris' on page 129 undefined on input line 113.
+LaTeX Warning: Citation 'alexandropoulos2023ris' on page 128 undefined on input line 92.
 
 
-LaTeX Warning: Citation 'yezhen2020novel' on page 129 undefined on input line 113.
+LaTeX Warning: Citation 'yezhen2020novel' on page 128 undefined on input line 92.
 
 
-LaTeX Warning: Citation 'jamali2022low' on page 129 undefined on input line 114.
+LaTeX Warning: Citation 'jamali2022low' on page 128 undefined on input line 93.
 
 
-LaTeX Warning: Citation 'nadeem2020asymptotic' on page 129 undefined on input line 114.
+LaTeX Warning: Citation 'nadeem2020asymptotic' on page 128 undefined on input line 93.
 
 
-LaTeX Warning: Citation 'Qian22joint' on page 129 undefined on input line 114.
+LaTeX Warning: Citation 'Qian22joint' on page 128 undefined on input line 93.
 
 
-LaTeX Warning: Citation 'mu2021capacity' on page 129 undefined on input line 120.
+LaTeX Warning: Citation 'mu2021capacity' on page 128 undefined on input line 99.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (7.26057pt too wide) in paragraph at lines 129--132
+Overfull \hbox (7.26057pt too wide) in paragraph at lines 108--111
 \T1/pplj/m/n/10.95 dis-tance mea-sures, a new class of al-go-rithms which we de-note as \T1/pplj/m/it/10.95 capacity-
  []
 
 
-Overfull \hbox (10.22794pt too wide) in paragraph at lines 129--132
-\T1/pplj/m/n/10.95 pro-pose three clus-ter-ing al-go-rithms: []capacity-weighted clus-ter-ing (CWC),
+Overfull \hbox (12.93256pt too wide) in paragraph at lines 108--111
+\T1/pplj/m/n/10.95 a low-complexity al-ter-na-tive to the for-mer, and []In-verse Capacity-Weighted
  []
 
 
-Overfull \hbox (15.39635pt too wide) in paragraph at lines 129--132
-\T1/pplj/m/n/10.95 al-ter-na-tive to the for-mer, and []in-verse capacity-weighted clus-ter-ing (ICWC),
- []
+LaTeX Warning: Citation 'rech2023downlink' on page 130 undefined on input line 114.
 
 
-LaTeX Warning: Citation 'rech2023downlink' on page 130 undefined on input line 135.
+LaTeX Warning: Citation 'Lee23Harmony' on page 130 undefined on input line 117.
 
 
-LaTeX Warning: Citation 'Lee23Harmony' on page 130 undefined on input line 138.
+LaTeX Warning: Citation 'guo2021intelligent' on page 130 undefined on input line 117.
 
 
-LaTeX Warning: Citation 'guo2021intelligent' on page 130 undefined on input line 138.
+LaTeX Warning: Citation 'mu2021capacity' on page 130 undefined on input line 117.
 
 
-LaTeX Warning: Citation 'mu2021capacity' on page 130 undefined on input line 138.
+LaTeX Warning: Citation 'jamali2022low' on page 130 undefined on input line 117.
 
 
-LaTeX Warning: Citation 'jamali2022low' on page 130 undefined on input line 138.
+LaTeX Warning: Citation 'Lee23Harmony' on page 130 undefined on input line 120.
 
 
-LaTeX Warning: Citation 'Lee23Harmony' on page 131 undefined on input line 141.
+LaTeX Warning: Citation 'guo2021intelligent' on page 130 undefined on input line 122.
 
 
-LaTeX Warning: Citation 'guo2021intelligent' on page 131 undefined on input line 143.
+LaTeX Warning: Citation 'mu2021capacity' on page 130 undefined on input line 122.
 
 
-LaTeX Warning: Citation 'mu2021capacity' on page 131 undefined on input line 143.
+LaTeX Warning: Citation 'mu2021capacity' on page 131 undefined on input line 125.
 
 
-LaTeX Warning: Citation 'mu2021capacity' on page 131 undefined on input line 146.
+LaTeX Warning: Citation 'jamali2022low' on page 131 undefined on input line 128.
 
 
-LaTeX Warning: Citation 'jamali2022low' on page 131 undefined on input line 149.
+LaTeX Warning: Reference `sec:system_model_irs_tdma' on page 131 undefined on input line 134.
 
 
-LaTeX Warning: Reference `sec:system_model' on page 131 undefined on input line 155.
+LaTeX Warning: Reference `sec:sumcapoptimization' on page 131 undefined on input line 134.
 
 
-LaTeX Warning: Reference `sec:sumcapoptimization' on page 131 undefined on input line 155.
+LaTeX Warning: Reference `sec:optimization' on page 131 undefined on input line 134.
 
 
-LaTeX Warning: Reference `sec:optimization' on page 131 undefined on input line 155.
+LaTeX Warning: Reference `sec:dist_based' on page 131 undefined on input line 134.
 
 
-LaTeX Warning: Reference `sec:dist_based' on page 131 undefined on input line 155.
+LaTeX Warning: Reference `sec:cap_based' on page 131 undefined on input line 134.
 
 
-LaTeX Warning: Reference `sec:cap_based' on page 131 undefined on input line 155.
+LaTeX Warning: Reference `sec:numerical_results' on page 131 undefined on input line 134.
 
 
-LaTeX Warning: Reference `sec:numerical_results' on page 131 undefined on input line 155.
-
-
-LaTeX Warning: Reference `sec:conclusions' on page 131 undefined on input line 155.
+LaTeX Warning: Reference `sec:conclusions' on page 131 undefined on input line 134.
 
 The command '\includegraphics [width=\linewidth , trim={2.8cm 0 1.8cm 0},clip]{\tikzscale@fileName }' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 
-LaTeX Warning: Reference `fig:system_model' on page 132 undefined on input line 178.
+LaTeX Warning: Reference `fig:system_model' on page 132 undefined on input line 157.
 
 
-LaTeX Warning: Citation 'lu2020positioning' on page 132 undefined on input line 183.
+LaTeX Warning: Citation 'lu2020positioning' on page 132 undefined on input line 162.
 
 
-LaTeX Warning: Citation 'Tan2018' on page 133 undefined on input line 187.
+LaTeX Warning: Citation 'Tan2018' on page 132 undefined on input line 166.
 
 
-LaTeX Warning: Citation 'he2020cascaded' on page 133 undefined on input line 191.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation 'rains2023ris' on page 133 undefined on input line 191.
+LaTeX Warning: Citation 'he2020cascaded' on page 133 undefined on input line 170.
 
 
-LaTeX Warning: Citation 'rappaport2017investigation' on page 133 undefined on input line 191.
+LaTeX Warning: Citation 'rains2023ris' on page 133 undefined on input line 170.
 
 
-Underfull \vbox (badness 7869) has occurred while \output is active []
+LaTeX Warning: Citation 'rappaport2017investigation' on page 133 undefined on input line 170.
 
 
-Overfull \hbox (56.59656pt too wide) in paragraph at lines 195--198
+Overfull \hbox (56.59656pt too wide) in paragraph at lines 174--177
 \U/fplmbb/m/n/10.95 C[]$ \T1/pplj/m/n/10.95 is the []IRS con-fig-u-ra-tion, i.e., a di-ag-o-nal ma-trix de-fined as $[] \OT1/zplm/m/n/10.95 = [](\OML/zplm/m/it/10.95 ^^^[]\OT1/pplx/m/n/10.95 , [] , \OML/zplm/m/it/10.95 ^^^[]\OT1/zplm/m/n/10.95 )$\T1/pplj/m/n/10.95 .
  []
 
 
-LaTeX Warning: Reference `sec:optimization' on page 134 undefined on input line 205.
+LaTeX Warning: Reference `sec:optimization' on page 133 undefined on input line 184.
 
 
-LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 237.
+Overfull \vbox (1.86305pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 237.
+LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 216.
 
 
-LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 240.
+LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 216.
 
 
-LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 243.
+LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 219.
 
 
-LaTeX Warning: Reference `const_phaseshifters' on page 135 undefined on input line 243.
+LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 222.
 
 
-LaTeX Warning: Reference `optproblem' on page 136 undefined on input line 250.
+LaTeX Warning: Reference `const_phaseshifters' on page 135 undefined on input line 222.
 
 
-LaTeX Warning: Reference `sec:optimization' on page 136 undefined on input line 253.
+LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 229.
 
 
-LaTeX Warning: Reference `optproblem' on page 136 undefined on input line 257.
+LaTeX Warning: Reference `sec:optimization' on page 135 undefined on input line 232.
 
 
-LaTeX Warning: Citation 'anchora2012capacity' on page 136 undefined on input line 257.
+LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 236.
 
 
-LaTeX Warning: Reference `sec:ind_opt' on page 136 undefined on input line 258.
+LaTeX Warning: Citation 'anchora2012capacity' on page 135 undefined on input line 236.
 
 
-LaTeX Warning: Reference `optproblem' on page 136 undefined on input line 259.
+LaTeX Warning: Reference `sec:ind_opt' on page 135 undefined on input line 237.
 
 
-LaTeX Warning: Reference `sec:clust_tdma' on page 136 undefined on input line 261.
+LaTeX Warning: Reference `optproblem' on page 135 undefined on input line 238.
 
 
-LaTeX Warning: Citation 'flamini2022towards' on page 136 undefined on input line 265.
+LaTeX Warning: Reference `sec:clust_tdma' on page 135 undefined on input line 240.
 
 
-LaTeX Warning: Citation 'Qian22joint' on page 136 undefined on input line 265.
+LaTeX Warning: Citation 'flamini2022towards' on page 136 undefined on input line 244.
 
 
-LaTeX Warning: Reference `eq:rate' on page 137 undefined on input line 287.
+LaTeX Warning: Citation 'Qian22joint' on page 136 undefined on input line 244.
 
 
-LaTeX Warning: Citation 'Swindlehurst2022Channel' on page 137 undefined on input line 290.
+LaTeX Warning: Reference `eq:rate' on page 136 undefined on input line 266.
 
 
-Overfull \hbox (22.70734pt too wide) in paragraph at lines 289--291
+LaTeX Warning: Citation 'Swindlehurst2022Channel' on page 136 undefined on input line 269.
+
+
+Overfull \hbox (22.70734pt too wide) in paragraph at lines 268--270
 \T1/pplj/m/n/10.95 ment of the chan-nel phase co-ef-fi-cients. Ac-cord-ing to [[]],
  []
 
 
-LaTeX Warning: Reference `eq:theta_opt' on page 137 undefined on input line 302.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation 'Swindlehurst2022Channel' on page 137 undefined on input line 302.
+LaTeX Warning: Reference `eq:theta_opt' on page 137 undefined on input line 281.
 
 
-Overfull \hbox (58.31963pt too wide) in paragraph at lines 301--303
+LaTeX Warning: Citation 'Swindlehurst2022Channel' on page 137 undefined on input line 281.
+
+
+Overfull \hbox (58.31963pt too wide) in paragraph at lines 280--282
 \T1/pplj/m/n/10.95 phase co-ef-fi-cients of $\OML/cmm/b/it/10.95 H$ \T1/pplj/m/n/10.95 and $\OML/cmm/b/it/10.95 G[]$\T1/pplj/m/n/10.95 . More-over, as pointed out in [[]],
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `eq:svd' on page 137 undefined on input line 314.
 
 
-LaTeX Warning: Reference `eq:svd' on page 138 undefined on input line 359.
+LaTeX Warning: Reference `optproblem_single' on page 137 undefined on input line 314.
 
 
-LaTeX Warning: Reference `optproblem_single' on page 138 undefined on input line 359.
+LaTeX Warning: Reference `alg:ind_opt' on page 137 undefined on input line 315.
 
 
-LaTeX Warning: Reference `alg:ind_opt' on page 138 undefined on input line 360.
-
-
-LaTeX Warning: Reference `sec:numerical_results' on page 138 undefined on input line 360.
-
-
-LaTeX Warning: Reference `optproblem' on page 138 undefined on input line 365.
+LaTeX Warning: Reference `sec:numerical_results' on page 137 undefined on input line 315.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `sec:ind_opt' on page 139 undefined on input line 373.
+LaTeX Warning: Reference `optproblem' on page 138 undefined on input line 320.
 
 
-LaTeX Warning: Reference `sec:dist_based' on page 139 undefined on input line 374.
+LaTeX Warning: Reference `sec:ind_opt' on page 138 undefined on input line 328.
 
 
-LaTeX Warning: Reference `sec:cap_based' on page 139 undefined on input line 374.
+LaTeX Warning: Reference `sec:dist_based' on page 138 undefined on input line 329.
 
 
-LaTeX Warning: Reference `sec:dist_based' on page 139 undefined on input line 382.
+LaTeX Warning: Reference `sec:cap_based' on page 138 undefined on input line 329.
 
 
-LaTeX Warning: Reference `sec:cap_based' on page 139 undefined on input line 382.
+LaTeX Warning: Reference `sec:dist_based' on page 139 undefined on input line 337.
 
 
-Overfull \hbox (4.00833pt too wide) in paragraph at lines 386--389
+LaTeX Warning: Reference `sec:cap_based' on page 139 undefined on input line 337.
+
+
+Overfull \hbox (4.00833pt too wide) in paragraph at lines 341--344
 \T1/pplj/m/n/10.95 The class of distance-based clus-ter-ing con-tains meth-ods that group data points
  []
 
 
-LaTeX Warning: Reference `map_theta' on page 140 undefined on input line 403.
+Underfull \vbox (badness 2368) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `const_phaseshifters' on page 140 undefined on input line 411.
+LaTeX Warning: Reference `map_theta' on page 140 undefined on input line 358.
 
 
-LaTeX Warning: Citation 'rokach2005clustering' on page 140 undefined on input line 419.
+LaTeX Warning: Reference `const_phaseshifters' on page 140 undefined on input line 366.
 
 
-LaTeX Warning: Citation 'Kmeans' on page 140 undefined on input line 419.
+LaTeX Warning: Citation 'rokach2005clustering' on page 140 undefined on input line 374.
 
 
-LaTeX Warning: Reference `sec:ind_opt' on page 140 undefined on input line 419.
+LaTeX Warning: Citation 'Kmeans' on page 140 undefined on input line 374.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `sec:ind_opt' on page 140 undefined on input line 374.
 
 
-LaTeX Warning: Citation 'murtagh2012algorithms' on page 141 undefined on input line 424.
+LaTeX Warning: Citation 'murtagh2012algorithms' on page 140 undefined on input line 379.
 
 
-Overfull \hbox (71.65977pt too wide) in paragraph at lines 423--426
-[]\T1/pplj/m/it/10.95 Agglomerative []hi-er-ar-chi-cal clus-ter-ing \T1/pplj/m/n/10.95 (HC)\T1/pplj/m/it/10.95 . \T1/pplj/m/n/10.95 The ag-glom-er-a-tive []HC [[]]
+Overfull \hbox (77.55087pt too wide) in paragraph at lines 378--381
+[]\T1/pplj/m/it/10.95 Agglomerative []Hi-er-ar-chi-cal Clus-ter-ing \T1/pplj/m/n/10.95 (HC)\T1/pplj/m/it/10.95 . \T1/pplj/m/n/10.95 The ag-glom-er-a-tive []HC [[]]
  []
 
 
-LaTeX Warning: Citation 'kaufman1987clustering' on page 141 undefined on input line 429.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation 'van2003new' on page 141 undefined on input line 429.
+LaTeX Warning: Citation 'kaufman1987clustering' on page 141 undefined on input line 384.
 
 
-LaTeX Warning: Reference `distancemin' on page 141 undefined on input line 432.
+LaTeX Warning: Citation 'van2003new' on page 141 undefined on input line 384.
 
 
-LaTeX Warning: Reference `circdist' on page 141 undefined on input line 435.
+LaTeX Warning: Reference `distancemin' on page 141 undefined on input line 387.
 
 
-LaTeX Warning: Reference `sec:dist_based' on page 141 undefined on input line 440.
+LaTeX Warning: Reference `circdist' on page 141 undefined on input line 390.
 
 
-LaTeX Warning: Reference `optproblem' on page 141 undefined on input line 440.
+LaTeX Warning: Reference `sec:dist_based' on page 141 undefined on input line 395.
 
 
-LaTeX Warning: Reference `sec:cwc' on page 141 undefined on input line 440.
+LaTeX Warning: Reference `optproblem' on page 141 undefined on input line 395.
 
 
-LaTeX Warning: Reference `sec:clust_oscbc' on page 141 undefined on input line 440.
+LaTeX Warning: Reference `sec:cwc' on page 141 undefined on input line 395.
 
 
-LaTeX Warning: Reference `sec:icwc' on page 141 undefined on input line 440.
+LaTeX Warning: Reference `sec:clust_oscbc' on page 141 undefined on input line 395.
 
 
-LaTeX Warning: Reference `eq:rate' on page 142 undefined on input line 449.
+LaTeX Warning: Reference `sec:icwc' on page 141 undefined on input line 395.
 
 
-LaTeX Warning: Reference `alg:ind_opt' on page 142 undefined on input line 451.
+LaTeX Warning: Reference `eq:rate' on page 142 undefined on input line 404.
 
 
-LaTeX Warning: Reference `cluster_assignment' on page 142 undefined on input line 457.
+LaTeX Warning: Reference `alg:ind_opt' on page 142 undefined on input line 406.
 
 
-LaTeX Warning: Reference `eq:theta_opt' on page 143 undefined on input line 471.
+LaTeX Warning: Reference `cluster_assignment' on page 142 undefined on input line 412.
 
 
-LaTeX Warning: Reference `eq:rate_error' on page 143 undefined on input line 471.
+LaTeX Warning: Reference `eq:theta_opt' on page 142 undefined on input line 426.
+
+
+LaTeX Warning: Reference `eq:rate_error' on page 142 undefined on input line 426.
+
+
+Underfull \vbox (badness 3260) has occurred while \output is active []
+
+
+LaTeX Warning: Reference `alg:ind_opt' on page 143 undefined on input line 458.
+
+
+LaTeX Warning: Reference `centroidCWC' on page 143 undefined on input line 468.
+
+
+LaTeX Warning: Reference `centroid_discr' on page 143 undefined on input line 468.
+
+
+LaTeX Warning: Reference `alg:clustering_cwc' on page 143 undefined on input line 480.
+
+
+LaTeX Warning: Reference `sec:cwc' on page 143 undefined on input line 484.
+
+
+LaTeX Warning: Reference `cluster_assignment' on page 143 undefined on input line 484.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `alg:ind_opt' on page 144 undefined on input line 503.
+LaTeX Warning: Reference `circdist' on page 144 undefined on input line 490.
 
 
-LaTeX Warning: Reference `centroidCWC' on page 144 undefined on input line 513.
+LaTeX Warning: Reference `cluster_assignment' on page 144 undefined on input line 500.
 
 
-LaTeX Warning: Reference `centroid_discr' on page 144 undefined on input line 513.
-
-
-LaTeX Warning: Reference `alg:clustering_cwc' on page 144 undefined on input line 525.
-
-
-LaTeX Warning: Reference `sec:cwc' on page 144 undefined on input line 529.
-
-
-LaTeX Warning: Reference `cluster_assignment' on page 144 undefined on input line 529.
+LaTeX Warning: Reference `cluster_assignment' on page 144 undefined on input line 505.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `circdist' on page 145 undefined on input line 535.
+LaTeX Warning: Reference `centroid_discr' on page 145 undefined on input line 510.
 
 
-LaTeX Warning: Reference `cluster_assignment' on page 145 undefined on input line 545.
+LaTeX Warning: Reference `tab:clustering' on page 146 undefined on input line 544.
 
 
-LaTeX Warning: Reference `cluster_assignment' on page 145 undefined on input line 550.
+LaTeX Warning: Reference `sec:dist_based' on page 146 undefined on input line 544.
 
 
-LaTeX Warning: Reference `centroid_discr' on page 145 undefined on input line 555.
+LaTeX Warning: Reference `sec:cap_based' on page 146 undefined on input line 544.
 
 
-Underfull \vbox (badness 5008) has occurred while \output is active []
+LaTeX Warning: Citation 'Kmeans' on page 146 undefined on input line 549.
 
 
-LaTeX Warning: Reference `tab:clustering' on page 146 undefined on input line 589.
+LaTeX Warning: Citation 'van2003new' on page 146 undefined on input line 550.
 
 
-LaTeX Warning: Reference `sec:dist_based' on page 146 undefined on input line 589.
+LaTeX Warning: Citation 'xu2015comprehensive' on page 146 undefined on input line 550.
 
 
-LaTeX Warning: Reference `sec:cap_based' on page 146 undefined on input line 589.
+LaTeX Warning: Reference `snr_k' on page 147 undefined on input line 563.
 
 
-LaTeX Warning: Citation 'Kmeans' on page 146 undefined on input line 594.
+LaTeX Warning: Reference `centroidCWC' on page 147 undefined on input line 564.
 
 
-LaTeX Warning: Citation 'van2003new' on page 146 undefined on input line 595.
+LaTeX Warning: Reference `centroidICWC' on page 147 undefined on input line 564.
 
 
-LaTeX Warning: Citation 'xu2015comprehensive' on page 146 undefined on input line 595.
+LaTeX Warning: Reference `sub:sim-params' on page 147 undefined on input line 571.
 
 
-Underfull \vbox (badness 1024) has occurred while \output is active []
+LaTeX Warning: Reference `sec:metrics' on page 147 undefined on input line 571.
 
 
-LaTeX Warning: Reference `snr_k' on page 147 undefined on input line 608.
+LaTeX Warning: Reference `sub:results' on page 147 undefined on input line 571.
 
 
-LaTeX Warning: Reference `centroidCWC' on page 147 undefined on input line 609.
+LaTeX Warning: Reference `losprob' on page 147 undefined on input line 593.
 
 
-LaTeX Warning: Reference `centroidICWC' on page 147 undefined on input line 609.
+LaTeX Warning: Reference `Tab:parameters-irs-block' on page 147 undefined on input line 602.
 
 
-LaTeX Warning: Reference `sub:sim-params' on page 147 undefined on input line 616.
+LaTeX Warning: Citation '3gpp.38.901' on page 147 undefined on input line 605.
 
 
-LaTeX Warning: Reference `sec:metrics' on page 147 undefined on input line 616.
+LaTeX Warning: Citation '3gpp.38.211' on page 147 undefined on input line 613.
 
 
-LaTeX Warning: Reference `sub:results' on page 147 undefined on input line 616.
+LaTeX Warning: Reference `sec:system_model' on page 147 undefined on input line 613.
 
 
-LaTeX Warning: Reference `losprob' on page 148 undefined on input line 638.
+LaTeX Warning: Citation '3gpp.38.901' on page 147 undefined on input line 614.
 
 
-LaTeX Warning: Reference `Tab:parameters-irs-block' on page 148 undefined on input line 647.
+LaTeX Warning: Citation '3gpp.38.901' on page 147 undefined on input line 616.
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 148 undefined on input line 650.
-
-
-LaTeX Warning: Citation '3gpp.38.211' on page 149 undefined on input line 658.
-
-
-LaTeX Warning: Reference `sec:system_model' on page 149 undefined on input line 658.
-
-
-LaTeX Warning: Citation '3gpp.38.901' on page 149 undefined on input line 659.
-
-
-LaTeX Warning: Citation '3gpp.38.901' on page 149 undefined on input line 661.
-
-
-LaTeX Warning: Citation 'zugno20implementation' on page 149 undefined on input line 661.
-
-
-LaTeX Warning: Reference `eq:ch_model_full' on page 149 undefined on input line 674.
-
-
-LaTeX Warning: Citation 'zugno20implementation' on page 149 undefined on input line 674.
+LaTeX Warning: Citation 'zugno20implementation' on page 147 undefined on input line 616.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 150 undefined on input line 690.
+LaTeX Warning: Reference `eq:ch_model_full' on page 149 undefined on input line 629.
 
 
-LaTeX Warning: Reference `losprob' on page 150 undefined on input line 690.
+LaTeX Warning: Citation 'zugno20implementation' on page 149 undefined on input line 629.
 
 
-LaTeX Warning: Citation '3gpp.38.901' on page 150 undefined on input line 692.
+LaTeX Warning: Citation '3gpp.38.901' on page 149 undefined on input line 645.
 
 
-LaTeX Warning: Reference `sec:ind_opt' on page 150 undefined on input line 693.
+LaTeX Warning: Reference `losprob' on page 149 undefined on input line 645.
 
 
-LaTeX Warning: Citation 'Kmeans' on page 150 undefined on input line 698.
+LaTeX Warning: Citation '3gpp.38.901' on page 149 undefined on input line 647.
 
 
-LaTeX Warning: Reference `eq:sumrate' on page 150 undefined on input line 710.
+LaTeX Warning: Reference `sec:ind_opt' on page 149 undefined on input line 648.
 
 
-Underfull \vbox (badness 6758) has occurred while \output is active []
+LaTeX Warning: Citation 'Kmeans' on page 149 undefined on input line 653.
+
+
+LaTeX Warning: Reference `eq:sumrate' on page 150 undefined on input line 665.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 (./Figures/IrsClustering/sumcap0bitslos.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:sumcap0bitlos' on page 151 undefined on input line 743.
+LaTeX Warning: Reference `fig:sumcap0bitlos' on page 151 undefined on input line 698.
 
 
-LaTeX Warning: Reference `tab:clustering' on page 151 undefined on input line 747.
+LaTeX Warning: Reference `tab:clustering' on page 151 undefined on input line 702.
 
 (./Figures/IrsClustering/quantile0bitslos.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:quantile0bitsplos' on page 152 undefined on input line 762.
+LaTeX Warning: Reference `fig:quantile0bitsplos' on page 151 undefined on input line 717.
 
 
-LaTeX Warning: Reference `fig:sumcap0bitlos' on page 152 undefined on input line 763.
+LaTeX Warning: Reference `fig:sumcap0bitlos' on page 151 undefined on input line 718.
 
 
-Underfull \vbox (badness 7221) has occurred while \output is active []
+Underfull \vbox (badness 3128) has occurred while \output is active []
 
 (./Figures/IrsClustering/Los_comparison_sumcap.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
@@ -4918,21 +4892,21 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to di
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:sumcaplos' on page 153 undefined on input line 794.
+LaTeX Warning: Reference `fig:sumcaplos' on page 152 undefined on input line 749.
 
 
-LaTeX Warning: Reference `fig:quantitelos' on page 153 undefined on input line 794.
+LaTeX Warning: Reference `fig:quantitelos' on page 152 undefined on input line 749.
 
 
-Overfull \hbox (15.81235pt too wide) in paragraph at lines 792--802
+Overfull \hbox (15.81235pt too wide) in paragraph at lines 747--757
 \T1/pplj/m/n/10.95 based clus-ter-ing pro-vides lower sum ca-pac-ity and fair-ness com-pared to capacity-
  []
 
 
-LaTeX Warning: Reference `fig:quantitelos' on page 153 undefined on input line 804.
+Underfull \vbox (badness 1902) has occurred while \output is active []
 
 
-Underfull \vbox (badness 1102) has occurred while \output is active []
+LaTeX Warning: Reference `fig:quantitelos' on page 153 undefined on input line 759.
 
 (./Figures/IrsClustering/bars_NIcap.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
@@ -4940,16 +4914,16 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to di
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:sumcap_vs_size' on page 154 undefined on input line 833.
+LaTeX Warning: Reference `fig:sumcap_vs_size' on page 153 undefined on input line 788.
 
 
-LaTeX Warning: Reference `fig:quantile_vs_size' on page 154 undefined on input line 833.
+LaTeX Warning: Reference `fig:quantile_vs_size' on page 153 undefined on input line 788.
 
 
-LaTeX Warning: Reference `fig:quantile_vs_size' on page 154 undefined on input line 835.
+LaTeX Warning: Reference `fig:quantile_vs_size' on page 153 undefined on input line 790.
 
 
-LaTeX Warning: Citation 'pagin2022end' on page 154 undefined on input line 836.
+LaTeX Warning: Citation 'pagin2022end' on page 153 undefined on input line 791.
 
 
 Underfull \vbox (badness 1102) has occurred while \output is active []
@@ -4960,22 +4934,22 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to di
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:cap_vs_bits' on page 155 undefined on input line 864.
+LaTeX Warning: Reference `fig:cap_vs_bits' on page 154 undefined on input line 819.
 
 
-LaTeX Warning: Reference `fig:quantile_vs_bits' on page 155 undefined on input line 864.
+LaTeX Warning: Reference `fig:quantile_vs_bits' on page 154 undefined on input line 819.
 
 
-LaTeX Warning: Citation 'rivera2022optimization' on page 155 undefined on input line 865.
+LaTeX Warning: Citation 'rivera2022optimization' on page 154 undefined on input line 820.
 
 
-LaTeX Warning: Citation 'abeywickrama2020intelligent' on page 155 undefined on input line 866.
+LaTeX Warning: Citation 'abeywickrama2020intelligent' on page 154 undefined on input line 821.
 
 
-LaTeX Warning: Citation 'rech2023downlink' on page 155 undefined on input line 867.
+LaTeX Warning: Citation 'rech2023downlink' on page 154 undefined on input line 822.
 
 
-Underfull \vbox (badness 1902) has occurred while \output is active []
+Underfull \vbox (badness 3049) has occurred while \output is active []
 
 (./Figures/IrsClustering/sumcap_vsZK.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
@@ -4985,35 +4959,39 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to di
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to disable this.
 )
 
-LaTeX Warning: Reference `fig:sumcap_vs_ZK' on page 156 undefined on input line 907.
+LaTeX Warning: Reference `fig:sumcap_vs_ZK' on page 155 undefined on input line 862.
 
 
-LaTeX Warning: Reference `fig:quantcap_vs_ZK' on page 156 undefined on input line 907.
+LaTeX Warning: Reference `fig:quantcap_vs_ZK' on page 155 undefined on input line 862.
 
 
-LaTeX Warning: Reference `fig:sumcap0bitlos' on page 156 undefined on input line 908.
+LaTeX Warning: Reference `fig:sumcap0bitlos' on page 155 undefined on input line 863.
 
 
-LaTeX Warning: Reference `fig:quantile0bitsplos' on page 156 undefined on input line 908.
+LaTeX Warning: Reference `fig:quantile0bitsplos' on page 155 undefined on input line 863.
 
 
-LaTeX Warning: Reference `fig:minconfvsN' on page 156 undefined on input line 909.
+LaTeX Warning: Reference `fig:minconfvsN' on page 155 undefined on input line 864.
 
 
-LaTeX Warning: Reference `th_distancebased' on page 157 undefined on input line 935.
+LaTeX Warning: Reference `th_distancebased' on page 157 undefined on input line 876.
 
 
-LaTeX Warning: Citation 'Sabin1986Global' on page 157 undefined on input line 935.
+LaTeX Warning: Citation 'Sabin1986Global' on page 157 undefined on input line 880.
 
 
-LaTeX Warning: Citation 'Sabin1986Global' on page 157 undefined on input line 935.
+LaTeX Warning: Citation 'Sabin1986Global' on page 157 undefined on input line 880.
 
+) (./Sources/CONCL.tex
+chapter A.
 )
+Underfull \vbox (badness 5105) has occurred while \output is active []
+
 No file Cache/thesis-figure21.acr.
 No file Cache/thesis-figure21.gls.
 No file Cache/thesis-figure21.ind.
 
-LaTeX Warning: Empty bibliography on input line 271.
+LaTeX Warning: Empty bibliography on input line 272.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -5031,10 +5009,10 @@ Package logreq Info: Writing requests to 'Cache/thesis-figure21.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 79644 strings out of 479504
- 1811992 string characters out of 5873985
- 2882233 words of memory out of 5000000
- 96276 multiletter control sequences out of 15000+600000
+ 79666 strings out of 479504
+ 1812750 string characters out of 5873985
+ 2881367 words of memory out of 5000000
+ 96295 multiletter control sequences out of 15000+600000
  562684 words of font info for 180 fonts, out of 8000000 for 9000
  395 hyphenation exceptions out of 8191
  126i,22n,123p,10668b,2281s stack positions out of 5000i,500n,10000p,200000b,80000s

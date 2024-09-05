@@ -258,9 +258,6 @@ Arguably, the main effect of the presence of these entities is the alteration of
 Accordingly, our simulator extends the \texttt{ns-3 mmwave} module~\cite{mezzavilla2018end} (among the most popular 5G-oriented NR-compliant frameworks to simulate 5G networks) by implementing a new signal model for IRS and AF relays, following the characterization in Secs.~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, respectively, which is then used to compute the \gls{sinr} experienced by signals transmitted over a relayed wireless link. 
 
 %the bulk of our simulator consists in the implementation of a channel model for IRS and AF relays, based on the characterization in Secs.~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, which is then used to compute the \gls{sinr} experienced by signals transmitted over a relayed wireless link. 
- 
-
-
 \subsubsection{Implementation of the IRS/AF Signal Model} 
 \label{sec:ext_ch_model}
  
@@ -400,50 +397,6 @@ Based on that, our simulator defines a \gls{l2sm}, i.e., a table which associate
 
 The upper layers of the 5G NR protocol stack are modeled based on the \texttt{ns3-mmwave} module~\cite{mezzavilla2018end}, which implements a custom \gls{phy} layer supporting the NR frame structures and numerologies, and a \gls{mac} layer with ad hoc beamforming and scheduling policies. 
 The \gls{rlc} and \gls{pdcp} layers implement network functions such as packet segmentation, retransmissions and/or reassembly. 
-%The module also supports non-standalone deployments, handover and mobility management via dual connectivity, and Carrier Aggregation (CA) at the MAC layer. 
-%Based on these features, \texttt{ns3-mmwave} stands out as among the most popular 5G-oriented NR-compliant frameworks to simulate 5G networks.
-
-
-%Since system-level simulators usually accurately model the \gls{mac} and above layers, in general they do not introduce any further abstraction. Therefore, they model all the complex protocols which are involved the NR protocol stack, from the \gls{mac} up to the \gls{sdap} or \gls{rrc} layers. 
-
-
-
-
-%Among the various \gls{5g} simulators in the literature, link-level ones feature the most detailed modeling of the NRgls{nr} \gls{phy} layer. As such, they simulate each \gls{ofdm} sample, taking into account channel coding and decoding, estimation and equalization and, possibly, \gls{mimo} processing~\cite{pratschner2018versatile}. However, this accuracy comes at the price of a remarkable computational complexity, which usually limits the scope of these simulators to point-to-point transmissions only.
-%Conversely, most \gls{ofdm} system-level simulators pre-process most of these computations and abstract most of the signal processing procedures, thus achieving much greater computational efficiency.
-
-
-\subsection{Performance Evaluation}
-\label{sec:results}
-
-In this section we describe our simulation setup and parameters (Section~\ref{sub:simulation_setup}), and evaluate the performance of \glspl{irs} and \gls{af} relays, considering full-stack network metrics as a function of different antenna array configurations (Section~\ref{sub:numerical_results}).
-
-\subsubsection{Simulation Setup} % (fold)
-\label{sub:simulation_setup}
-
-In our simulations we consider two simple yet realistic urban canyon scenarios, where we deploy a single \gls{gnb}, $N_{\mathrm U}$ \glspl{ue}, with $N_{\mathrm U}=1$ (5) in Scenario 1 (2), as illustrated in Figure~\ref{Fig:scenarios}, and a single relay, which can be either an \gls{irs} or an \gls{af} relay.
-The wireless channel is modeled as an \gls{uma} link~\cite{3gpp.38.901}. % with the extensions discussed in Section~\ref{sec:ext_ch_model} to incorporate IRS/AF functionalities.
-The \gls{los}/\gls{nlos} condition depends on the geometry of the scenario.
-In particular, we assume that the direct wireless link between the \glspl{ue} and the \gls{gnb} is blocked by a building, as illustrated in Figure~\ref{Fig:scenarios}, which introduces an additional penetration loss modeled based on~\cite[Section 7.4.3.1]{3gpp.38.901}.
-The end nodes can still communicate in \gls{los} via the relay. 
-Furthermore, we assume that at each \gls{tti} the relays can arbitrarily switch configuration to serve a given user and that their phase shifters have infinite resolution, i.e., we do not account for quantization loss.
- 
-%The wireless channel is modeled as a TR. 38.901 \gls{uma} link, with the extensions discussed in Section~\ref{sec:ext_ch_model}. However, the \gls{los} condition is not stochastic as in~\cite[Section 7.4.2]{3gpp.38.901}. Instead, it is determined in a deterministic manner, based on the geometry of the scene.
-%$Therefore, all $N_{\mathrm U}$ \glspl{ue} experience a \gls{nlos} link towards the \gls{gnb}, while the relay offers a two-hop \gls{los} path from the base station to the user terminals. Moreover, for the \gls{nlos} links we consider an additional loss term, computed as per~\cite[Section 7.4.3.1]{3gpp.38.901}.
-
-
-%A building is placed in between the , in such a way to block the direct wireless link among them. On the contrary, we deploy the relay in an unobstructed location between the \gls{gnb} and the \glspl{ue}, as depicted in Figure~\ref{Fig:scenarios}.
-
-Our simulation parameters are reported in Table~\ref{Tab:parameters}.
-Specifically, the \glspl{ue} download \gls{udp} data, modeled as a constant bit-rate stream of 50~Mbps, from a remote server. 
-We assume that, at each transmission opportunity towards the generic $k$-th \gls{ue}, both \gls{af} and \gls{irs} relays can use their optimal configuration, i.e., the codeword yielding the highest end-to-end \gls{sinr} towards \gls{ue} $k$.
-The system operates at 28 GHz, with a total bandwidth of 100~MHz, to be shared among all the devices in \gls{tdma}. 
-The gNB is equipped with an antenna array of 64 elements, and uses a power of 33 dBm.
-For the IRS, we consider a number of reflecting elements from 200 to 7\,200.
-For the AF relay, we consider antenna arrays from 16 to 256 elements.%, with a maximum amplifier output power of 25~dBm.
-
-%In the remainder of this section we compare different relay configurations, featuring various antenna array configurations, to a baseline where no relay is present.
-
 \begin{figure}[t!]
   \centering
     \begin{subfigure}[t]{\columnwidth}
@@ -460,7 +413,21 @@ For the AF relay, we consider antenna arrays from 16 to 256 elements.%, with a m
     \label{Fig:scenarios}
 \end{figure}
 
-%\setlength{\tabcolsep}{0.5em}
+\subsection{Performance Evaluation}
+\label{sec:results}
+
+In this section we describe our simulation setup and parameters (Section~\ref{sub:simulation_setup}), and evaluate the performance of \glspl{irs} and \gls{af} relays, considering full-stack network metrics as a function of different antenna array configurations (Section~\ref{sub:numerical_results}).
+
+\subsubsection{Simulation Setup} % (fold)
+\label{sub:simulation_setup}
+
+In our simulations we consider two simple yet realistic urban canyon scenarios, where we deploy a single \gls{gnb}, $N_{\mathrm U}$ \glspl{ue}, with $N_{\mathrm U}=1$ (5) in Scenario 1 (2), as illustrated in Figure~\ref{Fig:scenarios}, and a single relay, which can be either an \gls{irs} or an \gls{af} relay.
+The wireless channel is modeled as an \gls{uma} link~\cite{3gpp.38.901}. % with the extensions discussed in Section~\ref{sec:ext_ch_model} to incorporate IRS/AF functionalities.
+The \gls{los}/\gls{nlos} condition depends on the geometry of the scenario.
+In particular, we assume that the direct wireless link between the \glspl{ue} and the \gls{gnb} is blocked by a building, as illustrated in Figure~\ref{Fig:scenarios}, which introduces an additional penetration loss modeled based on~\cite[Section 7.4.3.1]{3gpp.38.901}.
+The end nodes can still communicate in \gls{los} via the relay. 
+Furthermore, we assume that at each \gls{tti} the relays can arbitrarily switch configuration to serve a given user and that their phase shifters have infinite resolution, i.e., we do not account for quantization loss.
+
 \def\arraystretch{1.3}
 \begin{table}[t!]
   \caption{Simulation parameters.}
@@ -486,7 +453,13 @@ For the AF relay, we consider antenna arrays from 16 to 256 elements.%, with a m
   \end{tabular}
 \end{table}
 
-
+Our simulation parameters are reported in Table~\ref{Tab:parameters}.
+Specifically, the \glspl{ue} download \gls{udp} data, modeled as a constant bit-rate stream of 50~Mbps, from a remote server. 
+We assume that, at each transmission opportunity towards the generic $k$-th \gls{ue}, both \gls{af} and \gls{irs} relays can use their optimal configuration, i.e., the codeword yielding the highest end-to-end \gls{sinr} towards \gls{ue} $k$.
+The system operates at 28 GHz, with a total bandwidth of 100~MHz, to be shared among all the devices in \gls{tdma}. 
+The gNB is equipped with an antenna array of 64 elements, and uses a power of 33 dBm.
+For the IRS, we consider a number of reflecting elements from 200 to 7\,200.
+For the AF relay, we consider antenna arrays from 16 to 256 elements.%, with a maximum amplifier output power of 25~dBm.
 
 
 \subsection{Numerical Results} % (fold)

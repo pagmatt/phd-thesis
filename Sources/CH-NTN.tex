@@ -114,6 +114,13 @@ When considering flying vehicles that are not satellites, such as \glspl{hap} or
 
 Finally, for terrestrial terminals, the 3GPP suggests to use either \gls{upa} antennas or \gls{vsat} antennas. The latter model, in particular, is a common choice in satellite communication, and consists of a circular reflector antenna of small size (less than 1 m of diameter), to be typically placed on roofs pointing at the sky. The \gls{vsat} radiation pattern is the same as that of circular aperture antennas for satellites, and is given in Eq.~\ref{eq:eq4}.
 
+\begin{figure*}[t!]
+    \includegraphics[width=\textwidth]{Figures/ChannelNtn/uml-diagram.png}
+    \caption{Simplified UML diagram, which depicts the most significant changes which we introduced to ns-3. Bold classes represent the newly implemented ones, while dotted classes are pre-existing ones that have been modified.}
+    \label{fig:ntn-uml}
+\end{figure*}
+
+
 \subsection{Coordinate System}
 \label{sec:coord_model}
 In general, the 3GPP defines a simple Cartesian coordinate system where the position of each node is uniquely described by a set of three values, $(x,y,z)$, where $x$ and $y$ define the ground plane, and $z$ represents the height of the node. 
@@ -128,13 +135,6 @@ Then, terrestrial nodes on the surface of the Earth are deployed so that $\sqrt{
 %The creation of the \gls{ntn} channel model follows the \gls{3gpp}~\cite{38811} guidelines presented in the previous section, which are considered a standard in the telecommunication landscape.  
 The proposed ns-3 implementation of the 3GPP TR 38.811~\cite{38811} \gls{ntn} channel model is based upon the TR 38.901 model presented in~\cite{zugno20implementation}. Despite the fact that the newly introduced methods and classes are designed with the goal of introducing minimal changes to the existing ns-3 APIs, %, thus minimal change to existing classes is preferred.Nevertheless, 
 some modifications to the existing code structure are still required. A schematic of these changes, which we make publicly available\footnote{\url{https://gitlab.com/mattiasandri/ns-3-ntn/-/tree/ntn-dev}}, can be found in Figure~\ref{fig:ntn-uml}.
-
-\begin{figure*}[t]
-    \includegraphics[width=\textwidth]{Figures/ChannelNtn/uml-diagram.png}
-    \caption{Simplified UML diagram, which depicts the most significant changes which we introduced to ns-3. Bold classes represent the newly implemented ones, while dotted classes are pre-existing ones that have been modified.}
-    \label{fig:ntn-uml}
-\end{figure*}
-
 The remainder of this section describes more in detail our implementation of the NTN channel model of~\cite{38811} in ns-3. 
 
 %\subsection{ThreeGppChannelModel}
@@ -258,6 +258,35 @@ As expected, the \gls{fspl} increases as the distance between the ground termina
 We shed light on two main trends. First, uplink communication is generally worse than downlink, except for SC6. This is reasonable, and due to the fact that ground terminals are more constrained in terms of power availability, capacity, and size (e.g., for antenna deployment).
 Second, according to the 3GPP model, LEO satellites have more severe hardware constraints than GEO satellites (e.g., LEO's effective isotropic radiated power (EIRP) in the Ka-band is as low as 36 dBW, vs. 66 dBW for GEO): as a result, the CNR for SC6 is around 50\% lower than for SC1, which makes LEO communication more~difficult.
 
+\begin{table}[t!]
+    \caption{Simulation parameters.}
+    \label{tab:frequency-test}
+    \centering
+    \footnotesize
+    \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Parameter} & \textbf{Value} \\ \hline
+    {Frequency} & {20 GHz $\div$ 100 GHz} \\\hline
+    {Satellite orbit} & {GEO} \\\hline
+    {Satellite altitude} & {35\,786 km} \\\hline
+    {Elevation angle} & {90 deg} \\\hline
+    {Tx. mode} & {Downlink} \\\hline
+    {Transmit power} & {37.5 dBm} \\\hline
+    {Satellite antenna} & {Circular aperture (Gain: 58.5 dB)} \\\hline
+    {Terminal antenna} & {VSAT (Gain: 39.7 dB)} \\\hline
+     {Scenario} & {Suburban} \\\hline
+    \end{tabular}
+    \end{table}
+    \begin{figure}[t]
+        \centering 
+    % These two commands set the width and height of the figure, respectively
+        \setlength\fwidth{0.65\columnwidth}
+        \setlength\fheight{0.28\columnwidth}
+        \input{Figures/ChannelNtn/freq_test.tex}
+        \caption{The SNR for different carrier frequencies. We consider a GEO satellite, with the parameters in Tab.~\ref{tab:frequency-test}.}
+        \label{fig:frequency-test}
+    \end{figure}
+
 
 \subsubsection{Frequency Test}
 While the 3GPP identifies the S-band (at 2 GHz) and the Ka-band (at 20 GHz for \gls{dl} and 30 GHz for \gls{ul}) as frequencies of interests, the NTN channel model is valid for a wide range of frequencies, from 0.5 GHz to 100 GHz. 
@@ -265,37 +294,8 @@ Therefore, in Figure~\ref{fig:frequency-test} we plot the \gls{snr}, which is an
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
-\begin{table}[t!]
-\caption{Simulation parameters.}
-\label{tab:frequency-test}
-\centering
-\footnotesize
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Parameter} & \textbf{Value} \\ \hline
-{Frequency} & {20 GHz $\div$ 100 GHz} \\\hline
-{Satellite orbit} & {GEO} \\\hline
-{Satellite altitude} & {35\,786 km} \\\hline
-{Elevation angle} & {90 deg} \\\hline
-{Tx. mode} & {Downlink} \\\hline
-{Transmit power} & {37.5 dBm} \\\hline
-{Satellite antenna} & {Circular aperture (Gain: 58.5 dB)} \\\hline
-{Terminal antenna} & {VSAT (Gain: 39.7 dB)} \\\hline
- {Scenario} & {Suburban} \\\hline
-\end{tabular}
-\end{table}
 
 We observe that the \gls{snr} decreases linearly (in the log scale) as the frequency increases, with a deep degradation at 60 GHz. This is because of the impact of atmospheric absorptions described in Section~\ref{sub:atm}, more specifically the additional signal attenuation experienced at 60 GHz due to oxygen absorption (as large as 15 dB/km).
-
-\begin{figure}[t]
-    \centering 
-% These two commands set the width and height of the figure, respectively
-    \setlength\fwidth{0.65\columnwidth}
-    \setlength\fheight{0.28\columnwidth}
-    \input{Figures/ChannelNtn/freq_test.tex}
-    \caption{The SNR for different carrier frequencies. We consider a GEO satellite, with the parameters in Tab.~\ref{tab:frequency-test}.}
-    \label{fig:frequency-test}
-\end{figure}
 
 \subsubsection{Mobility Test}
 Our new mobility model for NTN (see Section~\ref{sub:mobility}) allows to change the position of the nodes during the simulation, thus to evaluate the effect of different parameters such as the elevation angle, the antenna radiation pattern, and the altitude. 
