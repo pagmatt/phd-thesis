@@ -761,7 +761,7 @@ The bad performance of \gls{oscbc} compared to \gls{cwc} and \gls{icwc} is confi
 Finally, even though \gls{icwc} is not explicitly designed to maximize the sum capacity, it shows similar performance (if not even slightly better) as \gls{cwc} in the \gls{dlos} scenario.
 The rationale behind this behavior is not clear and deserves more investigation. Most likely, it is related to the fact that, in the \gls{dlos} scenario, all \glspl{ue} have similar channel conditions, which permits \gls{icwc} to choose, on average, a good \gls{irs} configuration even among the worst \glspl{ue} in the clusters.
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.6\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -772,7 +772,7 @@ The rationale behind this behavior is not clear and deserves more investigation.
     \label{fig:sumcap_vs_size}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.6\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -794,7 +794,7 @@ Nevertheless, we still observe that the number of reflecting elements has an imp
 Indeed, the number of possible \gls{irs} configurations increases as we consider larger \gls{irs} antennas. In turn, this decreases the likelihood of \glspl{ue} having the same (or similar) ideal configurations, and therefore, it increases the probability of being associated with increasingly suboptimal centroids if the number of clusters is small. However, if the number of phase shifters is large, the suboptimality is mitigated by the increasing number of reconfigurations. Typically, the \gls{irs} reconfiguration cost is proportional to the number of
 radiating elements, and therefore the specific reconfiguration cost may be different for different \glspl{irs} in general. A detailed quantitative analysis of this issue would need to go into the specifics of the various \gls{irs} architectures, which goes beyond the scope of the present work, and will be considered in our future work.
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.6\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -804,7 +804,7 @@ radiating elements, and therefore the specific reconfiguration cost may be diffe
     %\vspace{-10pt}
     \label{fig:cap_vs_bits}
 \end{figure}
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.6\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -824,7 +824,7 @@ The results reveal that the use of non-ideal phase shifters leads to a $30\%$ de
 Furthermore, it is shown that the gap between quantized and the unquantized performance increases with $Z$. As a result, 1-bit quantization is sufficient to guarantee a performance comparable to the unquantized case with a small number of clusters, while more quantization bits are needed to achieve higher capacity.
 In any case, we can conclude that our proposed capacity-based clustering algorithms are robust to phase-shift quantization. 
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.6\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -835,7 +835,7 @@ In any case, we can conclude that our proposed capacity-based clustering algorit
     \label{fig:sumcap_vs_ZK}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.6\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -846,7 +846,7 @@ In any case, we can conclude that our proposed capacity-based clustering algorit
     \label{fig:quantcap_vs_ZK}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.6\columnwidth}
     \setlength\fheight{0.35\columnwidth}

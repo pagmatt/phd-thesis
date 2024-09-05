@@ -429,7 +429,7 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
 \caption{Average network performance for $50$ \glspl{ue} and $80$~Mbps per-UE source rate (Scenario 1).}
   \label{fig:avgNetPerfomance}
 \end{figure*}
-\begin{figure*}
+\begin{figure*}[t!]
 \centering
 \subfloat[][Per-UE end-to-end Latency]{
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_lat.pdf}
@@ -444,7 +444,6 @@ Finally, we implemented a \gls{mac}-level scheduler which operates in a \gls{tdm
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_drop.pdf}
     \label{fig:avgDropRate_s2}
     }
-  
    \caption{Network performance for $\{25, 50, 75, 100, 200\}$ \node{}, $2$ UEs per \nodes{} on average, and $40$ Mbps per-UE source rate (Scenario 2).}
   \label{fig:avgNetPerfomance_s2}
   \vspace*{-3mm}
@@ -509,7 +508,7 @@ The packet drop rate for different numbers of \nodes{} is shown in Figure~\ref{f
 \subsubsection{Scenario 3: Impact of the number of \donors{}}
 \label{sec:multiDonors}
 Although the benchmark schemes do not support multiple \donors{}, \name{} is designed to accommodate such scenarios. In Figure~\ref{fig:avgNetPerfomance_s3}, we investigate the impact of the number of \nodes{} on \name{}. To this end, we keep the number of \glspl{ue} and their data rate constant. 
-\begin{figure*}
+\begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end Latency]{
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_lat.pdf}
@@ -524,7 +523,6 @@ Although the benchmark schemes do not support multiple \donors{}, \name{} is des
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_drop.pdf}
     \label{fig:avgDropRate_s3}
     }
-  
    \caption{Network performance for $50$ \glspl{ue} and $40$ Mbps per-UE source rate, versus the number of \donors{} (Scenario 3).}
   \label{fig:avgNetPerfomance_s3}
   \vspace*{-3mm}
@@ -546,7 +544,7 @@ The definition of losses in the tail of the latency distribution is controlled b
 The non-monotonic behavior of the average latency versus $\alpha$ can be explained by the so-called exploration-exploitation trade-off: the higher $\alpha$, the higher the level of risk, which in turn leads \name{} to learn more about the environment and choose a more reliable action. Eventually, as $\alpha$ grows beyond approximately $0.7$, the performance of \name{} tends to that of the risk-neutral case. As a consequence, the algorithm undertakes excessive exploration, which causes a degradation of the average latency performance.
 
 
-\begin{figure*}[t]
+\begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end latency]{
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S1_lat_vs_time_padova.pdf}
@@ -567,8 +565,7 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
 \end{figure*}
 
 
-
-\begin{figure*}
+\begin{figure*}[t!]
 \centering
 \subfloat[][Per-UE end-to-end Latency]{
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_lat_padova.pdf}
@@ -583,13 +580,12 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S2_drop_padova.pdf}
     \label{fig:avgDropRate_s2Padova}
     }
-  
    \caption{Network performance for $\{25, 50, 75, 100\}$ \nodes{},$2$ UEs per \node{} on average, and $40$ Mbps per-UE source rate (Scenario 2) in Padova.}
   \label{fig:avgNetPerfomance_s2Padova}
   \vspace*{-3mm}
 \end{figure*}
 
-\begin{figure*}
+\begin{figure*}[t!]
 \centering
 \subfloat[][Average per-UE end-to-end Latency]{
     \includegraphics[width=.45\linewidth]{Figures/Safehaul/S3_lat_padova.pdf}

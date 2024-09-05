@@ -484,8 +484,6 @@ We consider a scenario with a single donor to focus on the issues related to the
 \end{tabular}
 \end{table}
 
-
-
 \subsubsection{Results}
 \label{sub:results-iab-thz}
 
@@ -496,7 +494,7 @@ In this section we report the outcomes of our numerical evaluation, focusing on 
 Fig.~\ref{fig:ThroughputPerDifferAlg} reports the UE throughput achieved by the proposed solution, versus that achieved by RS and RL. Focusing on the former, it can be seen that Alg.~\ref{algo:sinr} leads to a throughput increase of up to 40\% compared to a random scheduling policy, thanks to the prioritization of the backhaul links incurring a higher load and exhibiting a higher number of subtending IAB nodes. 
 Moreover, Alg.~\ref{algo:thzLink} introduces an additional throughput increase of up to 15\% compared to RL.
 %MPag: Figures/IabThzLinks are kind of hard to read, probably adding a RORS baseline would make sense as well..
-\begin{figure}
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.55\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -519,7 +517,7 @@ This may be explained by considering the effects of replacing bottleneck backhau
 
 % MP what does this mean (second part of the sentence on max source rate)? [done]
 
-\begin{figure}
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.55\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -535,7 +533,7 @@ This may be explained by considering the effects of replacing bottleneck backhau
 Similar considerations can be drawn from the results shown in Fig.~\ref{fig:packetDrop}, which reports the packet drop percentages for various backhaul configurations. %This performance is consistent with the behaviors seen in Figure~\ref{fig:Throughput}'s behavior.
 The highest and lowest packet drop percentages across all \gls{ue} source rates are achieved when using the \gls{mmwave} and $\rho_{max} = 0.3$, 32 GHz configurations, respectively. Packet drop percentages at 20 Mbps source rates are close to zero for all configurations. The highest packet drop percentages among configurations including \gls{thz} is $\rho_{max} = 0.1$, 10 GHz. It is noteworthy that the system performance is influenced directly by both the \gls{thz} bandwidth and the link ratio, as seen in Fig~\ref{fig:Throughput}.
 
-\begin{figure}
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.55\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -548,7 +546,7 @@ The highest and lowest packet drop percentages across all \gls{ue} source rates 
 
 Fig.~\ref{fig:Latency} depicts the \gls{ecdf} of the \gls{e2e} latency experienced by packets which reach the donor, for different bachkaul configurations. Accordingly, both latencies accumulated over the fronthaul and backhaul links are taken into account, from the time packets are generated at the \gls{ue} until they eventually reach the \gls{iab} donor. The plot shows that packet latency decreases as more sub-THz links are added to the network. In accordance with the aforementioned observations (Fig.~\ref{fig:Throughput} and Fig.~\ref{fig:packetDrop}), $\rho_{max} = 0.3$, 32 GHz has the lowest latency, whereas \gls{mmwave} has the highest latency. The average latency for $\rho_{max} = 0.3$, 32 GHz, $\rho_{max} = 0.3$, 10 GHz, $\rho_{max} = 0.1$, 32 GHz, and $\rho_{max} = 0.1$, 10 GHz is approximately 51\%, 24\%, 24\%, and 18\% less than in \gls{mmwave}.
 
-\begin{figure}
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.55\columnwidth}
     \setlength\fheight{0.35\columnwidth}
@@ -568,7 +566,7 @@ However, the larger demand of the 25 Gbps system source rate still cannot be sat
 % , and prevents convergence to required source rates. 
 $\rho_{max} = 0.1$ and $1$ can increase the system throughput by up to four times and twelve times, respectively.
 
-\begin{figure}
+\begin{figure}[t!]
     \centering
     \setlength\fwidth{0.55\columnwidth}
     \setlength\fheight{0.35\columnwidth}
