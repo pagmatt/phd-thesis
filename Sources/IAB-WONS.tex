@@ -2,83 +2,7 @@
 %%% WONS %%%
 %%%%%%%%%%%%
 
-
-% \documentclass[a4paper, conference]{IEEEtran}
-% \IEEEoverridecommandlockouts
-
-% \pagestyle{empty}
-% \usepackage{url}
-% \usepackage[utf8]{inputenc}
-% \usepackage{xcolor}
-% \usepackage{amsmath}
-% \usepackage{amssymb}
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
 \newcommand{\red}[1]{\begin{color}{red}#1\end{color}}
-
-%\usepackage{geometry}
-%\geometry{letterpaper, margin=1.3in}
-
-% \usepackage[bottom=4.0cm, left=1.57cm, right=1.57cm, top=1.75cm]{geometry}
-
-% \usepackage[acronyms,nonumberlist,nopostdot,nomain,nogroupskip]{glossaries}
-% \usepackage{tablefootnote}
-% \usepackage{booktabs}
-% \usepackage{tabularx}
-% \usepackage{tikz}
-% \usepackage{pgfplots}
-% \pgfplotsset{compat=newest}
-% \pgfplotsset{plot coordinates/math parser=false}
-% \usepackage{soul}
-% \newlength\fheight
-% \newlength\fwidth
-% \usetikzlibrary{plotmarks,patterns, patterns.meta,decorations.pathreplacing,backgrounds,calc,arrows,arrows.meta,spy,matrix,backgrounds}
-% \usepgfplotslibrary{patchplots,groupplots}
-% \usepackage{tikzscale}
-% \usepackage{hyperref}
-% \usepackage{algorithm} 
-% \usepackage{algpseudocode} 
-% \usepackage{comment}
-% \usepackage{bm}
-% \usepackage{multirow}
-% \usepackage{bbm}
-
-% \renewcommand{\figurename}{Fig.}
-% %\renewcommand{\tablename}{Tab.}
-% \usepackage[font=small]{subcaption}
-% \usepackage[font=small]{caption}
-
-%\usepackage{mathtools}
-
-% \newcommand{\MP}[1]{\color{red}{\textbf{TODO: #1 }}\color{black}}
-
-%\usepackage{dblfloatfix}    % To enable Figures/IabThzLinks at the bottom of page
-% \usepackage{colortbl}
-
-%\usepackage{cite}
-
-%\input{acronyms.tex}
-%\input{myTikz.tex}
-
-
-% \begin{document}
-
-% \title{6G Integrated Access and Backhaul Networks\\with Sub-Terahertz Links} % temp
-
-% \author{\IEEEauthorblockN{Amir Ashtari Gargari$^*$, Matteo Pagin$^*$, Michele Polese$^{\circ}$, Michele Zorzi$^*$}\\
-%   \IEEEauthorblockA{$^*$Department of Information Engineering, University of Padova, Italy\\email: \texttt{\{amirashtari, paginmatte, zorzi\}@dei.unipd.it}\\
-%   $^{\circ}$Institute for the Wireless Internet of Things, Northeastern University, Boston, MA\\email: \texttt{m.polese@northeastern.edu}}
-%   \thanks{This work was partially supported by the U.S. National Science Foundation under Grant CNS-2225590 and in part by the EU MSCA ITN project MINTS “MIllimeter-wave NeTworking and Sensing for Beyond 5G” (grant no. 861222).}
-% }
-
-% \flushbottom
-% \setlength{\parskip}{0ex plus0.1ex}
-
-% \maketitle
-% \thispagestyle{empty}
-
-% % 3GPP does not want us to use New Radio, so we disable the expansion of the acronym
-% \glsunset{nr}
 
 \section{High-capacity integrated access and backhaul networks using sub-terahertz links}
 \label{sec:iab-wons}
@@ -89,9 +13,7 @@ In recent years, the literature has closed several gaps in terms of circuit, ant
 %
 When it comes to \gls{iab} with mixed sub-terahertz and \gls{mmwave} links,\footnote{In this section, we consider the FR2 range of 3GPP NR (24.25 GHz to 71 GHz) as \glspl{mmwave}.} however, there are still several open questions in terms of network design and path selection. In this work, we consider the problem of identifying a viable topology between \gls{iab} nodes and the \gls{iab} donors, including the carrier frequency of the backhaul links, and profile the performance that network planners can expect when mixing sub-terahertz and \gls{mmwave} \gls{iab} links.
 
-To this end, 
-%
-we develop a greedy path generation algorithm that automatically selects the frequency band of an \gls{iab} link (between 28 GHz and 140 GHz) and assigns routes so that each \gls{iab} node can reach the \gls{iab} donor. The frequency selection aims at avoiding bottlenecks, i.e., the algorithm selects the band that provides the highest capacity when accounting for the congestion that may arise in the proximity of the IAB donor. In addition, we consider and compare different ratios of sub-terahertz and mmWave links, which can be mapped to licensing constraints for out-of-band backhaul, and two different bandwidths for the sub-terahertz links (10 GHz and 32 GHz), which consider exclusive licensing or sharing with other services, respectively~\cite{polese2022dynamic}.
+To this end, we develop a greedy path generation algorithm that automatically selects the frequency band of an \gls{iab} link (between 28 GHz and 140 GHz) and assigns routes so that each \gls{iab} node can reach the \gls{iab} donor. The frequency selection aims at avoiding bottlenecks, i.e., the algorithm selects the band that provides the highest capacity when accounting for the congestion that may arise in the proximity of the IAB donor. In addition, we consider and compare different ratios of sub-terahertz and mmWave links, which can be mapped to licensing constraints for out-of-band backhaul, and two different bandwidths for the sub-terahertz links (10 GHz and 32 GHz), which consider exclusive licensing or sharing with other services, respectively~\cite{polese2022dynamic}.
 
 We model the \gls{iab} network in a custom-developed \gls{3gpp} Release 17 simulator based on the open-source tool Sionna~\cite{hoydis2022sionna}, with \gls{3gpp} and state-of-the-art \gls{mmwave} and sub-terahertz channel models, and realistic and detailed \gls{3gpp}-based physical and \gls{mac} layers. Our results quantify for the first time the performance improvement that sub-terahertz links can introduce in \gls{iab} networks, which can push beyond the limits of the in-band \gls{mmwave} backhaul and support more than 50 users with 120 Mbps streams and a single donor without congestion (compared to about 33 Mbps for in-band \glspl{mmwave}). 
 
@@ -99,8 +21,6 @@ This is the first work that provides a numerical evaluation of the potential ass
 
 The rest of the section is organized as follows. Sec.~\ref{sec:system} introduces the system model. Sec.~\ref{sub:THzLinkSel} describes the algorithm for frequency and path selection, which is then numerically evaluated in Sec.~\ref{sec:PerfEval}.
 
-
-% \hl{Matteo: Rename this ?}
 \subsection{System Model}
 \label{sec:system}
 
@@ -140,10 +60,7 @@ by tuning the carrier frequency (either \gls{mmwave} or \gls{thz}) of each backh
 \label{sub:channelmodel}
 \paragraph{\gls{mmwave} channel model}
 
-%\hl{TODO, Matteo: Trim further?}
-%\hl{TODO, Matteo: Consider adding a couiple of sentences on mmWave's propagation characteristics}\\
-For the \gls{mmwave} links, we consider the 3GPP~38.901 \gls{scm}~\cite{3gpp.38.901}, which models \gls{mimo} wireless channels for frequencies between $0.5$ and $100$~GHz. %The model relies on deterministic formulas for the path-loss, and on random distributions for phenomena such as multipath fading and shadowing. 
-
+For the \gls{mmwave} links, we consider the 3GPP~38.901 \gls{scm}~\cite{3gpp.38.901}, which models \gls{mimo} wireless channels for frequencies between $0.5$ and $100$~GHz.
 In particular,~\cite{3gpp.38.901} outlines the procedures for generating a channel matrix $\bm{H}_{s, d}$ whose entries $h_{s, d}^{j, k}$ correspond to the impulse response of the channel between the $j$-th element of the antenna array of the transmitter (S), and the $k$-th radiating element of the antenna array of the receiver (D). %at time $t$ and with propagation delay $\tau$. 
 %To model small-scale fading, each of the entries of entries $\bm{H}_{p, q}$ 
 % Each of these entries is computed as the superposition of $N$ different clusters, each of which consists of $M$ rays. %that arrive (depart) to (from) the transmitter (receiver) antenna array, 
@@ -585,20 +502,17 @@ $\rho_{max} = 0.1$ and $1$ can increase the system throughput by up to four time
 %% RES MAN
 %%%%%%%%
 
-In this chapter we proposed a semi-centralized resource partitioning scheme for \gls{5g} and beyond \gls{iab} networks, coupled with a set of allocation policies. We showed that the introduction of this light resource allocation cooperation dramatically improves the end-to-end throughput and delay achieved by the system already, preventing (or at the very least limiting) the insurgence of network congestion on the backhaul links. %Specifically, the \gls{mrba} policy exhibits the most promising results, offering up to a 3-fold increase in the worst-case throughput and approximately a 30\% smaller worst-case latency, compared to the distributed scheduler. On the other hand, the effectiveness of the \gls{ba} and \gls{msr} policies varies quite significantly across the specific system configuration and inspected metric. %Nevertheless, better than SoA
+In this chapter we proposed a semi-centralized resource partitioning scheme for \gls{5g} and beyond \gls{iab} networks, coupled with a set of allocation policies. We showed that the introduction of this light resource allocation cooperation dramatically improves the end-to-end throughput and delay achieved by the system already, preventing (or at the very least limiting) the insurgence of network congestion in the backhaul links.
 We provided considerations on the implementation of a semi-centralized resource allocation controller in real world deployments. In particular, we acknowledged that the proposed scheme relies on the assumption of \gls{iab}-nodes being capable of exchanging timely feedback information with the \gls{iab}-donor. Even though the amount of signaling data which the proposed solution requires is quite low, and its performance is quite robust with respect to an increase of the central allocation period, we argue that this remains a significant constraint. 
-%Moreover, such drawback is exacerbated by the unfavorable \glspl{mmwave} propagation characteristics.
 As a consequence, we deem that solutions involving a central controller, which rely on timely exchange of control information with the \gls{iab}-donor, are likely to require dedicated control channels, possibly at sub-6~{GHz}, in order to grant the utmost priority and reliability to the feedback information. 
 Therefore, we conclude that semi-centralized frameworks can bring dramatic performance benefits to \gls{iab} networks, although their introduction in \gls{5g} and beyond deployments requires additional research efforts.
 %%%%%%%%%%
 %% SAFEHAUL
 %%%%%%%%%
-
 Moreover, we proposed the first reliability-focused scheduling and path selection algorithm for \gls{iab} mmWave networks. We illustrated that our \gls{rl}-based solution can cope with the network dynamics including channel, interference, and load. Furthermore, we demonstrated that \name{} not only  exhibits highly reliable performance in the presence of the above-mentioned network dynamics, but also outperforms the benchmark schemes in terms of throughput, latency and packet-drop rate. The reliability of \name{} stems from the joint minimization of the average latency, and the expected value of its tail losses, by leveraging \gls{cvar} as a risk metric.
 %%%%%%%%
 %%% WONS
 %%%%%%%%%
-
 Finally, we provided the first performance evaluation of the possibilities of sub-terahertz frequencies for 6G IAB using a customized extension of the open-source Sionna simulator. This permits the use of greedy algorithms to evaluate the deployment of mixed mmWave and sub-terahertz links to boost the backhaul network's capacity.
 
 
@@ -608,4 +522,4 @@ As part of our future work on IAB optimization frameworks, we plan to design eff
 %% Future work Safehaul
 Additionally, we identify network reliability as a highly under-explored topic that deserves further investigation. Some interesting research directions in this space are the maximization of reliability under the assumption of statistical system knowledge, or the evaluation of the network's reliability when the functionality of the \gls{bap} layer is compromised. Furthermore, our system-level extension to Sionna can be further developed to support an arbitrary number of RF chains and in-band backhauling, allowing more extensive investigation of IAB protocols and architectures.
 %% Future work WONS
-Finally, we will broaden the performance analysis of sub-terahertz IAB deployments to cover a broader range of source traffic patterns, scenarios (including multi-donor instances, deployments with lower node density, or more realistic map-based scenarios as in~\cite{gemmi2023on,gemmi2022on}), and protocol stack implementations as future work.
+Finally, we will extend the performance analysis of sub-terahertz IAB deployments to cover a broader range of source traffic patterns, scenarios (including multi-donor instances, deployments with lower node density, or more realistic map-based scenarios as in~\cite{gemmi2023on,gemmi2022on}), and protocol stack implementations as future work.
