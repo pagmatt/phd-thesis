@@ -1,10 +1,20 @@
+% PDF-A metadata
+\begin{filecontents*}[overwrite]{\jobname.xmpdata}
+  \Title{Models, algorithms and protocols for innovative deployment solutions in 5G and 6G cellular networks}
+  \Author{Matteo Pagin}
+  \Language{en-GB}
+  \Subject{Thesis in partial fullfilment of the requirements for the PhD in Information Engineering of the Department of Information Engineering, University of Padova}
+  \Keywords{5G\sep 6G\sep RIS\sep IAB}
+\end{filecontents*}
+  
+
 \documentclass{mimosis}
 \usepackage[a4paper]{geometry}
 \geometry{left=1.55in}
 \geometry{right=1.55in}
 % PDF-A output
-%\usepackage{metalogo}
-%\usepackage[a-3u]{pdfx}
+\usepackage{metalogo}
+\usepackage[a-3u, mathxmp]{pdfx}
 
 % Compile just one chapter
 %\includeonly{Sources/chapter_to_include.tex}
