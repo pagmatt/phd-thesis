@@ -872,8 +872,8 @@ Then, we proposed clustering-based scheduling algorithms, which group \glspl{ue}
 Different clustering algorithms were numerically evaluated in terms of computational complexity, sum capacity, and fairness under different channel conditions, as a function of the size of the \gls{irs} size and the number of users, and with or without quantization of phase shifts.
 The results showed that capacity-based clustering outperforms distance-based clustering, and can achieve up to $85$\% of the sum capacity obtained in an ideal deployment (with no reconfiguration constraints), reducing by $50$\% the number of \gls{irs} reconfigurations.
 
-\appendix
-\section*{Proof of Theorem~\ref{th_distancebased}}
+\section*{Appendix}
+\subsection*{Proof of Theorem~\ref{th_distancebased}}
 \begin{IEEEproof}[Proof for \gls{km} (LLoyd)]
     In the assignment step, each \gls{ue} $k$ is assigned to the cluster $z$ that minimizes the squared distance $\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$. This guarantees that the total sum $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$ does not increase. 
     Then, in the update step, $\bm{\Phi}^{(z)}$ is recalculated as the average $\bm{\Phi}_k^*$ within each cluster, so as to minimize the intra-cluster sum of squared distances $\sum_{k \in \mathcal{U}_z}\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$, for all $z$.

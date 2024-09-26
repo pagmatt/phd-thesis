@@ -59,6 +59,10 @@
 
 % List of publications highlighted name
 \newcommand{\myself}{\textbf{\textcolor{UNIPDRED}{M. Pagin}}}
+% Show publication list in ToC
+\newcommand{\addchapterline}[1]{%
+  \addcontentsline{toc}{chapter}{#1}%
+}
 
 % No footnote ends in different pages
 \interfootnotelinepenalty=10000
@@ -195,8 +199,8 @@
 \usepackage[%
   autocite     = plain,
   backend      = biber,
-  doi          = true,
-  url          = true,
+  doi          = false,
+  url          = false,
   giveninits   = true,
   hyperref     = true,
   maxbibnames  = 99,
@@ -208,6 +212,7 @@
   % Document-wide hyperlinks color
   colorlinks=true,
   citecolor=UNIPDRED,
+  linkcolor=UNIPDRED
   %allbordercolors=UNIPDRED
 }
   
