@@ -2,5 +2,88 @@
 \chapter{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\lipsum~\cite{1990Gabow}.
+Mobile networks play a key role in our society and are poised to become ever more important in the coming years. In fact, the \gls{itu} foresees that in 2030 and beyond wireless broadband will be ubiquitous, and will be required to provide connectivity not only to humans, but also to a plethora of intelligent devices such as wearables, road vehicles, \glspl{uas} and robots~\cite{imt2030}. Moreover, novel use cases such as holographic communications, \gls{xr} and tactile applications will further exacerbate the throughput and latency requirements which were posed by \gls{embb} and \gls{urllc}~\cite{itu-r-2083}.
 
+To meet these goals, future cellular systems will further evolve \gls{5g} networks,
+which have introduced a flexible, virtualized architecture, the support for \gls{mmwave} communications and the use of \gls{m-mimo} technologies~\cite{ghosh20195g}. Notably, the research community is considering a more central role for \glspl{mmwave}, a further expansion of the spectrum towards the \gls{thz} band, and an \gls{ai}-native network design, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{hoydis2021toward}.
+
+The \gls{thz} and \gls{mmwave} bands offer large chunks of untapped bandwidth which operators can leverage to meet the Tb/s peak rates that are envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is plagued by unfavorable propagation characteristics, comprising a marked free-space propagation loss and susceptibility to blockages~\cite{han2018propagation, jornet2011channel}, which make it challenging to harvest its potential. Although the harsh propagation environment can be partially mitigated by using directional links 
+and densifying network deployments~\cite{polese2020toward}, 
+the support for \gls{mmwave} and \gls{thz} bands entails a major redesign not only of the physical layer, but of the whole cellular protocol stack~\cite{shafi2018microwave}. For instance, the intrinsic directionality of the communication requires ad hoc control procedures~\cite{heng2021six}, while the frequent transitions between \gls{los} and \gls{nlos} conditions call for an ad hoc transport layer design, such as novel \gls{tcp} algorithms~\cite{zhang2019will}. 
+In addition, as the network progressively becomes increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with an \gls{ai}-native design which, thanks to the ongoing virtualization, will not be limited to the radio link level, but will encompass the orchestration of large scale deployments as well~\cite{polese2023understanding}.
+
+
+Nevertheless, how to design, test and eventually deploy management and orchestration algorithms is an open research challenge~\cite{polese2022colo}.
+First, the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Furthermore, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
+
+% In addition, to reach these broad objectives towards next generation networks, among other
+% innovations, both 3GPP and the Institute of Electrical and Electronics Engineers (IEEE) (with
+% 802.11ad/ay amendments [7, 8]) agreed on the importance of expanding the frequency bands on
+% which devices can operate to the millimeter wave (mmWave) spectrum range (loosely between
+% 24-100 GHz). The possibility of working at mmWave has been initially assessed with the work
+% in [9], which paved the way to numerous other contributions to this topic. However, while
+% operating at such high frequencies is appealing thanks to bigger chunks of available bandwidth
+% and, consequently, a higher achievable throughput and lower latency, it also introduces multiple
+% challenges such as, for example: (i) higher attenuation on long-distance links, due to sever path
+% loss, (ii) need of new antennas with directionality capabilities, and (iii) need for an update of
+% all the layers of the protocol stack, to accommodate for new communication mechanisms (e.g.,
+% cross-layer optimization, new Medium Access Control (MAC) layer that implements dedicated
+% beam management strategies, precise channel models, etc.).
+% Nonetheless, mmWave bands have been studied as the candidate tecnology for heterogeneous
+% scenarios, such as near real-time short distance communication, Integrated Access and Back-
+% haul (IAB) [10] and even to support novel vehicular communication use cases [11] (to enable,
+% for example, autonomous driving applications). In fact, while a vehicular scenario introduces an
+% additional level of di\ufb00iculty associated to high-speed communications (including a heavier im-
+% pact on the Doppler shift), operating in the mmWave band to achieve multi-Gbps throughput
+% and ultra-low latency could benefit several applications. The algorithms that take real-time
+% decisions on driving commands, for example, have to rely on a huge amount of data on the
+% environment, collected by heterogeneous sensors (e.g., RGB cameras, depth cameras and Light
+% Detection and Ranging (LiDAR) sensors) and exchanged among nearby vehicles. Considering
+% the critical use of this information, we need also to take into account the Age of Information
+% (AoI), i.e., the time since the data was generated [12]. A fast transmission is then fundamental,
+% as the high mobility of the scenario might quickly lead to obsolete packets, forcing the driving
+% algorithm to make decisions based on data that do not represent the environment.
+% To enable these new scenarios, there is the need to optimize different aspects of the communi-
+% cation workflow, from a thorough characterization of the applications of interest (e.g., to better
+% understand how to schedule resources based on the tra\ufb00ic sources) to the precise modeling of
+% the signal propagation. Still, during these years, the general lack of a proper instrumentation
+% to accurately test new solutions on real-word testbeds (usually related to the prohibitive cost
+% of hardware operating at mmWave, jointly with the diﬀiculty of implementing solutions on
+% scenarios as diﬀicult as the automotive one), further slowed down the go-to-market of mmWave-
+% capable devices. Fortunately, thanks to increasingly precise simulation tools (such as Network
+% Simulator 2 (ns-2) [13], Network Simulator 3 (ns-3) [14], OMNeT++ [15], etc.), the hardware
+% availability might turn fundamental only in the final steps of the study, to assess the best so-
+% lutions chosen from those studied through extensive simulations. Among the main features of
+% ns-3, one of the main research tools used to obtain the results discussed in this thesis, its mod-
+% ularity allows researchers to create solutions completely from scratch, as well as add features
+% on modules openly available and that have been thoroughly used and tested by the community.
+% An example consists of ns3-mmwave [16], a 5G-NR-compliant and openly available module [17],
+% that allows the simulation of next-generation networks operating at mmWave.
+% It has also to be acknowledged that, in the recent years, there has been an effort from gov-
+% ernment agencies all over the world to create fundings opportunities for research institutions
+% to support the creation of public platforms to carry out advanced research in wireless com-
+% munications, to fill the gap described above. An example consists in the US-based Plaftorms
+% for Advanced Wireless Research (PAWR) initiative, a $100$ million partnership funded by the
+% National Science Foundation (NSF) and a consortium of 30 companies and associations, for the
+% creation of 4 city-scale research testbeds [18]. The European Union, instead, to combat the
+% negative impact of COVID-19, agreed to invest together €750 billion (in 2018 prices) to build a
+% greener, more digital and more resilient Europe. Part of these funds has already been allocated
+% towards research and innovation, which will use it, among other things, to sustain the costs of
+% top-notch instrumentation and open hardware facilities [19].
+% To sum up, in this dissertation, besides giving a detailed overview of the aforementioned
+% problems, we contribute to the state of the art with improvements that span from the creation
+% of novel ns-3 modules, to the design of artificial intelligence algorithms to proactively assist
+% teleoperated driving operations, to the setup of a reproducible workflow for carrying out end-
+% to-end measurements on a public platform for wireless research. Even though we touched on
+% very diverse topics, from indoor network operations for XR applications to intelligent vehicular
+% networks, they were all connected by the interest in studying and evaluating different technolo-
+% gies that make up the next generation of mobile networks. Where possible, after assessing their
+% peculiarities and the problems that might arise for specific use cases, we tried to propose new
+% ad hoc solutions, or optimization to existing ones. It is also important to mention that the
+% presented work is the fruit of the collaboration with several researchers from world-leading uni-
+% versities, industries and research institutions, without whom reaching such relevant outcomes
+% would have not been possible. To properly acknowledge this collaborative effort from all the
+% authors, besides including at the end of this thesis a list of all the publications from these
+% 3-years of Ph.D. (accepted or in the process of review), at the beginning of each chapter we also
+% list the papers to refer to for the original work.
+% The topics of this thesis are organized as follows
