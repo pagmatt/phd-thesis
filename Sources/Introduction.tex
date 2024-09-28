@@ -10,50 +10,48 @@ In response to the pressing need for reliable wireless connectivity, the \gls{it
 The advent of novel use cases such as holographic communications, \gls{xr}, and tactile applications will further exacerbate the requirements for peak throughput and latency identified for the 5G's \gls{embb} and \gls{urllc} use cases. 
 To achieve these ambitions goals, future cellular systems will continue to evolve and enhance the 5G network paradigm, which has revolutionized the wireless landscape by introducing flexible virtualized architectures, the support for \gls{mmwave} communications, and the adoption of \gls{mimo} technologies~\cite{ghosh20195g}. 
 Notably, both academic and industry researchers are exploring a more central role for \gls{mmwave} technology, with plans to allocate additional spectrum towards the \gls{thz} band, and the design of \gls{ai}-native networks, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{hoydis2021toward}.
-By harnessing the power of \gls{ai} and advanced wireless technologies, future cellular systems will be capable of self-organizing, self-healing, and self-adapt to ever-changing environments.
 
 The THz and mmWave frequency bands hold significant promise as a means to achieve peak data rates exceeding Tb/s, as envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is hampered by unfavorable propagation characteristics that make it challenging to realize its full potential.
 Specifically, the THz and mmWave bands are plagued by a pronounced free-space propagation loss, which significantly attenuates signal strength over long distances. Furthermore, these frequencies are also susceptible to blockages, for instance due to buildings, foliage, and other obstacles, which can cause significant signal attenuation~\cite{han2018propagation, jornet2011channel}.
 With 5G, preliminary support for \gls{mmwave} bands has been introduced thanks to a major redesign not only of the physical layer, but of the whole cellular protocol stack~\cite{shafi2018microwave}. For instance, the intrinsic directionality of the communication requires ad hoc control procedures~\cite{heng2021six}, while the frequent transitions between \gls{los} and \gls{nlos} conditions call for an ad hoc transport layer design, such as novel \gls{tcp} algorithms~\cite{zhang2019will}. 
-Despite the harsh propagation environment can be partially mitigated by using directional links and densifying network deployments~\cite{polese2020toward}, these unfavorable propagation characteristics pose a significant challenge to the successful deployment of THz and mmWave-based wireless systems. Indeed, traditional network densification is costly for network operators,
+Albeit the harsh propagation environment can be partially mitigated by using directional links and densifying network deployments~\cite{polese2020toward}, these unfavorable propagation characteristics pose a significant challenge to the successful deployment of THz and mmWave-based 6G wireless systems. Traditional network densification is costly for network operators,
 especially in terms of sites acquisition campaigns, rental fees, and fiber optic layout to provide wired backhauling~\cite{lopez2015towards}.
-
-To solve this issue, the 3GPP approved, as part of its 5G NR specifications for Rel-16~\cite{3gpp_38_874}, \gls{iab} as a new paradigm to replace fiber-like infrastructures with self-configuring relays operating through wireless backhaul links. However, while lower than that of wired backhaul deployments, the CAPEX costs of \gls{iab} installation may still prove prohibitive for \glspl{mno} [6].
+To solve this issue, the 3GPP approved, as part of its 5G NR specifications for Rel-16~\cite{3gpp_38_874}, \gls{iab} as a new paradigm to replace fiber-like infrastructures with self-configuring relays operating through wireless backhaul links. 
+However, while lower than that of wired backhaul deployments, the CAPEX costs of \gls{iab} installation may still prove prohibitive for \glspl{mno}~\cite{chaoub20216g}.
 In light of this, new technologies based on \glspl{irs} and \gls{af} relays are also emerging as promising alternatives to overcome the coverage issues of mmWave networks with energy and cost efficiency in mind.
+An \gls{irs} is a meta-surface whose elements can be programmed to manipulate electromagnetic fields in favor of a specific destination. By passively beamforming incoming signals without amplification, \glspl{irs} can meet the minimum capacity requirements in dead spots with reduced power consumption compared to approaches such as IAB~\cite{bjornson2019intelligent}. In contrast, \gls{af} relays are designed to capture incident electromagnetic waves from a base station, amplify the received signal, and re-radiate it towards a targeted area to be served.
+While IRSs offer advantages in terms of lower power consumption, AF relays have the potential to achieve higher capacity by actively amplifying signals. However, similarly to IAB, this comes at the cost of increased complexity, higher system costs, and potential amplification noise issues~\cite{huang2019reconfigurable}.
+Nevertheless, to truly achieve ubiquitous connectivity \gls{ntn} integration within the depicted 6G wireless ecosystem will be essential, owing to its capability to deliver services anywhere and anytime. In fact, 3GPP foresee the support for the transparent integration of satellite gateways in the \gls{ran}, thus providing coverage to handheld devices in areas that are unreachable by conventional terrestrial deployment.
+
 
 TODO: talk about open, virtual and geopolitical impact.
 In addition, as the network progressively becomes increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with an \gls{ai}-native design which, thanks to the ongoing virtualization, will not be limited to the radio link level, but will encompass the orchestration of large scale deployments as well~\cite{polese2023understanding}.
 Nevertheless, how to design, test and eventually deploy management and orchestration algorithms is an open research challenge~\cite{polese2022colo}.
 First, the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Furthermore, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
 
+For the next generation of cellular networks to fully achieve the ubiquitous goal, the above innovative deployment solutions will need to be properly studied and optimized, characterizing their impact on the end-to-end systems, i.e., from the signal propagation to the \gls{qoe} perceived by the end users.
+However, accurately testing new solutions on real-word testbeds is typically impractical, especially at scale. 
+Fortunately, thanks to increasingly precise simulation tools (such as Network
+Simulator 2 (ns-2) [13], Network Simulator 3 (ns-3) [14], OMNeT++ [15], etc.), the hardware
+availability might turn fundamental only in the final steps of the study, to assess the best so-
+lutions chosen from those studied through extensive simulations. Among the main features of
+ns-3, one of the main research tools used to obtain the results discussed in this thesis, its mod-
+ularity allows researchers to create solutions completely from scratch, as well as add features
+on modules openly available and that have been thoroughly used and tested by the community.
+An example consists of ns3-mmwave [16], a 5G-NR-compliant and openly available module [17],
+that allows the simulation of next-generation networks operating at mmWave.
+It has also to be acknowledged that, in the recent years, there has been an effort from gov-
+ernment agencies all over the world to create fundings opportunities for research institutions
+to support the creation of public platforms to carry out advanced research in wireless com-
+munications, to fill the gap described above. An example consists in the US-based Plaftorms
+for Advanced Wireless Research (PAWR) initiative, a $100$ million partnership funded by the
+National Science Foundation (NSF) and a consortium of 30 companies and associations, for the
+creation of 4 city-scale research testbeds [18]. The European Union, instead, to combat the
+negative impact of COVID-19, agreed to invest together €750 billion (in 2018 prices) to build a
+greener, more digital and more resilient Europe. Part of these funds has already been allocated
+towards research and innovation, which will use it, among other things, to sustain the costs of
+top-notch instrumentation and open hardware facilities [19].
 
-% To enable these new scenarios, there is the need to optimize different aspects of the communi-
-% cation workflow, from a thorough characterization of the applications of interest (e.g., to better
-% understand how to schedule resources based on the tra\ufb00ic sources) to the precise modeling of
-% the signal propagation. Still, during these years, the general lack of a proper instrumentation
-% to accurately test new solutions on real-word testbeds (usually related to the prohibitive cost
-% of hardware operating at mmWave, jointly with the diﬀiculty of implementing solutions on
-% scenarios as diﬀicult as the automotive one), further slowed down the go-to-market of mmWave-
-% capable devices. Fortunately, thanks to increasingly precise simulation tools (such as Network
-% Simulator 2 (ns-2) [13], Network Simulator 3 (ns-3) [14], OMNeT++ [15], etc.), the hardware
-% availability might turn fundamental only in the final steps of the study, to assess the best so-
-% lutions chosen from those studied through extensive simulations. Among the main features of
-% ns-3, one of the main research tools used to obtain the results discussed in this thesis, its mod-
-% ularity allows researchers to create solutions completely from scratch, as well as add features
-% on modules openly available and that have been thoroughly used and tested by the community.
-% An example consists of ns3-mmwave [16], a 5G-NR-compliant and openly available module [17],
-% that allows the simulation of next-generation networks operating at mmWave.
-% It has also to be acknowledged that, in the recent years, there has been an effort from gov-
-% ernment agencies all over the world to create fundings opportunities for research institutions
-% to support the creation of public platforms to carry out advanced research in wireless com-
-% munications, to fill the gap described above. An example consists in the US-based Plaftorms
-% for Advanced Wireless Research (PAWR) initiative, a $100$ million partnership funded by the
-% National Science Foundation (NSF) and a consortium of 30 companies and associations, for the
-% creation of 4 city-scale research testbeds [18]. The European Union, instead, to combat the
-% negative impact of COVID-19, agreed to invest together €750 billion (in 2018 prices) to build a
-% greener, more digital and more resilient Europe. Part of these funds has already been allocated
-% towards research and innovation, which will use it, among other things, to sustain the costs of
-% top-notch instrumentation and open hardware facilities [19].
 % To sum up, in this dissertation, besides giving a detailed overview of the aforementioned
 % problems, we contribute to the state of the art with improvements that span from the creation
 % of novel ns-3 modules, to the design of artificial intelligence algorithms to proactively assist
