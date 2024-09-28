@@ -2,55 +2,32 @@
 \chapter{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Mobile networks play a key role in our society and are poised to become ever more important in the coming years. 
-% The recent COVID-19 pandemic has not only reiterated this importance, but it also highlighted how the lack of high-speed Internet connectivity represents, in our day and time, a severe hindrance to our social, professional end educational life.
-% In fact, while providing noteworthy peak performance, the current generation of cellular networks, i.e., \gls{5g}, falls short of providing adequate broadband coverage to rural regions [2]. Moreover, even in the most technologically advanced countries, existing cellular infrastructures may lack the level of reliability, availability, and responsiveness requested by future wireless applications, and show vulnerability to natural disasters and artificial sabotage. 
-% In fact, the recent geopolitical turmoils have shown how today conflicts cross the realm of physical space, and involve the cyberspace as well. In these contexts, it becomes paramount to prevent connectivity outages, which may slow down or impede appropriate emergency services, create significant damage to business and property, and loss of lives.
-% The \gls{itu} foresees that in 2030 and beyond wireless broadband will be ubiquitous, and will be required to provide connectivity not only to humans, but also to a plethora of intelligent devices such as wearables, road vehicles, \glspl{uas} and robots~\cite{imt2030}. Moreover, novel use cases such as holographic communications, \gls{xr} and tactile applications will further exacerbate the throughput and latency requirements which were posed by \gls{embb} and \gls{urllc}~\cite{itu-r-2083}.
-
 The significance of mobile networks in modern society is underscored by their paramount role in facilitating social, professional, and educational interactions. The recent COVID-19 pandemic has served as a bitter reminder of this critical importance of high-speed Internet connectivity, identifying its absence as a significant hindrance to our daily lives.
 However, the current generation of cellular networks, i.e., \gls{5g}, are found wanting in providing adequate broadband coverage to rural regions~\cite{yaacoub2020key}. Furthermore, even in technologically advanced nations, cellular infrastructures often fall short of meeting the stringent reliability, availability, and responsiveness requirements of emerging wireless applications. Moreover, their vulnerability to natural disasters and cyberattacks underscores the need for networks which offer reliability from both a technological and a sociopolitical standpoint~\cite{internet_ukr_afg}.
 Indeed, recent geopolitical turmoils have expanded the scope of conflict to include the cyberspace, emphasizing the imperative of maintaining uninterrupted connectivity in emergency situations. In these contexts, connectivity outages can compromise the delivery of critical services, inflict significant economic damage, and even result in loss of lives.
 
-In light of these challenges, the \gls{itu} envisions a future where wireless broadband will be ubiquitous by 2030, with a focus on providing seamless connectivity to both humans and a vast array of intelligent devices, including wearables, autonomous vehicles, \gls{uas}, and robots [4]. The emergence of novel use cases such as holographic communications, au\gls{xr}, and tactile applications will further compound the peak throughput and latency requirements posed by emerging technologies like \gls{embb} and \gls{urllc}~\cite{itu-r-2083}.
-To meet these goals, future cellular systems will further evolve \gls{5g} networks, which have introduced a flexible, virtualized architecture, the support for \gls{mmwave} communications and the use of \gls{m-mimo} technologies~\cite{ghosh20195g}. Notably, the research community is considering a more central role for \glspl{mmwave}, a further expansion of the spectrum towards the \gls{thz} band, and an \gls{ai}-native network design, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{hoydis2021toward}.
+In response to the pressing need for reliable wireless connectivity, the \gls{itu} foresees a future where ubiquitous broadband coverage will be achieved by 2030. This vision is driven by the imperative to provide seamless connectivity to both humans and an increasingly vast array of intelligent devices, including wearables, autonomous vehicles, unmanned aerial systems (UAS), and robots~\cite{mozaffari2018beyond}.
+The advent of novel use cases such as holographic communications, \gls{xr}, and tactile applications will further exacerbate the requirements for peak throughput and latency identified for the 5G's \gls{embb} and \gls{urllc} use cases. 
+To achieve these ambitions goals, future cellular systems will continue to evolve and enhance the 5G network paradigm, which has revolutionized the wireless landscape by introducing flexible virtualized architectures, the support for \gls{mmwave} communications, and the adoption of \gls{mimo} technologies~\cite{ghosh20195g}. 
+Notably, both academic and industry researchers are exploring a more central role for \gls{mmwave} technology, with plans to allocate additional spectrum towards the \gls{thz} band, and the design of \gls{ai}-native networks, with the goal of achieving autonomous data-centric orchestration and management of the network~\cite{polese20216g}, possibly down to the air interface~\cite{hoydis2021toward}.
+By harnessing the power of \gls{ai} and advanced wireless technologies, future cellular systems will be capable of self-organizing, self-healing, and self-adapt to ever-changing environments.
 
-The \gls{thz} and \gls{mmwave} bands offer large chunks of untapped bandwidth which operators can leverage to meet the Tb/s peak rates that are envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is plagued by unfavorable propagation characteristics, comprising a marked free-space propagation loss and susceptibility to blockages~\cite{han2018propagation, jornet2011channel}, which make it challenging to harvest its potential. Although the harsh propagation environment can be partially mitigated by using directional links 
-and densifying network deployments~\cite{polese2020toward}, 
-the support for \gls{mmwave} and \gls{thz} bands entails a major redesign not only of the physical layer, but of the whole cellular protocol stack~\cite{shafi2018microwave}. For instance, the intrinsic directionality of the communication requires ad hoc control procedures~\cite{heng2021six}, while the frequent transitions between \gls{los} and \gls{nlos} conditions call for an ad hoc transport layer design, such as novel \gls{tcp} algorithms~\cite{zhang2019will}. 
+% The \gls{thz} and \gls{mmwave} bands offer large chunks of untapped bandwidth which operators can leverage to meet the Tb/s peak rates that are envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is plagued by unfavorable propagation characteristics, comprising a marked free-space propagation loss and susceptibility to blockages~\cite{han2018propagation, jornet2011channel}, which make it challenging to harvest its potential.
+The THz and mmWave frequency bands hold significant promise as a means to achieve peak data rates exceeding Tb/s, as envisioned by the ITU~\cite{imt2030}. However, this portion of the spectrum is hampered by unfavorable propagation characteristics that make it challenging to realize its full potential.
+Specifically, the THz and mmWave bands are plagued by a pronounced free-space propagation loss, which significantly attenuates signal strength over long distances [2]. Furthermore, these frequencies are also susceptible to blockages, such as buildings, foliage, and other obstacles, which can cause significant signal attenuation~\cite{han2018propagation, jornet2011channel}.
+Although the harsh propagation environment can be partially mitigated by using directional links and densifying network deployments~\cite{polese2020toward}, these unfavorable propagation characteristics pose a significant challenge to the successful deployment of THz and mmWave-based wireless systems.
+With 5G, preliminary support for \gls{mmwave} bands has been introduced, thanks to a major redesign not only of the physical layer, but of the whole cellular protocol stack~\cite{shafi2018microwave}. For instance, the intrinsic directionality of the communication requires ad hoc control procedures~\cite{heng2021six}, while the frequent transitions between \gls{los} and \gls{nlos} conditions call for an ad hoc transport layer design, such as novel \gls{tcp} algorithms~\cite{zhang2019will}. 
+Nevertheless, 
+TODO: need for other techs to extend coverage
+
+
+TODO: talk about open, virtual and geopolitical impact.
 In addition, as the network progressively becomes increasingly complex and heterogeneous, the push for spectrum expansion will be coupled with an \gls{ai}-native design which, thanks to the ongoing virtualization, will not be limited to the radio link level, but will encompass the orchestration of large scale deployments as well~\cite{polese2023understanding}.
-
-
 Nevertheless, how to design, test and eventually deploy management and orchestration algorithms is an open research challenge~\cite{polese2022colo}.
 First, the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Furthermore, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
 
-% In addition, to reach these broad objectives towards next generation networks, among other
-% innovations, both 3GPP and the Institute of Electrical and Electronics Engineers (IEEE) (with
-% 802.11ad/ay amendments [7, 8]) agreed on the importance of expanding the frequency bands on
-% which devices can operate to the millimeter wave (mmWave) spectrum range (loosely between
-% 24-100 GHz). The possibility of working at mmWave has been initially assessed with the work
-% in [9], which paved the way to numerous other contributions to this topic. However, while
-% operating at such high frequencies is appealing thanks to bigger chunks of available bandwidth
-% and, consequently, a higher achievable throughput and lower latency, it also introduces multiple
-% challenges such as, for example: (i) higher attenuation on long-distance links, due to sever path
-% loss, (ii) need of new antennas with directionality capabilities, and (iii) need for an update of
-% all the layers of the protocol stack, to accommodate for new communication mechanisms (e.g.,
-% cross-layer optimization, new Medium Access Control (MAC) layer that implements dedicated
-% beam management strategies, precise channel models, etc.).
-% Nonetheless, mmWave bands have been studied as the candidate tecnology for heterogeneous
-% scenarios, such as near real-time short distance communication, Integrated Access and Back-
-% haul (IAB) [10] and even to support novel vehicular communication use cases [11] (to enable,
-% for example, autonomous driving applications). In fact, while a vehicular scenario introduces an
-% additional level of di\ufb00iculty associated to high-speed communications (including a heavier im-
-% pact on the Doppler shift), operating in the mmWave band to achieve multi-Gbps throughput
-% and ultra-low latency could benefit several applications. The algorithms that take real-time
-% decisions on driving commands, for example, have to rely on a huge amount of data on the
-% environment, collected by heterogeneous sensors (e.g., RGB cameras, depth cameras and Light
-% Detection and Ranging (LiDAR) sensors) and exchanged among nearby vehicles. Considering
-% the critical use of this information, we need also to take into account the Age of Information
-% (AoI), i.e., the time since the data was generated [12]. A fast transmission is then fundamental,
-% as the high mobility of the scenario might quickly lead to obsolete packets, forcing the driving
-% algorithm to make decisions based on data that do not represent the environment.
+
+
 % To enable these new scenarios, there is the need to optimize different aspects of the communi-
 % cation workflow, from a thorough characterization of the applications of interest (e.g., to better
 % understand how to schedule resources based on the tra\ufb00ic sources) to the precise modeling of
