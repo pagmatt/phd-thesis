@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \glsresetall
 \chapter{Introduction}
+\label{ch:intro}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The significance of mobile networks in modern society is underscored by their paramount role in facilitating social, professional, and educational interactions. The recent COVID-19 pandemic has served as a bitter reminder of this critical importance, highlighting how the absence of Internet connectivity can represent a conspicuous hindrance to our daily lives.
@@ -33,12 +34,18 @@ While these limitations are partly being addressed with initiatives such as the 
 In particular, system-level simulators can provide a playground for preliminary experimentation, at a scale which makes it unfeasible to perform network emulation, and or encompassing technologies for which hardware prototypes are not yet available. 
 These advantages render simulators also well-suited to the study of \gls{ai} management and orchestration algorithms~\cite{polese2022colo}.
 Indeed, in these contexts the training data must accurately capture the interplay of the whole protocol stack with the wireless channel. Furthermore, optimization frameworks such as \gls{drl} also call for preliminary testing in isolated yet realistic environments, with the goal of minimizing the performance degradation to actual network deployments~\cite{lacava2022programmable, amir2023safehaul}.
+SAY THAT, TO DO THIS, ..
 
 In this dissertation, besides providing a detailed overview of the aforementioned technologies, we advance the state of the art with improvements that span from the creation of simulation tools to the design of algorithms and protocols for innovative deployment solutions.
 The presented work is the fruit of the collaboration with numerous researchers from world-leading universities, companies and research institutions, who played an important role in reaching these results. To properly acknowledge this collaborative effort, and the role of all the
 authors involved, a comprehensive list of the publications produced throughout my Ph.D (both accepted, under review and to be submitted) is reported at the end of this thesis. The latter is organized as follows.
 
-Chapter~\ref{ch:sim-tools}
-Chapter~\ref{ch:iab}
-Chapter~\ref{ch:irs-block}
-Finally, Chapter~\ref{ch:concl}
+Chapter~\ref{ch:sim-tools} provides on overview of the future role of network simulators in wireless research, and of the most promising key technology enablers for achieving ubiquitous mobile coverage in 6G. Then, we present novel simulation tools which enable the end-to-end simulation of 5G and 6G network deployments featuring innovative deployment solutions such as IRSs, AF relays and NTNs. Besides, we propose models for improving the computational efficiency of MIMO simulations, enabling the representation of massive cellular scenarios at scale.
+
+Chapter~\ref{ch:iab} presents a semi-centralized resource partitioning scheme for 5G and beyond \gls{iab} networks, coupled with a set of allocation policies, and the first reliability-focused scheduling and path selection algorithm for \gls{iab} networks. Moreover, we provide a preliminary evaluation of the potential of mixed mmWave and THz self-backhauled networks.
+
+Chapter~\ref{ch:irs-block} analyzes the performance of \gls{irs}-aided mobile network deployments with practical constraints on the \gls{irs} reconfiguration period. 
+In this context, we propose a clustering-based scheduling algorithm which maximizes the system capacity by first grouping users with similar optimal \gls{irs} configurations, and then scheduling them jointly to reduce the number of IRS reconfigurations.
+We evaluate the efficacy of the proposed scheme in terms of computational complexity, sum capacity, and fairness across diverse channel conditions, and as a function of the \gls{irs} configuration and the number of users.
+
+Finally, Chapter~\ref{ch:concl} concludes this thesis by summarizing its contributions and providing future research directions.
