@@ -80,6 +80,7 @@
       <file>Cache/thesis-figure19.bcf</file>
     </requires>
     <requires type="editable">
+      <file>Sources/IEEEabrv.bib</file>
       <file>Sources/bibl.bib</file>
     </requires>
   </external>

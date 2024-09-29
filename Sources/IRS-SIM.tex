@@ -400,12 +400,14 @@ The \gls{rlc} and \gls{pdcp} layers implement network functions such as packet s
 \begin{figure}[t!]
   \centering
     \begin{subfigure}[t]{\columnwidth}
-    \includegraphics[width=0.75\columnwidth]{Figures/IrsSimulation/Scenario1.pdf}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Figures/IrsSimulation/Scenario1.pdf}
     \caption{Scenario 1, with $N_{\mathrm U} = 1$.}
     \label{Fig:s1}
     \end{subfigure}
-     \begin{subfigure}[t]{\columnwidth}
-    \includegraphics[width=0.75\columnwidth]{Figures/IrsSimulation/Scenario2.pdf}
+    \begin{subfigure}[t]{\columnwidth}
+      \centering
+    \includegraphics[width=0.6\columnwidth]{Figures/IrsSimulation/Scenario2.pdf}
     \caption{Scenario 2, with $N_{\mathrm U} = 5$.}
     \label{Fig:s2}
     \end{subfigure}
@@ -481,12 +483,12 @@ We now compare the end-to-end performance of \gls{irs}- and \gls{af}-relay assis
 \end{itemize}
 The IRS/AF performance will be evaluated against a baseline scenario (referred to as “gNB-only”) in which there is no intermediate relay.
 
-\begin{figure}
+\begin{figure}[t!]
   \centering
   \begin{subfigure}[t]{\columnwidth}
     \centering
-    \setlength\fwidth{0.65\columnwidth}
-    \setlength\fheight{0.28\columnwidth}
+    \setlength\fwidth{0.6\columnwidth}
+    \setlength\fheight{0.18\columnwidth}
     \input{Figures/IrsSimulation/Results/1UE/E2E_sinr_1ue.tex}
     \vspace*{-3mm}
     \caption{ECDF of the \gls{sinr} for different relay configurations.\vspace{0.5cm}}
@@ -495,8 +497,8 @@ The IRS/AF performance will be evaluated against a baseline scenario (referred t
  \hfill
   \begin{subfigure}[t]{\columnwidth}
     \centering
-    \setlength\fwidth{0.65\columnwidth}
-    \setlength\fheight{0.28\columnwidth}
+    \setlength\fwidth{0.6\columnwidth}
+    \setlength\fheight{0.18\columnwidth}
     \input{Figures/IrsSimulation/Results/1UE/Avg_sinr_vs_N_1ue.tex}
     \vspace*{-3mm}
     \caption{Average \gls{sinr} vs. the number of radiating elements at the relay.}
@@ -557,20 +559,20 @@ On the other hand, IRSs are constrained by the limited SINR available at the \gl
 
 %However, for the most constrained UEs (those in NLOS) an IRS of 100 × 100 elements can provide significant performance boosts, as exemplified by the leftmost side of the ECDF in Figure 26: in particular, we see that, while in the “gNB only” baseline around 10% of the UEs experience zero throughput, with a well-dimensioned IRS this is as low as 3%.
 
-\begin{figure}
+\begin{figure}[t!]
 	\centering
 	\setlength\fwidth{0.65\columnwidth}
-	\setlength\fheight{0.28\columnwidth}
+	\setlength\fheight{0.25\columnwidth}
 	\input{Figures/IrsSimulation/Results/Joined/E2E_Latency_95th.tex}
 	\caption{95-th percentile of the end-to-end latency at the application layer in Scenario~1 (wide bars) and Scenario 2 (narrow bars) for different relay configurations.}
 	\label{fig:latency}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[t!]
 	\centering
 	\setlength\fwidth{0.65\columnwidth}
-	\setlength\fheight{0.28\columnwidth}
+	\setlength\fheight{0.25\columnwidth}
 	\input{Figures/IrsSimulation/Results/Joined/PER.tex}
 	\caption{Average PER at the application layer in Scenario~1 (wide bars) and Scenario 2 (narrow bars) for different relay configurations.}
 	\label{fig:per}
