@@ -141,7 +141,7 @@ The constraint in \eqref{eq:constHD} considers half-duplex transmissions by ensu
 As the considered scenario is not static, solving \eqref{eq:OptProblem} would require complete non-causal knowledge of the system dynamics during the complete time horizon $I$. However, in practical scenarios, knowledge about the underlying random processes is not available in advance.
 For example, the \node{}'s loads $B_{n,i}$ depend not only on the transmitted and received backhaul data, but also on the randomly arriving data from its users. Similarly, the amounts of transmitted data $M_{n,l,i}$ depend on the varying channel conditions of both BS $n$ and $l$. 
 As a result, the exact values of $T_{n,l,i}$, $B_{n,i}$ and $M_{n,l,i}$ are not known beforehand.
-For this reason, we present in Sec. \ref{s:algo} \name{}, a multi-agent learning approach to minimize in each \node{} the average maximum end-to-end latency and the expected value of the tail of its loss.
+For this reason, we present in Section \ref{s:algo} \name{}, a multi-agent learning approach to minimize in each \node{} the average maximum end-to-end latency and the expected value of the tail of its loss.
  
 
 
@@ -236,7 +236,7 @@ The set $\mathcal{A}_n$ depends on the considered network topology, which is per
 		\State update $Q_n(a_{n,i})$ \Comment{Eq: \eqref{eq:Qvalue}} \label{line:updateQ}
 		\State select next action $a_{n,i+1}$ using $\epsilon$-greedy \Comment{Eq. \eqref{eq:epsGreedy}} \label{line:epsGreedy}
 		\State share $a_{n,i+1}$, $t^\mathrm{q}_{n,i}$ and $B_{n,i}$ with the other \nodes{} \label{line:share}
-		\State if required, update $a_{n,i+1}$ to reach consensus \Comment{Sec. \ref{s:consensus}} \label{line:consensus}
+		\State if required, update $a_{n,i+1}$ to reach consensus \Comment{Section \ref{s:consensus}} \label{line:consensus}
 \EndFor
 \end{algorithmic}
 \caption{\name{} algorithm at each \node{}} \label{alg:algo} 
