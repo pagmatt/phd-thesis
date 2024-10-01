@@ -98,7 +98,7 @@ Accordingly, we define the average maximum end-to-end latency in the system $\ba
 \label{s:prob_formulation}
 The joint minimization of the average maximum end-to-end latency and the expected value of its tail loss in IAB-enabled networks is formulated in this section. We first introduce \gls{cvar}, the risk metric accounting for minimizing the events in which the end-to-end latency is higher than $T_\mathrm{max}$. Next, we formulate the optimization problem in the complete network.
  
-\subsubsection{Preliminaries on \gls{cvar}}
+\subsubsection{Preliminaries on CVaR}
 Traditionally, latency minimization in IAB-enabled networks has focused on optimizing the expected value of a latency function~\cite{vu2018path, ortiz2019scaros}.
 However, such an approach fails to capture the time variability of the latency distribution, thus potentially leading to unreliable systems in which $T_{n,d,i}>T_\mathrm{max}$, for any  $i=1,...,I$, $n\in \mathcal{N}$ and $d\in\mathcal{D}$.
 \textit{For this purpose, we consider not only the average end-to-end latency $\bar{T}$ in the system, but also its expected tail loss based on the \gls{cvar}}\cite{Rockafellar2000, Rockafellar2002}.
@@ -177,7 +177,7 @@ where $\hat{T}_{l,d,i}$ is calculated as $\hat{T}_{l,d,i} = \underset{(l,m) \in 
 
 
 
-\subsubsection{Latency and \gls{cvar} Estimation}
+\subsubsection{Latency and CVaR Estimation}
 As given in \eqref{eq:rewards}, \node{} $n$ learns which links $(n,l)$ to activate by building estimates of the expected latency $\hat{T}_{n,l}$ associated to each of them.
 Let $K_{n,l,i}=\sum_{j=1}^i x_{n,l,i}$ be the number of times link $(n,l)$ has been activated up to time slot $i$. The estimated $\hat{T}_{n,l}$ is updated using the sample mean as 
 \begin{equation}
