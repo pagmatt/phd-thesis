@@ -72,7 +72,6 @@
 % %Despite the wide range of available channel models, 
 % To the best of our knowledge, none of these channel models have been extended to take into account the presence of passive and regenerative relays yet.
 % Therefore, in the following section we propose and describe an extension of the \gls{3gpp} TR~39.901 channel model which introduces the support for passive and regenerative relays, i.e., entities such as \glspl{irs} and \gls{af} relay, and the modifications needed to the \gls{5g} NR protocol stack to support these devices.
-
  
 \section{Modeling AF and IRS relays-aided wireless channels}
 \label{sec:ch_model_ext}
@@ -89,27 +88,17 @@ While field experiments with real hardware are infeasible due to scalability and
 Prior works, e.g.,~\cite{wu2018intelligent,9282349}, have addressed this task, though focusing on link-level analyses, which typically adopt conservative assumptions on the system architecture, and should be taken as a lower bound for more representative end-to-end performance studies.
 To fill this gap, in this section we provide a more comprehensive system-level performance evaluation of IRS/AF deployments using a new simulation
 framework that operates end-to-end, thus incorporating the interplay with the \gls{5g} NR protocol stack and relative control tasks, as well as the impact of the upper (including transport and application) layers.
-%Our framework is based on \mbox{ns-3}~\cite{ns3}, an open-source discrete-event simulator for wireless networks.
 
-%A realistic characterization of the channel is the first step to obtain accurate simulation results. 
-To this end, we first provide a mathematical model for the IRS and \gls{af} relay channels (Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model}, respectively), based on the standard 3GPP channel model for 5G networks (Section~\ref{sec:baseline_model}). % we describe the standard 3GPP channel model for 5G networks, and in Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} we provide a mathematical model for the IRS and \gls{af} relay channels, respectively.
+To this end, we first provide a mathematical model for the IRS and \gls{af} relay channels (Sections~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model}, respectively), based on the standard 3GPP channel model for 5G networks (Section~\ref{sec:baseline_model}).
 
 \emph{Notation.} We use boldface upper- and lower-case letters to refer to matrices and vectors, respectively, while lower-case letters denote scalars. We use $\bm{I}_{N}$ to denote the identity matrix of order $N$, $[ \bm{\Phi} ]_{j, k}$ to indicate the $(j, k)$-th
 entry of matrix $\bm{\Phi}$, $\mathrm{diag} ( \phi_1,\dots, \phi_N) $ to indicate an $N$~$\times$~$N$ diagonal matrix with entries $\{\phi_j \, | \, j=1, \dots, N \}$. We use the superscripts T, H and~$*$ for transposition, Hermitian transposition, and conjugation, respectively.
-
-
-%An accurate channel model is the underlying foundation of any system-level simulator. Accordingly, we begin the description of the proposed simulator by presenting an extension of the \gls{3gpp} TR~38.901 channel model which supports the presence of passive and regenerative relays between the communication endpoints. 
-
-%First, we describe our baseline, i.e, the \gls{3gpp} TR~38.901 channel model and the ns-3 \texttt{mmwave} module, in Section~\ref{sec:baseline_model}. Then, we outline physically accurate models of both \glspl{irs} and \gls{af} relays in Sections~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, respectively. 
-%Then, we describe our baseline,  Section~\ref{sec:baseline_impl}. 
-%Finally, we describe how to perform TR~38.901-based end-to-end simulations of passive and regenerative relays in Section~\ref{sec:ext_ch_model}.
 
 
 \subsection{The TR~38.901 Channel Model for 5G NR}
  \label{sec:baseline_model}
 
 Throughout this work, we consider the 3GPP TR~38.901 \gls{scm} standardized in~\cite{3gpp.38.901}, leaving the study of more accurate channel models (e.g., based on ray tracing measurements) as part of our future research.
- % in~\cite{zugno2020implementation}, and used in the \texttt{ns3-mmwave} module~\cite{mezzavilla2018end}. 
 This choice is motivated by the fact that TR~38.901 supports a wide range of frequencies, from $0.5$ to $100$ GHz, and can be integrated with realistic beamforming models. Furthermore, it is suggested and adopted by the \gls{3gpp} itself for the performance evaluation of \gls{5g} networks via system-level simulations.
 
 In particular, the TR~38.901 model outlines the procedures for generating a channel matrix $\bm{H}$ whose entries $\bm{H}_{p, q} (t, \tau)$ correspond to the impulse response of the channel between the $p$-th radiating element of the antenna array of the signal source (S), and the $q$-th radiating element of the antenna array of its destination (D), at time $t$ and with delay $\tau$. 
@@ -255,9 +244,8 @@ Moreover, the authors in~\cite{heimann2021modeling} presented an ns-3 \gls{irs} 
 In this work we fill this gap by proposing an ns-3-based simulator for IRSs and AF relays.
 Arguably, the main effect of the presence of these entities is the alteration of the wireless channel between the communication endpoints. 
 %This implies that the \gls{sinr} experienced over such channel will also be different compared to the case where no relays are deployed. 
-Accordingly, our simulator extends the \texttt{ns-3 mmwave} module~\cite{mezzavilla2018end} (among the most popular 5G-oriented NR-compliant frameworks to simulate 5G networks) by implementing a new signal model for IRS and AF relays, following the characterization in Secs.~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, respectively, which is then used to compute the \gls{sinr} experienced by signals transmitted over a relayed wireless link. 
+Accordingly, our simulator extends the \texttt{ns-3 mmwave} module~\cite{mezzavilla2018end} (among the most popular 5G-oriented NR-compliant frameworks to simulate 5G networks) by implementing a new signal model for IRS and AF relays, following the characterization in Sections~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, respectively, which is then used to compute the \gls{sinr} experienced by signals transmitted over a relayed wireless link. 
 
-%the bulk of our simulator consists in the implementation of a channel model for IRS and AF relays, based on the characterization in Secs.~\ref{sec:irs_phy_model} and \ref{sec:af_phy_model}, which is then used to compute the \gls{sinr} experienced by signals transmitted over a relayed wireless link. 
 \subsubsection{Implementation of the IRS/AF Signal Model} 
 \label{sec:ext_ch_model}
  
@@ -279,7 +267,7 @@ where in turn $\tilde{n}$ is defined as:
     \bm{w}_{\mathrm D}^{T} \bm{n}_{\mathrm D} + \bm{w}_{\mathrm D}^{T} \bm{H}_{\mathrm RD} \bm{\Phi} \bm{n}_{\mathrm R}      & \text{if AF},
 \end{cases}
 \]
-where matrix $\bm{\Phi}$ is the relay matrix, i.e., a matrix which fully encodes the effect of the relay, i.e., either IRS or AF, as described in Secs.~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} for the single user case, respectively, over the wireless channel. 
+where matrix $\bm{\Phi}$ is the relay matrix, i.e., a matrix which fully encodes the effect of the relay, i.e., either IRS or AF, as described in Sections~\ref{sec:irs_phy_model} and~\ref{sec:af_phy_model} for the single user case, respectively, over the wireless channel. 
 %The terms $\bm{H}_{\mathrm {SR}}$, $\bm{H}_{\mathrm {IR}}$, $\bm{H}_{\mathrm {RD}}$ represent the channel matrices between the source and the relay, the $\mathrm{I}$-th interferer and the relay, and the relay and the destination, respectively. Moreover, $\bm{H}_{\mathrm {SD}}$, $\bm{H}_{\mathrm {ID}}$ are the channel matrices of the direct link from the source and the $\mathrm{I}$- th interferer to the destination, as illustrated in Figure~\ref{Fig:scenario_high_lvl}.
 Notably, S and D are either in \gls{nlos} (in this case they communicate via the relay, and we consider the direct link towards D to be unavailable), or in \gls{los} (in this case they do not use the relay). % thus we consider the secondary path reflected by such entity to be negligible.
 %These assumptions are motivated by the fact that we envision as the main use case for these kinds of relays scenarios in which the direct path between S and D is almost completely blocked by obstacles, such as building and/or vegetation.
