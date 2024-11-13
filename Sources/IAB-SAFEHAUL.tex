@@ -98,7 +98,7 @@ Accordingly, we define the average maximum end-to-end latency in the system $\ba
 \label{s:prob_formulation}
 The joint minimization of the average maximum end-to-end latency and the expected value of its tail loss in IAB-enabled networks is formulated in this section. We first introduce \gls{cvar}, the risk metric accounting for minimizing the events in which the end-to-end latency is higher than $T_\mathrm{max}$. Next, we formulate the optimization problem in the complete network.
  
-\subsubsection{Preliminaries on CVaR}
+\subsubsection*{Preliminaries on CVaR}
 Traditionally, latency minimization in IAB-enabled networks has focused on optimizing the expected value of a latency function~\cite{vu2018path, ortiz2019scaros}.
 However, such an approach fails to capture the time variability of the latency distribution, thus potentially leading to unreliable systems in which $T_{n,d,i}>T_\mathrm{max}$, for any  $i=1,...,I$, $n\in \mathcal{N}$ and $d\in\mathcal{D}$.
 \textit{For this purpose, we consider not only the average end-to-end latency $\bar{T}$ in the system, but also its expected tail loss based on the \gls{cvar}}\cite{Rockafellar2000, Rockafellar2002}.
@@ -117,7 +117,7 @@ Conversely,
 $\lim\limits_{\alpha\rightarrow 0}\mathrm{\gls{cvar}}_\alpha(T_{n,d}) = \sup\{T_{n,d}\}$.
 \gls{cvar} has been shown to be a coherent risk measure, i.e., it fulfills monotonicity, subadditivity, translation invariance, and positive homogeneity properties \cite{Pflug2000}. 
 
-\subsubsection{Optimization Problem}
+\subsubsection*{Optimization Problem}
 We jointly minimize the average maximum end-to-end latency and its expected tail loss for each \node{}. 
 For this purpose, we decide which of the $(n,l)$ links to activate in each time slot $i$ during the finite time horizon $I$.
 In the following, we formulate the optimization problem from the network perspective and consider the sum over all \nodes{} in the system. 
@@ -337,7 +337,7 @@ However, unlike the aforementioned ns-3 module, Sionna is a physical layer-focus
 
 
 
-\subsubsection{Extensions to Sionna's physical layer module}
+\subsubsection*{Extensions to Sionna's physical layer module}
 \label{sub:additionalSionna}
 In this section, we describe the physical layer modification that were necessary to evaluate IAB scenarios using Sionna. 
 
@@ -481,7 +481,7 @@ IAB antenna gain & 33~dB \\
 
 Our evaluation consists of six scenarios, in which we study the convergence of the algorithms to a steady state, the number of \nodes{}, the number of \donors{}, and the impact of risk aversion. When demonstrating the results, we show the average throughput, latency, and packet drop rate per UE. Furthermore, we show the statistical variance of the obtained results using candlesticks which include the corresponding max, min, mean, and 10 and 90 percentiles. 
 
-\subsubsection{Scenario 1: Average Network Performance}
+\subsubsection*{Scenario 1: Average Network Performance}
 \label{sub:netPerformance}
 Analyzing the performance of the algorithms as a function of time is crucial to determine the convergence speed of the learning-based techniques, i.e.,  \name{} and \gls{scaros}. Hence, in Figure~\ref{fig:avgNetPerfomance} we show the average network performance over time for three metrics: latency, throughput, and packet drop rate.
 
@@ -494,7 +494,7 @@ The performance of \name{} is comparable to that of \gls{scaros}, approximately 
 The performance shown in Figure \ref{fig:avgDropRate} is consistent with the behavior observed in Figure \ref{fig:avgE2EDelay}. As \name{} additionally minimizes the $\alpha$-worst latency, it achieves the lowest packet drop rate compared to the reference schemes, namely, $30.1$\% ($84.0$\%) lower than \gls{scaros} (\gls{mlr}).
 
 
-\subsubsection{Scenario 2: Impact of the Network Size}
+\subsubsection*{Scenario 2: Impact of the Network Size}
 \label{sub:netSize}
 In Figure~\ref{fig:avgNetPerfomance_s2} we evaluate the reliability of the three considered approaches for different network sizes. Specifically, we vary the number of \nodes{} from 25 to 200.  At the same time, we increase the load in the network by increasing the number of \gls{ue}s.
 From the figures, we can clearly see that \name{} consistently achieves a lower variation compared to the reference schemes. This verifies that \name{} achieves the intended optimization goal, i.e., the joint minimization of the average end-to-end delay and its expected tail loss.
@@ -505,7 +505,7 @@ As shown in Figure~\ref{fig:avgTput_s2}, the average throughput of the learning-
 
 The packet drop rate for different numbers of \nodes{} is shown in Figure~\ref{fig:avgDropRate_s2}. \name{} not only consistently outperforms the reference schemes, but also has the minimum variation in the results (at least $47.3$\% lower compared to the benchmarks). Considering the largest network size and load, i.e., 200 \nodes{} and 400 \glspl{ue}, \name{} achieves $49.3$\% and $81.2$\% lower packet drop rate compared to \gls{scaros} and \gls{mlr}, respectively. 
 
-\subsubsection{Scenario 3: Impact of the number of \donors{}}
+\subsubsection*{Scenario 3: Impact of the number of \donors{}}
 \label{sec:multiDonors}
 Although the benchmark schemes do not support multiple \donors{}, \name{} is designed to accommodate such scenarios. In Figure~\ref{fig:avgNetPerfomance_s3}, we investigate the impact of the number of \nodes{} on \name{}. To this end, we keep the number of \glspl{ue} and their data rate constant. 
 \begin{figure*}[t!]
@@ -539,7 +539,7 @@ Finally, Figure \ref{fig:avgDropRate_s3} shows that increasing the number of \do
       \label{fig:riskParam}
 \end{figure}
 
-\subsubsection{Scenario 4: Impact of the risk parameter $\alpha$}
+\subsubsection*{Scenario 4: Impact of the risk parameter $\alpha$}
 The definition of losses in the tail of the latency distribution is controlled by the risk level parameter $\alpha$. Its impact on the average latency is shown in Figure \ref{fig:riskParam}, where an increasing behavior is observed for $\alpha\leq 0.7$. The lowest latency is achieved for $\alpha=0.1$, which corresponds to the most risk-averse, and therefore the most reliable, case out of all the considered ones.
 The non-monotonic behavior of the average latency versus $\alpha$ can be explained by the so-called exploration-exploitation trade-off: the higher $\alpha$, the higher the level of risk, which in turn leads \name{} to learn more about the environment and choose a more reliable action. Eventually, as $\alpha$ grows beyond approximately $0.7$, the performance of \name{} tends to that of the risk-neutral case. As a consequence, the algorithm undertakes excessive exploration, which causes a degradation of the average latency performance.
 
@@ -606,7 +606,7 @@ The non-monotonic behavior of the average latency versus $\alpha$ can be explain
   \vspace*{-3mm}
 \end{figure*}
 
-\subsubsection{Scenario 5: Performance in different topologies}
+\subsubsection*{Scenario 5: Performance in different topologies}
 
 
 To verify the generality of the proposed algorithms, it is essential to examine how they perform in different topologies, and consider both typical network performance metrics (i.e., along the lines of Scenario 1) and their stability with respect to the number of \nodes{} and \donors{} (Scenarios 2 and 3). To this end, we ran additional simulations in the deployment depicted in Figure~\ref{fig:Padova_Map}, which mimics the \nodes{} locations of the historic center of Padova. We report the average network performance over time, in terms of end-to-end packet drop rate, throughput, and latency in Figure~\ref{fig:avgNetPerfomancePadova}. Overall, the outcomes of this simulation campaign are in line with those obtained in Scenario 1. 
@@ -621,7 +621,7 @@ As can be seen in Figure~\ref{fig:avgNetPerfomance_s3Padova}, increasing the num
 
 In summary, the results obtained in the additional topology mimicking the historical center of Padova are well aligned with those obtained in the Manhattan topology. Although the specific values of the network metrics achieved by the considered schemes in the two topologies are different (for instance, SCAROS achieves a 66\% lower packet drop rate in Scenario~1 compared to Scenario~5), the trends among the various schemes are the same. Specifically, we observed that \name{} consistently achieves the best performance in comparison to SCAROS and MLR across different metrics, which supports the claim that the proposed scheduler is capable of learning how to optimize arbitrary deployment topologies.
 
-\subsubsection{Scenario 6: Network resilience}
+\subsubsection*{Scenario 6: Network resilience}
 In networking, resilience refers to the ability of a network to recover in a quick and effective fashion from disruptions, thus providing reliable and high-quality communication services to its users.
 Specifically, the ability to recover from link failures is particularly important in \gls{iab} networks, where backhaul links are susceptible to the typical disruptions which plague the \gls{ran} due to its mobile and wireless nature. For instance, the links among \nodes{} can be degraded by adverse environmental conditions such as heavy rain and monsoons, physical obstacles and network congestion. These disruptions can cause temporary or permanent communication failures, which in turn result in degraded performance and/or loss of connectivity for the end users. 
 To prevent and/or recover from these undesired events, a backhaul scheduler must detect, mitigate, and recover from various types of disruptions and failures, and must maintain the required level of service availability and performance despite the time-varying channel conditions.

@@ -81,14 +81,14 @@ Specifically, scintillation depends on location, time of the day, season, and so
 While a complete absorption model would unnecessarily complicate system-level simulations, the 3GPP recommends a simplified model for scintillation~\cite{38811}, which is structured into two components: ionospheric scintillation and tropospheric scintillation.
 
 
-\subsubsection{Ionospheric Scintillation}
+\subsubsection*{Ionospheric Scintillation}
 Ionospheric scintillation is modeled based on the Gigahertz Scintillation Model~\cite{itup531}. While for the purpose of system–level simulations ionospheric scintillation is generally negligible at mid latitudes (between 20 and 60 degrees) or at above-6 GHz frequencies, in all other latitudes and conditions it is modeled as
 \begin{equation}
     PL_{S,dB} = \left ( \frac{f_{c}}{4} \right )^{-1.5}\frac{P_{fluc}\left ( 4 \text{ GHz} \right )}{\sqrt{2}},
 \end{equation}
 where $f_{c}$ is the carrier frequency, and $P_{fluc}\left ( 4 \text{ GHz} \right )$ is a scaling factor representing the ionospheric attenuation level at 99\% of the time observed in Hong Kong between March 1977 and March 1978 at a frequency of 4 GHz~\cite[Figure~6.6.6.1.4-1]{38811}.
 
-\subsubsection{Tropospheric Scintillation}
+\subsubsection*{Tropospheric Scintillation}
 Unlike ionospheric scintillation, the effect of tropospheric scintillation increases with the frequency, and becomes significant above 10 GHz. Furthermore, it increases at low elevation due to the longer path of the signal.  %\gls{3gpp} recommends considering the path loss induced by this effect only in certain cases, and offers a direct method for calculation. 
 In these conditions, tropospheric scintillation is due to sudden changes in the refractive index due to the variation of temperature, water vapor content, and barometric pressure. For system-level simulations, the additional attenuation due to tropospheric scintillation is modeled as the attenuation level at 99\% of the time observed in Tolouse at 20 GHz, reported in~\cite[Figure~6.6.6.2.1-1]{38811}. 
 
@@ -288,7 +288,7 @@ Second, according to the 3GPP model, LEO satellites have more severe hardware co
     \end{figure}
 
 
-\subsubsection{Frequency Test}
+\subsubsection*{Frequency Test}
 While the 3GPP identifies the S-band (at 2 GHz) and the Ka-band (at 20 GHz for \gls{dl} and 30 GHz for \gls{ul}) as frequencies of interests, the NTN channel model is valid for a wide range of frequencies, from 0.5 GHz to 100 GHz. 
 Therefore, in Figure~\ref{fig:frequency-test} we plot the \gls{snr}, which is an indication of the quality of the channel, as a function of the carrier frequency, with a resolution of 8 MHz. The other parameters are summarized in Tab.~\ref{tab:frequency-test}.
 
@@ -297,7 +297,7 @@ Therefore, in Figure~\ref{fig:frequency-test} we plot the \gls{snr}, which is an
 
 We observe that the \gls{snr} decreases linearly (in the log scale) as the frequency increases, with a deep degradation at 60 GHz. This is because of the impact of atmospheric absorptions described in Section~\ref{sub:atm}, more specifically the additional signal attenuation experienced at 60 GHz due to oxygen absorption (as large as 15 dB/km).
 
-\subsubsection{Mobility Test}
+\subsubsection*{Mobility Test}
 Our new mobility model for NTN (see Section~\ref{sub:mobility}) allows to change the position of the nodes during the simulation, thus to evaluate the effect of different parameters such as the elevation angle, the antenna radiation pattern, and the altitude. 
 
 First, we run simulations where we iteratively change the coordinates of a satellite, which traces an arc of 6 degrees in the GEO orbit (from 8.8 to 14.8 degrees of longitude). %The altitude is constant. 
