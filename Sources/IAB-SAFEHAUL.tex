@@ -179,7 +179,7 @@ where $\hat{T}_{l,d,i}$ is calculated as $\hat{T}_{l,d,i} = \underset{(l,m) \in 
 
 \subsubsection{Latency and CVaR Estimation}
 As given in \eqref{eq:rewards}, \node{} $n$ learns which links $(n,l)$ to activate by building estimates of the expected latency $\hat{T}_{n,l}$ associated to each of them.
-Let $K_{n,l,i}=\sum_{j=1}^i x_{n,l,i}$ be the number of times link $(n,l)$ has been activated up to time slot $i$. The estimated $\hat{T}_{n,l}$ is updated using the sample mean as 
+Let $K_{n,l,i}=\sum_{j=1}^i x_{n,l,j}$ be the number of times link $(n,l)$ has been activated up to time slot $i$. The estimated $\hat{T}_{n,l}$ is updated using the sample mean as 
 \begin{equation}
     \hat{T}_{n,l,i+1} = \frac{K_{n,l,i}\hat{T}_{n,l,i} + r_{n,i}}{K_{n,l,i}+1},
     \label{eq:delayEstimateSM}
