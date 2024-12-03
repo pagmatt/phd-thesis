@@ -112,9 +112,11 @@ To model multipath fading, each of these terms is computed as the superposition 
 e^{j \Phi_{n, m}^{\theta, \theta}} & \sqrt{K_{n, m}^{-1}} e^{j \Phi_{n, m}^{\theta, \phi}} \\
 \sqrt{K_{n, m}^{-1}} e^{j \Phi_{n, m}^{\phi, \theta}} & e^{j \Phi_{n, m}^{\phi, \phi}}
 \end{array}\right] \overline{\mathbf{F}}_{tx}\left(\theta_{n, m}^{D}, \phi_{n, m}^{D}\right) \\
-& \times e^{j \overline{\mathbf{k}}_{rx, n, m}^{T} \overline{\mathbf{d}}_{rx, p} e^{j \overline{\mathbf{k}}_{tx, n, m}^{T} \overline{\mathbf{d}}_{tx, q}}} e^{j 2 \pi v_{n} t} \delta\left(\tau-\tau_{n}\right).
+& \times e^{j \overline{\mathbf{k}}_{rx, n, m}^{T} \overline{\mathbf{d}}_{rx, p} e^{j \overline{\mathbf{k}}_{tx, n, m}^{T} \overline{\mathbf{d}}_{tx, q}}} e^{j 2 \pi v_{n} t} \delta\left(\tau-\tau_{n}\right),
 \end{aligned}
 \end{equation}
+where $P_n$ and $\tau_n$, represent the common power and delay, respectively, of the rays belonging to the $n$-th cluster.  $(\theta_{n, m}^{A}, \phi{n, m}^{A})$ and $(\theta_{n, m}^{D}, \phi{n, m}^{D})$ denote the arrival and departure angles of the $m$-th ray of the $n$-th cluster, respectively, each exhibiting uniformly distributed initial phases $\Phi_{n, m}$. 
+Each ray accounts for the antenna field patterns $\overline{\mathbf{F}}(\theta_{n, m}, \phi{n, m})$ and for the power distribution among the vertical and horizontal polarizations through the term $\mathbf{k}_{n, m}$.
 For a complete description of the specific terms appearing in Eq.~\eqref{eq:ch_model_full_irs_sim} we refer the interested reader to~\cite{zugno2020implementation}.
 
 Then, a frequency-flat path gain term is added to each channel coefficient as a function of the carrier frequency $f_c$ and the distance $d$ between the endpoints, i.e., %Therefore, the same gain $\mathcal{P}_{L}$ is added to all the subcarriers within the \gls{psd} of the signal. 
@@ -157,12 +159,7 @@ where $\sigma_{\mathrm S}^2$ and $\sigma_{\mathrm I}^2$ are the powers of the in
 An \gls{irs} is a planar surface made of $N_{\mathrm R}$ low-cost passive reflecting elements that can be programmed to alter an \gls{em} field, for example to achieve three-dimensional beamforming towards an intended destination.
 The working principle is similar to that of a conventional relay, the main difference being that while the latter amplifies the received signal before retransmitting it, an \gls{irs} reflects and beamforms the signal without introducing any amplification, thus saving power compared with other relaying solutions~\cite{bjornson2019intelligent}. %but promising lower gains as well. 
 
-
-%However, in general the \gls{irs} is assumed to feature no signal processing capabilities.  
-
-In particular, each element of the \gls{irs} acts as an 
-%omnidirectional 
-antenna that captures and reflects the incoming signals, introducing a phase shift on the baseband-equivalent signal. We denote with $\phi_n=e^{j\theta_n}, \, n = 1, \ldots, N_{\mathrm R}$, the reflection coefficient of the $n$-th \gls{irs} element, where $\theta_n \in [-\pi,\pi ] $ is the induced, controllable phase shift. 
+In particular, each element of the \gls{irs} acts as an antenna that captures and reflects the incoming signals, introducing a phase shift on the baseband-equivalent signal. We denote with $\phi_n=e^{j\theta_n}, \, n = 1, \ldots, N_{\mathrm R}$, the reflection coefficient of the $n$-th \gls{irs} element, where $\theta_n \in [-\pi,\pi ] $ is the induced, controllable phase shift. 
 Adopting a complex baseband notation, the signal $\bm{z} \in {\mathbb C}^{N_{\mathrm R} \times 1} $ reflected by an IRS (denoted as R), impinged with a signal $x_{\mathrm S}$ originating from a source S, reads
 %When impinged with a signal $\bm{x}_{\mathrm S}$ originating from a source S, an \gls{irs} reflects the signal $\bm{z} \in {\mathbb C}^{N_{\mathrm R} \times 1} $, i.e.,
 \begin{equation}
