@@ -1,7 +1,7 @@
 #!/bin/bash
 gs -dCompatibilityLevel=1.4 \
-    -dPDFSETTINGS=/screen \
-    -dCompressFonts=true \
+    -dPDFSETTINGS="/default" \
+    -dEmbedAllFonts=true \
     -dSubsetFonts=true \
     -dNOPAUSE \
     -dBATCH \
