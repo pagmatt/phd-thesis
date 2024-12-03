@@ -1,0 +1,117 @@
+\chapter*{Appendices}
+\label{ch:app}
+
+\section*{Appendix A}
+\label{sec:appendix_b}
+For the proof of Proposition \ref{prop:probNonOptArm}, Theorem 3 in \cite{Luo2017} is needed. For completeness, we first present the theorem in \cite{Luo2017} for the special case in which the considered random variables are independent. Next, we present the proof of Proposition \ref{prop:probNonOptArm}.
+\begin{theorem} \label{eq:Theorem2_part2}
+Let $T_{a_n,i}$ be independent random variables where $\max_{1\leq j\leq i}{T_{a_n,j}} = T_\mathrm{max}$, with $i\in\{1,2,...\}$.
+Then, for any $0 < \delta \leq 1/2$, $\xi > 0$ and $\gamma > 0$, there exists a positive constant $C$ which only depends on $\xi$ and $\gamma$, such that the probability of the event $|\estcvar{a_n,i}-\cvar{a_n,i}| \geq 2\xi\alpha^{-1}T_{\max} i^{-\delta}(\ln{\ln{i}})^{1/2}\ln{i}$ is smaller than or equal to $Ce^{-(1+\gamma)\ln i}$.
+\end{theorem}
+\begin{proof}
+See Theorem 3 in \cite{Luo2017}.
+\end{proof}
+
+\subsection*{Proof of Proposition \ref{prop:probNonOptArm}}
+\begin{proof}[\unskip\nopunct]
+
+In this proof, we use the result of the regret bound for the risk-neutral case without CVaR, shown in \cite[Theorem 3]{Auer2002}, as a basis. Additionally, we use the bound for the terms related to the CVaR formulated in \cite[Theorem 3]{Luo2017}. 
+Using both these results, we first bound the probability that Safehaul chooses a suboptimal arm in the exploitation phase. Then, we combine the latter with the probability of choosing a suboptimal arm in the exploration phase to derive the bound given in Proposition~\ref{prop:probNonOptArm}.
+
+From the system model and Proposition \ref{prop:probNonOptArm}, we have that $c > 0$, $0 < d \leq 1$, and 
+$\epsilon_n := \min(1, \frac{cA_n}{d^2i})$. 
+Moreover, $a_{n,i}$ is the action chosen by $\epsilon$-greedy in time slot $i$ and $K_{a_n, i}$ is the number of times, up to time slot $i$, in which \name{} chose action $a_n$ \textit{at random}. Similarly, we use $K^*_{i}$ for the counter of the optimal action.
+$T_{a_n, i}$ are independent random variables distributed according to the rewards linked to action $a_n$. We use $T_i^*$ for the optimal action, and $\hat{T}_{a_n, i}$ is the estimated mean of the probability distribution of the rewards linked to action $a_n$ using $K_{a_n,i}$ samples. As before, we use $\hat{T}^*_{i}$ for the optimal action.
+$\estcvar{a_n, i}$ is the estimated \gls{cvar} of action $a_n$ up to time slot $i$ and $\estcvar{i}^*$ is the estimated \gls{cvar} of the optimal action up to time slot $i$.
+Then, the probability that action $a_n$ is chosen in time slot $i$ is upper bounded as
+{\small
+ \begin{align}
+     \label{eq:inicProbAction}
+    \mathbb{P}[a_{n,i} = a_n] \leq & \mathbb{P}\left[\delta_{a_n,i-1} \leq \delta_{i-1}^* \right]\left(1 - \frac{\epsilon_i}{A_n} \right) + \frac{\epsilon_i}{A_n},
+\end{align} }
+ with $\delta_{a_n,i-1} = \hat{T}_{a_n, i-1} + \eta \estcvar{a_n, i-1}$ and $\delta^*_{i-1} = \hat{T}^*_{i-1} + \eta \estcvar{i-1}^*$.
+The first term in \eqref{eq:inicProbAction} is the probability of exploitation and the second term to the probability of exploration. \\ 
+Using the mean $\Bar{T}_{a_n}$ and $\cvar{a_n}$ of action $a_n$, and the likewise defined $\Bar{T}^*$ and $\cvar{}^*$ for the optimal action, we set $\Delta^\mathrm{mean}_{a_{n}} := \Bar{T}_{a_n} - \Bar{T}^*$ and $\Delta^\mathrm{cvar}_{a_{n}} := \cvar{a_n} - \cvar{}^*$.
+Using these definitions in \eqref{eq:inicProbAction} we conclude
+{\small
+\begin{align}
+    \mathbb{P} &\left[\delta_{a_n,i-1} \leq \delta_{i-1}^*\right] \leq \nonumber \\
+    &\mathbb{P}\!\left[\delta_{a_n,i-1} \leq \eta \cvar{a_n}  - \frac{\Delta^\mathrm{mean}_{a_n}}{2} + \right. \left. \bar{T}_{a_n}  - \eta \frac{\Delta^\mathrm{cvar}_{a_n}}{2}\right] +\nonumber \\
+    &\mathbb{P}\!\left[\bar{T}^* + \frac{\Delta^\mathrm{mean}_{a_n}}{2} + \eta \cvar{}^* +  \eta \frac{\Delta^\mathrm{cvar}_{a_n}}{2} \leq \delta_{i-1}^*\right] \nonumber \\
+     & \mathbb{P}\!\left[\hat{T}_{a_n,i-1} \leq \bar{T}_{a_n} - \frac{\Delta^\mathrm{mean}_{a_n}}{2}\right] + \mathbb{P}\!\left[\bar{T}^* + \frac{\Delta^\mathrm{mean}_{a_n}}{2} \leq \hat{T}^*_{i-1}\right] + \nonumber \\
+    &\mathbb{P}\!\left[\estcvar{a_n,i-1} \leq \cvar{a_n} - \frac{\Delta^\mathrm{cvar}_{a_n}}{2}\right]+ \nonumber \\
+    & \mathbb{P}\!\left[\cvar{}^* + \frac{\Delta^\mathrm{cvar}_{a_n}}{2} \leq \estcvar{i-1}^*\right]. \label{eq:probBrokenDown}
+\end{align}
+}
+Similar to \cite{Auer2002}, we use the Chernoff-Hoeffding bound for the first two terms in \eqref{eq:probBrokenDown}. For the last two  summands, there remains to find a bound for the difference between the \gls{cvar} and its estimate $\estcvar{}$. 
+From Theorem \ref{eq:Theorem2_part2}, we set $\xi := {\Delta^\mathrm{cvar}_{a_n} \alpha}/{4 T_{max}}$, $\delta=0.5$ and by using the limit $\gamma \rightarrow 0$, we obtain
+{\small
+\begin{equation}
+\begin{gathered}
+    \mathbb{P}\!\left[|\estcvar{a_n,i}-\cvar{a_n,i}|\geq \frac{\Delta^\mathrm{cvar}_{a_n}}{2}i^{-0.5}(\ln{\ln{i}})^{0.5}\ln{i}\right] \leq \frac{C}{i}.
+\end{gathered}
+\end{equation}
+}
+As $\max_i i^{-0.5}(\ln{\ln{i}})^{0.5}\ln{i} < 1$, the condition ${(\Delta^\mathrm{cvar}_{a_n}}/{2})i^{-0.5}(\ln{\ln{i}})^{0.5}\ln{i} \leq \frac{\Delta^\mathrm{cvar}_{a_n}}{2}$
+holds for all $i$. Therefore, considering the last two summands in \eqref{eq:probBrokenDown}, we conclude that there exists a positive constant $C$ that satisfies
+{\small
+\begin{equation}
+\mathbb{P}\!\left[|\estcvar{a_n,i}-\cvar{a_n,i}|\geq \frac{\Delta^\mathrm{cvar}_{a_n}}{2}\right] \leq \frac{C}{i}.
+\label{eq:partialCVaRBound}
+\end{equation}}
+The number of times action $a_n$ has been selected up to time slot $i$ is smaller than or equal to $i$, i.e., $K_{a_n,i}\leq i$. Using \eqref{eq:partialCVaRBound} we write the last two summands in \eqref{eq:probBrokenDown} as 
+{\small
+\begin{align}
+    \mathbb{P}\!\left[\estcvar{a_n,i-1} \leq \cvar{a_n} - \frac{\Delta^\mathrm{cvar}_{a_n}}{2} \right] \leq \frac{C}{K_{a_n,i-1}},
+\end{align}}
+and
+{\small
+\begin{align}
+    \mathbb{P}\!\left[\cvar{}^* + \frac{\Delta^\mathrm{cvar}_{a_n}}{2} \leq \estcvar{i-1}^*\right] \leq \frac{C}{K^*_{i-1}}.
+\end{align}}
+As in \cite{Auer2002}, we use Bernstein's inequality to get an estimate for $K_{a_n,i-1}$. Defining $x_0 := {1}/{2A_n}\sum_{j=1}^{i-1}\epsilon_j$ for $i-1 \geq \frac{cA_n}{d^2}$ we get $P(K_{a_n,i-1} \leq x_0) \leq e^{-\frac{x_0}{5}}$.
+Additionally, from \cite{Auer2002}: 
+{\small
+\begin{equation}
+    x_0 \geq \frac{c}{d^2}\ln\left(\frac{(i-1)d^2e^{0.5}}{cA_n}\right) =: C'(i).
+\end{equation}}
+The same holds for the optimal action and $K^*_{i-1}$. Using these estimations for $x_0$, we can conclude that for $i-1 \geq {cA_n}/{d^2}$
+{\small
+\begin{align}
+    &\mathbb{P}\!\left[\estcvar{a_n,i-1} \leq \cvar{a_n} - \frac{\Delta^\mathrm{cvar}_{a_n}}{2}\right] \\
+    &\leq \sum_{j=1}^{i-1} \mathbb{P}[K_{a_n,i-1}=j] \frac{C}{j} \nonumber \\
+    &= \sum_{j=1}^{\lfloor x_0 \rfloor} \mathbb{P}[K_{a_n,i-1}=j] \frac{C}{j} + \sum_{j=\lfloor x_0 \rfloor + 1}^{i-1} \mathbb{P}[K_{a_n,i-1}=j] \frac{C}{j} \nonumber\\
+    &\leq C x_0 e^{-\frac{x_0}{5}} + \frac{C}{x_0} \leq C x_0 e^{-\frac{x_0}{5}} + \frac{C}{C'(i)}.
+\end{align}
+}
+The same holds again for the optimal action
+{\small
+\begin{align}
+    \mathbb{P}\!\left[\cvar{}^* + \frac{\Delta^\mathrm{cvar}_{a_n}}{2} \leq \estcvar{i-1}^*\right] &\leq C x_0 e^{-\frac{x_0}{5}} + \frac{C}{C'(i)}.
+\end{align}}
+Together with the bounds from Theorem 3 in \cite{Auer2002} it follows that for $C \geq 1$:
+{\small
+\begin{align*}
+    \mathbb{P}&\left[a_{n,i} = a_n\right] \\
+    &\leq \frac{\epsilon_i}{A_n} + 4 C x_0 e^{-\frac{x_0}{5}} + \frac{4}{\left(\Delta^\mathrm{mean}_{a_n}\right)^2}e^{\frac{-\left(\Delta^\mathrm{mean}_{a_n}\right)^2\lfloor x_0 \rfloor}{2}}  + 2 \frac{C}{C'(n)} \nonumber \\
+    &\leq \frac{c}{d^2i} +  2 \frac{Cd^2}{c\ln\left(\frac{(i-1)d^2e^{0.5}}{cA_n}\right)}
+    + \frac{4e}{d^2}\left(\frac{c A_n}{(i-1)d^2e^{0.5}}\right)^{\frac{c}{2}} +\\
+    & \:\:\quad 4C\frac{c}{d^2}\ln\left(\frac{(i-1)d^2e^{0.5}}{c A_n}\right) \left(\frac{c A_n}{(i-1)d^2e^{0.5}}\right)^{\frac{c}{5d^2}}.
+\end{align*}
+}
+\end{proof}
+
+\section*{Appendix B}
+\subsection*{Proof of Theorem~\ref{th_distancebased}}
+\begin{IEEEproof}[Proof for \gls{km} (LLoyd)]
+    In the assignment step, each \gls{ue} $k$ is assigned to the cluster $z$ that minimizes the squared distance $\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$. This guarantees that the total sum $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$ does not increase. 
+    Then, in the update step, $\bm{\Phi}^{(z)}$ is recalculated as the average $\bm{\Phi}_k^*$ within each cluster, so as to minimize the intra-cluster sum of squared distances $\sum_{k \in \mathcal{U}_z}\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$, for all $z$.
+    Therefore, the conditions of~\cite[Lemma 5]{Sabin1986Global} are satisfied, which ensures the convergence to a local minimum. Notice that~\cite{Sabin1986Global} does not specify the number of iterations needed to reach convergence, which could be large in the case of highly dimensional spaces. Therefore, in practice, we limit the maximum number of iterations to $I_{\mathrm max}^{\mathrm KM}$.
+\end{IEEEproof}
+\begin{IEEEproof}[Proof for Agglomerative \gls{hc}]
+    At each step, clusters are merged to minimize the increase of the total intra-cluster sum of squared distances. This is equivalent to choosing the merged cluster that results in the smallest increase of $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$.
+    Then, as in the update step of \gls{km}, the average of the data points minimizes $\sum_{k \in \mathcal{U}_z}\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$, for all $z$. Once the number of clusters $Z$ reaches the desired value, convergence to a local minimum is reached.
+\end{IEEEproof}
+\begin{IEEEproof}[Proof for \gls{kmed} (\gls{pam})]
+    Since, at each iteration, a swap is performed only when it leads to a lower value of the intra-cluster sum of squares, $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$ does not increase over different iterations. Given the finite number of data points and possible configurations, the algorithm is guaranteed to converge to a configuration where no swap can further decrease the objective function, thus reaching a local~minimum.
+\end{IEEEproof}

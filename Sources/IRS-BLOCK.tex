@@ -321,7 +321,7 @@ In our setup, clusters are initialized as the optimal phase vectors, which thus 
     The proposed distance-based clustering techniques converge to a local minimum of \eqref{distancemin}.
 \end{theorem}
 \begin{IEEEproof}[Proof] 
-The proof directly derives from the well-known results of clustering with Euclidean distance. The exact proofs for each of the considered algorithms under distance metric \eqref{circdist} are reported in the Appendix.
+The proof directly derives from the well-known results of clustering with Euclidean distance. The exact proofs for each of the considered algorithms under distance metric \eqref{circdist} are reported in Appendix B.
 \end{IEEEproof}
 
 \section{Capacity-Based Clustering Algorithms}
@@ -805,18 +805,3 @@ Notably, we considered practical constraints on the \gls{irs} reconfiguration pe
 Then, we proposed clustering-based scheduling algorithms, which group \glspl{ue} with similar (ideal) \gls{irs} configurations based on either a distance metric or the achievable capacity, to mitigate the performance degradation due to the constraint in the number of possible reconfigurations.
 Different clustering algorithms were numerically evaluated in terms of computational complexity, sum capacity, and fairness under different channel conditions, as a function of the size of the \gls{irs} size and the number of users, and with or without quantization of phase shifts.
 The results showed that capacity-based clustering outperforms distance-based clustering, and can achieve up to $85$\% of the sum capacity obtained in an ideal deployment (with no reconfiguration constraints), reducing by $50$\% the number of \gls{irs} reconfigurations.
-
-\section*{Appendix}
-\subsection*{Proof of Theorem~\ref{th_distancebased}}
-\begin{IEEEproof}[Proof for \gls{km} (LLoyd)]
-    In the assignment step, each \gls{ue} $k$ is assigned to the cluster $z$ that minimizes the squared distance $\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$. This guarantees that the total sum $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$ does not increase. 
-    Then, in the update step, $\bm{\Phi}^{(z)}$ is recalculated as the average $\bm{\Phi}_k^*$ within each cluster, so as to minimize the intra-cluster sum of squared distances $\sum_{k \in \mathcal{U}_z}\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$, for all $z$.
-    Therefore, the conditions of~\cite[Lemma 5]{Sabin1986Global} are satisfied, which ensures the convergence to a local minimum. Notice that~\cite{Sabin1986Global} does not specify the number of iterations needed to reach convergence, which could be large in the case of highly dimensional spaces. Therefore, in practice, we limit the maximum number of iterations to $I_{\mathrm max}^{\mathrm KM}$.
-\end{IEEEproof}
-\begin{IEEEproof}[Proof for Agglomerative \gls{hc}]
-    At each step, clusters are merged to minimize the increase of the total intra-cluster sum of squared distances. This is equivalent to choosing the merged cluster that results in the smallest increase of $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$.
-    Then, as in the update step of \gls{km}, the average of the data points minimizes $\sum_{k \in \mathcal{U}_z}\delta\left(\bm{\Phi}_k^*, \bm{\Phi}^{(z)}\right)^2$, for all $z$. Once the number of clusters $Z$ reaches the desired value, convergence to a local minimum is reached.
-\end{IEEEproof}
-\begin{IEEEproof}[Proof for \gls{kmed} (\gls{pam})]
-    Since, at each iteration, a swap is performed only when it leads to a lower value of the intra-cluster sum of squares, $J(\mathcal{U}_1,\ldots,\mathcal{U}_{Z},\mathcal{I})$ does not increase over different iterations. Given the finite number of data points and possible configurations, the algorithm is guaranteed to converge to a configuration where no swap can further decrease the objective function, thus reaching a local~minimum.
-\end{IEEEproof}
